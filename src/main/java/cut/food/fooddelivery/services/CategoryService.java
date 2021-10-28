@@ -5,6 +5,7 @@ import cut.food.fooddelivery.repos.CategoryRepo;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -20,5 +21,9 @@ public class CategoryService {
     }
     public void save(Category category){
         categoryRepo.save(category);
+    }
+
+    public List<Category> getAll() {
+        return categoryRepo.findAll();
     }
 }
