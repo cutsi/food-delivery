@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100" xmlns:th="https://thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<header id="navigation" th:fragment="header">
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <a href="/welcome">
+      <span class="navbar-brand">Meštar</span>
+    </a>
+    <button class="navbar-toggler collapsed navbar-dark" type="button"
+            data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button> <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link link main-link" th:href="@{pick}">Pick a handyman</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link link main-link" th:href="@{browseAds}">Browse ads</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link link main-link" th:href="@{about-us}">About Us</a>
+      </li>
+
+    </ul>
+    <div>
+      <a class="nav-link link main-link" th:href="@{/construct-ad}">Make your own ad!</a>
+    </div>
+    <div>
+      <a class="nav-link link main-link" th:href="@{/handyman}">Apply to become a Handyman!</a>
+    </div>
+    <div>
+      <a class="nav-link link main-link" th:href="@{/inbox}">Inbox</a>
+    </div>
+    <div class="navbar-nav ml-auto">
+
+      <li class="nav-item dropdown">
+        <a class="nav-link link dropdown-toggle"
+           href="#" id="navbarDropdown" role="button"
+           data-toggle="dropdown" aria-haspopup="true"
+           aria-expanded="false"> <i class="fas fa-user-circle"></i>
+        </a> <div class="dropdown-menu dropdown-menu-lg-right"
+                  aria-labelledby="navbarDropdown">
+        <p class="dropdown-item dropdown-header" th:inline="text">HELLO</p>
+        <div class="dropdown-divider">
+
+        </div>
+
+        <div class="dropdown-divider"></div>
+
+        <div>
+          <a class="dropdown-item link" th:href="@{/custom-logout}">Log Out</a>
+          <a class="dropdown-item link" th:href="@{/my-profile}">My Account</a>
+          <a class="dropdown-item link" href="">Past Orders</a>
+        </div>
+        <div>
+          <a class="dropdown-item link" th:href="@{/login}">Log In</a>
+          <a class="dropdown-item link" th:href="@{/register/sign-up}">Sign-up</a>
+        </div>
+
+      </div>
+      </li>
+    </div>
+  </div>
+  </nav>
+</header>
+</html>
