@@ -19,6 +19,10 @@ public class FrontPageController {
     public String index(){
         return "index";
     }
+    @GetMapping(path = "/general")
+    public String general(){
+        return "general";
+    }
     @PostMapping("saveCat")
     public String saveCat(){
         Category category = new Category("heroku test");
