@@ -78,9 +78,10 @@ p {
 }
 
 .jumbotron-header {
-    font-family: "Kufam";
-    font-size: 3.5rem;
-    font-weight: 600
+    font-family: "Arial Black";
+    font-size: 4.5rem;
+    font-weight: 600;
+    color: yellow;
 }
 
 .jumbotron {
