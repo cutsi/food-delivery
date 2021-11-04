@@ -13,7 +13,7 @@ p {
 /* Navigation CSS */
 
 #navigation {
-    font-family: "Ubuntu";
+    font-family: "Arial Rounded MT Bold";
 }
 
 
@@ -78,7 +78,7 @@ p {
 }
 
 .jumbotron-header {
-    font-family: "Kufam";
+    font-family: "Arial Rounded MT Bold";
     font-size: 3.5rem;
     font-weight: 600
 }
