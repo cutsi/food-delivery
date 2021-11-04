@@ -19,10 +19,10 @@ p {
 
 .navbar-brand {
     color: #f1f3f8;
-    font-family: "Kufam";
-    font-size: 2.20rem;
+    font-family: "Arial Rounded MT Bold";
+    font-size: 3.50rem;
     font-weight: 600;
-    padding-right: 20px;
+    padding-right: 80px;
 }
 
 .navbar {
