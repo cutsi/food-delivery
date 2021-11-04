@@ -44,11 +44,11 @@ p {
 }
 
 .dropdown-header {
-    color: #f1f3f8;
+    color: peachpuff;
 }
 
 .dropdown-header:hover {
-    color: #f1f3f8;
+    color: peachpuff;
 }
 
 .dropdown-menu {
@@ -94,7 +94,7 @@ p {
 }
 
 .jumbotron {
-    background-color: #8d93ab;
+    background-color: blueviolet;
     color: deeppink;
 }
 
