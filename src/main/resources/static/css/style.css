@@ -24,7 +24,11 @@ p {
     font-weight: 600;
     padding-right: 20px;
 }
-
+.img{
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+}
 .navbar {
     padding: 0 1%;
     background-color: red;
