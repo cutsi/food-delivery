@@ -1,7 +1,7 @@
 /* all pages */
 
 html, body {
-    background-color: darksalmon;
+    background-color: #f1f3f8;
     letter-spacing: 1px;
     font-family: "Montserrat";
 }
@@ -18,7 +18,7 @@ p {
 
 
 .navbar-brand {
-    color: darkgoldenrod;
+    color: #f1f3f8;
     font-family: "Kufam";
     font-size: 2.20rem;
     font-weight: 600;
@@ -27,7 +27,7 @@ p {
 
 .navbar {
     padding: 0 1%;
-    background-color: red;
+    background-color: #393b44;
 }
 
 .main-link {
@@ -36,33 +36,33 @@ p {
 
 .link {
     font-size: 18px;
-    color: yellow;
+    color: #8d93ab;
 }
 
 .link:hover {
-    color: blue;
+    color: #d6e0f0;
 }
 
 .dropdown-header {
-    color: peachpuff;
+    color: #f1f3f8;
 }
 
 .dropdown-header:hover {
-    color: peachpuff;
+    color: #f1f3f8;
 }
 
 .dropdown-menu {
-    background-color: peachpuff;
+    background-color: #393b44;
 }
 
 .dropdown-item:hover {
-    background-color: lavenderblush;
+    background-color: #393b44;
 }
 
 /* Footer css */
 
 #footer {
-    background-color: red;
+    background-color: #d6e0f0;
     color: black;
     text-align: center;
     font-size: 14px;
@@ -78,10 +78,9 @@ p {
 }
 
 .jumbotron-header {
-    font-family: "Arial Black";
-    font-size: 4.5rem;
-    font-weight: 600;
-    color: yellow;
+    font-family: "Kufam";
+    font-size: 3.5rem;
+    font-weight: 600
 }
 
 .jumbotron {
@@ -94,8 +93,8 @@ p {
 }
 
 .jumbotron {
-    background-color: blueviolet;
-    color: deeppink;
+    
+    color: #f1f3f8;
 }
 
 /* Bootstrap carousel css */
@@ -111,7 +110,7 @@ p {
 }
 
 .card-about {
-    background-color: deeppink;
+    background-color: #d6e0f0;
     text-align: center;
     color: black;
     padding: 15px;
@@ -159,8 +158,8 @@ p {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: deeppink;
-    color: deeppink;
+    background-color: #8d93ab;
+    color: #f1f3f8;
 }
 
 .sign-in-div {
@@ -168,7 +167,7 @@ p {
 }
 
 .form-text {
-    color: green;
+    color: #f1f3f8;
     font-weight: lighter;
 }
 
@@ -189,7 +188,7 @@ p {
 
 .form-error {
     text-align: center;
-    background-color: darkcyan;
+    background-color: #ed0c17;
     overflow: auto;
     color: #f1f3f8;
     margin: 0 auto 42px;
