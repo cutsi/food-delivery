@@ -44,26 +44,26 @@ p {
 }
 
 .dropdown-header {
-    color: red;
+    color: #f1f3f8;
 }
 
 .dropdown-header:hover {
-    color: red;
+    color: #f1f3f8;
 }
 
 .dropdown-menu {
-    background-color: red;
+    background-color: #393b44;
 }
 
 .dropdown-item:hover {
-    background-color: red;
+    background-color: #393b44;
 }
 
 /* Footer css */
 
 #footer {
-    background-color: red;
-    color: red;
+    background-color: #d6e0f0;
+    color: black;
     text-align: center;
     font-size: 14px;
     font-weight: lighter;
@@ -93,8 +93,8 @@ p {
 }
 
 .jumbotron {
-    background-color: red;
-    color: red;
+    background-color: #8d93ab;
+    color: #f1f3f8;
 }
 
 /* Bootstrap carousel css */
@@ -110,9 +110,9 @@ p {
 }
 
 .card-about {
-    background-color: red;
+    background-color: #d6e0f0;
     text-align: center;
-    color: red;
+    color: black;
     padding: 15px;
 }
 
