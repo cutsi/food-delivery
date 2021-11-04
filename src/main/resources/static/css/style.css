@@ -31,12 +31,12 @@ p {
 }
 
 .main-link {
-    margin-right: 20px;
+    margin-right: 28px;
 }
 
 .link {
-    font-size: 18px;
-    color: #8d93ab;
+    font-size: 28px;
+    color: white;
 }
 
 .link:hover {
