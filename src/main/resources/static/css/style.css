@@ -40,7 +40,7 @@ p {
 }
 
 .link:hover {
-    color: #d6e0f0;
+    color: blue;
 }
 
 .dropdown-header {
@@ -62,7 +62,7 @@ p {
 /* Footer css */
 
 #footer {
-    background-color: #d6e0f0;
+    background-color: red;
     color: black;
     text-align: center;
     font-size: 14px;
