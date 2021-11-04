@@ -27,7 +27,7 @@ p {
 
 .navbar {
     padding: 0 1%;
-    background-color: #393b44;
+    background-color: red;
 }
 
 .main-link {
@@ -52,7 +52,7 @@ p {
 }
 
 .dropdown-menu {
-    background-color: red;
+    background-color: #393b44;
 }
 
 .dropdown-item:hover {
