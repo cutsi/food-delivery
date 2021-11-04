@@ -1,7 +1,7 @@
 /* all pages */
 
 html, body {
-    background-color: #f1f3f8;
+    background-color: darksalmon;
     letter-spacing: 1px;
     font-family: "Montserrat";
 }
@@ -18,7 +18,7 @@ p {
 
 
 .navbar-brand {
-    color: #f1f3f8;
+    color: darkgoldenrod;
     font-family: "Kufam";
     font-size: 2.20rem;
     font-weight: 600;
@@ -52,11 +52,11 @@ p {
 }
 
 .dropdown-menu {
-    background-color: #393b44;
+    background-color: peachpuff;
 }
 
 .dropdown-item:hover {
-    background-color: #393b44;
+    background-color: lavenderblush;
 }
 
 /* Footer css */
@@ -168,7 +168,7 @@ p {
 }
 
 .form-text {
-    color: #f1f3f8;
+    color: green;
     font-weight: lighter;
 }
 
@@ -189,7 +189,7 @@ p {
 
 .form-error {
     text-align: center;
-    background-color: #ed0c17;
+    background-color: darkcyan;
     overflow: auto;
     color: #f1f3f8;
     margin: 0 auto 42px;
