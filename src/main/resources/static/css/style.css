@@ -20,7 +20,7 @@ p {
 .navbar-brand {
     color: #f1f3f8;
     font-family: "Kufam";
-    font-size: 2.20rem;
+    font-size: 3.50rem;
     font-weight: 600;
     padding-right: 20px;
 }
@@ -52,7 +52,7 @@ p {
 }
 
 .dropdown-menu {
-    background-color: #393b44;
+    background-color: red;
 }
 
 .dropdown-item:hover {
