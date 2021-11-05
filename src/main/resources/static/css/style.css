@@ -77,11 +77,11 @@ p {
 /* Footer css */
 
 #footer {
-    background-color: #d6e0f0;
-    color: black;
+    background-color: darkred;
+    color: white;
     text-align: center;
-    font-size: 14px;
-    font-weight: lighter;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 /** Index.html css below **/
