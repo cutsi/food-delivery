@@ -97,15 +97,12 @@ p {
 }
 
 .jumbotron {
-    margin-bottom: 30px;
-
+    margin-bottom: 0;
 }
 
 .jumbotron-subheader {
     font-size: 1.5rem;
-    margin-top: 30px;
-    position: absolute;
-    left: 1%;
+    margin-top: 20px;
 }
 
 .jumbotron {
@@ -158,7 +155,9 @@ p {
 /* Main-content css */
 
 #main-content {
-    margin-top: 60px;
+    margin-top: 30px;
+    position: absolute;
+    left: 1%;
 }
 
 .sign-in-header {
