@@ -156,8 +156,8 @@ p {
 
 #main-content {
     margin-top: 30px;
-    width:250px; /* or whatever width you want. */
-    max-width:250px; /* or whatever width you want. */
+    width:600px; /* or whatever width you want. */
+    max-width:600px; /* or whatever width you want. */
     display: inline-block;
     position: center;
 
@@ -176,7 +176,7 @@ p {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: red;
+    background-color: #8d93ab;
     color: #f1f3f8;
 }
 
