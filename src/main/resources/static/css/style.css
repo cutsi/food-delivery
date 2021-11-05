@@ -1,6 +1,8 @@
 /* all pages */
 
 html, body {
+    background-image: url("images/banner.jpg");
+
     background-color: #f1f3f8;
     letter-spacing: 1px;
     font-family: "Montserrat";
@@ -175,7 +177,6 @@ p {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-image: url("images/banner.jpg");
     background-color: #8d93ab;
     color: #f1f3f8;
 }
