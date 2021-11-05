@@ -156,8 +156,7 @@ p {
 
 #main-content {
     margin-top: 30px;
-    width:600px; /* or whatever width you want. */
-    max-width:600px; /* or whatever width you want. */
+    width:100%; /* or whatever width you want. */
     display: inline-block;
     position: center;
 
