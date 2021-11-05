@@ -155,7 +155,7 @@ p {
 /* Main-content css */
 
 #main-content {
-    margin-top: 30px;
+    margin-top: 30%;
     width:100%; /* or whatever width you want. */
     display: inline-block;
     position: center;
