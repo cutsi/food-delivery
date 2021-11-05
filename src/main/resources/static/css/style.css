@@ -97,10 +97,8 @@ p {
 }
 
 .jumbotron {
-    position: absolute;
-    top: 50%;
-    left: 1%;
-    right: 1%;
+    margin-bottom: 30px;
+
 }
 
 .jumbotron-subheader {
