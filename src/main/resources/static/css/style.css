@@ -53,7 +53,7 @@ p {
 }
 
 .link:hover {
-    color: red;
+    color: #d6e0f0;
 }
 
 .dropdown-header {
@@ -176,7 +176,7 @@ p {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #8d93ab;
+    background-color: red;
     color: #f1f3f8;
 }
 
