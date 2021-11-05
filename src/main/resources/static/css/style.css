@@ -156,6 +156,10 @@ p {
 
 #main-content {
     margin-top: 60px;
+    position: absolute;
+    top: 50%;
+    left: 1%;
+    right: 1%;
 }
 
 .sign-in-header {
