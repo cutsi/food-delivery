@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100" xmlns:th="https://thymeleaf.org">
 
-<head th:replace="fragments/general_welcome :: head">
+<head th:replace="fragments/general :: head">
     <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
     <link href="../static/css/cards.css" th:href="@{/css/cards.css}" rel="stylesheet" />
 </head>
 
 <body>
-
+    <main>
+        <header th:replace="fragments/general_welcome :: header"></header>
+    </main>
 </body>
-
 </html>
