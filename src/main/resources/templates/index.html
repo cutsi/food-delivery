@@ -6,17 +6,18 @@
     <link href="../static/css/cards.css" th:href="@{/css/cards.css}" rel="stylesheet" />
 </head>
 
-<body>
-    <main>
-        <header th:replace="fragments/general_welcome :: header"></header>
-    </main>
+<body class="d-flex flex-column h-100">
+    <main role="main" class="flex-shrink-0">
 
-    
-<footer th:fragment="footer" id="footer" class="footer mt-auto py-3">
-    <div class="container">
-        <p>&#169; Mezi.online</p>
-    </div>
-</footer>
+        <header th:replace="fragments/general_welcome :: header"></header>
+
+    </main>
+    <br><br>
+    <footer th:fragment="footer" id="footer" class="footer mt-auto py-3">
+        <div class="container">
+            <p>&#169; Mezi.online</p>
+        </div>
+    </footer>
 </body>
 
 </html>
