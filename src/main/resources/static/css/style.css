@@ -1,6 +1,8 @@
 /* all pages */
 
 html, body {
+    background-image: url("images/banner.jpg");
+
     background-color: #f1f3f8;
     letter-spacing: 1px;
     font-family: "Montserrat";
@@ -13,30 +15,43 @@ p {
 /* Navigation CSS */
 
 #navigation {
-    font-family: "Ubuntu";
+    font-family: "Arial Rounded MT Bold";
 }
 
 
 .navbar-brand {
     color: #f1f3f8;
-    font-family: "Kufam";
-    font-size: 2.20rem;
+    font-family: "Arial Rounded MT Bold";
+    font-size: 3.50rem;
     font-weight: 600;
     padding-right: 20px;
 }
-
+.img{
+    max-width: 100%;
+    height: auto;
+}
 .navbar {
     padding: 0 1%;
-    background-color: #393b44;
+    background-color: darkred;
 }
-
+.fill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
+}
+.fill img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+}
 .main-link {
     margin-right: 20px;
 }
 
 .link {
-    font-size: 18px;
-    color: #8d93ab;
+    font-size: 20px;
+    color: white;
 }
 
 .link:hover {
@@ -62,11 +77,11 @@ p {
 /* Footer css */
 
 #footer {
-    background-color: #d6e0f0;
-    color: black;
+    background-color: darkred;
+    color: white;
     text-align: center;
-    font-size: 14px;
-    font-weight: lighter;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 /** Index.html css below **/
@@ -78,7 +93,7 @@ p {
 }
 
 .jumbotron-header {
-    font-family: "Kufam";
+    font-family: "Arial Rounded MT Bold";
     font-size: 3.5rem;
     font-weight: 600
 }
@@ -93,8 +108,8 @@ p {
 }
 
 .jumbotron {
-    background-color: #8d93ab;
-    color: #f1f3f8;
+
+    color: darkred;
 }
 
 /* Bootstrap carousel css */
@@ -142,7 +157,11 @@ p {
 /* Main-content css */
 
 #main-content {
-    margin-top: 60px;
+    margin-top: 10%;
+    width:100%; /* or whatever width you want. */
+    display: inline-block;
+    position: center;
+
 }
 
 .sign-in-header {
