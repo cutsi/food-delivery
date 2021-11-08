@@ -1,255 +1,82 @@
-/* all pages */
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 
-html, body {
-    background-image: url("images/banner.jpg");
-
-    background-color: #f1f3f8;
-    letter-spacing: 1px;
-    font-family: "Montserrat";
+* {
+    margin: 0;
+    padding: 0;
 }
 
-p {
-    margin-bottom: 0;
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
 }
 
-/* Navigation CSS */
-
-#navigation {
-    font-family: "Arial Rounded MT Bold";
-}
-
-
-.navbar-brand {
-    color: #f1f3f8;
-    font-family: "Arial Rounded MT Bold";
-    font-size: 3.50rem;
-    font-weight: 600;
-    padding-right: 20px;
-}
-.img{
-    max-width: 100%;
-    height: auto;
-}
-.navbar {
-    padding: 0 1%;
-    background-color: darkred;
-}
-.fill {
+body {
+    background-color: #eee;
+    font-family: "Poppins", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden
-}
-.fill img {
-    flex-shrink: 0;
-    min-width: 100%;
-    min-height: 100%
-}
-.main-link {
-    margin-right: 20px;
+    min-height: 100vh;
 }
 
-.link {
-    font-size: 20px;
-    color: white;
+.grid {
+    display: grid;
+    width: 114em;
+    grid-gap: 6rem;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    align-items: start;
 }
 
-.link:hover {
-    color: #d6e0f0;
+.grid-item {
+    background-color: #fff;
+    border-radius: 0.6rem;
+    overflow: hidden;
+    box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-.dropdown-header {
-    color: #f1f3f8;
+.grid-item:hover {
+    transform: translateY(-0.5%);
+    box-shadow: 0 1rem 5rem rgba(0, 0, 0, 0.3);
 }
 
-.dropdown-header:hover {
-    color: #f1f3f8;
+.card-img {
+    display: block;
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
 }
 
-.dropdown-menu {
-    background-color: #393b44;
+.card-content {
+    padding: 3rem;
 }
 
-.dropdown-item:hover {
-    background-color: #393b44;
+.card-header {
+    font-size: 3rem;
+    font-weight: 500;
+    color: #0d0d0d;
+    margin-bottom: 1.5rem;
 }
 
-/* Footer css */
-
-#footer {
-    background-color: darkred;
-    color: white;
-    text-align: center;
-    font-size: 15px;
-    font-weight: bold;
+.card-text {
+    font-size: 1.6rem;
+    letter-spacing: 0.1rem;
+    line-height: 1.7;
+    color: #3d3d3d;
+    margin-bottom: 2.5rem;
 }
 
-/** Index.html css below **/
 
-/* Content CSS */
 
-#page-header {
-    padding-top: 60px;
-}
 
-.jumbotron-header {
-    font-family: "Arial Rounded MT Bold";
-    font-size: 3.5rem;
-    font-weight: 600
-}
 
-.jumbotron {
-    margin-bottom: 0;
-}
-
-.jumbotron-subheader {
-    font-size: 1.5rem;
-    margin-top: 20px;
-}
-
-.jumbotron {
-
-    color: darkred;
-}
-
-/* Bootstrap carousel css */
-
-.col-width {
-    padding: 20px 50px;
-}
-
-/* #about section css */
-
-#about {
-    margin: 60px auto;
-}
-
-.card-about {
-    background-color: #d6e0f0;
-    text-align: center;
-    color: black;
-    padding: 15px;
-}
-
-.card-container {
-    padding: 0 46px;
-}
-
-.card-title {
-    font-weight: bold;
-}
-
-.card-main {
-    margin: 10px auto;
-}
-
-.card-image {
-    width: 80%;
-    margin: 0 auto;
-}
-
-.fa-carrot {
-    color: orange;
-}
-
-/** CSS pertaining to sign-in.html **/
-
-/* Main-content css */
-
-#main-content {
-    margin-top: 10%;
-    width:100%; /* or whatever width you want. */
-    display: inline-block;
-    position: center;
-
-}
-
-.sign-in-header {
-    text-align: center;
-    position: relative;
-    top: 25px;
-    font-weight: 700;
-}
-
-.form-col {
-    border: 2px #393b44 solid;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #8d93ab;
-    color: #f1f3f8;
-}
-
-.sign-in-div {
-    max-width: 389px;
-}
-
-.form-text {
-    color: #f1f3f8;
-    font-weight: lighter;
-}
-
-.lusu-form {
-    padding: 50px;
-}
-
-.submit-box {
-    margin: 0 33%;
-}
-
-.submit-button {
-    text-align: center;
-    position: relative;
-    top: 10px;
-    align-content: center;
-}
-
-.form-error {
-    text-align: center;
-    background-color: #ed0c17;
-    overflow: auto;
-    color: #f1f3f8;
-    margin: 0 auto 42px;
-    padding: 10px;
-}
-
-input[type=checkbox] {
-    transform: scale(1.25);
-}
-
-.form-group {
-    margin: 15px auto 0px;
-}
-
-.remember {
-    margin-right: 10px;
-}
-
-#featured-restaurants {
-    margin: 60px auto;
-}
-
-@media screen and (max-width: 700px) {
-    .form-col {
-        width: 85%;
+@media only screen and (max-width: 60em) {
+    body {
+        padding: 3rem;
     }
 
-    .form-col {
-        position: static;
-        transform: none;
-        margin: 60px auto;
-    }
-}
-
-@media screen and (max-height: 750px) {
-    .form-col {
-        width: 85%;
-    }
-
-    .form-col {
-        position: static;
-        transform: none;
-        margin: 60px auto;
+    .grid {
+        grid-gap: 3rem;
     }
 }
