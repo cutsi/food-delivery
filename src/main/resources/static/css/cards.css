@@ -21,7 +21,7 @@ body {
 
 .grid {
     display: grid;
-    width: 10em;
+    width: 114em;
     grid-gap: 6rem;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     align-items: start;
@@ -66,6 +66,11 @@ body {
     color: #3d3d3d;
     margin-bottom: 2.5rem;
 }
+
+
+
+
+
 @media only screen and (max-width: 60em) {
     body {
         padding: 3rem;
