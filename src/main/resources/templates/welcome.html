@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100" xmlns:th="https://thymeleaf.org">
+
+<head th:replace="fragments/general :: head"></head>
+
+<body class="d-flex flex-column h-100">
+<main role="main" class="flex-shrink-0">
+  <header th:replace="fragments/general :: header"></header>
+
+  <section id="page-header">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-width">
+            <h1 class="jumbotron-header">Food delivered straight to your door!</h1>
+            <h3 class="jumbotron-subheader">Place an order online and your food will be delivered to you
+              within
+              15
+              minutes, or your money back!</h3>
+          </div>
+          <div class="col-lg-6 col-width">
+            <div id="FoodCarousel" class="carousel slide" data-ride="carousel" data-pause="hover">
+              <div class="carousel-inner jumbotron-image">
+                <div class="carousel-item active jumbotron-image" data-interval="3000">
+                  <img th:src="@{images/1.jpg}" src="../static/images/1.jpg"
+                       class="d-block w-100" alt="food-image">
+                </div>
+                <div class="carousel-item" data-interval="3000">
+                  <img th:src="@{images/2.jpg}" src="../static/images/2.jpg"
+                       class="d-block w-100" alt="food-image">
+                </div>
+                <div class="carousel-item" data-interval="3000">
+                  <img th:src="@{images/3.jpg}" src="../static/images/3.jpg"
+                       class="d-block w-100" alt="food-image">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container card-container">
+      <div class="row">
+        <div class="col-lg-4 col-md-12 card-main d-flex">
+          <div class="card card-about">
+            <img th:src="@{images/3.jpg}" src="../static/images/3.jpg"
+                 class="card-img-top card-image" alt="delivery-image">
+            <div class="card-body">
+              <h5 class="card-title">Fast Delivery</h5>
+              <p class="card-text">We'll get your food to you lightning fast. We guarantee we
+                can have your food to you within 15 minutes, or your money back!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12 card-main d-flex">
+          <div class="card card-about">
+            <img th:src="@{images/2.jpg}" src="../static/images/2.jpg"
+                 class="card-img-top card-image" alt="delicious-image">
+            <div class="card-body">
+              <h5 class="card-title">Amazing Variety</h5>
+              <p class="card-text">We have over 500 restaurants in our network. We guarantee
+                that you'll be able to find something delicious at a moment's notice!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12 card-main d-flex">
+          <div class="card card-about">
+            <img th:src="@{images/1.jpg}" src="../static/images/1.jpg"
+                 class="card-img-top card-image" alt="vegetable-image">
+            <div class="card-body">
+              <h5 class="card-title">Vegan Friendly</h5>
+              <p class="card-text">Several of the restaurants in our network are vegan friendly. Just
+                look
+                for the carrot (<i class="fas fa-carrot"></i>) icon when deciding on a restaurant.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer th:replace="fragments/general :: footer">
+
+</footer>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+</script>
+</body>
+
+</html>

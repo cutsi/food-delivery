@@ -17,7 +17,7 @@ public class FrontPageController {
     private final CategoryService categoryService;
     @GetMapping(path = "/index")
     public String index(){
-        return "index";
+        return "welcome";
     }
     @GetMapping(path = "/general")
     public String general(){
