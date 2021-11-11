@@ -63,10 +63,10 @@ p {
 
 #footer {
     background-color: darkred;
-    color: black;
+    color: white;
     text-align: center;
-    font-size: 14px;
-    font-weight: lighter;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 /** Index.html css below **/
