@@ -95,12 +95,14 @@ p {
 .jumbotron {
     background-image: url("../images/food-max.jpg");
     color: white;
-    max-width: 100%;
-    height: auto;
+
 }
 
 /* Bootstrap carousel css */
-
+.responsive{
+    max-width: 100%;
+    height: auto;
+}
 .col-width {
     padding: 20px 50px;
 }
