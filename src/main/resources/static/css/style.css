@@ -93,10 +93,9 @@ p {
 }
 
 .jumbotron {
-    background-image: url("../images/hamburger-1280.jpg");
+    background-image: url("../images/spaghetti.jpg");
     color: black;
-    width: 5%;
-    height: auto;
+
 }
 
 /* Bootstrap carousel css */
