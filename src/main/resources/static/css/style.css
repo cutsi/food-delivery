@@ -94,7 +94,9 @@ p {
 
 .jumbotron {
     background-image: url("../images/fruits-1920.png");
-    color: #f1f3f8;
+    color: black;
+    max-width: 100%;
+    height: auto;
 }
 
 /* Bootstrap carousel css */
