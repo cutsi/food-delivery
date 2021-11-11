@@ -84,7 +84,7 @@ p {
 }
 
 .jumbotron {
-    margin-bottom: 400px;
+    margin-bottom: 0;
 }
 
 .jumbotron-subheader {
@@ -93,7 +93,7 @@ p {
 }
 
 .jumbotron {
-    background-color: #8d93ab;
+    background-image: url("../images/grilled-vegetables-uhd-4k-wallpaper.jpg");
     color: #f1f3f8;
 }
 
