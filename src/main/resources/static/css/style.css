@@ -93,13 +93,16 @@ p {
 }
 
 .jumbotron {
+    background-image: url("../images/food-max.jpg");
     color: white;
-
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
 }
 
 /* Bootstrap carousel css */
 .responsive{
-    width: 100%;
+    max-width: 100%;
     height: auto;
 }
 .col-width {
