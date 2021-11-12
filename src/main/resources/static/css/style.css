@@ -99,7 +99,7 @@ p {
 
 /* Bootstrap carousel css */
 .responsive{
-    max-width: 100%;
+    width: 100%;
     height: auto;
 }
 .col-width {
