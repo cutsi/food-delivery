@@ -93,19 +93,13 @@ p {
 }
 
 .jumbotron {
-    background-image: url("../images/food_1280.jpg");
-    color: white;
-    background-width: 100%;
-    background-repeat:no-repeat;
-    background-size:contain;
-    background-position:center;
+    background-image: url("../images/pizza_1920.PNG");
+    color: #f1f3f8;
+
 }
 
 /* Bootstrap carousel css */
-.responsive{
-    max-width: 100%;
-    height: auto;
-}
+
 .col-width {
     padding: 20px 50px;
 }
