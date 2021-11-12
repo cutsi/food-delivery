@@ -126,11 +126,11 @@ p {
 }
 
 .card-main {
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
 .card-image {
-    width: 100%;
+    width: 80%;
     margin: 0 auto;
 }
 
