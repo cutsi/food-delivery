@@ -95,6 +95,8 @@ p {
 .jumbotron {
     background-image: url("../images/pizza-4952508_1280.jpg");
     color: #f1f3f8;
+    background-repeat:no-repeat;
+    background-size:contain;
 
 }
 
