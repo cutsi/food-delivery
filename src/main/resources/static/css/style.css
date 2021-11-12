@@ -93,8 +93,9 @@ p {
 }
 
 .jumbotron {
-    background-image: url("../images/food-max.jpg");
+    background-image: url("../images/food_1280.jpg");
     color: white;
+    background-width: 100%;
     background-repeat:no-repeat;
     background-size:contain;
     background-position:center;
