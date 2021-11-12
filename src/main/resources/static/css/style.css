@@ -111,7 +111,7 @@ p {
 }
 
 .card-about {
-    background-color: darkred;
+    background-color: #d6e0f0;
     text-align: center;
     color: black;
     padding: 15px;
@@ -126,7 +126,7 @@ p {
 }
 
 .card-main {
-    margin: 10px auto;
+    margin: 0 auto;
 }
 
 .card-image {
