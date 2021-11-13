@@ -133,11 +133,11 @@ p {
 }
 
 .card-main {
-    margin: 0px auto;
+    margin: 10px auto;
 }
 
 .card-image {
-    width: 100%;
+    width: 10%;
     margin: 0 auto;
 }
 
