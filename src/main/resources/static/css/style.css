@@ -36,11 +36,11 @@ p {
 
 .link {
     font-size: 18px;
-    color: #8d93ab;
+    color: white;
 }
 
 .link:hover {
-    color: #d6e0f0;
+    color: white;
 }
 
 .dropdown-header {
