@@ -19,39 +19,41 @@
       </div>
     </div>
   </section>
-
+  
   <section id="about">
-    <div class="container card-container">
-      <div class="row">
-        <div class="col-lg-4 col-md-12 card-main d-flex">
-          <div class="card card-about">
-            <img th:src="@{images/3.jpg}" src="../static/images/3.jpg"
-                 class="card-img-top card-image" alt="delivery-image">
-            <div class="card-body">
-              <h5 class="card-title">Domin</h5>
+      <a th:href="@{restoran?id=}+${ad.getId()}">
+      <div class="container card-container">
+        <div class="row">
+          <div class="col-lg-4 col-md-12 card-main d-flex">
+            <div class="card card-about">
+              <img th:src="@{images/3.jpg}" src="../static/images/3.jpg"
+                   class="card-img-top card-image" alt="delivery-image">
+              <div class="card-body">
+                <h5 class="card-title">Domin</h5>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-4 col-md-12 card-main d-flex">
-          <div class="card card-about">
-            <img th:src="@{images/2.jpg}" src="../static/images/2.jpg"
-                 class="card-img-top card-image" alt="delicious-image">
-            <div class="card-body">
-              <h5 class="card-title">Adeo Sport</h5>
+          <div class="col-lg-4 col-md-12 card-main d-flex">
+            <div class="card card-about">
+              <img th:src="@{images/2.jpg}" src="../static/images/2.jpg"
+                   class="card-img-top card-image" alt="delicious-image">
+              <div class="card-body">
+                <h5 class="card-title">Adeo Sport</h5>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-4 col-md-12 card-main d-flex">
-          <div class="card card-about">
-            <img th:src="@{images/spaghetti.jpg}" src="../static/images/spaghetti.jpg"
-                 class="card-img-top card-image" alt="vegetable-image">
-            <div class="card-body">
-              <h5 class="card-title">Super Grill</h5>
+          <div class="col-lg-4 col-md-12 card-main d-flex">
+            <div class="card card-about">
+              <img th:src="@{images/spaghetti.jpg}" src="../static/images/spaghetti.jpg"
+                   class="card-img-top card-image" alt="vegetable-image">
+              <div class="card-body">
+                <h5 class="card-title">Super Grill</h5>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      </a>
   </section>
 </main>
 
