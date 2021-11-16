@@ -254,14 +254,7 @@ input[type=checkbox] {
     box-sizing: border-box;
     font-family: 'Poppins',sans-serif;
 }
-body{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    background: linear-gradient(135deg, #71b7e6, #9b59b6);
-}
+
 .container{
     max-width: 700px;
     width: 100%;
