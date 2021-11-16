@@ -38,8 +38,8 @@ public class FrontPageController {
         }
         return "index";
     }
-    @GetMapping("signup")
+    @GetMapping("sign-up")
     public String registracija(){
-        return "signup";
+        return "sign-up";
     }
 }
