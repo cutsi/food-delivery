@@ -25,11 +25,11 @@
     <main role="main" class="flex-shrink-0">
         <header th:replace="fragments/general :: header"></header>
     </main>
-    <div class = "center"
+    <div class = "center">
         <div class="container">
             <div class="title">Registration</div>
             <div class="content">
-                <form action="/welcome" onSubmit = "return checkPassword(this)" th:action="@{/register}"method="post">
+                <form action="/welcome" onSubmit = "return checkPassword(this)" th:action="@{/index}"method="post">
                     <div class="user-details">
                         <div class="input-box">
                             <span class="details">Firstname</span>
@@ -62,6 +62,7 @@
                 </form>
             </div>
         </div>
+    </div>
     <footer th:replace="fragments/general :: footer">
     </footer>
 
