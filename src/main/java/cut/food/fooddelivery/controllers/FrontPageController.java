@@ -40,6 +40,6 @@ public class FrontPageController {
     }
     @GetMapping("sign-up")
     public String registracija(){
-        return "sign-up";
+        return "signup";
     }
 }
