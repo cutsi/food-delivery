@@ -1,64 +1,10 @@
 <!DOCTYPE html>
-<!-- Created By CodingLab - www.codinglabweb.com -->
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-    <title>Registracija</title>
     <meta charset="UTF-8">
-    <!---<title> Responsive Registration Form | CodingLab </title>--->
-    <link href="../static/css/signup.css" th:href="@{/css/signup.css}" rel="stylesheet" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
-        function checkPassword(form) {
-            password1 = form.password1.value;
-            password2 = form.password2.value;
-            if (password1 == '')
-                alert ("Please enter Password");
-            else if (password2 == '')
-                alert ("Please enter confirm password");
-            else if (password1 != password2) {
-                alert ("\nPassword did not match: Please try again...")
-                return false;
-            }
-        }
-    </script>
+    <title>Registracija</title>
 </head>
 <body>
-<div class="container">
-    <div class="title">Registration</div>
-    <div class="content">
-        <form action="/welcome" onSubmit = "return checkPassword(this)" th:action="@{/register}" th:object="${user}" method="post">
-            <div class="user-details">
-                <div class="input-box">
-                    <span class="details">Firstname</span>
-                    <input type="text" th:field="*{firstName}" placeholder="Enter your name" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Lastname</span>
-                    <input type="text" th:field="*{lastName}" placeholder="Enter your lastname" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Email</span>
-                    <input type="text" th:field="*{email}" placeholder="Enter your email" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Phone Number</span>
-                    <input type="text" th:field="*{phone}" placeholder="Enter your number" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Password</span>
-                    <input type="password" name="password1" placeholder="Enter your password" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Confirm Password</span>
-                    <input type="password" name="password2" placeholder="Confirm your password" required>
-                </div>
-            </div>
-            <div class="button">
-                <input type="submit" value="Register">
-            </div>
-        </form>
-    </div>
-</div>
 
 </body>
 </html>

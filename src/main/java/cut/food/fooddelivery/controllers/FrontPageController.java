@@ -38,7 +38,7 @@ public class FrontPageController {
         }
         return "index";
     }
-    @GetMapping("registracija")
+    @GetMapping("signup")
     public String registracija(){
         return "signup";
     }
