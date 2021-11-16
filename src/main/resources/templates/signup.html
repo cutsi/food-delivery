@@ -22,65 +22,76 @@
         }
     </script>
 </head>
-<body>
-<header th:replace="fragments/general :: header"></header>
+<body class="d-flex flex-column h-100">
+<main role="main" class="flex-shrink-0">
+    <header th:replace="fragments/general :: header"></header>
 
-<section id="page-header">
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-width">
-                    <h2 class="jumbotron-header">Zamezi na </h2>
-                    <h2 class="jumbotron-header">MEZI!</h2>
+    <section id="page-header">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-width">
+                        <h2 class="jumbotron-header">Zamezi na </h2>
+                        <h2 class="jumbotron-header">MEZI!</h2>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="about">
+    <section id="about">
 
-    <div class="container card-container">
-        <div class="row">
-            <div class="col-lg-4 col-md-12 card-main d-flex">
-                <a href="/index">
+        <div class="container card-container">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 card-main d-flex">
+                    <a href="/index">
+                        <div class="card card-about">
+                            <img th:src="@{images/3.jpg}" src="../static/images/3.jpg"
+                                 class="card-img-top card-image" alt="delivery-image">
+                            <div class="card-body">
+                                <h5 class="card-title">Domin</h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-12 card-main d-flex">
                     <div class="card card-about">
-                        <img th:src="@{images/3.jpg}" src="../static/images/3.jpg"
-                             class="card-img-top card-image" alt="delivery-image">
+                        <img th:src="@{images/2.jpg}" src="../static/images/2.jpg"
+                             class="card-img-top card-image" alt="delicious-image">
                         <div class="card-body">
-                            <h5 class="card-title">Domin</h5>
+                            <h5 class="card-title">Adeo Sport</h5>
                         </div>
                     </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-12 card-main d-flex">
-                <div class="card card-about">
-                    <img th:src="@{images/2.jpg}" src="../static/images/2.jpg"
-                         class="card-img-top card-image" alt="delicious-image">
-                    <div class="card-body">
-                        <h5 class="card-title">Adeo Sport</h5>
-                    </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-12 card-main d-flex">
-                <div class="card card-about">
-                    <img th:src="@{images/spaghetti.jpg}" src="../static/images/spaghetti.jpg"
-                         class="card-img-top card-image" alt="vegetable-image">
-                    <div class="card-body">
-                        <h5 class="card-title">Super Grill</h5>
+                <div class="col-lg-4 col-md-12 card-main d-flex">
+                    <div class="card card-about">
+                        <img th:src="@{images/spaghetti.jpg}" src="../static/images/spaghetti.jpg"
+                             class="card-img-top card-image" alt="vegetable-image">
+                        <div class="card-body">
+                            <h5 class="card-title">Super Grill</h5>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-</section>
+    </section>
 </main>
 
 <footer th:replace="fragments/general :: footer">
 
 </footer>
 
-
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+</script>
 </body>
 </html>
