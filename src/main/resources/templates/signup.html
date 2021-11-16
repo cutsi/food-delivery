@@ -25,23 +25,23 @@
 <div class="container">
     <div class="title">Registration</div>
     <div class="content">
-        <form action="/welcome" onSubmit = "return checkPassword(this)" th:action="@{/register}" th:object="${user}" method="post">
+        <form action="/welcome" onSubmit = "return checkPassword(this)" th:action="@{/register}" method="post">
             <div class="user-details">
                 <div class="input-box">
                     <span class="details">Firstname</span>
-                    <input type="text" th:field="*{firstName}" placeholder="Enter your name" required>
+                    <input type="text" placeholder="Enter your name" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Lastname</span>
-                    <input type="text" th:field="*{lastName}" placeholder="Enter your lastname" required>
+                    <input type="text" placeholder="Enter your lastname" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Email</span>
-                    <input type="text" th:field="*{email}" placeholder="Enter your email" required>
+                    <input type="text" placeholder="Enter your email" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Phone Number</span>
-                    <input type="text" th:field="*{phone}" placeholder="Enter your number" required>
+                    <input type="text" placeholder="Enter your number" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Password</span>
