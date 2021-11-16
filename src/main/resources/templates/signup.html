@@ -24,9 +24,63 @@
     </script>
 </head>
 <body>
-<main role="main" class="flex-shrink-0">
-    <header th:replace="fragments/general :: header"></header>
+<header th:replace="fragments/general :: header"></header>
+
+<section id="page-header">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-width">
+                    <h2 class="jumbotron-header">Zamezi na </h2>
+                    <h2 class="jumbotron-header">MEZI!</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about">
+
+    <div class="container card-container">
+        <div class="row">
+            <div class="col-lg-4 col-md-12 card-main d-flex">
+                <a href="/index">
+                    <div class="card card-about">
+                        <img th:src="@{images/3.jpg}" src="../static/images/3.jpg"
+                             class="card-img-top card-image" alt="delivery-image">
+                        <div class="card-body">
+                            <h5 class="card-title">Domin</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-12 card-main d-flex">
+                <div class="card card-about">
+                    <img th:src="@{images/2.jpg}" src="../static/images/2.jpg"
+                         class="card-img-top card-image" alt="delicious-image">
+                    <div class="card-body">
+                        <h5 class="card-title">Adeo Sport</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 card-main d-flex">
+                <div class="card card-about">
+                    <img th:src="@{images/spaghetti.jpg}" src="../static/images/spaghetti.jpg"
+                         class="card-img-top card-image" alt="vegetable-image">
+                    <div class="card-body">
+                        <h5 class="card-title">Super Grill</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
 </main>
+
+<footer th:replace="fragments/general :: footer">
+
+</footer>
 
 
 </body>
