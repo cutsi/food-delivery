@@ -27,17 +27,13 @@
     </main>
     <div class = "center">
         <div class="container">
-            <div class="title">Registration</div>
+            <div class="title">Registracija</div>
             <div class="content">
                 <form action="/welcome" onSubmit = "return checkPassword(this)" th:action="@{/index}"method="post">
                     <div class="user-details">
                         <div class="input-box">
                             <span class="details">Email</span>
                             <input type="email" placeholder="Enter your email" required>
-                        </div>
-                        <div class="input-box">
-                            <span class="details">Phone Number</span>
-                            <input type="text" placeholder="Enter your number" required>
                         </div>
                         <div class="input-box">
                             <span class="details">Password</span>
