@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <!---<title> Responsive Registration Form | CodingLab </title>--->
+    <link href="../static/css/signup.css" th:href="@{/css/signup.css}" rel="stylesheet" />
     <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
@@ -11,17 +12,18 @@
             password1 = form.password1.value;
             password2 = form.password2.value;
             if (password1 == '')
-                alert ("Please enter Password");
+                alert ("Unesite lozinku");
             else if (password2 == '')
-                alert ("Please enter confirm password");
+                alert ("Ponovo unesite lozinku");
             else if (password1 != password2) {
-                alert ("\nPassword did not match: Please try again...")
+                alert ("\nLozinke se ne podudaraju, pokušajte ponovo...")
                 return false;
             }
         }
     </script>
 </head>
 <body>
+<header th:replace="fragments/general :: header"></header>
 <div class="container">
     <div class="title">Registration</div>
     <div class="content">
