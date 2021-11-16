@@ -1,27 +1,8 @@
 <!DOCTYPE html>
-<!-- Created By CodingLab - www.codinglabweb.com -->
-<html lang="en" dir="ltr">
-<head>
-    <title>Registracija</title>
-    <meta charset="UTF-8">
-    <!---<title> Responsive Registration Form | CodingLab </title>--->
-    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
-        function checkPassword(form) {
-            password1 = form.password1.value;
-            password2 = form.password2.value;
-            if (password1 == '')
-                alert ("Unesite lozinku");
-            else if (password2 == '')
-                alert ("Ponovo unesite lozinku");
-            else if (password1 != password2) {
-                alert ("\nLozinke se ne podudaraju, pokušajte ponovo...")
-                return false;
-            }
-        }
-    </script>
-</head>
+<html lang="en" class="h-100" xmlns:th="https://thymeleaf.org">
+
+<head th:replace="fragments/general :: head"></head>
+
 <body class="d-flex flex-column h-100">
 <main role="main" class="flex-shrink-0">
     <header th:replace="fragments/general :: header"></header>
@@ -94,4 +75,5 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
 </script>
 </body>
+
 </html>
