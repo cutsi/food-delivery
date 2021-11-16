@@ -244,7 +244,7 @@ input[type=checkbox] {
 }
 
 .center {
-    margin-top: 20%;
+    margin: auto;
     width: 50%;
     border: 3px solid darkred;
     padding: 10px;
