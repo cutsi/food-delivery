@@ -255,23 +255,22 @@ input[type=checkbox] {
     font-family: 'Poppins',sans-serif;
 }
 
-.container1{
+.container{
     margin-top: 100px;
-    margin-left: 22.8%;
     margin-bottom: 10px;
     max-width: 700px;
-    width: fit-content;
+    width: 100%;
     background-color: #fff;
     padding: 25px 30px;
-    border-radius: 50px;
-    box-shadow: 0 10px 10px rgb(0 0 0 / 15%);
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
 }
-.container1 .title{
+.container .title{
     font-size: 25px;
     font-weight: 500;
     position: relative;
 }
-.container1 .title::before{
+.container .title::before{
     content: "";
     position: absolute;
     left: 0;
@@ -366,7 +365,7 @@ form .button input:hover{
     background: darkred;
 }
 @media(max-width: 584px){
-    .container1{
+    .container{
         max-width: 100%;
     }
     form .user-details .input-box{
@@ -385,7 +384,7 @@ form .button input:hover{
     }
 }
 @media(max-width: 459px){
-    .container1 .content .category{
+    .container .content .category{
         flex-direction: column;
     }
 }
