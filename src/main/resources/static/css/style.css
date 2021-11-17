@@ -257,13 +257,14 @@ input[type=checkbox] {
 
 .container1{
     margin-top: 100px;
+    margin-left: 22.8%;
     margin-bottom: 10px;
     max-width: 700px;
-    width: 100%;
+    width: fit-content;
     background-color: #fff;
     padding: 25px 30px;
-    border-radius: 5px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    border-radius: 50px;
+    box-shadow: 0 10px 10px rgb(0 0 0 / 15%);
 }
 .container1 .title{
     font-size: 25px;
