@@ -256,8 +256,8 @@ input[type=checkbox] {
 }
 
 .container{
-    margin-top: auto;
-    margin-bottom: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
     max-width: 700px;
     width: 100%;
     background-color: #fff;
