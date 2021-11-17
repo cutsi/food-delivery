@@ -15,31 +15,14 @@ import java.util.List;
 @AllArgsConstructor
 public class FrontPageController {
     private final CategoryService categoryService;
+
     @GetMapping(path = "/index")
     public String index(){
         return "welcome";
     }
-    @GetMapping(path = "/general")
-    public String general(){
-        return "general";
-    }
-    @PostMapping("saveCat")
-    public String saveCat(){
-        Category category = new Category("heroku test");
-        categoryService.save(category);
-        return "index";
-    }
-    @GetMapping("getCat")
-    public String getCat(){
-        List<Category> categoryList = categoryService.getAll();
-        for (Category cat:categoryList
-             ) {
-            System.out.println(cat.getCategoryName());
-        }
-        return "index";
-    }
-    @GetMapping("sign-up")
-    public String registracija(){
+   
+    @GetMapping("/sign-up")
+    public String register(){
         return "signup";
     }
 }
