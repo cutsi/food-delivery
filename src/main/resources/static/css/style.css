@@ -255,7 +255,7 @@ input[type=checkbox] {
     font-family: 'Poppins',sans-serif;
 }
 
-.container{
+.container1{
     margin-top: 100px;
     margin-bottom: 10px;
     max-width: 700px;
@@ -265,12 +265,12 @@ input[type=checkbox] {
     border-radius: 5px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.15);
 }
-.container .title{
+.container1 .title{
     font-size: 25px;
     font-weight: 500;
     position: relative;
 }
-.container .title::before{
+.container1 .title::before{
     content: "";
     position: absolute;
     left: 0;
@@ -365,7 +365,7 @@ form .button input:hover{
     background: darkred;
 }
 @media(max-width: 584px){
-    .container{
+    .container1{
         max-width: 100%;
     }
     form .user-details .input-box{
@@ -384,7 +384,7 @@ form .button input:hover{
     }
 }
 @media(max-width: 459px){
-    .container .content .category{
+    .container1 .content .category{
         flex-direction: column;
     }
 }
