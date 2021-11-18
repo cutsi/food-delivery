@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100" xmlns:th="https://thymeleaf.org">
 
+<head th:replace="fragments/general :: head">
+    <meta charset="UTF-8">
+    <!---<title> Responsive Registration Form | CodingLab </title>--->
+    <link href="C:\Users\josip\Documents\workspace-spring-tool-suite-4-4.10.0.RELEASE\Food-Delivery\src\main\resources\static\css\signup.css" th:href="@{/css/signup.css}" rel="stylesheet" />
 
 
-<head th:replace="fragments/general :: head"></head>
-<head>
-    <link href="../static/css/signup.css" th:href="@{/css/signup.css}" rel="stylesheet" />
-
-    <header th:replace="fragments/general_welcome :: header"></header>
-
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../../css/signup.css" th:href="@{/css/signup.css}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function checkPassword(form) {
+            password1 = form.password1.value;
+            password2 = form.password2.value;
+            if (password1 == '')
+                alert ("Please enter Password");
+            else if (password2 == '')
+                alert ("Please enter confirm password");
+            else if (password1 != password2) {
+                alert ("\nPassword did not match: Please try again...")
+                return false;
+            }
+        }
+    </script>
 </head>
-
 
 <body class="d-flex flex-column h-100">
     <main role="main" class="flex-shrink-0">
