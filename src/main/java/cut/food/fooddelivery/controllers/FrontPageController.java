@@ -20,10 +20,14 @@ public class FrontPageController {
     public String index(){
         return "welcome";
     }
-    
+
     @GetMapping(path = "/")
     public String welcome(){
         return "welcome";
+    }
+    @GetMapping(path = "/expo")
+    public String experiment(){
+        return "experiment";
     }
 
     @GetMapping("/sign-up")
