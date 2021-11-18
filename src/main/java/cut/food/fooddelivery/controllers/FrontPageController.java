@@ -20,6 +20,11 @@ public class FrontPageController {
     public String index(){
         return "welcome";
     }
+    
+    @GetMapping(path = "/")
+    public String welcome(){
+        return "welcome";
+    }
 
     @GetMapping("/sign-up")
     public String register(){
