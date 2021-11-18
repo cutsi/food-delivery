@@ -27,7 +27,7 @@ public class FrontPageController {
     }
     @GetMapping(path = "/expo")
     public String experiment(){
-        return "experiment";
+        return "expriment";
     }
 
     @GetMapping("/sign-up")
