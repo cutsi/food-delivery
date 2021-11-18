@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100" xmlns:th="https://thymeleaf.org">
 
+<head th:replace="fragments/general :: head">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function checkPassword(form) {
+            password1 = form.password1.value;
+            password2 = form.password2.value;
+            if (password1 == '')
+                alert ("Please enter Password");
+            else if (password2 == '')
+                alert ("Please enter confirm password");
+            else if (password1 != password2) {
+                alert ("\nPassword did not match: Please try again...")
+                return false;
+            }
+        }
+    </script>
+</head>
+
 
 <head th:replace="fragments/general :: head"></head>
 <head>
@@ -11,7 +30,6 @@
 </head>
 
 <body class="d-flex flex-column h-100">
-
 <header th:replace="fragments/general :: header"></header>
     <main role="main" class="flex-shrink-0">
         <header th:replace="fragments/general :: header"></header>
