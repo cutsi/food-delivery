@@ -25,4 +25,8 @@ public class FrontPageController {
     public String register(){
         return "signup";
     }
+    @GetMapping(path="/login")
+    public String login(){
+        return "login";
+    }
 }
