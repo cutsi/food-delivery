@@ -30,35 +30,11 @@ https://flickity.metafizzy.co
     user-select: none;
 }
 
-.flickity-enabled.is-draggable .flickity-viewport {
-    cursor: move;
-    cursor: -webkit-grab;
-    cursor: grab;
-}
 
-.flickity-enabled.is-draggable .flickity-viewport.is-pointer-down {
-    cursor: -webkit-grabbing;
-    cursor: grabbing;
-}
 
 /* ---- flickity-button ---- */
 
-.flickity-button {
-    position: absolute;
-    background: hsla(0, 0%, 100%, 0.75);
-    border: none;
-    color: #333;
-}
 
-.flickity-button:hover {
-    background: white;
-    cursor: pointer;
-}
-
-.flickity-button:focus {
-    outline: none;
-    box-shadow: 0 0 0 5px #19F;
-}
 
 .flickity-button:active {
     opacity: 0.6;
