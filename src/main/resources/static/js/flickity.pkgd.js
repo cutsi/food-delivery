@@ -3360,7 +3360,23 @@
         }
     };
 
+    PageDots.prototype.addDots = function( count ) {
+        var fragment = document.createDocumentFragment();
+        var newDots = [];
+        var length = this.dots.length;
+        var max = length + count;
 
+        for ( var i = length; i < max; i++ ) {
+            var dot = document.createElement('li');
+            dot.className = 'dot';
+            dot.setAttribute( 'aria-label', 'Page dot ' + ( i + 1 ) );
+            fragment.appendChild( dot );
+            newDots.push( dot );
+        }
+
+        this.holder.appendChild( fragment );
+        this.dots = this.dots.concat( newDots );
+    };
 
     PageDots.prototype.removeDots = function( count ) {
         // remove from this.dots collection
