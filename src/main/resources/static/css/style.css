@@ -1,6 +1,7 @@
 /* all pages */
 
 html, body {
+    position:fixed;
     background-color: #f1f3f8;
     letter-spacing: 1px;
     font-family: "Montserrat";
