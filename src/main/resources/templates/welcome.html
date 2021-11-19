@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100" xmlns:th="https://thymeleaf.org">
 
-<head th:replace="fragments/general :: head"></head>
+<head th:replace="fragments/general :: head">
+  <link href="../static/css/flickity.css" th:href="@{/css/signup.css}" rel="stylesheet" />
+
+</head>
 
 <body class="d-flex flex-column h-100">
+<script src="../static/js/flickity.pkgd.js"></script>
 <main role="main" class="flex-shrink-0">
   <header th:replace="fragments/general :: header"></header>
 
