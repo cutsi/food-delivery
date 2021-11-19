@@ -68,7 +68,6 @@ p {
     text-align: center;
     font-size: 18px;
     font-weight: bold;
-    width: 100%;
 }
 
 /** Index.html css below **/
@@ -96,8 +95,14 @@ p {
 }
 
 .jumbotron {
-    background-color: #8d93ab;
+    background-image: url("../images/pizza-4952508_1280.jpg");
     color: #f1f3f8;
+    background-repeat:no-repeat;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    background-size:cover;
+    background-position:center;
 
 }
 
@@ -121,7 +126,7 @@ p {
 }
 
 .card-container {
-    padding: 0 6px;
+    padding: 0 46px;
 }
 
 .card-title {
@@ -133,7 +138,7 @@ p {
 }
 
 .card-image {
-    width: 100%;
+    width: 80%;
     margin: 0 auto;
 }
 
