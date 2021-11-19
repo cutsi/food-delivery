@@ -1,6 +1,7 @@
 /* all pages */
 
 html, body {
+
     background-color: #f1f3f8;
     letter-spacing: 1px;
     font-family: "Montserrat";
@@ -27,7 +28,7 @@ p {
 
 .navbar {
     padding: 0 1%;
-    background-color: #393b44;
+    background-color: darkred;
 }
 
 .main-link {
@@ -36,11 +37,11 @@ p {
 
 .link {
     font-size: 18px;
-    color: #8d93ab;
+    color: white;
 }
 
 .link:hover {
-    color: #d6e0f0;
+    color: white;
 }
 
 .dropdown-header {
@@ -62,11 +63,12 @@ p {
 /* Footer css */
 
 #footer {
-    background-color: #d6e0f0;
-    color: black;
+    background-color: darkred;
+    color: white;
     text-align: center;
-    font-size: 14px;
-    font-weight: lighter;
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
 }
 
 /** Index.html css below **/
@@ -79,7 +81,7 @@ p {
 
 .jumbotron-header {
     font-family: "Kufam";
-    font-size: 3.5rem;
+    font-size: 1.5rem;
     font-weight: 600
 }
 
@@ -90,11 +92,13 @@ p {
 .jumbotron-subheader {
     font-size: 1.5rem;
     margin-top: 20px;
+
 }
 
 .jumbotron {
     background-color: #8d93ab;
     color: #f1f3f8;
+
 }
 
 /* Bootstrap carousel css */
@@ -117,7 +121,7 @@ p {
 }
 
 .card-container {
-    padding: 0 46px;
+    padding: 0 6px;
 }
 
 .card-title {
@@ -129,7 +133,7 @@ p {
 }
 
 .card-image {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -234,3 +238,4 @@ input[type=checkbox] {
         margin: 60px auto;
     }
 }
+
