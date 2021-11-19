@@ -68,7 +68,7 @@ p {
     text-align: center;
     font-size: 18px;
     font-weight: bold;
-    position:fixed;
+    width: 100%;
 }
 
 /** Index.html css below **/
@@ -83,7 +83,6 @@ p {
     font-family: "Kufam";
     font-size: 1.5rem;
     font-weight: 600
-    position:fixed;
 }
 
 .jumbotron {
