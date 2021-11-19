@@ -1,7 +1,6 @@
 /* all pages */
 
 html, body {
-
     background-color: #f1f3f8;
     letter-spacing: 1px;
     font-family: "Montserrat";
@@ -28,7 +27,7 @@ p {
 
 .navbar {
     padding: 0 1%;
-    background-color: darkred;
+    background-color: #393b44;
 }
 
 .main-link {
@@ -37,11 +36,11 @@ p {
 
 .link {
     font-size: 18px;
-    color: white;
+    color: #8d93ab;
 }
 
 .link:hover {
-    color: white;
+    color: #d6e0f0;
 }
 
 .dropdown-header {
@@ -63,12 +62,11 @@ p {
 /* Footer css */
 
 #footer {
-    background-color: darkred;
-    color: white;
+    background-color: #d6e0f0;
+    color: black;
     text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    width: 100%;
+    font-size: 14px;
+    font-weight: lighter;
 }
 
 /** Index.html css below **/
@@ -81,7 +79,7 @@ p {
 
 .jumbotron-header {
     font-family: "Kufam";
-    font-size: 1.5rem;
+    font-size: 3.5rem;
     font-weight: 600
 }
 
@@ -92,19 +90,11 @@ p {
 .jumbotron-subheader {
     font-size: 1.5rem;
     margin-top: 20px;
-
 }
 
 .jumbotron {
-    background-image: url("../images/pizza-4952508_1280.jpg");
+    background-color: #8d93ab;
     color: #f1f3f8;
-    background-repeat:no-repeat;
-    -webkit-background-size:cover;
-    -moz-background-size:cover;
-    -o-background-size:cover;
-    background-size:cover;
-    background-position:center;
-
 }
 
 /* Bootstrap carousel css */
@@ -127,7 +117,7 @@ p {
 }
 
 .card-container {
-    padding: 0 6px;
+    padding: 0 46px;
 }
 
 .card-title {
@@ -139,7 +129,7 @@ p {
 }
 
 .card-image {
-    width: 100%;
+    width: 80%;
     margin: 0 auto;
 }
 
@@ -244,4 +234,3 @@ input[type=checkbox] {
         margin: 60px auto;
     }
 }
-
