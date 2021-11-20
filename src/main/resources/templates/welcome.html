@@ -2,10 +2,15 @@
 <html lang="en" class="h-100" xmlns:th="https://thymeleaf.org">
 
 <head th:replace="fragments/general :: head">
+  <link href="../static/css/carousel.css" th:href="@{/css/carousel.css}" rel="stylesheet" />
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
 </head>
 
 <body class="d-flex flex-column h-100">
-<script src="src/main/resources/static/js/flickity.pkgd.js" th:src="@{/js/flickity.pkgd.js}" type="module"></script>
 <main role="main" class="flex-shrink-0">
   <header th:replace="fragments/general :: header"></header>
 
@@ -20,6 +25,35 @@
         </div>
       </div>
     </div>
+  </section>
+
+
+  <section>
+    <div class="slider owl-carousel">
+      <div class="card1">
+        <div class="img1">
+          <img th:src="@{images/hamburger-1280.jpg}" src ="../static/images/hamburger-1280.jpg" alt="">
+        </div>
+      </div>
+      <div class="card1">
+        <div class="img1">
+          <img th:src="@{images/hamburger-1280.jpg}" src ="../static/images/hamburger-1280.jpg" alt="">
+        </div>
+      </div>
+      <div class="card1">
+        <div class="img1">
+          <img th:src="@{images/hamburger-1280.jpg}" src ="../static/images/hamburger-1280.jpg" alt="">
+        </div>
+      </div>
+    </div>
+    <script>
+      $(".slider").owlCarousel({
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 4000, //2000ms = 2s;
+        autoplayHoverPause: true,
+      });
+    </script>
   </section>
   <section id="about">
 
