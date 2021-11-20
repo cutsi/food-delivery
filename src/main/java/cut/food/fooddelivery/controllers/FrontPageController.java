@@ -18,7 +18,7 @@ public class FrontPageController {
 
     @GetMapping(path = "/index")
     public String index(){
-        return "welcome";
+        return "index";
     }
 
     @GetMapping(path = "/")
