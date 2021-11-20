@@ -48,14 +48,6 @@
         </div>
       </div>
     </div>
-    <script>
-      (".slider").owlCarousel({
-        loop: true,
-        autoplay: true,
-        autoplayTimeout: 4000, //2000ms = 2s;
-        autoplayHoverPause: true,
-      });
-    </script>
   </section>
   <section id="about">
 
@@ -99,6 +91,14 @@
 <footer th:replace="fragments/general :: footer">
 
 </footer>
+<script>
+  $(".slider").owlCarousel({
+    loop: true,
+    autoplay: true,
+    autoplayTimeout: 4000, //2000ms = 2s;
+    autoplayHoverPause: true,
+  });
+</script>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
