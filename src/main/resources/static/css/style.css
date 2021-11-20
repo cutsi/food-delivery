@@ -256,19 +256,7 @@ input[type=checkbox] {
 
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-html,body{
-    display: grid;
-    height: 100%;
-    place-items: center;
-    text-align: center;
-    background: #f2f2f2;
-}
+
 .slider{
     max-width: 1100px;
     display: flex;
