@@ -1,58 +1,46 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-html,body{
-    display: grid;
-    height: 100%;
-    place-items: center;
-    text-align: center;
-    background: #f2f2f2;
-}
+
 .slider{
     max-width: 1100px;
     display: flex;
 }
-.slider .card{
+.slider .card1{
     flex: 1;
     margin: 0 10px;
     background: #fff;
 }
-.slider .card .img{
+.slider .card1 .img1{
     height: 200px;
     width: 100%;
 }
-.slider .card .img img{
+.slider .card1 .img1 img1{
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
-.slider .card .content{
+.slider .card1 .content1{
     padding: 10px 20px;
 }
-.card .content .title{
+.card1 .content1 .title1{
     font-size: 25px;
     font-weight: 600;
 }
-.card .content .sub-title{
+.card1 .content1 .sub-title{
     font-size: 20px;
     font-weight: 600;
     color: #e74c3c;
     line-height: 20px;
 }
-.card .content p{
+.card1 .content1 p1{
     text-align: justify;
     margin: 10px 0;
 }
-.card .content .btn{
+.card1 .content1 .btn1{
     display: block;
     text-align: left;
     margin: 10px 0;
 }
-.card .content .btn button{
+.card1 .content1 .btn button1{
     background: #e74c3c;
     color: #fff;
     border: none;
@@ -63,6 +51,6 @@ html,body{
     cursor: pointer;
     transition: 0.2s;
 }
-.card .content .btn button:hover{
+.card1 .content1 .btn1 button1:hover{
     transform: scale(0.9);
 }
