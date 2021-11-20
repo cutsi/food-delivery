@@ -9,7 +9,14 @@
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-
+  <script>
+    $(".slider").owlCarousel({
+      loop: true,
+      autoplay: true,
+      autoplayTimeout: 4000, //2000ms = 2s;
+      autoplayHoverPause: true,
+    });
+  </script>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -91,14 +98,6 @@
 <footer th:replace="fragments/general :: footer">
 
 </footer>
-<script>
-  $(".slider").owlCarousel({
-    loop: true,
-    autoplay: true,
-    autoplayTimeout: 4000, //2000ms = 2s;
-    autoplayHoverPause: true,
-  });
-</script>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
