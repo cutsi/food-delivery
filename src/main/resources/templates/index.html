@@ -1,18 +1,37 @@
 <!DOCTYPE html>
-<!-- Created By CodingNepal -->
-<html lang="en" dir="ltr">
+<html lang="en" class="h-100" xmlns:th="https://thymeleaf.org">
+
 <head th:replace="fragments/general :: head"></head>
 <head>
-    <meta charset="utf-8">
-    <title>Owl-carousel Cards Slider | CodingNepal</title>
-    <link href="../static/css/carousel.css" th:href="@{/css/carousel.css}" rel="stylesheet" />
-
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link href="../static/css/signup.css" th:href="@{/css/signup.css}" rel="stylesheet" />
+    <script>
+        function checkPassword(form) {
+            password1 = form.password1.value;
+            password2 = form.password2.value;
+            if (password1 == '')
+                alert ("Please enter Password");
+            else if (password2 == '')
+                alert ("Please enter confirm password");
+            else if (password1 != password2) {
+                alert ("\nPassword did not match: Please try again...")
+                return false;
+            }
+        }
+    </script>
+    <script>
+        $(".slider").owlCarousel({
+            loop: true,
+            autoplay: true,
+            autoplayTimeout: 4000, //2000ms = 2s;
+            autoplayHoverPause: true,
+        });
+    </script>
 </head>
 
-<body>
+<body class="d-flex flex-column h-100">
+<main role="main" class="flex-shrink-0">
+    <header th:replace="fragments/general :: header"></header>
+</main>
 <div class="slider owl-carousel">
     <div class="card1">
         <div class="img1">
@@ -30,13 +49,20 @@
         </div>
     </div>
 </div>
-<script>
-    $(".slider").owlCarousel({
-        loop: true,
-        autoplay: true,
-        autoplayTimeout: 4000, //2000ms = 2s;
-        autoplayHoverPause: true,
-    });
+<footer th:replace="fragments/general :: footer">
+</footer>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
 </script>
 </body>
+
 </html>
