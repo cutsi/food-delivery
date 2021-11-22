@@ -2,6 +2,8 @@
 <html lang="en" class="h-100" xmlns:th="https://thymeleaf.org">
 
 <head th:replace="fragments/general :: head">
+  <link href="../static/css/carousel.css" th:href="@{/css/carousel.css}" rel="stylesheet" />
+
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -20,6 +22,25 @@
       </div>
     </div>
   </section>
+
+  <div class="slider owl-carousel">
+    <div class="card1">
+      <div class="img1">
+        <img th:src="@{images/hamburger-1280.jpg}" src ="../static/images/hamburger-1280.jpg" alt="">
+      </div>
+    </div>
+    <div class="card1">
+      <div class="img1">
+        <img th:src="@{images/hamburger-1280.jpg}" src ="../static/images/hamburger-1280.jpg" alt="">
+      </div>
+    </div>
+    <div class="card1">
+      <div class="img1">
+        <img th:src="@{images/hamburger-1280.jpg}" src ="../static/images/hamburger-1280.jpg" alt="">
+      </div>
+    </div>
+  </div>
+
   <section id="about">
 
     <div class="container card-container">
