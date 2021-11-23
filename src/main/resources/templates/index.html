@@ -14,6 +14,10 @@
 
 <body class="d-flex flex-column h-100">
 
+<main role="main" class="flex-shrink-0">
+    <header th:replace="fragments/general :: header"></header>
+</main>
+
 
 <div class="slider owl-carousel">
     <div class="card1">
@@ -40,11 +44,6 @@
         autoplayHoverPause: true,
     });
 </script>
-
-
-<main role="main" class="flex-shrink-0">
-    <header th:replace="fragments/general :: header"></header>
-</main>
 
 
 <footer th:replace="fragments/general :: footer">
