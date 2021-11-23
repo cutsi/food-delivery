@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 
 .slider{
+    max-width: fit-content;
     display: flex;
-    margin-top: 10%;
+    margin-top: 20%;
 }
 .slider .card1{
     flex: 1;
@@ -10,7 +11,7 @@
     background: #fff;
 }
 .slider .card1 .img1{
-    height: 50px;
+    height: 100px;
     width: 100%;
 }
 .slider .card1 .img1 img1{
