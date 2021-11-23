@@ -1,15 +1,4 @@
-* {
-    box-sizing: border-box;
-}
 
-html,
-body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    background-color: #7EC855;
-    font-family: 'Roboto', sans-serif;
-}
 
 .shopping-cart {
     width: 750px;
@@ -22,7 +11,6 @@ body {
     display: flex;
     flex-direction: column;
 }
-
 
 .title {
     height: 60px;
@@ -44,30 +32,6 @@ body {
     border-bottom:  1px solid #E1E8EE;
 }
 
-.buttons {
-    position: relative;
-    padding-top: 30px;
-    margin-right: 60px;
-}
-.delete-btn,
-.like-btn {
-    display: inline-block;
-    Cursor: pointer;
-}
-.delete-btn {
-    width: 18px;
-    height: 17px;
-}
-
-.like-btn {
-    position: absolute;
-    top: 9px;
-    left: 15px;
-    width: 60px;
-    height: 60px;
-    background-size: 2900%;
-    background-repeat: no-repeat;
-}
 
 .is-active {
     animation-name: animate;
@@ -111,6 +75,7 @@ Let’s add some basic style to  product name and description.
     color: #86939E;
 }
 
+
 .quantity {
     padding-top: 20px;
     margin-right: 60px;
@@ -144,6 +109,7 @@ button:focus,
 input:focus {
     outline:0;
 }
+
 
 .total-price {
     width: 83px;
