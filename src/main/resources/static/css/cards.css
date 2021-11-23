@@ -1,82 +1,142 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+.shopping-cart {
+    width: 750px;
+    height: 423px;
+    margin: 80px auto;
+    background: #FFFFFF;
+    box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
+    border-radius: 6px;
 
-* {
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    box-sizing: border-box;
-    font-size: 62.5%;
-}
-
-body {
-    background-color: #eee;
-    font-family: "Poppins", sans-serif;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    flex-direction: column;
 }
 
-.grid {
-    display: grid;
-    width: 114em;
-    grid-gap: 6rem;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    align-items: start;
+
+.title {
+    height: 60px;
+    border-bottom: 1px solid #E1E8EE;
+    padding: 20px 30px;
+    color: #5E6977;
+    font-size: 18px;
+    font-weight: 400;
 }
 
-.grid-item {
-    background-color: #fff;
-    border-radius: 0.6rem;
-    overflow: hidden;
-    box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: 0.2s;
+.item {
+    padding: 20px 30px;
+    height: 120px;
+    display: flex;
 }
 
-.grid-item:hover {
-    transform: translateY(-0.5%);
-    box-shadow: 0 1rem 5rem rgba(0, 0, 0, 0.3);
+.item:nth-child(3) {
+    border-top:  1px solid #E1E8EE;
+    border-bottom:  1px solid #E1E8EE;
 }
 
-.card-img {
+.buttons {
+    position: relative;
+    padding-top: 30px;
+    margin-right: 60px;
+}
+.delete-btn,
+.like-btn {
+    display: inline-block;
+    Cursor: pointer;
+}
+.delete-btn {
+    width: 18px;
+    height: 17px;
+}
+
+.like-btn {
+    position: absolute;
+    top: 9px;
+    left: 15px;
+    width: 60px;
+    height: 60px;
+    background-size: 2900%;
+    background-repeat: no-repeat;
+}
+
+.is-active {
+    animation-name: animate;
+    animation-duration: .8s;
+    animation-iteration-count: 1;
+    animation-timing-function: steps(28);
+    animation-fill-mode: forwards;
+}
+
+@keyframes animate {
+    0%   { background-position: left;  }
+    50%  { background-position: right; }
+    100% { background-position: right; }
+}
+
+
+.image {
+    margin-right: 50px;
+}
+
+Let’s add some basic style to  product name and description.
+.description {
+    padding-top: 10px;
+    margin-right: 60px;
+    width: 115px;
+}
+
+.description span {
     display: block;
-    width: 100%;
-    height: 20rem;
-    object-fit: cover;
+    font-size: 14px;
+    color: #43484D;
+    font-weight: 400;
 }
 
-.card-content {
-    padding: 3rem;
+.description span:first-child {
+    margin-bottom: 5px;
+}
+.description span:last-child {
+    font-weight: 300;
+    margin-top: 8px;
+    color: #86939E;
 }
 
-.card-header {
-    font-size: 3rem;
-    font-weight: 500;
-    color: #0d0d0d;
-    margin-bottom: 1.5rem;
+.quantity {
+    padding-top: 20px;
+    margin-right: 60px;
+}
+.quantity input {
+    -webkit-appearance: none;
+    border: none;
+    text-align: center;
+    width: 32px;
+    font-size: 16px;
+    color: #43484D;
+    font-weight: 300;
 }
 
-.card-text {
-    font-size: 1.6rem;
-    letter-spacing: 0.1rem;
-    line-height: 1.7;
-    color: #3d3d3d;
-    margin-bottom: 2.5rem;
+button[class*=btn] {
+    width: 30px;
+    height: 30px;
+    background-color: #E1E8EE;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+.minus-btn img {
+    margin-bottom: 3px;
+}
+.plus-btn img {
+    margin-top: 2px;
 }
 
+button:focus,
+input:focus {
+    outline:0;
+}
 
-
-
-
-@media only screen and (max-width: 60em) {
-    body {
-        padding: 3rem;
-    }
-
-    .grid {
-        grid-gap: 3rem;
-    }
+.total-price {
+    width: 83px;
+    padding-top: 27px;
+    text-align: center;
+    font-size: 16px;
+    color: #43484D;
+    font-weight: 300;
 }

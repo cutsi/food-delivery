@@ -38,4 +38,9 @@ public class FrontPageController {
     public String login(){
         return "login";
     }
+    
+    @GetMapping(path="/restoran")
+    public String restoran(){
+        return "restaurant";
+    }
 }
