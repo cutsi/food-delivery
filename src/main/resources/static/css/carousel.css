@@ -2,8 +2,7 @@
 
 .slider{
     max-width: fit-content;
-    display: flex;
-    margin-top: 20%;
+    margin-top: 10%;
 }
 .slider .card1{
     flex: 1;
