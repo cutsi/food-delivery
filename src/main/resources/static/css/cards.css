@@ -7,6 +7,7 @@
     top: 0;
     overflow-x: hidden;
     padding-top: 20px;
+    margin-top: 5%;
 }
 
 /* Control the left side */
@@ -18,7 +19,7 @@
 /* Control the right side */
 .right {
     right: 0;
-    background-color: red;
+    background-color: white;
 }
 
 /* If you want the content centered horizontally and vertically */
