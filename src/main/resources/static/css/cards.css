@@ -1,6 +1,6 @@
 /* Split the screen in half */
 .split {
-    height: 50%;
+    height: 25%;
     width: 50%;
     position: fixed;
     z-index: 1;
@@ -33,5 +33,5 @@
 
 /* Style the image inside the centered container, if needed */
 .centered img {
-    width: fit-content;
+    width: 100%;
 }
