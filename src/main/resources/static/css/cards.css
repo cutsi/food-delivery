@@ -1,121 +1,37 @@
-
-
-.shopping-cart {
-    width: 750px;
-    height: 423px;
-    margin: 80px auto;
-    background: #FFFFFF;
-    box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
-    border-radius: 6px;
-
-    display: flex;
-    flex-direction: column;
-}
-
-.title {
-    height: 60px;
-    border-bottom: 1px solid #E1E8EE;
-    padding: 20px 30px;
-    color: #5E6977;
-    font-size: 18px;
-    font-weight: 400;
-}
-
-.item {
-    padding: 20px 30px;
-    height: 120px;
-    display: flex;
-}
-
-.item:nth-child(3) {
-    border-top:  1px solid #E1E8EE;
-    border-bottom:  1px solid #E1E8EE;
-}
-
-
-.is-active {
-    animation-name: animate;
-    animation-duration: .8s;
-    animation-iteration-count: 1;
-    animation-timing-function: steps(28);
-    animation-fill-mode: forwards;
-}
-
-@keyframes animate {
-    0%   { background-position: left;  }
-    50%  { background-position: right; }
-    100% { background-position: right; }
-}
-
-
-.image {
-    margin-right: 50px;
-}
-
-
-.description {
-    padding-top: 10px;
-    margin-right: 60px;
-    width: 115px;
-}
-
-.description span {
-    display: block;
-    font-size: 14px;
-    color: #43484D;
-    font-weight: 400;
-}
-
-.description span:first-child {
-    margin-bottom: 5px;
-}
-.description span:last-child {
-    font-weight: 300;
-    margin-top: 8px;
-    color: #86939E;
-}
-
-
-.quantity {
+/* Split the screen in half */
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
     padding-top: 20px;
-    margin-right: 60px;
 }
-.quantity input {
-    -webkit-appearance: none;
-    border: none;
+
+/* Control the left side */
+.left {
+    left: 0;
+    background-color: #111;
+}
+
+/* Control the right side */
+.right {
+    right: 0;
+    background-color: red;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    width: 32px;
-    font-size: 16px;
-    color: #43484D;
-    font-weight: 300;
 }
 
-button[class*=btn] {
-    width: 30px;
-    height: 30px;
-    background-color: #E1E8EE;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-}
-.minus-btn img {
-    margin-bottom: 3px;
-}
-.plus-btn img {
-    margin-top: 2px;
-}
-
-button:focus,
-input:focus {
-    outline:0;
-}
-
-
-.total-price {
-    width: 83px;
-    padding-top: 27px;
-    text-align: center;
-    font-size: 16px;
-    color: #43484D;
-    font-weight: 300;
+/* Style the image inside the centered container, if needed */
+.centered img {
+    width: 150px;
+    border-radius: 50%;
 }
