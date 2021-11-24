@@ -1,75 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100" xmlns:th="https://thymeleaf.org">
+
+<head th:replace="fragments/general :: head"></head>
 <head>
-    <meta charset="UTF-8">
-    <title>Restoran</title>
-    <link href="../static/css/cards.css" th:href="@{/css/cards.css}" rel="stylesheet" />
-
-    <script>
-        $('.minus-btn').on('click', function(e) {
-            e.preventDefault();
-            var $this = $(this);
-            var $input = $this.closest('div').find('input');
-            var value = parseInt($input.val());
-
-            if (value &amp;amp;gt; 1) {
-                value = value - 1;
-            } else {
-                value = 0;
-            }
-
-            $input.val(value);
-
-        });
-
-        $('.plus-btn').on('click', function(e) {
-            e.preventDefault();
-            var $this = $(this);
-            var $input = $this.closest('div').find('input');
-            var value = parseInt($input.val());
-
-            if (value &amp;amp;lt; 100) {
-                value = value + 1;
-            } else {
-                value =100;
-            }
-
-            $input.val(value);
-        });
-    </script>
 </head>
-<body>
-<div class="shopping-cart">
-    <!-- Title -->
-    <div class="title">
-        Shopping Bag
-    </div>
 
-    <!-- Product #1 -->
-    <div class="item">
+<body class="d-flex flex-column h-100">
+<main role="main" class="flex-shrink-0">
+    <header th:replace="fragments/general :: header"></header>
+</main>
 
-        <div class="image">
+<footer th:replace="fragments/general :: footer">
+</footer>
 
-        </div>
-
-        <div class="description">
-            <span>Common Projects</span>
-            <span>Bball High</span>
-            <span>White</span>
-        </div>
-
-        <div class="quantity">
-            <button class="plus-btn" type="button" name="button">
-                <img src="plus.svg" alt="" />
-            </button>
-            <input type="text" name="name" value="1">
-            <button class="minus-btn" type="button" name="button">
-                <img src="minus.svg" alt="" />
-            </button>
-        </div>
-
-        <div class="total-price">$549</div>
-    </div>
-</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+</script>
 </body>
+
 </html>
