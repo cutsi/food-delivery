@@ -5,6 +5,9 @@ html, body {
     background-color: #f1f3f8;
     letter-spacing: 1px;
     font-family: "Montserrat";
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 p {

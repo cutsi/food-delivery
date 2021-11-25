@@ -1,13 +1,8 @@
 
-.rest{
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
 /* The hero image */
 .hero-image {
     /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-    background-image: url("../images/meat-skewer_1280.jpg");
+    background-image: url("../images/2.jpg");
 
     /* Set a specific height */
     height: 50%;
