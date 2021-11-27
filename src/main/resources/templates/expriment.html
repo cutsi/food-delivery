@@ -6,6 +6,12 @@
         <link href="../static/css/card-style.css" th:href="@{/css/card-style.css}" rel="stylesheet" />
 
         <link href="../static/css/experiment.css" th:href="@{/css/experiment.css}" rel="stylesheet" />
+        <script>
+            function myFunction(x) {
+                x.classList.toggle("change");
+                $("#mobile-menu").toggleClass("menu-hidden", 800, "easeOutQuint");
+            };
+        </script>
     </head>
 
     <body class="d-flex flex-column h-100">
@@ -18,11 +24,7 @@
                 </div>
             </div>
 
-        <div class="container center " onclick="function myFunction(x) {
-              x.classList.toggle("change");
-        $("#mobile-menu").toggleClass("menu-hidden", 800, "easeOutQuint");
-        }
-        myFunction(this)" >
+        <div class="container center " onclick="myFunction(this)" >
             <div class="bar1"></div>
             <p class="bar2">menu</p>
             <div class="bar3"></div>
