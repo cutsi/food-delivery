@@ -1,13 +1,14 @@
 
 /* The hero image */
 .hero-image {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/2.jpg);
-    height: 50%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* background-color: #21252900; */
-    position: relative;
+    background-image: url("../images/pizza-4952508_1280.jpg");
+    color: #f1f3f8;
+    background-repeat:no-repeat;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    background-size:cover;
+    background-position:center;
 
 
 }
