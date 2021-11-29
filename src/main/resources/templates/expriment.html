@@ -3,8 +3,15 @@
 
     <head th:replace="fragments/general :: head"></head>
     <head>
+
         <link href="../static/css/experiment.css" th:href="@{/css/experiment.css}" rel="stylesheet" />
+
     </head>
+
+    <body class="d-flex flex-column h-100">
+        <main role="main" class="flex-shrink-0">
+            <header th:replace="fragments/general :: header"></header>
+        </main>
 
         <footer th:replace="fragments/general :: footer">
         </footer>
