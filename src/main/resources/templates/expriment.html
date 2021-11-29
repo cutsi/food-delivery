@@ -10,15 +10,22 @@
 
     <body class="d-flex flex-column h-100">
         <main role="main" class="flex-shrink-0">
-            <header th:replace="fragments/general :: header"></header>
+            <header th:replace="fragments/general-restaurant :: header"></header>
         </main>
 
-        <section>
-
-
+        <section id="page-header">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-width">
+                            <h2 class="jumbotron-header">SUPER GRILL</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <footer th:replace="fragments/general :: footer">
+        <footer th:replace="fragments/general-restaurant :: footer">
         </footer>
 
     <!-- Optional JavaScript -->
