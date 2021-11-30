@@ -98,7 +98,7 @@ p {
 }
 
 .jumbotron {
-    background-image: url("../images/2.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/2.jpg");
     color: #f1f3f8;
     background-repeat:no-repeat;
     -webkit-background-size:cover;
