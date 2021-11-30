@@ -247,3 +247,28 @@ input[type=checkbox] {
     }
 }
 
+
+@media screen and (max-width: 700px) {
+    .jumbotron-header {
+        width: 85%;
+    }
+
+    .jumbotron-header {
+        position: static;
+        transform: none;
+        margin: 120px auto;
+    }
+}
+
+@media screen and (max-height: 750px) {
+    .jumbotron-header {
+        width: 85%;
+    }
+
+    .jumbotron-header {
+        position: static;
+        transform: none;
+        margin: 120px auto;
+    }
+}
+
