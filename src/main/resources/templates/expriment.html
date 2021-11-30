@@ -29,6 +29,31 @@
                 </div>
             </section>
 
+            <div class="slider owl-carousel">
+                <div class="card1">
+                    <div class="img1">
+                        <img th:src="@{images/hamburger-1280.jpg}" src ="../static/images/hamburger-1280.jpg" alt="">
+                    </div>
+                </div>
+                <div class="card1">
+                    <div class="img1">
+                        <img th:src="@{images/grilled-vegetables-uhd-4k-wallpaper.jpg}" src ="../static/images/grilled-vegetables-uhd-4k-wallpaper.jpg" alt="">
+                    </div>
+                </div>
+                <div class="card1">
+                    <div class="img1">
+                        <img th:src="@{images/spaghetti.jpg}" src ="../static/images/spaghetti.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <script>
+                $(".slider").owlCarousel({
+                    loop: true,
+                    autoplay: true,
+                    autoplayTimeout: 4000, //2000ms = 2s;
+                    autoplayHoverPause: true,
+                });
+            </script>
 
 
             <section id="about">
@@ -68,31 +93,7 @@
                 </div>
             </section>
 
-            <div class="slider owl-carousel">
-                <div class="card1">
-                    <div class="img1">
-                        <img th:src="@{images/hamburger-1280.jpg}" src ="../static/images/hamburger-1280.jpg" alt="">
-                    </div>
-                </div>
-                <div class="card1">
-                    <div class="img1">
-                        <img th:src="@{images/grilled-vegetables-uhd-4k-wallpaper.jpg}" src ="../static/images/grilled-vegetables-uhd-4k-wallpaper.jpg" alt="">
-                    </div>
-                </div>
-                <div class="card1">
-                    <div class="img1">
-                        <img th:src="@{images/spaghetti.jpg}" src ="../static/images/spaghetti.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-            <script>
-                $(".slider").owlCarousel({
-                    loop: true,
-                    autoplay: true,
-                    autoplayTimeout: 4000, //2000ms = 2s;
-                    autoplayHoverPause: true,
-                });
-            </script>
+
         </main>
 
 
