@@ -10,6 +10,41 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 
+
+
+        <style>
+            .grid-container {
+                display: grid;
+                grid-gap: 10px;
+                background-color: #2196F3;
+                padding: 10px;
+            }
+
+            .grid-item {
+                background-color: rgba(255, 255, 255, 0.8);
+                text-align: center;
+                padding: 20px;
+                font-size: 30px;
+            }
+
+            .item1 {
+                grid-column: 1 / span 2;
+                grid-row: 1;
+            }
+
+            .item2 {
+                grid-column: 3;
+                grid-row: 1 / span 2;
+            }
+
+            .item5 {
+                grid-column: 1 / span 3;
+                grid-row: 3;
+            }
+        </style>
+
+
+
     </head>
 
     <body class="d-flex flex-column h-100">
@@ -61,37 +96,26 @@
                 <div class="container card-container">
                     <div class="row">
                         <div class="col-lg-4 col-md-12 card-main d-flex">
-                            <a href="/index">
-                                <div class="card card-about">
-                                    <img th:src="@{images/3.jpg}" src="../static/images/3.jpg"
-                                         class="card-img-top card-image" alt="delivery-image">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Domin</h5>
-                                    </div>
-                                </div>
-                            </a>
+                            <div class="grid-item item1">1</div>
                         </div>
                         <div class="col-lg-4 col-md-12 card-main d-flex">
-                            <div class="card card-about">
-                                <img th:src="@{images/2.jpg}" src="../static/images/2.jpg"
-                                     class="card-img-top card-image" alt="delicious-image">
-                                <div class="card-body">
-                                    <h5 class="card-title">Adeo Sport</h5>
-                                </div>
-                            </div>
+                            <div class="grid-item item2">2</div>
                         </div>
                         <div class="col-lg-4 col-md-12 card-main d-flex">
-                            <div class="card card-about">
-                                <img th:src="@{images/spaghetti.jpg}" src="../static/images/spaghetti.jpg"
-                                     class="card-img-top card-image" alt="vegetable-image">
-                                <div class="card-body">
-                                    <h5 class="card-title">Super Grill</h5>
-                                </div>
-                            </div>
+                            <div class="grid-item item3">3</div>
                         </div>
                     </div>
                 </div>
             </section>
+
+
+            <div class="grid-container">
+                <div class="grid-item item1">1</div>
+                <div class="grid-item item2">2</div>
+                <div class="grid-item item3">3</div>
+                <div class="grid-item item4">4</div>
+                <div class="grid-item item5">5</div>
+            </div>
 
 
         </main>
