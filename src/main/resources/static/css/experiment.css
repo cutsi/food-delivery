@@ -297,6 +297,8 @@ input[type=checkbox] {
     width: 80px;
     height: 80px;
     flex-shrink: 0;
+    object-fit: cover;
+    margin-right: 1.5em;
 }
 @media screen and (min-width: 992px){
     .menu{
