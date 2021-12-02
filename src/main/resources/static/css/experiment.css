@@ -290,12 +290,22 @@ input[type=checkbox] {
     gap: 1.5em;
     padding:1.5em 0;
 }
-
+.menu-item{
+    display: flex;
+}
+.menu-item-image{
+    width: 80px;
+    height: 80px;
+}
 @media screen and (min-width: 992px){
     .menu{
         font-size: 16px;
     }
     .menu-group{
         grid-template-columns: repeat(2, 1fr);
+    }
+    .menu-item-image{
+        width: 125px;
+        height: 125px;
     }
 }
