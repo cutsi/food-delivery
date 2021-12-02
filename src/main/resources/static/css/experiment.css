@@ -281,7 +281,7 @@ input[type=checkbox] {
     margin:0;
     padding-bottom: 1em;
     border-bottom: 2px solid #ccc;
-
+    font-size: 21px;
 }
 
 .menu-group{
@@ -291,3 +291,11 @@ input[type=checkbox] {
     padding:1.5em 0;
 }
 
+@media screen and (min-width: 992px){
+    .menu{
+        font-size: 16px;
+    }
+    .menu-group{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
