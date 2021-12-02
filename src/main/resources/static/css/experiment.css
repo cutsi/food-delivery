@@ -281,6 +281,13 @@ input[type=checkbox] {
     margin:0;
     padding-bottom: 1em;
     border-bottom: 2px solid #ccc;
-    
+
+}
+
+.menu-group{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5em;
+    padding:1.5em 0;
 }
 
