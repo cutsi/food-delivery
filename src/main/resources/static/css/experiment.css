@@ -296,6 +296,12 @@ input[type=checkbox] {
 .menu-item-text{
     flex-grow: 1;
 }
+.menu-item-heading{
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+
+}
 .menu-item-image{
     width: 80px;
     height: 80px;
