@@ -295,6 +295,7 @@ input[type=checkbox] {
 }
 .menu-item-name{
     font-size: 1.25rem;
+    margin-right: 1.5em;
 }
 .menu-item-text{
     flex-grow: 1;
