@@ -293,14 +293,17 @@ input[type=checkbox] {
 .menu-item{
     display: flex;
 }
+.menu-item-name{
+    font-size: 1.25rem;
+}
 .menu-item-text{
     flex-grow: 1;
+    font-size: 1.25rem;
 }
 .menu-item-heading{
     display: flex;
     justify-content: space-between;
     margin: 0;
-
 }
 .menu-item-image{
     width: 80px;
