@@ -301,7 +301,9 @@ input[type=checkbox] {
     flex-grow: 1;
     font-size: 1.25rem;
 }
-.menu-item-desc
+.menu-item-desc{
+    line-height: 1.6;
+}
 .menu-item-heading{
     display: flex;
     justify-content: space-between;
