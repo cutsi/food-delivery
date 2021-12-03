@@ -294,8 +294,8 @@ input[type=checkbox] {
     display: flex;
 }
 .menu-item-name{
-    font-size: 1.25rem;
-    margin-right: 1.5em;
+    font-size: 1.1rem;
+    margin-right: 1.2em;
 }
 .menu-item-text{
     flex-grow: 1;
