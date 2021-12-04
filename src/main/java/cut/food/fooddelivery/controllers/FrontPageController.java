@@ -43,4 +43,8 @@ public class FrontPageController {
     public String restoran(){
         return "restaurant";
     }
+    @GetMapping(path="/test")
+    public String test(){
+        return "test";
+    }
 }
