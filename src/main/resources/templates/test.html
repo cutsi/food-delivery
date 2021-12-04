@@ -6,6 +6,15 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link href="../static/css/test.css" th:href="@{/css/test.css}" rel="stylesheet" />
+  <script>
+    const accordion = document.getElementsByClassName('container');
+
+    for (i=0; i<accordion.length; i++) {
+      accordion[i].addEventListener('click', function () {
+        this.classList.toggle('active')
+      })
+    }
+  </script>
 </head>
 <body>
     <div class="accordion-body">
