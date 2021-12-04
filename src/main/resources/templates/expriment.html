@@ -10,7 +10,26 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 
+        <script>
+            var acc = document.getElementsByClassName("menu-item");
+            var i;
 
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function() {
+                    /* Toggle between adding and removing the "active" class,
+                    to highlight the button that controls the panel */
+                    this.classList.toggle("active");
+
+                    /* Toggle between hiding and showing the active panel */
+                    var panel = this.nextElementSibling;
+                    if (panel.style.display === "block") {
+                        panel.style.display = "none";
+                    } else {
+                        panel.style.display = "block";
+                    }
+                });
+            }
+        </script>
 
         <style>
             .grid-container {
@@ -96,7 +115,7 @@
                             Sendviči
                         </div>
                         <div class="menu-group">
-                            <div class="menu-item">
+                            <button class="menu-item">
                                 <img class="menu-item-image" th:src="@{images/1.jpg}" src ="../static/images/1.jpg">
                                 <div class="menu-item-text">
                                     <h3 class="menu-item-heading">
@@ -104,9 +123,9 @@
                                         <span class="menu-item-price">12.99KM</span>
                                     </h3>
                                 </div>
-                            </div>
+                            </button>
 
-                            <div class="menu-item">
+                            <div button="menu-item">
                                 <img class="menu-item-image" th:src="@{images/2.jpg}" src ="../static/images/1.jpg">
                                 <div class="menu-item-text">
                                     <h3 class="menu-item-heading">
@@ -116,7 +135,7 @@
                                 </div>
                             </div>
 
-                            <div class="menu-item">
+                            <div button="menu-item">
                                 <img class="menu-item-image" th:src="@{images/3.jpg}" src ="../static/images/1.jpg">
                                 <div class="menu-item-text">
                                     <h3 class="menu-item-heading">
@@ -126,7 +145,7 @@
                                 </div>
                             </div>
 
-                            <div class="menu-item">
+                            <div button="menu-item">
                                 <img class="menu-item-image" th:src="@{images/1.jpg}" src ="../static/images/1.jpg">
                                 <div class="menu-item-text">
                                     <h3 class="menu-item-heading">
@@ -136,7 +155,7 @@
                                 </div>
                             </div>
 
-                            <div class="menu-item">
+                            <div button="menu-item">
                                 <img class="menu-item-image" th:src="@{images/2.jpg}" src ="../static/images/1.jpg">
                                 <div class="menu-item-text">
                                     <h3 class="menu-item-heading">
@@ -146,7 +165,7 @@
                                 </div>
                             </div>
 
-                            <div class="menu-item">
+                            <div button="menu-item">
                                 <img class="menu-item-image" th:src="@{images/3.jpg}" src ="../static/images/1.jpg">
                                 <div class="menu-item-text">
                                     <h3 class="menu-item-heading">
@@ -156,7 +175,7 @@
                                 </div>
                             </div>
 
-                            <div class="menu-item">
+                            <div button="menu-item">
                                 <img class="menu-item-image" th:src="@{images/1.jpg}" src ="../static/images/1.jpg">
                                 <div class="menu-item-text">
                                     <h3 class="menu-item-heading">
@@ -166,7 +185,7 @@
                                 </div>
                             </div>
 
-                            <div class="menu-item">
+                            <div button="menu-item">
                                 <img class="menu-item-image" th:src="@{images/2.jpg}" src ="../static/images/1.jpg">
                                 <div class="menu-item-text">
                                     <h3 class="menu-item-heading">
