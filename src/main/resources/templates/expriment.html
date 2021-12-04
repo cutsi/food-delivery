@@ -95,13 +95,17 @@
                         <div class ="menu-group-heading">
                             Sendviči
                         </div>
-                        <div class="accordion">
                         <div class="menu-group">
-                            <div class="container">
-                                <div class="label">What is Node JS?</div>
-                                <div class="content">Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8 engine and executes JavaScript code outside a web browser. Node.js lets developers use JavaScript to write command line tools and for server-side scripting—running scripts server-side to produce dynamic web page content before the page is sent to the user's web browser. Consequently, Node.js represents a "JavaScript everywhere" paradigm</div>
+                            <div class="menu-item">
+                                <img class="menu-item-image" th:src="@{images/1.jpg}" src ="../static/images/1.jpg">
+                                <div class="menu-item-text">
+                                    <h3 class="menu-item-heading">
+                                        <span class="menu-item-name">Carbonara</span>
+                                        <span class="menu-item-price">12.99KM</span>
+                                    </h3>
+                                </div>
                             </div>
-                        </div>
+
                             <div class="menu-item">
                                 <img class="menu-item-image" th:src="@{images/2.jpg}" src ="../static/images/1.jpg">
                                 <div class="menu-item-text">
@@ -281,15 +285,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
             integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
     </script>
-        <script>
-            const accordion = document.getElementsByClassName('container');
-
-            for (i=0; i<accordion.length; i++) {
-                accordion[i].addEventListener('click', function () {
-                    this.classList.toggle('active')
-                })
-            }
-        </script>
     </body>
 
 </html>
