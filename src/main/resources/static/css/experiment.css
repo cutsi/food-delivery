@@ -292,26 +292,7 @@ input[type=checkbox] {
 }
 .menu-item{
     display: flex;
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    text-align: left;
-    border: none;
-    outline: none;
-    transition: 0.4s;
 }
-.active, .menu-item:hover {
-    background-color: #ccc;
-}
-.panel {
-    padding: 0 18px;
-    background-color: white;
-    display: none;
-    overflow: hidden;
-}
-
 .menu-item-name{
     font-size: 1.1rem;
     margin-right: 1.2em;
