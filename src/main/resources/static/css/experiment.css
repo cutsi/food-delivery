@@ -333,7 +333,7 @@ input[type=checkbox] {
 }
 
 
-.accordion {
+.menu-item {
     width: 800px;
     margin: 90px auto;
     color: black;
@@ -341,14 +341,14 @@ input[type=checkbox] {
     padding: 45px 45px;
 }
 
-.accordion .container {
+.menu-item .container {
     position: relative;
     margin: 10px 10px;
 }
 
 /* Positions the labels relative to the .container. Adds padding to the top and bottom and increases font size. Also makes its cursor a pointer */
 
-.accordion .label {
+.menu-item .label {
     position: relative;
     padding: 10px 0;
     font-size: 30px;
@@ -358,7 +358,7 @@ input[type=checkbox] {
 
 /* Positions the plus sign 5px from the right. Centers it using the transform property. */
 
-.accordion .label::before {
+.menu-item .label::before {
     content: '+';
     color: black;
     position: absolute;
@@ -370,7 +370,7 @@ input[type=checkbox] {
 
 /* Hides the content (height: 0), decreases font size, justifies text and adds transition */
 
-.accordion .content {
+.menu-item .content {
     position: relative;
     background: white;
     height: 0;
@@ -383,7 +383,7 @@ input[type=checkbox] {
 
 /* Adds a horizontal line between the contents */
 
-.accordion hr {
+.menu-item hr {
     width: 100%;
     margin-left: 0;
     border: 1px solid grey;
@@ -391,13 +391,13 @@ input[type=checkbox] {
 
 /* Unhides the content part when active. Sets the height */
 
-.accordion .container.active .content {
+.menu-item .container.active .content {
     height: 150px;
 }
 
 /* Changes from plus sign to negative sign once active */
 
-.accordion .container.active .label::before {
+.menu-item .container.active .label::before {
     content: '-';
     font-size: 30px;
 }
