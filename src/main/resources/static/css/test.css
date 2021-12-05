@@ -12,7 +12,7 @@ summary::before {
 }
 details[open] > summary:before {
     transform: rotate(90deg);
-    transition: 0.45s transform ease;
+    transition: 45s transform ease;
 }
 
 /* # The Sliding Summary # */
