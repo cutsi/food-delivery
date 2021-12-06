@@ -1,125 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <link href="../static/css/test.css" th:href="@{/css/test.css}" rel="stylesheet" />
-
-</head>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <body>
-    <details>
-      <summary>Look Ma. <strong>No JavaScript</strong>. 🤓</summary>
-      <div class="content">
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus repudiandae illo, nostrum, pariatur quae! At animi modi dignissimos corrupti placeat voluptatum!
-        </p>
-        <img src="https://placebear.com/400/200" alt="">
-        <p>
-          Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab assumenda eligendi voluptatum nisi eius cumque, tempore reprehenderit optio placeat praesentium non sint repellendus consequuntur? Nihil, soluta.
-        </p>
-      </div>
-    </details>
-    <details>
-      <summary>These work with just <strong>CSS</strong> and <strong>Semantic HTML</strong> 👍</summary>
-      <div class="content">
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus repudiandae illo, nostrum, pariatur quae! At animi modi dignissimos corrupti placeat voluptatum!
-        </p>
-        <img src="https://placebear.com/400/200" alt="">
-        <p>
-          Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab assumenda eligendi voluptatum nisi eius cumque, tempore reprehenderit optio placeat praesentium non sint repellendus consequuntur? Nihil, soluta.
-        </p>
-      </div>
-    </details>
-    <details>
-      <summary>Click or Tap <strong>ANYWHERE</strong> to expand with a <strong>Sliding Effect</strong></summary>
-      <div class="content">
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus repudiandae illo, nostrum, pariatur quae! At animi modi dignissimos corrupti placeat voluptatum!
-        </p>
-        <img src="https://placebear.com/400/200" alt="">
-        <p>
-          Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab assumenda eligendi voluptatum nisi eius cumque, tempore reprehenderit optio placeat praesentium non sint repellendus consequuntur? Nihil, soluta.
-        </p>
-      </div>
-    </details>
+<div class="w3-container">
 
-    <details class="style2">
-      <summary>Another <strong>STYLE</strong> of indicator.</summary>
-      <div class="content">
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus repudiandae illo, nostrum, pariatur quae! At animi modi dignissimos corrupti placeat voluptatum!
-        </p>
-        <img src="https://placebear.com/400/200" alt="">
-        <p>
-          Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab assumenda eligendi voluptatum nisi eius cumque, tempore reprehenderit optio placeat praesentium non sint repellendus consequuntur? Nihil, soluta.
-        </p>
-      </div>
-    </details>
+  <h2>Animated Accordions</h2>
+  <p>Use any of the w3-animate-classes to fade, zoom or slide in the accordion content (w3-animate-zoom|opacity|top|bottom|left|right):</p>
 
-    <details class="style3">
-      <summary>Yet another <strong>STYLE</strong> of indicator.</summary>
-      <div class="content">
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus repudiandae illo, nostrum, pariatur quae! At animi modi dignissimos corrupti placeat voluptatum!
-        </p>
-        <img src="https://placebear.com/400/200" alt="">
-        <p>
-          Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab assumenda eligendi voluptatum nisi eius cumque, tempore reprehenderit optio placeat praesentium non sint repellendus consequuntur? Nihil, soluta.
-        </p>
-      </div>
-    </details>
+  <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-black w3-left-align">Accordion</button>
+  <div id="Demo1" class="w3-hide w3-animate-zoom">
+    <a href="#" class="w3-button w3-block w3-left-align">Link 1</a>
+    <a href="#" class="w3-button w3-block w3-left-align">Link 2</a>
+    <a href="#" class="w3-button w3-block w3-left-align">Link 3</a>
+  </div>
+</div>
 
-    <details class="style4">
-      <summary>Yet another <strong>STYLE</strong> of indicator.</summary>
-      <div class="content">
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus repudiandae illo, nostrum, pariatur quae! At animi modi dignissimos corrupti placeat voluptatum!
-        </p>
-        <img src="https://placebear.com/400/200" alt="">
-        <p>
-          Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab assumenda eligendi voluptatum nisi eius cumque, tempore reprehenderit optio placeat praesentium non sint repellendus consequuntur? Nihil, soluta.
-        </p>
-      </div>
-    </details>
+<script>
+  function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+      x.className += " w3-show";
+    } else {
+      x.className = x.className.replace(" w3-show", "");
+    }
+  }
+</script>
 
-    <details class="style5">
-      <summary><span class="monkey-see">What does monkey <strong>KNOW</strong>?</span><span class="monkey-hide"><strong>SHHHHHHHHH</strong> be quite monkey!</span></summary>
-      <div class="content">
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus repudiandae illo, nostrum, pariatur quae! At animi modi dignissimos corrupti placeat voluptatum!
-        </p>
-        <img src="https://placemonkeys.com/400/200" alt="">
-        <p>
-          Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab assumenda eligendi voluptatum nisi eius cumque, tempore reprehenderit optio placeat praesentium non sint repellendus consequuntur? Nihil, soluta.
-        </p>
-      </div>
-    </details>
-
-    <details class="style6">
-      <summary>Yet another <strong>STYLE</strong> of indicator.</summary>
-      <div class="content">
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus repudiandae illo, nostrum, pariatur quae! At animi modi dignissimos corrupti placeat voluptatum!
-        </p>
-        <img src="https://placebear.com/400/200" alt="">
-        <p>
-          Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab assumenda eligendi voluptatum nisi eius cumque, tempore reprehenderit optio placeat praesentium non sint repellendus consequuntur? Nihil, soluta.
-        </p>
-      </div>
-    </details>
-
-    <details class="style7">
-      <summary><span class="moon-new">Want to learn about the <strong>MOON</strong>?</span><span class="moon-full">The <strong>MOON</strong> is <strong>AMAZING</strong>!</span></summary>
-      <div class="content">
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi unde, ex rem voluptates autem aliquid veniam quis temporibus repudiandae illo, nostrum, pariatur quae! At animi modi dignissimos corrupti placeat voluptatum!
-        </p>
-        <img src="https://spaceholder.cc/400x200" alt="">
-        <p>
-          Facilis ducimus iure officia quos possimus quaerat iusto, quas, laboriosam sapiente autem ab assumenda eligendi voluptatum nisi eius cumque, tempore reprehenderit optio placeat praesentium non sint repellendus consequuntur? Nihil, soluta.
-        </p>
-      </div>
-    </details>
 </body>
 </html>
