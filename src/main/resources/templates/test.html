@@ -2,31 +2,12 @@
 <html>
 <title>W3.CSS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="../static/css/test.css" th:href="@{/css/test.css}" rel="stylesheet" />
 <body>
-<div class="w3-container">
-
-  <h2>Animated Accordions</h2>
-  <p>Use any of the w3-animate-classes to fade, zoom or slide in the accordion content (w3-animate-zoom|opacity|top|bottom|left|right):</p>
-
-  <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-black w3-left-align">Accordion</button>
-  <div id="Demo1" class="w3-hide w3-animate-zoom">
-    <a href="#" class="w3-button w3-block w3-left-align">Link 1</a>
-    <a href="#" class="w3-button w3-block w3-left-align">Link 2</a>
-    <a href="#" class="w3-button w3-block w3-left-align">Link 3</a>
-  </div>
-</div>
-
+<div class="collapse-title">Title</div>
+<div class="collapse-details"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
 <script>
-  function myFunction(id) {
-    var x = document.getElementById(id);
-    if (x.className.indexOf("w3-show") == -1) {
-      x.className += " w3-show";
-    } else {
-      x.className = x.className.replace(" w3-show", "");
-    }
-  }
+  $('.collapse-title').click(function() {   $('.collapse-details').toggle(); })
 </script>
-
 </body>
 </html>
