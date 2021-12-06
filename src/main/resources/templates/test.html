@@ -4,8 +4,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="../static/css/test.css" th:href="@{/css/test.css}" rel="stylesheet" />
 <body>
-<div class="collapse-title">Title</div>
-<div class="collapse-details"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
+<details>
+  <summary>Title</summary>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+</details>
 <script>
   $('.collapse-title').click(function() {   $('.collapse-details').toggle(); })
 </script>
