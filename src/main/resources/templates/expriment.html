@@ -6,6 +6,7 @@
 
         <link href="../static/css/experiment.css" th:href="@{/css/experiment.css}" rel="stylesheet" />
         <link href="../static/css/carousel.css" th:href="@{/css/carousel.css}" rel="stylesheet" />
+        <link href="../static/css/test.css" th:href="@{/css/test.css}" rel="stylesheet" />
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
@@ -143,6 +144,27 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
             integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
     </script>
+        <script>
+            const accordionBtns = document.querySelectorAll(".accordion");
+
+            accordionBtns.forEach((accordion) => {
+                accordion.onclick = function () {
+                    this.classList.toggle("is-open");
+
+                    let content = this.nextElementSibling;
+                    console.log(content);
+
+                    if (content.style.maxHeight) {
+                        //this is if the accordion is open
+                        content.style.maxHeight = null;
+                    } else {
+                        //if the accordion is currently closed
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        console.log(content.style.maxHeight);
+                    }
+                };
+            });
+        </script>
     </body>
 
 </html>
