@@ -291,7 +291,17 @@ input[type=checkbox] {
     padding:1.5em 0;
 }
 button.menu-item{
-    display: flex;
+    width: 100%;
+    height: 6.5rem;
+    background-color: whitesmoke;
+    border: none;
+    outline: none;
+    text-align: left;
+    padding: 15px 20px;
+    font-size: 18px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s linear;
 }
 .menu-item-name{
     font-size: 1.1rem;
