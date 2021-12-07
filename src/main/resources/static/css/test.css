@@ -38,7 +38,7 @@ button.accordion.is-open:after {
 
 button.accordion:hover,
 button.accordion.is-open {
-    background-color: #ddd;
+    background-color: peachpuff;
 }
 
 .accordion-content {
