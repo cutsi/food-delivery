@@ -290,7 +290,7 @@ input[type=checkbox] {
     gap: 1.5em;
     padding:1.5em 0;
 }
-.menu-item{
+button.menu-item{
     display: flex;
 }
 .menu-item-name{
@@ -318,6 +318,32 @@ input[type=checkbox] {
     flex-shrink: 0;
     object-fit: cover;
     margin-right: 1.5em;
+}
+
+button.menu-item:after {
+    font-family: FontAwesome;
+    content: "\f150";
+    font-family: "fontawesome";
+    font-size: 18px;
+    float: right;
+}
+
+button.menu-item.is-open:after {
+    content: "\f151";
+}
+
+button.menu-item:hover,
+button.menu-item.is-open {
+    background-color: peachpuff;
+}
+.menu-item-content {
+    background-color: white;
+    border-left: 1px solid whitesmoke;
+    border-right: 1px solid whitesmoke;
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-in-out;
 }
 @media screen and (min-width: 992px){
     .menu{
