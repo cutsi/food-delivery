@@ -133,7 +133,7 @@
                             Pizze
                         </div>
                         <div class="menu-group">
-                            <div class="menu-item">
+                            <button class="menu-item">
                                 <img class="menu-item-image" th:src="@{images/1.jpg}" src ="../static/images/1.jpg">
                                 <div class="menu-item-text">
                                     <h3 class="menu-item-heading">
@@ -141,6 +141,11 @@
                                         <span class="menu-item-price">12.99KM</span>
                                     </h3>
                                 </div>
+                            </button>
+                            <div class="menu-item">
+                                <p>
+                                    We know that every great website focuses on helping you get more business and building a brand that your ideal customers will love and support. We can help you set up a great, SEO-focused content strategy, a paid ads campaign, email marketing integration with Mailchimp as well as a social media marketing campaign. We also use popular website analytic tools to track your site's performance and provide you with weekly analytic reports to help bolster your growth.
+                                </p>
                             </div>
 
                             <div class="menu-item">
@@ -237,7 +242,7 @@
             integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
     </script>
         <script>
-            const accordionBtns = document.querySelectorAll(".accordion");
+            const accordionBtns = document.querySelectorAll(".menu-item");
 
             accordionBtns.forEach((accordion) => {
                 accordion.onclick = function () {
