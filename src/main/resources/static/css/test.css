@@ -52,3 +52,11 @@ button.accordion.is-open {
     transition: max-height 0.2s ease-in-out;
 }
 
+@media screen and (min-width: 992px){
+    .accordion{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .accordion-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
