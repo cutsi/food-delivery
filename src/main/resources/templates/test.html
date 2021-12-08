@@ -13,43 +13,57 @@
 
 </head>
     <body>
-        <main class="cd-main container margin-top-xxl">
-            <div class="text-component text-center">
-                <p class="flex flex-wrap flex-center flex-gap-xxs">
-                    <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" data-price="25.99">Add To Cart</a>
-                </p>
-            </div>
-        </main>
-        <div class="cd-cart js-cd-cart cd-cart--open">
-            <a href="#0" class="cd-cart__trigger text-replace">
-                Cart
-                <ul class="cd-cart__count">
-                    <li>0</li>
-                    <li>1</li>
-                </ul>
-            </a>
-            <div class="cd-cart__content">
-                <div class="cd-cart__layout">
-                    <header class="cd-cart__header">
-                        <h2>Cart</h2>
-                        <span class="cd-cart__undo">Item removed. <a href="#0">Undo</a></span>
-                    </header>
-                    <div class="cd-cart__body">
-                        <ul>
+    <main class="cd-main container margin-top-xxl">
+        <div class="text-component text-center">
+            <h1>Add to Cart Interaction</h1>
+            <p class="flex flex-wrap flex-center flex-gap-xxs">
+                <a class="cd-article-link" href="https://codyhouse.co/gem/add-to-cart-interaction">📝 View Tutorial</a>
+                <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" data-price="25.99">Add To Cart</a>
+            </p>
+        </div>
+    </main>
+    <div class="cd-cart cd-cart--empty js-cd-cart">
+        <a href="#0" class="cd-cart__trigger text-replace">
+            Cart
+            <ul class="cd-cart__count">
+                <li>0</li>
+                <li>0</li>
+            </ul>
+        </a>
+        <div class="cd-cart__content">
+            <div class="cd-cart__layout">
+                <header class="cd-cart__header">
+                    <h2>Cart</h2>
+                    <span class="cd-cart__undo">Item removed. <a href="#0">Undo</a></span>
+                </header>
+                <div class="cd-cart__body">
+                    <ul>
 
-                        </ul>
-                    </div>
-                    <footer class="cd-cart__footer">
-                        <a href="#0" class="cd-cart__checkout">
-                            <em>Checkout - $<span>0.00</span>
-                                <svg class="icon icon--sm" viewBox="0 0 24 24"><g fill="none" stroke="currentColor"><line stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="3" y1="12" x2="21" y2="12"></line><polyline stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="15,6 21,12 15,18 "></polyline></g>
-                                </svg>
-                            </em>
-                        </a>
-                    </footer>
+                    </ul>
                 </div>
+                <footer class="cd-cart__footer">
+                    <a href="#0" class="cd-cart__checkout">
+                        <em>Checkout - $<span>0</span>
+                            <svg class="icon icon--sm" viewBox="0 0 24 24"><g fill="none" stroke="currentColor"><line stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="3" y1="12" x2="21" y2="12"></line><polyline stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="15,6 21,12 15,18 "></polyline></g>
+                            </svg>
+                        </em>
+                    </a>
+                </footer>
             </div>
         </div>
+    </div>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <div class="demo-avd demo-avd-cf demo-avd-cf--top-mb demo-avd--light js-demo-avd" style="bottom: 30px; left: 30px; top: auto;">
+        <div class="demo-avd__close"></div>
+        <a href="https://codyhouse.co/template/mercurio" class="demo-avd__template-img">
+            <img src="../../assets/img/gems/avd-banners/mercurio-avd.png" alt="Mercurio, E-Commerce Template Preview">
+        </a>
+        <a href="https://codyhouse.co/template/mercurio" class="demo-avd__template-text">
+            Download Mercurio, an HTML, CSS, JS Ecommerce Template created by the CodyHouse team.
+        </a>
+    </div>
 
 
 
@@ -232,7 +246,7 @@
         </script>
 
 
-        
+
         <script>
             (function(){
                 // Add to Cart Interaction - by CodyHouse.co
