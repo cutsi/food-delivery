@@ -1,62 +1,50 @@
-/* body {
-  background-color: #6DC4F4;
-}h1 {
-     color:white;
-
-} */
-
-.accordion-container {
-    width: 80%;
-    max-width: 600px;
-    margin: 50px auto;
+.cd-cart__trigger,
+.cd-cart__content {
+    position: fixed;
+    bottom: 20px;
+    right: 5%;
+    transition: transform .2s;
 }
 
-button.accordion {
-    width: 100%;
-    height: 6.5rem;
-    background-color: whitesmoke;
-    border: none;
-    outline: none;
-    text-align: left;
-    padding: 15px 20px;
-    font-size: 18px;
-    color: #333;
-    cursor: pointer;
-    transition: background-color 0.2s linear;
+.cd-cart--empty .cd-cart__trigger,
+.cd-cart--empty .cd-cart__content { // hide cart
+transform: translateY(150px);
 }
 
-button.accordion:after {
-    font-family: FontAwesome;
-    content: "\f150";
-    font-family: "fontawesome";
-    font-size: 18px;
-    float: right;
-}
-
-button.accordion.is-open:after {
-    content: "\f151";
-}
-
-button.accordion:hover,
-button.accordion.is-open {
-    background-color: peachpuff;
-}
-
-.accordion-content {
-    background-color: white;
-    border-left: 1px solid whitesmoke;
-    border-right: 1px solid whitesmoke;
-    padding: 0 20px;
-    max-height: 0;
+.cd-cart__layout {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
     overflow: hidden;
-    transition: max-height 0.2s ease-in-out;
+    height: 72px;
+    width: 72px;
+    transition: height .4s .1s, width  .4s .1s, box-shadow .3s;
+    transition-timing-function: cubic-bezier(.67,.17,.32,.95);
 }
 
-@media screen and (min-width: 992px){
-    .accordion{
-        grid-template-columns: repeat(2, 1fr);
+.cd-cart--open .cd-cart__layout {
+    height: 100%;
+    width: 100%;
+    transition-delay: 0s;
+}
+
+.cd-cart__product--deleted { // this class is added to an item when it is removed form the cart
+position: absolute;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    animation: cd-item-slide-out .3s forwards;
+}
+
+@keyframes cd-item-slide-out {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
     }
-    .accordion-container{
-        grid-template-columns: repeat(2, 1fr);
+    100% {
+        transform: translateX(80px);
+        opacity: 0;
     }
 }
+
