@@ -1431,13 +1431,6 @@ u,
     border-radius: var(--btn-radius, 0.25em)
 }
 
-.btn--primary {
-    background-color: #2a6df4;
-    background-color: var(--color-primary, #2a6df4);
-    color: #fff;
-    color: var(--color-white, #fff)
-}
-
 .btn--subtle {
     background-color: #d3d3d4;
     background-color: var(--color-contrast-low, #d3d3d4);
@@ -4385,7 +4378,7 @@ mark {
 
 body {
     background-color: #edf1f2;
-    background-color: var(--cd-color-4)
+    background-color: var(--cd-color-4)F
 }
 
 .cd-main h1 {
