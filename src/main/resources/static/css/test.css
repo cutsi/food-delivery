@@ -267,13 +267,6 @@ svg {
     --max-width-xxl: 120rem
 }
 
-.container {
-    width: calc(100% - 1.25em);
-    width: calc(100% - 2*var(--component-padding));
-    margin-left: auto;
-    margin-right: auto
-}
-
 .max-width-xxs {
     max-width: 32rem;
     max-width: var(--max-width-xxs)
