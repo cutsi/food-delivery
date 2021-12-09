@@ -3217,10 +3217,6 @@ u,
     color: var(--color-contrast-higher, #1c1c21)
 }
 
-.color-primary {
-    color: #2a6df4;
-    color: var(--color-primary, #2a6df4)
-}
 
 .color-accent {
     color: #f54251;
@@ -3527,14 +3523,7 @@ mark {
     border: 2px solid var(--color-contrast-low)
 }
 
-.form-control:focus {
-    outline: none;
-    border-color: #2a6df4;
-    border-color: var(--color-primary);
-    --color-shadow: hsla(220, 90%, 56%, 0.2);
-    --color-shadow: hsla(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l), 0.2);
-    box-shadow: 0 0 0 3px var(--color-shadow)
-}
+
 
 .form-control:focus:focus {
     box-shadow: 0 0 0 3px hsla(220, 90%, 56%, .2);
