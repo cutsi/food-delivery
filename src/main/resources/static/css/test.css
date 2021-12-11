@@ -4109,7 +4109,7 @@ mark {
     height: 72px;
     line-height: 72px;
     margin-right: 72px;
-    background: #2b96de;
+    background: darkred;
     background: var(--cd-color-2);
     color: transparent;
     color: hsla(var(--cd-color-3-h), var(--cd-color-3-s), var(--cd-color-3-l), 0);
