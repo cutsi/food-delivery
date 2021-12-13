@@ -102,15 +102,17 @@
                             Pizze
                         </div>
                         <div class="menu-group">
-                            <button class="menu-item">
-                                <img class="menu-item-image" th:src="@{images/1.jpg}" src ="../static/images/1.jpg">
-                                <div class="menu-item-text">
-                                    <h3 class="menu-item-heading">
-                                        <span class="menu-item-name">Miješana</span>
-                                        <span class="menu-item-price">12.99KM</span>
-                                    </h3>
-                                </div>
-                            </button>
+                            <th:block th:each="foodItem: ${foodItems}">
+                                <button class="menu-item">
+                                    <img class="menu-item-image" th:src="${foodItem.getImage()}" src ="${foodItem.getImage()}">
+                                    <div class="menu-item-text">
+                                        <h3 class="menu-item-heading">
+                                            <span class="menu-item-name">[[${foodItem.getName()}]]</span>
+                                            <span class="menu-item-price">[[${foodItem.getPrice()}]] KM</span>
+                                        </h3>
+                                    </div>
+                                </button>
+                            </th:block>
                             <div class="menu-item-content">
                                 <div class="text-component text-center">
                                     <p class="flex flex-wrap flex-center flex-gap-xxs">

@@ -2,8 +2,10 @@ package cut.food.fooddelivery.controllers;
 
 import cut.food.fooddelivery.entities.Category;
 import cut.food.fooddelivery.services.CategoryService;
+import cut.food.fooddelivery.services.FoodItemService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 public class FrontPageController {
     private final CategoryService categoryService;
+    private final FoodItemService foodItemService;
 
     @GetMapping(path = "/index")
     public String index(){
@@ -26,7 +29,8 @@ public class FrontPageController {
         return "welcome";
     }
     @GetMapping(path = "/expo")
-    public String experiment(){
+    public String experiment(Model model){
+        model.addAttribute("foodItems", foodItemService.getAllFoodItems());
         return "expriment";
     }
 
