@@ -1,9 +1,11 @@
 package cut.food.fooddelivery.entities;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -13,23 +15,23 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @AllArgsConstructor
-public class Category {
-
+public class FoodItem {
     @SequenceGenerator(
-            name = "category_sequence",
-            sequenceName = "category_sequence",
+            name = "item_sequence",
+            sequenceName = "item_sequence",
             allocationSize = 1
     )
     @Id
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "category_sequence"
+            generator = "item_sequence"
     )
     private Long id;
-    private String categoryName;
-    @OneToMany(mappedBy = "category")
-    private Set<FoodItem> foodItems = new HashSet<>();
-    public Category(String categoryName){
-        this.categoryName = categoryName;
-    }
+    private String name;
+    private String price;
+    private String image;
+    
+    @ManyToOne
+    @JoinColumn(name="category_id")
+    private Category category;
 }
