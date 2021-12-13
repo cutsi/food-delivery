@@ -104,7 +104,7 @@
                         <div class="menu-group">
                             <th:block th:each="foodItem: ${foodItems}">
                                 <button class="menu-item">
-                                    <img class="menu-item-image" th:src="@{images/2.jpg}" src ="${foodItem.getImage()}">
+                                    <img class="menu-item-image" th:src="${foodItem.getImage()}" src ="${foodItem.getImage()}">
                                     <div class="menu-item-text">
                                         <h3 class="menu-item-heading">
                                             <span class="menu-item-name">[[${foodItem.getName()}]]</span>
