@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -28,5 +30,12 @@ public class Restaurant {
     private String restaurantName;
     private String address;
     private String phone;
+
+    @ManyToMany
+    @JoinTable(
+            name = "restaurant_menu",
+            joinColumns = @JoinColumn(name = "restaurant_id"),
+            inverseJoinColumns = @JoinColumn(name = "foodItem_id"))
+    private Set<FoodItem> menu = new HashSet<>();
 
 }

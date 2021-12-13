@@ -30,8 +30,10 @@ public class FoodItem {
     private String name;
     private String price;
     private String image;
-    
+
     @ManyToOne
     @JoinColumn(name="category_id")
     private Category category;
+    @ManyToMany(mappedBy = "menu")
+    private Set<Restaurant> restaurants = new HashSet<>();
 }
