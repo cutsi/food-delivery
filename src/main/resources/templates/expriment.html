@@ -108,19 +108,18 @@
                                     <div class="menu-item-text">
                                         <h3 class="menu-item-heading">
                                             <span class="menu-item-name">[[${foodItem.getName()}]]</span>
-                                            <span class="menu-item-price">[[${foodItem.getPrice()}]] KM</span>
+                                            <span class="menu-item-price">[[${foodItem.getPrice()}]]KM</span>
                                         </h3>
                                     </div>
                                 </button>
-                            </th:block>
                             <div class="menu-item-content">
                                 <div class="text-component text-center">
                                     <p class="flex flex-wrap flex-center flex-gap-xxs">
-                                        <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" data-price="25.99">Add To Cart</a>
+                                        <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" data-price="${foodItem.getPrice()}">Add To Cart</a>
                                     </p>
                                 </div>
                             </div>
-
+                            </th:block>
                             <button class="menu-item">
                                 <img class="menu-item-image" th:src="@{images/2.jpg}" src ="../static/images/2.jpg">
                                 <div class="menu-item-text">
