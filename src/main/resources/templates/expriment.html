@@ -545,7 +545,8 @@
                         if(animatingQuantity) return;
                         var cartIsEmpty = Util.hasClass(cart[0], 'cd-cart--empty');
                         //update cart product list
-                        console.log(this.toString());
+                        console.log(event.toString());
+
                         addProduct(this);
                         //update number of items
                         updateCartCount(cartIsEmpty);
