@@ -115,7 +115,7 @@
                             <div class="menu-item-content">
                                 <div class="text-component text-center">
                                     <p class="flex flex-wrap flex-center flex-gap-xxs">
-                                        <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" data-price=[[${foodItem.getPrice()}]]>Add To Cart</a>
+                                        <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" data-price="$foodItem.getPrice()">Add To Cart</a>
                                     </p>
                                 </div>
                             </div>
@@ -545,7 +545,7 @@
                         if(animatingQuantity) return;
                         var cartIsEmpty = Util.hasClass(cart[0], 'cd-cart--empty');
                         //update cart product list
-                        addProduct(this);
+                        addProduct(this.toString());
                         //update number of items
                         updateCartCount(cartIsEmpty);
                         //update total price
