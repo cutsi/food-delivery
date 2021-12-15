@@ -115,7 +115,7 @@
                             <div class="menu-item-content">
                                 <div class="text-component text-center">
                                     <p class="flex flex-wrap flex-center flex-gap-xxs">
-                                        <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" data-price="${foodItem.getPrice()}">Add To Cart</a>
+                                        <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" th:data-price="${foodItem.getPrice()}">Add To Cart</a>
                                     </p>
                                 </div>
                             </div>
@@ -489,7 +489,7 @@
                         cartCount = cart[0].getElementsByClassName('cd-cart__count')[0],
                         cartCountItems = cartCount.getElementsByTagName('li'),
                         cartUndo = cart[0].getElementsByClassName('cd-cart__undo')[0],
-                        productId = 1, //this is a placeholder -> use your real product ids instead
+                        productId = 0, //this is a placeholder -> use your real product ids instead
                         cartTimeoutId = false,
                         animatingQuantity = false;
                     initCartEvents();
