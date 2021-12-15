@@ -546,7 +546,7 @@
                         var cartIsEmpty = Util.hasClass(cart[0], 'cd-cart--empty');
                         //update cart product list
                         console.log(event.toString());
-                        addProduct(this.getAttribute('food-item'),this.getAttribute('item-image'), this.getAttribute('item-name'), this.getAttribute('data-price'));
+                        addProduct(this.getAttribute('item-image'), this.getAttribute('item-name'), this.getAttribute('data-price'));
                         //update number of items
                         updateCartCount(cartIsEmpty);
                         //update total price
@@ -575,7 +575,7 @@
                         }
                     };
 
-                    function addProduct(name, image, price) {
+                    function addProduct(image,name,price) {
                         // this is just a product placeholder
                         // you should insert an item with the selected product info
                         // replace productId, productName, price and url with your real product info
