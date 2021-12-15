@@ -115,8 +115,7 @@
                             <div class="menu-item-content">
                                 <div class="text-component text-center">
                                     <p class="flex flex-wrap flex-center flex-gap-xxs">
-                                        <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" th:data-price="${foodItem.getPrice()}">Add To Cart</a>
-                                        <hidden th:item-image="${foodItem.getImage()}" th:item-name="${foodItem.getName()}"> </hidden>
+                                        <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" th:item-image="${foodItem.getImage()}" th:item-name="${foodItem.getName()}" th:data-price="${foodItem.getPrice()}">Add To Cart</a>
                                     </p>
                                 </div>
                             </div>
