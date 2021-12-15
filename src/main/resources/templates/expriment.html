@@ -116,6 +116,7 @@
                                 <div class="text-component text-center">
                                     <p class="flex flex-wrap flex-center flex-gap-xxs">
                                         <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" th:data-price="${foodItem.getPrice()}">Add To Cart</a>
+                                        <hidden th:item-image="${foodItem.getImage()}" th:item-name="${foodItem.getName()}"> </hidden>
                                     </p>
                                 </div>
                             </div>
@@ -546,7 +547,7 @@
                         var cartIsEmpty = Util.hasClass(cart[0], 'cd-cart--empty');
                         //update cart product list
                         console.log(event.toString());
-                        addProduct(this);
+                        addProduct(this.getAttribute('item-image'));
                         //update number of items
                         updateCartCount(cartIsEmpty);
                         //update total price
