@@ -489,7 +489,7 @@
                         cartCount = cart[0].getElementsByClassName('cd-cart__count')[0],
                         cartCountItems = cartCount.getElementsByTagName('li'),
                         cartUndo = cart[0].getElementsByClassName('cd-cart__undo')[0],
-                        productId = 0, //this is a placeholder -> use your real product ids instead
+                        productId = 1, //this is a placeholder -> use your real product ids instead
                         cartTimeoutId = false,
                         animatingQuantity = false;
                     initCartEvents();
@@ -546,7 +546,6 @@
                         var cartIsEmpty = Util.hasClass(cart[0], 'cd-cart--empty');
                         //update cart product list
                         console.log(event.toString());
-
                         addProduct(this);
                         //update number of items
                         updateCartCount(cartIsEmpty);
