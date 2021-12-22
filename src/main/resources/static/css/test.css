@@ -3568,6 +3568,7 @@ mark {
 }
 
 .cd-cart::before {
+    background: url("static/images/cd-icons-cart-close.svg");
     content: '';
     position: fixed;
     z-index: 1;
