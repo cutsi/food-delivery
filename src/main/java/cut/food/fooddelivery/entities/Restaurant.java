@@ -40,4 +40,10 @@ public class Restaurant {
             inverseJoinColumns = @JoinColumn(name = "foodItem_id"))
     private Set<FoodItem> menu = new HashSet<>();
 
+    public Restaurant(String restaurantName, String address, String phone, String image){
+        this.restaurantName = restaurantName;
+        this.address = address;
+        this.phone = phone;
+        this.image = image;
+    }
 }
