@@ -31,7 +31,7 @@ public class Restaurant {
     private String address;
     private String phone;
     private String image;
-    private double rating;
+    private Double rating;
 
     @ManyToMany
     @JoinTable(

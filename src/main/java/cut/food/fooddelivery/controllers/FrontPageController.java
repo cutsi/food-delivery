@@ -1,6 +1,7 @@
 package cut.food.fooddelivery.controllers;
 
 import cut.food.fooddelivery.entities.Category;
+import cut.food.fooddelivery.entities.Restaurant;
 import cut.food.fooddelivery.services.CategoryService;
 import cut.food.fooddelivery.services.FoodItemService;
 import cut.food.fooddelivery.services.RestaurantService;
@@ -28,7 +29,8 @@ public class FrontPageController {
 
     @GetMapping(path = "/")
     public String welcome(Model model){
-        model.addAttribute("restaurants",restaurantService.getAllRestaurants());
+        List<Restaurant> restaurants = restaurantService.getAllRestaurants();
+        model.addAttribute("restaurants",restaurants);
         return "welcome";
     }
     @GetMapping(path = "/expo")
