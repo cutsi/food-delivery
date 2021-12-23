@@ -3628,7 +3628,7 @@ mark {
     position: absolute;
     top: 50%;
     left: 50%;
-    background-image: url(../images/cart-icon-small.JPG);
+    background-image: url(static/images/cd-icons-cart-close.svg);
     -webkit-transform: translateY(-50%) translateX(-50%);
     -ms-transform: translateY(-50%) translateX(-50%);
     transform: translateY(-50%) translateX(-50%);
