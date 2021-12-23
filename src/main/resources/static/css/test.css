@@ -4111,7 +4111,6 @@ mark {
     line-height: 72px;
     margin-right: 72px;
     background: darkred;
-    background: var(--cd-color-2);
     color: transparent;
     color: hsla(var(--cd-color-3-h), var(--cd-color-3-s), var(--cd-color-3-l), 0);
     -webkit-font-smoothing: antialiased;
