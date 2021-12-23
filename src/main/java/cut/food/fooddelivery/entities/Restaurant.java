@@ -30,6 +30,8 @@ public class Restaurant {
     private String restaurantName;
     private String address;
     private String phone;
+    private String image;
+    private double rating;
 
     @ManyToMany
     @JoinTable(
