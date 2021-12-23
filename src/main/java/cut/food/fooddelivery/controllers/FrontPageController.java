@@ -3,6 +3,7 @@ package cut.food.fooddelivery.controllers;
 import cut.food.fooddelivery.entities.Category;
 import cut.food.fooddelivery.services.CategoryService;
 import cut.food.fooddelivery.services.FoodItemService;
+import cut.food.fooddelivery.services.RestaurantService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,7 @@ import java.util.List;
 public class FrontPageController {
     private final CategoryService categoryService;
     private final FoodItemService foodItemService;
+    private final RestaurantService restaurantService;
 
     @GetMapping(path = "/index")
     public String index(){
@@ -25,7 +27,8 @@ public class FrontPageController {
     }
 
     @GetMapping(path = "/")
-    public String welcome(){
+    public String welcome(Model model){
+        model.addAttribute("restaurants",restaurantService.getAllRestaurants());
         return "welcome";
     }
     @GetMapping(path = "/expo")
