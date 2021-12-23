@@ -122,10 +122,9 @@ p {
 }
 
 .card-about {
-    background-color: #d6e0f0;
+    background-color: antiquewhite;
     text-align: center;
     color: black;
-    padding: 15px;
 }
 
 .card-container {
@@ -141,8 +140,8 @@ p {
 }
 
 .card-image {
-    width: 80%;
-    margin: 0 auto;
+    width: 100%;
+    margin: -5px auto;
 }
 
 .fa-carrot {
