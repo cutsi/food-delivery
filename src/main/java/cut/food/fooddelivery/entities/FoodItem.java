@@ -36,6 +36,8 @@ public class FoodItem {
     private Category category;
     @ManyToMany(mappedBy = "menu")
     private Set<Restaurant> restaurants = new HashSet<>();
+    @ManyToMany(mappedBy = "foodItems")
+    private Set<Condiments> condiments = new HashSet<>();
     public int getPriceInt(){
         return Integer.valueOf(price);
     }
