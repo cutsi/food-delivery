@@ -29,6 +29,9 @@ public class Condiments {
     private String name;
     private String price;
 
+    public Condiments(String name){
+        this.name = name;
+    }
     @ManyToMany
     @JoinTable(
             name = "Condiments_foodItem",
