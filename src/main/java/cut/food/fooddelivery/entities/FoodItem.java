@@ -30,7 +30,7 @@ public class FoodItem {
     private String name;
     private String price;
     private String image;
-
+    private String info;
     @ManyToOne
     @JoinColumn(name="category_id")
     private Category category;
