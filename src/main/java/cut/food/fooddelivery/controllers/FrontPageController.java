@@ -36,6 +36,9 @@ public class FrontPageController {
     @GetMapping(path = "/expo")
     public String experiment(Model model){
         model.addAttribute("foodItems", foodItemService.getAllFoodItems());
+        //restaurantService.getFoodItemsFromRestaurantById();
+        //TODO pogledat kako ovde dobavit Id of restorana, vidit kako for eachat sve iteme
+        //TODO zajedno sa njihovim kategorijama
         return "expriment";
     }
 

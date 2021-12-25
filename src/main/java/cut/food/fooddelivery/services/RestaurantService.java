@@ -1,5 +1,6 @@
 package cut.food.fooddelivery.services;
 
+import cut.food.fooddelivery.entities.FoodItem;
 import cut.food.fooddelivery.entities.Restaurant;
 import cut.food.fooddelivery.repos.RestaurantRepo;
 import lombok.AllArgsConstructor;
@@ -14,5 +15,8 @@ public class RestaurantService {
 
     public List<Restaurant> getAllRestaurants(){
         return restaurantRepo.findAll();
+    }
+    public List<FoodItem> getFoodItemsFromRestaurantById(Long id){
+        return restaurantRepo.findFoodItemsByRestaurant(id);
     }
 }

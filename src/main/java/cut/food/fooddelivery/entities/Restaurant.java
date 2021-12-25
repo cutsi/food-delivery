@@ -32,7 +32,7 @@ public class Restaurant {
     private String phone;
     private String image;
     private Double rating;
-
+    private String banner;
     @ManyToMany
     @JoinTable(
             name = "restaurant_menu",
@@ -40,10 +40,11 @@ public class Restaurant {
             inverseJoinColumns = @JoinColumn(name = "foodItem_id"))
     private Set<FoodItem> menu = new HashSet<>();
 
-    public Restaurant(String restaurantName, String address, String phone, String image){
+    public Restaurant(String restaurantName, String address, String phone, String image, String banner){
         this.restaurantName = restaurantName;
         this.address = address;
         this.phone = phone;
         this.image = image;
+        this.banner = banner;
     }
 }
