@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -18,5 +19,8 @@ public class RestaurantService {
     }
     public List<FoodItem> getFoodItemsFromRestaurantById(Long id){
         return restaurantRepo.findFoodItemsByRestaurant(id);
+    }
+    public Optional<Restaurant> getRestaurantById(Long id){
+        return restaurantRepo.findById(id);
     }
 }

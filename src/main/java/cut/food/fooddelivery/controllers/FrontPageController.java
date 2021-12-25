@@ -11,8 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping(path = "/")
@@ -51,8 +53,14 @@ public class FrontPageController {
         return "login";
     }
 
-    @GetMapping(path="/restoran")
-    public String restoran(){
+    @GetMapping(path="/restaurant")
+    public String restoran(Model model, @RequestParam("id") String restaurantId){
+        Optional<Restaurant> restaurantOptional = restaurantService.getRestaurantById(Long.valueOf(restaurantId));
+        if(!restaurantOptional.isPresent()){
+            return "error";
+        }
+        Restaurant restaurant = restaurantOptional.get();
+        model.addAttribute("restaurant", restaurant);
         return "restaurant";
     }
     @GetMapping(path="/test")
