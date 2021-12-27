@@ -50,6 +50,12 @@
 </head>
 
 <body class="d-flex flex-column h-100">
+<style>
+    .jumbotron {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("${restaurant.getImage()}");
+    }
+
+</style>
 <main role="main" class="flex-shrink-0">
     <header th:replace="fragments/general-restaurant :: header"></header>
 
@@ -155,12 +161,7 @@
         </div>
     </div>
 </main>
-<style>
-    .jumbotron {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("${restaurant.getImage()}");
-    }PROBLEM SA OVIM
 
-</style>
 
 
 <footer th:replace="fragments/general-restaurant :: footer">
