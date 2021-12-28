@@ -66,6 +66,7 @@ public class FrontPageController {
              ) {
             System.out.println("NAME OF THE FOOD ITEM " + f.getName());
         }
+        model.addAttribute(foodItemList);
         model.addAttribute("restaurant", restaurant);
         return "restaurant";
     }
