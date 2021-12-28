@@ -1,6 +1,7 @@
 package cut.food.fooddelivery.controllers;
 
 import cut.food.fooddelivery.entities.Category;
+import cut.food.fooddelivery.entities.FoodItem;
 import cut.food.fooddelivery.entities.Restaurant;
 import cut.food.fooddelivery.services.CategoryService;
 import cut.food.fooddelivery.services.FoodItemService;
@@ -60,6 +61,11 @@ public class FrontPageController {
             return "error";
         }
         Restaurant restaurant = restaurantOptional.get();
+        List<FoodItem> foodItemList = restaurantService.getFoodItemsFromRestaurantById(restaurant.getId());
+        for (FoodItem f:foodItemList
+             ) {
+            System.out.println(f.getName());
+        }
         model.addAttribute("restaurant", restaurant);
         return "restaurant";
     }
