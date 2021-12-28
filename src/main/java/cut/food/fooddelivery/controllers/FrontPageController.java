@@ -64,7 +64,7 @@ public class FrontPageController {
         List<FoodItem> foodItemList = restaurantService.getFoodItemsFromRestaurantById(restaurant.getId());
         for (FoodItem f:foodItemList
              ) {
-            System.out.println(f.getName());
+            System.out.println("NAME OF THE FOOD ITEM " + f.getName());
         }
         model.addAttribute("restaurant", restaurant);
         return "restaurant";
