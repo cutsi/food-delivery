@@ -100,10 +100,13 @@
             <div class="menu">
 
                 <div class ="menu-group-heading">
+                    <th:block th:each="category: ${categories}">
+                        [[${category.getCategoryName()}]]
+                    </th:block>
                     Pizze
                 </div>
                 <div class="menu-group">
-                    <th:block th:each="foodItem: ${categories}">
+                    <th:block th:each="foodItem: ${menu}">
                         <button class="menu-item">
                             <img class="menu-item-image" th:src="${foodItem.getImage()}" src ="${foodItem.getImage()}">
                             <div class="menu-item-text">
