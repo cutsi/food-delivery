@@ -104,7 +104,7 @@
                     </div>
                     <div class="menu-group">
                         <th:block th:each="foodItem: ${menu}">
-                            <div th:if="${foodItem.getCategory() == category.getId()}">
+                            <div th:if="${foodItem.getCategory() != category.getId()}">
                                 <button class="menu-item">
                                     <img class="menu-item-image" th:src="${foodItem.getImage()}" src ="${foodItem.getImage()}">
                                     <div class="menu-item-text">
