@@ -60,13 +60,10 @@ public class FrontPageController {
         if(!restaurantOptional.isPresent()){
             return "error";
         }
+
         Restaurant restaurant = restaurantOptional.get();
-        List<FoodItem> foodItemList = restaurantService.getFoodItemsFromRestaurantById(restaurant.getId());
-        for (FoodItem f:foodItemList
-             ) {
-            System.out.println("NAME OF THE FOOD ITEM " + f.getName());
-        }
-        model.addAttribute("foodItems",restaurant.getMenu());
+        model.addAttribute("categories", restaurantService.getCategoriesFromRestaurant(restaurant.getMenu()));
+        model.addAttribute("menu",restaurant.getMenu());
         model.addAttribute("restaurant", restaurant);
         return "restaurant";
     }
