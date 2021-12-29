@@ -7,6 +7,7 @@ import cut.food.fooddelivery.repos.RestaurantRepo;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -26,7 +27,7 @@ public class RestaurantService {
         return restaurantRepo.findById(id);
     }
     public Set<Category> getCategoriesFromRestaurant(Set<FoodItem> menu){
-        Set<Category> categories = null;
+        Set<Category> categories = new HashSet<>();
         for (FoodItem foodItem: menu) {
             if(!categories.contains(foodItem.getCategory())){
                 categories.add(foodItem.getCategory());
