@@ -98,11 +98,13 @@
 
         <div class="container card-container">
             <div class="menu">
-
-                <div class ="menu-group-heading">
-                    <th:block th:each="category: ${categories}">
+                <th:block th:each="category: ${categories}">
+                    <div class ="menu-group-heading">
                         [[${category.getCategoryName()}]]
-                    </th:block>
+                    </div>
+                </th:block>
+                <div class ="menu-group-heading">
+                    [[${category.getCategoryName()}]]
                     Pizze
                 </div>
                 <div class="menu-group">
