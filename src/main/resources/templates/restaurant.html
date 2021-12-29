@@ -102,6 +102,28 @@
                     <div class ="menu-group-heading">
                         [[${category.getCategoryName()}]]
                     </div>
+                    <div class="menu-group">
+                        <th:block th:each="foodItem: ${menu}">
+                            <div th:if="${foodItem.getCategory()} == category.getId()">
+                                <button class="menu-item">
+                                    <img class="menu-item-image" th:src="${foodItem.getImage()}" src ="${foodItem.getImage()}">
+                                    <div class="menu-item-text">
+                                        <h3 class="menu-item-heading">
+                                            <span class="menu-item-name">[[${foodItem.getName()}]]</span>
+                                            <span class="menu-item-price">[[${foodItem.getPrice()}]]KM</span>
+                                        </h3>
+                                    </div>
+                                </button>
+                                <div class="menu-item-content">
+                                    <div class="text-component text-center">
+                                        <p class="flex flex-wrap flex-center flex-gap-xxs">
+                                            <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" th:item-id="${foodItem.getId()}" th:item-image="${foodItem.getImage()}" th:item-name="${foodItem.getName()}" th:data-price="${foodItem.getPrice()}">Add To Cart</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </th:block>
+                    </div>
                 </th:block>
                 <div class ="menu-group-heading">
                     Pizze
