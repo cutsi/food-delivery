@@ -76,6 +76,9 @@ public class FrontPageController {
 
         model.addAttribute("products",products);
         return "checkout";
-
+    }
+    @GetMapping(path = "checkout")
+    public String checkoutGet(){
+        return "checkout";
     }
 }
