@@ -71,4 +71,11 @@ public class FrontPageController {
     public String test(){
         return "test";
     }
+    @PostMapping(path="/checkout")
+    public String checkout(@RequestParam Long[] products,Model model) {
+
+        model.addAttribute("products",products);
+        return "checkout";
+
+    }
 }

@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Insert title here</title>
 </head>
 <body>
-$END$
+
+Products Ids :
+
+<div th:each="p: ${products}">
+  <span th:text="${p}"></span>
+</div>
+
+
 </body>
 </html>
