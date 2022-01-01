@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -60,7 +61,12 @@ public class FrontPageController {
 
     @PostMapping(path="/checkout")
     public String checkout(@RequestParam Long[] products,Model model) {
-        model.addAttribute("products",products);
+        List<FoodItem> foodItemList = new ArrayList<>();
+        for (Long id:products) {
+            if(foodItemService.getById(id).isPresent())
+                foodItemList.add(foodItemService.getById(id).get());
+        }
+        model.addAttribute("products", foodItemList);
         return "checkout";
     }
     @GetMapping(path = "checkout")
