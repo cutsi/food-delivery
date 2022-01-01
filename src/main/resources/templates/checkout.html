@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Checkout</title>
-  <link href="../static/css/checkout.css" th:href="@{/css/checkout.css}" rel="stylesheet" />
+<html lang="en" class="h-100" xmlns:th="https://thymeleaf.org">
 
+<head th:replace="fragments/general :: head"></head>
+<link href="../static/css/checkout.css" th:href="@{/css/checkout.css}" rel="stylesheet" />
+
+<head>
 </head>
-<body>
+
+<body class="d-flex flex-column h-100">
+<main role="main" class="flex-shrink-0">
+  <header th:replace="fragments/general :: header"></header>
+</main>
+
   <div class="container">
     <div class="card">
       <div class="card-body">
@@ -26,14 +31,14 @@
                   </thead>
                   <tbody>
                   <th:block th:each="product: ${products}">
-                  <tr>
-                    <td class="no">01</td>
-                    <td class="text-left">
-                      <h3>[[${product.getName()}]]</h3>C
-                    <td class="unit">[[${product.getPrice()}]]</td>
-                    <td class="qty">[[${product.getPrice()}]]</td>
-                    <td class="total">[[${product.getPrice()}]]</td>
-                  </tr>
+                    <tr>
+                      <td class="no">01</td>
+                      <td class="text-left">
+                        <h3>[[${product.getName()}]]</h3>C
+                      <td class="unit">[[${product.getPrice()}]]</td>
+                      <td class="qty">[[${product.getPrice()}]]</td>
+                      <td class="total">[[${product.getPrice()}]]</td>
+                    </tr>
                   </th:block>
                   </tbody>
 
@@ -55,6 +60,20 @@
     </div>
   </div>
 
+<footer th:replace="fragments/general :: footer">
+</footer>
 
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+</script>
 </body>
+
 </html>
