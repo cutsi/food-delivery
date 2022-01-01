@@ -25,15 +25,18 @@
                   </tr>
                   </thead>
                   <tbody>
+                  <th:block th:each="product: ${products}">
                   <tr>
                     <td class="no">01</td>
                     <td class="text-left">
-                      <h3>Website Design</h3>C
-                    <td class="unit">$40.00</td>
-                    <td class="qty">30</td>
-                    <td class="total">$1,200.00</td>
+                      <h3>[[${product.getName()}]]</h3>C
+                    <td class="unit">[[${product.getPrice()}]]</td>
+                    <td class="qty">[[${product.getPrice()}]]</td>
+                    <td class="total">[[${product.getPrice()}]]</td>
                   </tr>
+                  </th:block>
                   </tbody>
+
                   <tfoot>
                   <tr>
                     <td colspan="2"></td>
