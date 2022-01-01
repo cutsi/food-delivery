@@ -25,24 +25,11 @@ public class FrontPageController {
     private final FoodItemService foodItemService;
     private final RestaurantService restaurantService;
 
-    @GetMapping(path = "/index")
-    public String index(){
-        return "index";
-    }
-
     @GetMapping(path = "/")
     public String welcome(Model model){
         List<Restaurant> restaurants = restaurantService.getAllRestaurants();
         model.addAttribute("restaurants",restaurants);
         return "welcome";
-    }
-    @GetMapping(path = "/expo")
-    public String experiment(Model model){
-        model.addAttribute("foodItems", foodItemService.getAllFoodItems());
-        //restaurantService.getFoodItemsFromRestaurantById();
-        //TODO pogledat kako ovde dobavit Id of restorana, vidit kako for eachat sve iteme
-        //TODO zajedno sa njihovim kategorijama
-        return "expriment";
     }
 
     @GetMapping("/sign-up")
@@ -60,7 +47,6 @@ public class FrontPageController {
         if(!restaurantOptional.isPresent()){
             return "error";
         }
-
         Restaurant restaurant = restaurantOptional.get();
         model.addAttribute("categories", restaurantService.getCategoriesFromRestaurant(restaurant.getMenu()));
         model.addAttribute("menu",restaurant.getMenu());
@@ -74,7 +60,6 @@ public class FrontPageController {
 
     @PostMapping(path="/checkout")
     public String checkout(@RequestParam Long[] products,Model model) {
-
         model.addAttribute("products",products);
         return "checkout";
     }
