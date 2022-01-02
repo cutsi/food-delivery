@@ -27,6 +27,7 @@ public class Category {
     )
     private Long id;
     private String categoryName;
+    private String image;
     @OneToMany(mappedBy = "category")
     private Set<FoodItem> foodItems = new HashSet<>();
     public Category(String categoryName){
