@@ -66,7 +66,7 @@ public class FrontPageController {
             if(foodItemService.getById(id).isPresent())
                 foodItemList.add(foodItemService.getById(id).get());
         }
-        model.addAttribute("products", products);
+        model.addAttribute("products", foodItemList);
         return "checkout";
     }
     @GetMapping(path = "checkout")
