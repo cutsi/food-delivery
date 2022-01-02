@@ -513,6 +513,7 @@
                 // replace productId, productName, price and url with your real product info
                 // you should also check if the product was already in the cart -> if it is, just update the quantity
                 if(productIds.includes(productId)){
+                    productId.push(productId)
                     //alert(document.getElementById("cd-product-"+productId).value);
                     var quantityTemp = document.getElementById("cd-product-"+productId);
                     if(quantityTemp.value == 9)currentProductLimitQantity=true;
