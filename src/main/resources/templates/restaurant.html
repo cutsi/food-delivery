@@ -68,21 +68,13 @@
     </section>
 
     <div class="slider owl-carousel">
-        <div class="card1">
-            <div class="img1">
-                <img th:src="@{images/variva-carusel.jpg}" src ="../static/images/variva-carusel.jpg" alt="">
+        <th:block th:each="category: ${categories}">
+            <div class="card1">
+                <div class="img1">
+                    <img th:src="${category.getImage()}" src ="${category.getImage()}" alt="">
+                </div>
             </div>
-        </div>
-        <div class="card1">
-            <div class="img1">
-                <img th:src="@{images/variva-carusel.jpg}" src ="../static/images/variva-carusel.jpg" alt="">
-            </div>
-        </div>
-        <div class="card1">
-            <div class="img1">
-                <img th:src="@{images/variva-carusel.jpg}" src ="../static/images/variva-carusel.jpg" alt="">
-            </div>
-        </div>
+        </th:block>
     </div>
     <script>
         $(".slider").owlCarousel({
