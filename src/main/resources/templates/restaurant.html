@@ -71,7 +71,7 @@
         <th:block th:each="category: ${categories}">
             <div class="card1">
                 <div class="img1">
-                    <img th:src="${category.getImage()}" src ="${category.getImage()}" alt="">
+                    <img th:style="'background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + ${category.getImage()} + ');'" alt="">
                 </div>
             </div>
         </th:block>
