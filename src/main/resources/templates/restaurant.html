@@ -3,6 +3,7 @@
 
 <head th:replace="fragments/general-restaurant :: head"></head>
 <head>
+    <meta name="_csrf" th:content="${_csrf.token}"/>
     <script>document.getElementsByTagName("html")[0].className += " js";</script>
     <link href="../static/css/experiment.css" th:href="@{/css/experiment.css}" rel="stylesheet" />
     <link href="../static/css/carousel.css" th:href="@{/css/carousel.css}" rel="stylesheet" />
@@ -155,7 +156,7 @@
 <footer th:replace="fragments/general-restaurant :: footer">
 </footer>
 
-<form id="checkout-form" th:action="@{/checkout}" method="post">
+<form id="checkout-form" action="/checkout" method="post">
 </form>
 
 <!-- Optional JavaScript -->
@@ -393,17 +394,27 @@
 
                 //get form
                 var form = document.getElementById("checkout-form");
+                var csrf = document.querySelector('meta[name="_csrf"]').content;
+                var input;
 
                 //build inputs inside form to inject product ids
                 for(var k=0;k<productIds.length;k++){
 
-                    var input = document.createElement("input");
+                    input = document.createElement("input");
                     input.setAttribute("type", "hidden");
                     input.setAttribute("name", "products");
                     input.setAttribute("value", productIds[k]);
                     form.appendChild(input);
 
                 }
+
+                //build csrf input
+                input = document.createElement("input");
+                input.setAttribute("type", "hidden");
+                input.setAttribute("name", "_csrf");
+                input.setAttribute("value", csrf);
+                form.appendChild(input);
+
                 //submit the form
                 form.submit();
 
