@@ -140,7 +140,7 @@
                     </ul>
                 </div>
                 <div class="cd-cart__footer">
-                    <form id="checkout-form" action="/checkout" method="post">
+                    <form id="checkout-form" th:action="@{/checkout}" method="post">
                         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                     </form>
                     <a id="checkout-btn" href="#0" class="cd-cart__checkout">
