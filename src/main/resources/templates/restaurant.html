@@ -108,23 +108,14 @@
                                     </div>
                                 </button>
                                 <div class="menu-item-content">
-                                    <div class="text-component text-center">
-                                        <p class="flex flex-wrap flex-center flex-gap-xxs">
-                                        <fieldset class="group">
-                                            <legend>Select standard pizza toppings</legend>
-                                            <ul class="checkbox">
-                                                <li><input type="checkbox" id="cb1" value="pepperoni" /><label for="cb1">Pepperoni</label></li>
-                                                <li><input type="checkbox" id="cb2" value="sausage" /><label for="cb2">Sausage</label></li>
-                                                <li><input type="checkbox" id="cb3" value="mushrooms" /><label for="cb3">Mushrooms</label></li>
-                                                <li><input type="checkbox" id="cb4" value="onions" /><label for="cb4">Onions</label></li>
-                                                <li><input type="checkbox" id="cb5" value="gpeppers" /><label for="cb5">Green Peppers</label></li>
-                                                <li><input type="checkbox" id="cb6" value="xcheese" /><label for="cb6">Extra Cheese</label></li>
-                                                <li><input type="checkbox" id="cb7" value="pineapple" /><label for="cb7">Pineapple</label></li>
-                                            </ul>
-                                        </fieldset>
-                                        <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" th:item-id="${foodItem.getId()}" th:item-image="${foodItem.getImage()}" th:item-name="${foodItem.getName()}" th:data-price="${foodItem.getPrice()}">Add To Cart</a>
-                                        </p>
-                                    </div>
+                                    <button class="menu-item">
+                                        <div class="menu-item-text">
+                                            <h3 class="menu-item-heading">
+                                                <span class="menu-item-name">[[${foodItem.getName()}]]</span>
+                                                <span class="menu-item-price">[[${foodItem.getPrice()}]]KM</span>
+                                            </h3>
+                                        </div>
+                                    </button>
                                 </div>
                             </div>
                         </th:block>
