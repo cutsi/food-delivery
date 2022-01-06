@@ -110,13 +110,25 @@
                                 <div class="menu-item-content">
                                     <div class="text-component text-center">
                                         <p class="flex flex-wrap flex-center flex-gap-xxs">
-                                        <fieldset class="checkboxgroup">
-                                            <p>some label</p>
-                                            <label><input type="checkbox"> checkbox 1</label>
-                                            <label><input type="checkbox"> checkbox 2</label>
-                                            <label><input type="checkbox"> checkbox 3</label>
-                                            <label><input type="checkbox"> checkbox 4</label>
-                                        </fieldset>
+                                            <label class="containercheck">One
+                                                <input type="checkbox" checked="checked">
+                                                <span class="checkmark"></span>
+                                            </label>
+
+                                            <label class="containercheck">Two
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+
+                                            <label class="containercheck">Three
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+
+                                            <label class="containercheck">Four
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
                                             <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" th:item-id="${foodItem.getId()}" th:item-image="${foodItem.getImage()}" th:item-name="${foodItem.getName()}" th:data-price="${foodItem.getPrice()}">Add To Cart</a>
                                         </p>
                                     </div>
