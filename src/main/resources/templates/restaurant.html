@@ -111,10 +111,10 @@
                                     <div class="text-component text-center">
                                         <p class="flex flex-wrap flex-center flex-gap-xxs">
                                         <div class="menu-item-text">
-                                            <h3 class="menu-item-heading">
+                                            <input type="checkbox" class="menu-item-heading">
                                                 <span class="menu-item-name">[[${foodItem.getName()}]]</span>
                                                 <span class="menu-item-price">[[${foodItem.getPrice()}]]KM</span>
-                                            </h3>
+                                            </input>
                                         </div>
                                         <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" th:item-id="${foodItem.getId()}" th:item-image="${foodItem.getImage()}" th:item-name="${foodItem.getName()}" th:data-price="${foodItem.getPrice()}">Add To Cart</a>
                                         </p>
