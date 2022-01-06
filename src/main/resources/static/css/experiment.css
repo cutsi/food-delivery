@@ -399,3 +399,8 @@ ul.checkbox li.focus  {
     border: 1px gray solid;
     width: 12em;
 }
+ul.checkbox li {
+    border: 1px transparent solid;
+    display:inline-block;
+    width:12em;
+}
