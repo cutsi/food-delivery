@@ -352,11 +352,15 @@ button.menu-item.is-open {
     }
 }
 
-#checkboxes label {
-    float: left;
+.checkboxgroup{
+    width: 20em;
+    overflow: auto;
 }
-#checkboxes ul {
-    margin: 0;
-    list-style: none;
-    float: left;
+.checkboxgroup p{
+    width: 7em;
+    text-align: right;
+}
+.checkboxgroup label{
+    width: 12em;
+    float: right;
 }
