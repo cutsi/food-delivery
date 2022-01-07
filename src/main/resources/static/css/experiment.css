@@ -364,3 +364,10 @@ button.menu-item.is-open {
     padding: 1.5em;
 
 }
+
+@media screen and (min-width: 992px){
+    .checkbox-group{
+        font-size: 16px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
