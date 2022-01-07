@@ -365,9 +365,48 @@ button.menu-item.is-open {
 
 }
 
+.checkbox-item{
+    display: flex;
+    font-size: 14px;
+    width: 100%;
+    background-color: whitesmoke;
+    border: none;
+    outline:0 !important;
+    text-align: left;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s linear;
+}
+
+
+
+.checkbox-text{
+    flex-grow: 1;
+    font-size: 1.25rem;
+}
+.menu-item-desc{
+    line-height: 1.6;
+}
+.checkbox-heading{
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+}
+.checkbox-price{
+    font-size: 1.0rem;
+}
+
+.checkbox-name{
+    font-size: 1.1rem;
+    margin-right: 1.2em;
+}
+
+
+
 @media screen and (min-width: 992px){
     .checkbox-group{
         font-size: 16px;
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
