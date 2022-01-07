@@ -360,7 +360,7 @@ button.menu-item.is-open {
 .checkbox-group{
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5em;
-    padding-bottom: 1.5em 0 0;
+    gap: 0.5em;
+    padding: 1.5em;
 
 }
