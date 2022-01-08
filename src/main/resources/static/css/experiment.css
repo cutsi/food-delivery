@@ -401,7 +401,14 @@ button.menu-item.is-open {
     margin-right: 1.2em;
 }
 
-
+.radiobutton-heading{
+    margin: 0;
+    padding: inherit;
+    padding-top: 5px;
+    padding-bottom: 1em;
+    border-bottom: 2px solid #ccc;
+    font-size: 21px;
+}
 
 @media screen and (min-width: 992px){
     .checkbox-group{
