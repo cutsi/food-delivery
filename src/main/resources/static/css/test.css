@@ -4384,7 +4384,7 @@ body {
 
 .cd-add-to-cart {
     background: #2b96de;
-    background: var(--cd-color-2);
+    background: #dc3545;
     color: #fff;
     color: var(--cd-color-3);
     box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
