@@ -312,7 +312,7 @@ button.menu-item.is-open {
 }
 
 .menu-item-content {
-    background-color: whitesmoke;
+    background-color: #e7e9ed;;
     border-left: 1px solid whitesmoke;
     border-right: 1px solid whitesmoke;
     padding: 0 20px;
@@ -369,7 +369,7 @@ button.menu-item.is-open {
     display: flex;
     font-size: 14px;
     width: 100%;
-    background-color: whitesmoke;
+    background-color: #e7e9ed;;
     border: none;
     outline:0 !important;
     text-align: left;
