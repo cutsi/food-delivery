@@ -408,7 +408,7 @@ button.menu-item.is-open {
     padding-top: 1em;
     padding-bottom: 1em;
     border-bottom: 2px solid #ccc;
-    font-size: 21px;
+    font-size: 17px;
 }
 
 @media screen and (min-width: 992px){
