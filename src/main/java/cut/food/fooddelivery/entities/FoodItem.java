@@ -38,6 +38,8 @@ public class FoodItem {
     private Set<Restaurant> restaurants = new HashSet<>();
     @ManyToMany(mappedBy = "foodItems")
     private Set<Condiments> condiments = new HashSet<>();
+    @ManyToMany(mappedBy = "foodPortionItems")
+    private Set<PortionSize> portionSizes = new HashSet<>();
     public int getPriceInt(){
         return Integer.valueOf(price);
     }

@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -25,6 +27,12 @@ public class PortionSize {
     )
     private Long id;
     private String size;
+    @ManyToMany
+    @JoinTable(
+            name = "portionSize_foodItem",
+            joinColumns = @JoinColumn(name = "portionSize_id"),
+            inverseJoinColumns = @JoinColumn(name = "foodItem_id"))
+    private Set<FoodItem> foodPortionItems = new HashSet<>();
     //TODO vidit kako menu item gumb prominit boju kad se klikne
     //TODO napravit portionsize food item table, malo razmislit kako to dvoje povezat
     //TODO unit sve podatke za svaki item, porciju i condiments
