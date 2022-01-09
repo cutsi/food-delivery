@@ -25,4 +25,9 @@ public class PortionSize {
     )
     private Long id;
     private String size;
+    //TODO vidit kako menu item gumb prominit boju kad se klikne
+    //TODO napravit portionsize food item table, malo razmislit kako to dvoje povezat
+    //TODO unit sve podatke za svaki item, porciju i condiments
+    //TODO prikazat ih sve pravilno na stranici
+
 }
