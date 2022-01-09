@@ -341,7 +341,7 @@ button.menu-item.is-open {
     flex-shrink: 0;
     object-fit: cover;
     margin-right: 1.5em;
-    margin-left: 5px;
+    margin-left: -5px;
 }
 @media screen and (min-width: 992px){
     .menu{
