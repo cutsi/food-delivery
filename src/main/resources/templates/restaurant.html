@@ -111,14 +111,10 @@
                                 <div class="menu-item-content">
 
                                     <div class ="radiobutton-heading">
-                                        <input type="radio" id="a" name="fav_language" value="HTML">
-                                        <label for="a">Porcija</label><br>
-                                        <input type="radio" id="b" name="fav_language" value="HTML">
-                                        <label for="b">Porcija</label><br>
-                                        <input type="radio" id="c" name="fav_language" value="HTML">
-                                        <label for="c">Porcija</label><br>
-                                        <input type="radio" id="d" name="fav_language" value="HTML">
-                                        <label for="d">Porcija</label><br>
+                                        <th:block th:each="portion: ${foodItem.portionSizes()}">
+                                            <input type="radio" id="${portion.getId()}" name="fav_language" value="${portion.getId()}">
+                                            <label for="${portion.getId()}">[[${portion.getSize()}]]</label><br>
+                                        </th:block>
                                     </div>
 
                                     <div class="checkbox-group">
