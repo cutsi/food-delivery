@@ -57,11 +57,13 @@ public class FoodItem {
         }
         int min = 0;
         for (int i = 0; i < portionSizeList.size(); i++){
-            for(int j = 0; j < portionSizeList.size(); i++){
+            for(int j = 0; j < portionSizeList.size(); j++){
                 if(portionSizeList.get(j).getId() < portionSizeList.get(i).getId()){
                     min = j;
+                    System.out.println("JJJJJJJJJJJJJ " + j);
+
                 }
-                System.out.println("AAAAAAAAAAAAA " + portionSizeList.get(j));
+                System.out.println("BBBBBBBBBBBBB " + portionSizeList.get(j).getId());
 
             }
             portionSizeListFinal.add(portionSizeList.get(min));
