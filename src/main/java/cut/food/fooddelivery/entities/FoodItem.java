@@ -52,6 +52,8 @@ public class FoodItem {
         List<PortionSize> portionSizeListFinal = new ArrayList<>();
         for (PortionSize ps:portionSizes) {
             portionSizeList.add(ps);
+            System.out.println("AAAAAAAAAAAAA " + ps.getId());
+
         }
         int min = 0;
         for (int i = 0; i < portionSizeList.size(); i++){
@@ -59,9 +61,12 @@ public class FoodItem {
                 if(portionSizeList.get(j).getId() < portionSizeList.get(i).getId()){
                     min = j;
                 }
+                System.out.println("AAAAAAAAAAAAA " + portionSizeList.get(j));
+
             }
             portionSizeListFinal.add(portionSizeList.get(min));
             portionSizeList.remove(min);
+
         }
      return portionSizeListFinal;
     }
