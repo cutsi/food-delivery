@@ -47,27 +47,23 @@ public class FoodItem {
     }
 
     public List<PortionSize> getPortionSizes(){
-        System.out.println("AHAKSDHLASJDLSAKJDLAKJDASKJDASKLJ");
         List<PortionSize> portionSizeList = new ArrayList<>();
         List<PortionSize> portionSizeListFinal = new ArrayList<>();
         for (PortionSize ps:portionSizes) {
             portionSizeList.add(ps);
-            System.out.println("AAAAAAAAAAAAA " + ps.getId());
-
         }
         int min = 0;
         for (int i = 0; i < portionSizeList.size(); i++){
             for(int j = 0; j < portionSizeList.size(); j++){
                 if(portionSizeList.get(j).getId() < portionSizeList.get(i).getId()){
                     min = j;
-                    System.out.println("JJJJJJJJJJJJJ " + j);
-
                 }
-                System.out.println("BBBBBBBBBBBBB " + portionSizeList.get(j).getId());
 
             }
             portionSizeListFinal.add(portionSizeList.get(min));
             System.out.println("PORTION SIZE NAME " + portionSizeList.get(min).getSize());
+            System.out.println("food item name " + getName());
+
             portionSizeList.remove(min);
             min = 0;
 
