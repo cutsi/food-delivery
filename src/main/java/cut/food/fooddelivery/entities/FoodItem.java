@@ -47,6 +47,7 @@ public class FoodItem {
     }
 
     public List<PortionSize> getPortionSizes(){
+        System.out.println("AHAKSDHLASJDLSAKJDLAKJDASKJDASKLJ");
         List<PortionSize> portionSizeList = new ArrayList<>();
         List<PortionSize> portionSizeListFinal = new ArrayList<>();
         for (PortionSize ps:portionSizes) {
