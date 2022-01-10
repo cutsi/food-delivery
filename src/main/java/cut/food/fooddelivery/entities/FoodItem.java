@@ -67,6 +67,7 @@ public class FoodItem {
 
             }
             portionSizeListFinal.add(portionSizeList.get(min));
+            System.out.println("PORTION SIZE NAME " + portionSizeList.get(min).getSize());
             portionSizeList.remove(min);
 
         }
