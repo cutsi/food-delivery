@@ -39,4 +39,5 @@ public class PortionSize {
     //TODO unit sve podatke za svaki item, porciju i condiments
     //TODO prikazat ih sve pravilno na stranici
 
+
 }
