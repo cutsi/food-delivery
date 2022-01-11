@@ -112,13 +112,13 @@
 
                                     <div class ="radiobutton-heading">
                                         <th:block th:each="portion: ${foodItem.getPortionSizes()}">
-                                            <span th:if="${portion.getIsChecked() == 't'}">
+                                            <span th:if="${portion.getIsChecked() == 'true'}">
                                                 <input type="radio" id="${portion.getId()}" name="fav_language" value="${portion.getId()}" checked>
                                             </span>
-                                            <span th:if="${portion.getIsChecked() == 'f'}">
+                                            <span th:if="${portion.getIsChecked() == 'false'}">
                                                 <input type="radio" id="${portion.getId()}" name="fav_language" value="${portion.getId()}">
                                             </span>
-                                            <label for="${portion.getId()}">[[${portion.getIsChecked()}]]</label><br>
+                                            <label for="${portion.getId()}">[[${portion.getSize()}]]</label><br>
                                         </th:block>
                                     </div>
 
