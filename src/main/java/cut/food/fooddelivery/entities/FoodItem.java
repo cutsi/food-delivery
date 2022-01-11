@@ -46,34 +46,4 @@ public class FoodItem {
         return Integer.valueOf(price);
     }
 
-    public List<PortionSize> getPortionSizes(){
-        List<PortionSize> portionSizeList = new ArrayList<>();
-        List<PortionSize> portionSizeListFinal = new ArrayList<>();
-        for (PortionSize ps:portionSizes) {
-            portionSizeList.add(ps);
-            System.out.println("ALL PORTION SIZES" + ps.getSize());
-
-        }
-        return portionSizes;
-        /*
-        int min = 0;
-        for (int i = 0; i < portionSizeList.size(); i++){
-            min=i;
-            for(int j = 0; j < portionSizeList.size(); j++){
-                if(portionSizeList.get(j).getId() < portionSizeList.get(i).getId()){
-                    min = j;
-                    System.out.println("PORTION SIZE NAME J LOOP " + portionSizeList.get(min).getSize());
-                }
-
-            }
-            portionSizeListFinal.add(portionSizeList.get(min));
-            System.out.println("PORTION SIZE NAME " + portionSizeList.get(min).getSize());
-            System.out.println("food item name " + getName());
-
-            portionSizeList.remove(min);
-            min = 0;
-
-        }
-     return portionSizeListFinal;*/
-    }
 }
