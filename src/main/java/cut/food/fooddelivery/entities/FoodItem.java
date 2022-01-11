@@ -51,14 +51,18 @@ public class FoodItem {
         List<PortionSize> portionSizeListFinal = new ArrayList<>();
         for (PortionSize ps:portionSizes) {
             portionSizeList.add(ps);
+            System.out.println("ALL PORTION SIZES" + ps.getSize());
+
         }
+        return portionSizes;
+        /*
         int min = 0;
         for (int i = 0; i < portionSizeList.size(); i++){
             min=i;
             for(int j = 0; j < portionSizeList.size(); j++){
                 if(portionSizeList.get(j).getId() < portionSizeList.get(i).getId()){
                     min = j;
-                    System.out.println("PORTION SIZE NAME J LOOP" + portionSizeList.get(min).getSize());
+                    System.out.println("PORTION SIZE NAME J LOOP " + portionSizeList.get(min).getSize());
                 }
 
             }
@@ -70,6 +74,6 @@ public class FoodItem {
             min = 0;
 
         }
-     return portionSizeListFinal;
+     return portionSizeListFinal;*/
     }
 }
