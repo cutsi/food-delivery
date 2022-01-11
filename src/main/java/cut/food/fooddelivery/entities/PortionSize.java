@@ -28,6 +28,7 @@ public class PortionSize {
     private Long id;
     private String size;
     private Boolean isChecked;
+
     @ManyToMany
     @JoinTable(
             name = "portionSize_foodItem",
