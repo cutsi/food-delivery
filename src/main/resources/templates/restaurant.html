@@ -91,6 +91,7 @@
 
         <div class="container card-container">
             <div class="menu">
+                <form>
                 <th:block th:each="category: ${categories}">
                     <div class ="menu-group-heading">
                         [[${category.getCategoryName()}]]
@@ -180,6 +181,7 @@
                         </th:block>
                     </div>
                 </th:block>
+                </form>
             </div>
         </div>
     </section>
