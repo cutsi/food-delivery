@@ -3964,7 +3964,8 @@ mark {
 }
 
 .cd-cart__image img {
-    display: block
+    display: block;
+    height: 100%;
 }
 
 @media(min-width:64rem) {
