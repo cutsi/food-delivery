@@ -91,7 +91,6 @@
 
         <div class="container card-container">
             <div class="menu">
-                <form>
                 <th:block th:each="category: ${categories}">
                     <div class ="menu-group-heading">
                         [[${category.getCategoryName()}]]
@@ -117,7 +116,7 @@
                                                 <input type="radio" id="${portion.getId()}" name="${foodItem.getName()}" value="${portion.getId()}" checked='checked'>
                                             </span>
                                             <span th:if="${portion.getIsChecked() == false}">
-                                                <input type="radio" id="${portion.getId()}1" name="${foodItem.getName()}" value="${portion.getId()}">
+                                                <input type="radio" id="${portion.getId()}1" name="${foodItem.getName()}" value="${portion.getId()}1">
                                             </span>
                                             <label for="${portion.getId()}">[[${portion.getSize()}]]</label><br>
                                         </th:block>
@@ -181,7 +180,6 @@
                         </th:block>
                     </div>
                 </th:block>
-                </form>
             </div>
         </div>
     </section>
