@@ -125,54 +125,30 @@
                                     </div>
 
                                     <div class="checkbox-group">
-
-                                        <label for="1">
-                                            <div class="checkbox-item">
-                                                <input type="checkbox" id="1" style="margin: revert; margin-right: 10px">
-                                                <div class="checkbox-text">
-                                                    <div class="checkbox-heading">
-                                                        <span class="checkbox-name">Kečap</span>
-                                                        <span class="checkbox-price">2KM</span>
+                                        <script>
+                                            $(document).ready(function(){
+                                                $(".check").click(function(){
+                                                    $("#myCheck").prop("checked", true);
+                                                });
+                                                $(".uncheck").click(function(){
+                                                    $("#myCheck").prop("checked", false);
+                                                });
+                                            });
+                                        </script>
+                                        <th:block th:each="condiment: ${foodItem.getCondiments()}">
+                                            <label for="condiment.getId()">
+                                                <div class="checkbox-item">
+                                                    <input type="checkbox" id="condiment.getId()" style="margin: revert; margin-right: 10px">
+                                                    <div class="checkbox-text">
+                                                        <div class="checkbox-heading">
+                                                            <span class="checkbox-name">[[${condiment.getName()}]]</span>
+                                                            <span class="checkbox-price">[[${condiment.getPrice()}]]KM</span>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </label>
+                                            </label>
 
-                                        <label for="2">
-                                            <div class="checkbox-item">
-                                                <input type="checkbox" id="2" style="margin: revert; margin-right: 10px">
-                                                <div class="checkbox-text">
-                                                    <div class="checkbox-heading">
-                                                        <span class="checkbox-name">Majoneza</span>
-                                                        <span class="checkbox-price">2KM</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </label>
-
-                                        <label for="3">
-                                            <div class="checkbox-item">
-                                                <input type="checkbox" id="3" style="margin: revert; margin-right: 10px">
-                                                <div class="checkbox-text">
-                                                    <div class="checkbox-heading">
-                                                        <span class="checkbox-name">Krastavci</span>
-                                                        <span class="checkbox-price">1KM</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </label>
-
-                                        <label for="4">
-                                            <div class="checkbox-item">
-                                                <input type="checkbox" id="4" style="margin: revert; margin-right: 10px">
-                                                <div class="checkbox-text">
-                                                    <div class="checkbox-heading">
-                                                        <span class="checkbox-name">Kiseli krastavci</span>
-                                                        <span class="checkbox-price">0.50KM</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </label>
+                                        </th:block>
 
                                     </div>
 
