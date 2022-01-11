@@ -118,7 +118,7 @@
                                             <span th:if="${portion.getIsChecked() == 'f'}">
                                                 <input type="radio" id="${portion.getId()}" name="fav_language" value="${portion.getId()}">
                                             </span>
-                                            <label for="${portion.getId()}">[[${portion.getSize()}]]</label><br>
+                                            <label for="${portion.getId()}">[[${portion.getIsChecked()}]]</label><br>
                                         </th:block>
                                     </div>
 
