@@ -9,12 +9,19 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @Entity
-@EqualsAndHashCode
 @AllArgsConstructor
 public class Portion {
+    @SequenceGenerator(
+            name = "portion_sequence",
+            sequenceName = "portion_sequence",
+            allocationSize = 1
+    )
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue(
+            strategy = GenerationType.IDENTITY,
+            generator = "portion_sequence"
+    )
+    private Long id;
     private String name;
     private String price;
     @ManyToOne(cascade = { CascadeType.REMOVE })
