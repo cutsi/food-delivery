@@ -26,5 +26,5 @@ public class Portion {
     private String price;
     @ManyToOne(cascade = { CascadeType.REMOVE })
     @JoinColumn(name="food_item_id")
-    private FoodItem foodItem;
+    private FoodItem food_item;
 }
