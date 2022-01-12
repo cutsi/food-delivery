@@ -41,4 +41,7 @@ public class PortionSize {
     //TODO prikazat ih sve pravilno na stranici
 
 
+    //STAVIT U FOODITEM
+
+
 }

@@ -33,6 +33,7 @@ public class FoodItem {
     private String price;
     private String image;
     private String info;
+
     @ManyToOne
     @JoinColumn(name="category_id")
     private Category category;
@@ -41,9 +42,6 @@ public class FoodItem {
     @ManyToMany(mappedBy = "foodItems")
     private Set<Condiments> condiments = new HashSet<>();
     @ManyToMany(mappedBy = "foodPortionItems")
-    private List<PortionSize> portionSizes = new ArrayList<>();
-    public int getPriceInt(){
-        return Integer.valueOf(price);
-    }
+    private Set<PortionSize> portionSizes = new HashSet<>();
 
 }
