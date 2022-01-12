@@ -1,10 +1,7 @@
 package cut.food.fooddelivery.entities;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -16,6 +13,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @Entity
+@EqualsAndHashCode
 @AllArgsConstructor
 public class FoodItem {
     @SequenceGenerator(
@@ -43,5 +41,10 @@ public class FoodItem {
     private Set<Condiments> condiments = new HashSet<>();
     @ManyToMany(mappedBy = "foodPortionItems")
     private Set<PortionSize> portionSizes = new HashSet<>();
+    @OneToMany(
+            mappedBy = "food_item",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true) //ukoliko se ukloni user uklone se i ads koji su vezani za njega
+    private Set<Portion> portions = new HashSet<>();
 
 }
