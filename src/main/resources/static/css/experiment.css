@@ -365,6 +365,14 @@ button.menu-item.is-open {
     padding: 1.5em;
 
 }
+.portions-group{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5em;
+    padding: 1.5em;
+    border-bottom: 2px solid #cccccc;
+
+}
 
 .checkbox-item{
     display: flex;
