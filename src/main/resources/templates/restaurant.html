@@ -116,7 +116,7 @@
                                             <span th:if="${portion.getName() == 'SREDNJA' or portion.getName() == 'SREDNJI' or portion.getName() == 'PORCIJA'}">
                                                 <input type="radio" id="${portion.getId()}" name="${portion.getName()}" value="${portion.getId()}" checked='checked'>
                                             </span>
-                                            <span th:if="${portion.getName() != 'SREDNJA' or portion.getName() != 'PORCIJA'}">
+                                            <span th:if="${portion.getName() != 'SREDNJA' and portion.getName() != 'PORCIJA'}">
                                                 <input type="radio" id="${portion.getId()}" name="${portion.getName()}" value="${portion.getId()}">
                                             </span>
                                             <label for="${portion.getId()}">
