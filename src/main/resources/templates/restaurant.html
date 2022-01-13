@@ -109,38 +109,40 @@
                                 </button>
 
                                 <div class="menu-item-content">
-                                    <div class="checkbox-group">
-                                        <script>
-                                            $(document).ready(function(){
-                                                $(".check").click(function(){
-                                                    $("#myCheck").prop("checked", true);
+
+                                    <div class="menu-item-content">
+                                        <div class="checkbox-group">
+                                            <script>
+                                                $(document).ready(function(){
+                                                    $(".check").click(function(){
+                                                        $("#myCheck").prop("checked", true);
+                                                    });
+                                                    $(".uncheck").click(function(){
+                                                        $("#myCheck").prop("checked", false);
+                                                    });
                                                 });
-                                                $(".uncheck").click(function(){
-                                                    $("#myCheck").prop("checked", false);
-                                                });
-                                            });
-                                        </script>
-                                        <th:block th:each="portion: ${foodItem.getPortionsOrderById()}">
-                                            <label for="${portion.getId()}">
-                                                <div class="checkbox-item">
-                                                <span th:if="${portion.getName() == 'SREDNJA' or portion.getName() == 'SREDNJI' or portion.getName() == 'PORCIJA'}">
-                                                    <input type="radio" id="${portion.getId()}" name="${portion.getName()}" value="${portion.getId()}" checked='checked'>
-                                                </span>
-                                                    <span th:if="${portion.getName() != 'SREDNJA' and portion.getName() != 'PORCIJA'}">
-                                                <input type="radio" id="${portion.getId()}" name="${portion.getName()}" value="${portion.getId()}">
-                                            </span>                                                    <div class="checkbox-text">
-                                                    <div class="checkbox-heading">
-                                                        <span class="checkbox-name">[[${portion.getName()}]]</span>
-                                                        <span class="checkbox-price">[[${portion.getPrice()}]]KM</span>
+                                            </script>
+                                            <th:block th:each="portion: ${foodItem.getPortionsOrderById()}">
+                                                <label for="${portion.getId()}">
+                                                    <div class="checkbox-item">
+                                                    <span th:if="${portion.getName() == 'SREDNJA' or portion.getName() == 'SREDNJI' or portion.getName() == 'PORCIJA'}">
+                                                        <input type="radio" id="${portion.getId()}" name="${portion.getName()}" value="${portion.getId()}" checked='checked'>
+                                                    </span>
+                                                        <span th:if="${portion.getName() != 'SREDNJA' and portion.getName() != 'PORCIJA'}">
+                                                        <input type="radio" id="${portion.getId()}" name="${portion.getName()}" value="${portion.getId()}">
+                                                    </span>
+                                                        <div class="checkbox-text">
+                                                            <div class="checkbox-heading">
+                                                                <span class="checkbox-name">[[${portion.getName()}]]</span>
+                                                                <span class="checkbox-price">[[${portion.getPrice()}]]KM</span>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                </div>
-                                            </label>
+                                                </label>
 
-                                        </th:block>
+                                            </th:block>
 
-                                    </div>
-
+                                        </div>
 
                                     <div class="checkbox-group">
                                         <script>
@@ -156,12 +158,8 @@
                                         <th:block th:each="condiment: ${foodItem.getCondiments()}">
                                             <label for="condiment.getId()">
                                                 <div class="checkbox-item">
-<span th:if="${portion.getName() == 'SREDNJA' or portion.getName() == 'SREDNJI' or portion.getName() == 'PORCIJA'}">
-                                                <input type="radio" id="${portion.getId()}" name="${portion.getName()}" value="${portion.getId()}" checked='checked'>
-                                            </span>
-                                                    <span th:if="${portion.getName() != 'SREDNJA' and portion.getName() != 'PORCIJA'}">
-                                                <input type="radio" id="${portion.getId()}" name="${portion.getName()}" value="${portion.getId()}">
-                                            </span>                                                    <div class="checkbox-text">
+                                                    <input type="checkbox" id="condiment.getId()" style="margin: revert; margin-right: 10px">
+                                                    <div class="checkbox-text">
                                                         <div class="checkbox-heading">
                                                             <span class="checkbox-name">[[${condiment.getName()}]]</span>
                                                             <span class="checkbox-price">[[${condiment.getPrice()}]]KM</span>
@@ -176,6 +174,7 @@
 
                                     <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" th:item-id="${foodItem.getId()}" th:item-image="${foodItem.getImage()}" th:item-name="${foodItem.getName()}" th:data-price="${foodItem.getPrice()}">Dodaj</a>
                                 </div>
+                            </div>
                             </div>
                         </th:block>
                     </div>
