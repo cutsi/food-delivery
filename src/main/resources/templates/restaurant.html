@@ -119,7 +119,15 @@
                                             <span th:if="${portion.getName() != 'SREDNJA'}">
                                                 <input type="radio" id="${portion.getId()}" name="${foodItem.getName()}" value="${portion.getId()}">
                                             </span>
-                                            <label for="${portion.getId()}">[[${portion.getName()}]]</label><br>
+                                            <label for="${portion.getId()}">
+                                                <div class="menu-item-text">
+                                                    <h3 class="menu-item-heading">
+                                                        <span class="menu-item-name">[[${portion.getName()}]]</span>
+                                                        <span class="menu-item-price">[[${portion.getPrice()}]]KM</span>
+                                                    </h3>
+                                                </div>
+                                            </label><br>
+
                                         </th:block>
                                         </form>
                                     </div>
