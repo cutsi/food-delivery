@@ -112,7 +112,7 @@
 
                                     <div class ="radiobutton-heading">
                                         <form id="foodItem.getId()">
-                                        <th:block th:each="portion: ${foodItem.getPortions()}">
+                                        <th:block th:each="portion: ${foodItem.getPortionsOrderById()}">
                                                 <input type="radio" id="${portion.getId()}" name="${foodItem.getName()}" value="${portion.getId()}">
                                                 <label for="${portion.getId()}">[[${portion.getName()}]]</label><br>
                                         </th:block>

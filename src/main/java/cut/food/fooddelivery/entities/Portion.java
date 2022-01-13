@@ -10,7 +10,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @AllArgsConstructor
-public class Portion {
+public class Portion implements Comparable<Portion>{
     @SequenceGenerator(
             name = "portion_sequence",
             sequenceName = "portion_sequence",
@@ -27,4 +27,9 @@ public class Portion {
     @ManyToOne(cascade = { CascadeType.REMOVE })
     @JoinColumn(name="food_item_id")
     private FoodItem food_item;
+
+    @Override
+    public int compareTo(Portion portion) {
+        return (int) (this.id - portion.getId());
+    }
 }

@@ -4,10 +4,7 @@ package cut.food.fooddelivery.entities;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Getter
 @Setter
@@ -47,4 +44,9 @@ public class FoodItem {
             orphanRemoval = true) //ukoliko se ukloni user uklone se i ads koji su vezani za njega
     private Set<Portion> portions = new HashSet<>();
 
+    public List<Portion> getPortionsOrderById(){
+        List<Portion> portionList = new ArrayList<>(portions);
+        Collections.sort(portionList);
+        return portionList;
+    }
 }
