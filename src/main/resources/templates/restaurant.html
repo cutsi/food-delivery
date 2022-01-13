@@ -113,8 +113,13 @@
                                     <div class ="radiobutton-heading">
                                         <form id="foodItem.getId()">
                                         <th:block th:each="portion: ${foodItem.getPortionsOrderById()}">
+                                            <span th:if="${portion.getName() == 'SREDNJA' or portion.getName() == 'SREDNJI'}">
+                                                <input type="radio" id="${portion.getId()}" name="${foodItem.getName()}" value="${portion.getId()}" checked='checked'>
+                                            </span>
+                                            <span th:if="${portion.getName() != 'SREDNJA'}">
                                                 <input type="radio" id="${portion.getId()}" name="${foodItem.getName()}" value="${portion.getId()}">
-                                                <label for="${portion.getId()}">[[${portion.getName()}]]</label><br>
+                                            </span>
+                                            <label for="${portion.getId()}">[[${portion.getName()}]]</label><br>
                                         </th:block>
                                         </form>
                                     </div>
