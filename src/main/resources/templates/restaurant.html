@@ -112,7 +112,7 @@
 
                                     <div class ="radiobutton-heading">
                                         <form id="foodItem.getId()">
-                                            <div class="checkbox-group">
+                                            <div class="portion-group">
                                                 <th:block th:each="portion: ${foodItem.getPortionsOrderById()}">
                                                     <label for="${portion.getId()}">
                                                         <div class="checkbox-item">
@@ -223,7 +223,7 @@
 </script>
 <script>
     let btnItem = document.querySelector('#btnItem');
-    btnItem.addEventListener('click', () => btnItem.style.backgroundColor = '#ccc');
+    btnItem.addEventListener('click', () => btnItem.style.backgroundColor = '#e7e9ed');
 </script>
 <script>
     const accordionBtns = document.querySelectorAll(".menu-item");
