@@ -147,9 +147,9 @@
                                             });
                                         </script>
                                         <th:block th:each="condiment: ${foodItem.getCondiments()}">
-                                            <label for="condiment.getId()">
+                                            <label for="${condiment.getId()}">
                                                 <div class="checkbox-item">
-                                                    <input type="checkbox" id="condiment.getId()" style="margin: revert; margin-right: 10px">
+                                                    <input type="checkbox" id="${condiment.getId()}" style="margin: revert; margin-right: 10px">
                                                     <div class="checkbox-text">
                                                         <div class="checkbox-heading">
                                                             <span class="checkbox-name">[[${condiment.getName()}]]</span>
