@@ -442,5 +442,6 @@ button.menu-item.is-open {
     grid-template-columns: 1fr;
     gap: 0.5em;
     padding: 1.5em;
-
+    border-top: 2px solid #ccc;
+    margin-top: 10px;
 }
