@@ -98,11 +98,7 @@
                     <div class="menu-group">
                         <th:block th:each="foodItem: ${menu}">
                             <div th:if="${foodItem.getCategory().getId() == category.getId()}">
-                                <script>
-                                    let btnItem = document.querySelector("${foodItem.getId()}");
-                                    btnItem.addEventListener('click', () => btnItem.style.backgroundColor = '#e7e9ed');
-                                </script>
-                                <button class="menu-item" id="${foodItem.getId()}">
+                                <button class="menu-item" id="btnItem">
                                     <img class="menu-item-image" th:src="${foodItem.getImage()}" src ="${foodItem.getImage()}">
                                     <div class="menu-item-text">
                                         <h3 class="menu-item-heading">
@@ -225,7 +221,10 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
 </script>
-
+<script>
+    let btnItem = document.querySelector('#btnItem');
+    btnItem.addEventListener('click', () => btnItem.style.backgroundColor = '#e7e9ed');
+</script>
 <script>
     const accordionBtns = document.querySelectorAll(".menu-item");
 
