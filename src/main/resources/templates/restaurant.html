@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en" class="h-100" xmlns:th="https://thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 
 <head th:replace="fragments/general-restaurant :: head"></head>
@@ -111,16 +111,16 @@
                                 <div class="menu-item-content">
 
                                     <div class ="radiobutton-heading">
-                                        <form id="foodItem.getId()">
+                                        <form th:id="${foodItem.getId()}">
                                             <div class="portion-group">
                                                 <th:block th:each="portion: ${foodItem.getPortionsOrderById()}">
-                                                    <label for="${portion.getId()}">
+                                                    <label th:for="${foodItem.getId()} + '_portion_' + ${portion.getId()}">
                                                         <div class="checkbox-item">
                                                             <span th:if="${portion.getName() == 'SREDNJA' or portion.getName() == 'SREDNJI' or portion.getName() == 'PORCIJA'}">
-                                                                <input type="radio" id="${portion.getId()}" name="${portion.getName()}" value="${portion.getId()}" style="margin: revert; margin-right: 10px" checked='checked'>
+                                                                <input type="radio" th:id="${foodItem.getId()} + '_portion_' + ${portion.getId()}" th:name="'portion_name_' + ${foodItem.getId()}" th:value="${portion.getId()}" style="margin: revert; margin-right: 10px" checked='checked'>
                                                             </span>
                                                             <span th:if="${portion.getName() != 'SREDNJA' and portion.getName() != 'PORCIJA'}">
-                                                                <input type="radio" id="${portion.getId()}" name="${portion.getName()}" value="${portion.getId()}" style="margin: revert; margin-right: 10px">
+                                                                <input type="radio" th:id="${foodItem.getId()} + '_portion_' + ${portion.getId()}" th:name="'portion_name_' + ${foodItem.getId()}" th:value="${portion.getId()}" style="margin: revert; margin-right: 10px">
                                                             </span>
                                                             <div class="checkbox-text">
                                                                 <div class="checkbox-heading">
@@ -147,9 +147,9 @@
                                             });
                                         </script>
                                         <th:block th:each="condiment: ${foodItem.getCondiments()}">
-                                            <label for="${condiment.getId()}">
+                                                <label th:for="${foodItem.getId()} + '_condiment_' + ${condiment.getId()}">
                                                 <div class="checkbox-item">
-                                                    <input type="checkbox" id="${condiment.getId()}" style="margin: revert; margin-right: 10px">
+                                                    <input type="checkbox" th:id="${foodItem.getId()} + '_condiment_' + ${condiment.getId()}" style="margin: revert; margin-right: 10px">
                                                     <div class="checkbox-text">
                                                         <div class="checkbox-heading">
                                                             <span class="checkbox-name">[[${condiment.getName()}]]</span>
@@ -163,7 +163,7 @@
 
                                     </div>
 
-                                    <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" th:item-id="${foodItem.getId()}" th:item-image="${foodItem.getImage()}" th:item-name="${foodItem.getName()}" th:data-price="${foodItem.getPrice()}">Dodaj</a>
+                                    <a href="" class="cd-add-to-cart js-cd-add-to-cart" th:item-id="${foodItem.getId()}" th:item-image="${foodItem.getImage()}" th:item-name="${foodItem.getName()}" th:data-price="${foodItem.getPrice()}">Dodaj</a>
                                 </div>
                             </div>
                         </th:block>
@@ -222,8 +222,23 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
 </script>
 <script> 
-    let btnItem = document.querySelector('#btnItem');
-    btnItem.addEventListener('click', () => btnItem.style.backgroundColor = '#e7e9ed');
+    let btnItem = document.querySelector('.menu-item');
+
+    $(".menu-item").on('click',function(event){
+
+       
+        if(this.classList.contains("is-open")){
+   
+            $(this).css('backgroundColor','whitesmoke');
+
+        }else{
+
+            $(this).css('backgroundColor','#e7e9ed');
+
+        }
+
+    });
+
 </script>
 <script>
     const accordionBtns = document.querySelectorAll(".menu-item");
