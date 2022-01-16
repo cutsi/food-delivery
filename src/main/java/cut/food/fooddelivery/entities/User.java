@@ -28,6 +28,7 @@ public class User implements UserDetails {
             generator = "user_sequence"
     )
     private Long id;
+    @Column(nullable = true)
     private String name;
     private String phone;
     private String email;
