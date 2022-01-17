@@ -342,6 +342,9 @@ button.menu-item.is-open {
     object-fit: cover;
     margin-right: 1.5em;
     margin-left: -5px;
+    margin-left: 6px;
+    margin-top: 6px;
+    border-radius: 25%;
 }
 @media screen and (min-width: 992px){
     .menu{
