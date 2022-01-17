@@ -8,7 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class RegReq {
+public class RegistrationRequest {
     private final Long id;
     private final String name;
     private final String phone;
