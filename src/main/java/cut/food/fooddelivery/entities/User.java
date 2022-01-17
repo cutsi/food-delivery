@@ -49,7 +49,7 @@ public class User implements UserDetails {
         this.appUserRole = UserRole.USER;
         this.isEnabled = false;
     }
-    public User(String phone, String email, String password){
+    public User(String email, String phone, String password){
         this.phone = phone;
         this.email = email;
         this.password = password;
