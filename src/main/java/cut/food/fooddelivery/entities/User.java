@@ -39,7 +39,16 @@ public class User implements UserDetails {
     private UserRole appUserRole;
     @Column(nullable = true)
     private Boolean isEnabled;
-    
+
+    public User(String name, String phone, String email, String password, String address){
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.password = password;
+        this.address = address;
+        this.appUserRole = UserRole.USER;
+        this.isEnabled = false;
+    }
     public User(String phone, String email, String password){
         this.phone = phone;
         this.email = email;
