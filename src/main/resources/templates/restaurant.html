@@ -122,6 +122,7 @@
                                                             <span th:if="${portion.getName() != 'SREDNJA' and portion.getName() != 'PORCIJA' and portion.getName() != '0.5'}">
                                                                 <input type="radio" th:id="${foodItem.getId()} + 'portion' + ${portion.getId()}" th:name="'portion_name_' + ${foodItem.getId()}" th:value="${portion.getId()}" style="margin: revert; margin-right: 10px">
                                                             </span>
+                                                            
                                                             <div class="checkbox-text">
                                                                 <div class="checkbox-heading">
                                                                     <span class="checkbox-name">[[${portion.getName()}]]</span>
