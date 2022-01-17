@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en" class="h-100" xmlns:th="https://thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 
 <head th:replace="fragments/general-restaurant :: head"></head>
@@ -114,7 +114,6 @@
                                         <form th:id="${foodItem.getId()}">
                                             <div class="portion-group">
                                                 <th:block th:each="portion: ${foodItem.getPortionsOrderById()}">
-<<<<<<< HEAD
                                                     <label th:for="${foodItem.getId()} + 'portion' + ${portion.getId()}">
                                                         <div class="checkbox-item">
                                                             <span th:if="${portion.getName() == 'SREDNJA' or portion.getName() == 'SREDNJI' or portion.getName() == 'PORCIJA'}">
@@ -122,15 +121,6 @@
                                                             </span>
                                                             <span th:if="${portion.getName() != 'SREDNJA' and portion.getName() != 'PORCIJA'}">
                                                                 <input type="radio" th:id="${foodItem.getId()} + 'portion' + ${portion.getId()}" th:name="'portion_name_' + ${foodItem.getId()}" th:value="${portion.getId()}" style="margin: revert; margin-right: 10px">
-=======
-                                                    <label th:for="${foodItem.getId()} + '_portion_' + ${portion.getId()}">
-                                                        <div class="checkbox-item">
-                                                            <span th:if="${portion.getName() == 'SREDNJA' or portion.getName() == 'SREDNJI' or portion.getName() == 'PORCIJA'}">
-                                                                <input type="radio" th:id="${foodItem.getId()} + '_portion_' + ${portion.getId()}" th:name="'portion_name_' + ${foodItem.getId()}" th:value="${portion.getId()}" style="margin: revert; margin-right: 10px" checked='checked'>
-                                                            </span>
-                                                            <span th:if="${portion.getName() != 'SREDNJA' and portion.getName() != 'PORCIJA'}">
-                                                                <input type="radio" th:id="${foodItem.getId()} + '_portion_' + ${portion.getId()}" th:name="'portion_name_' + ${foodItem.getId()}" th:value="${portion.getId()}" style="margin: revert; margin-right: 10px">
->>>>>>> f0be4008b6c8f467f3594838f8a32b2d81591a1a
                                                             </span>
                                                             <div class="checkbox-text">
                                                                 <div class="checkbox-heading">
@@ -157,15 +147,9 @@
                                             });
                                         </script>
                                         <th:block th:each="condiment: ${foodItem.getCondiments()}">
-<<<<<<< HEAD
                                             <label th:for="${foodItem.getId()} + 'condiment' + ${condiment.getId()}">
                                                 <div class="checkbox-item">
                                                     <input type="checkbox" th:id="${foodItem.getId()} + 'condiment' + ${condiment.getId()}" style="margin: revert; margin-right: 10px">
-=======
-                                                <label th:for="${foodItem.getId()} + '_condiment_' + ${condiment.getId()}">
-                                                <div class="checkbox-item">
-                                                    <input type="checkbox" th:id="${foodItem.getId()} + '_condiment_' + ${condiment.getId()}" style="margin: revert; margin-right: 10px">
->>>>>>> f0be4008b6c8f467f3594838f8a32b2d81591a1a
                                                     <div class="checkbox-text">
                                                         <div class="checkbox-heading">
                                                             <span class="checkbox-name">[[${condiment.getName()}]]</span>
@@ -237,24 +221,14 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
 </script>
-<<<<<<< HEAD
 <script>
-=======
-<script> 
->>>>>>> f0be4008b6c8f467f3594838f8a32b2d81591a1a
     let btnItem = document.querySelector('.menu-item');
 
     $(".menu-item").on('click',function(event){
 
-<<<<<<< HEAD
 
         if(this.classList.contains("is-open")){
 
-=======
-       
-        if(this.classList.contains("is-open")){
-   
->>>>>>> f0be4008b6c8f467f3594838f8a32b2d81591a1a
             $(this).css('backgroundColor','whitesmoke');
 
         }else{
