@@ -30,11 +30,15 @@ public class User implements UserDetails {
     private Long id;
     @Column(nullable = true)
     private String name;
+    @Column(nullable = true)
     private String phone;
     private String email;
     private String password;
+    @Column(nullable = true)
     private String address;
     private UserRole appUserRole;
+    @Column(nullable = true)
+    private Boolean isEnabled;
 
     public User(String name, String phone, String email, String password, String address){
         this.name = name;
@@ -43,6 +47,14 @@ public class User implements UserDetails {
         this.password = password;
         this.address = address;
         this.appUserRole = UserRole.USER;
+        this.isEnabled = false;
+    }
+    public User(String phone, String email, String password){
+        this.phone = phone;
+        this.email = email;
+        this.password = password;
+        this.appUserRole = UserRole.USER;
+        this.isEnabled = false;
     }
 
     @Override
@@ -52,12 +64,12 @@ public class User implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return name;
     }
 
     @Override
@@ -77,6 +89,6 @@ public class User implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return isEnabled;
     }
 }

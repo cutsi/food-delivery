@@ -13,8 +13,11 @@ public class RegistrationRequest {
     private final String name;
     private final String phone;
     private final String email;
-    private final String password;
+    private String password;
     private final String address;
     private final UserRole UserRole;
 
+    public void setPassword(String pass) {
+        this.password = pass;
+    }
 }

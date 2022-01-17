@@ -1,8 +1,9 @@
 package cut.food.fooddelivery.services;
 
 import cut.food.fooddelivery.entities.User;
+import cut.food.fooddelivery.utilities.EmailValidator;
 import cut.food.fooddelivery.utilities.UserRole;
-import cut.food.fooddelivery.utilities.requests.RegReq;
+import cut.food.fooddelivery.utilities.requests.RegistrationRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,17 +11,18 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class RegistrationService {
     private final UserService userService;
+    private final EmailValidator emailValidator;
 
-    public void register(RegReq request) {
-
+    public void register(RegistrationRequest request) {
+        boolean isValidEmail = emailValidator
+                .test(request.getEmail());
+        if(!isValidEmail){
+            throw new IllegalStateException("Email not valid");
+        }
         userService.signUpUser(
-                new User(
-                        request.getName(),
+                new User(request.getEmail(),
                         request.getPhone(),
-                        request.getEmail(),
-                        request.getPassword(),
-                        request.getAddress()
-                )
-        );
+                        request.getPassword()));
     }
+
 }

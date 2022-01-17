@@ -9,11 +9,11 @@
             password1 = form.password1.value;
             password2 = form.password2.value;
             if (password1 == '')
-                alert ("Please enter Password");
+                alert ("Unesite lozinku");
             else if (password2 == '')
-                alert ("Please enter confirm password");
+                alert ("Potvrdite lozinku");
             else if (password1 != password2) {
-                alert ("\nPassword did not match: Please try again...")
+                alert ("\nLozinke se ne podudaraju: Pokušajte ponovo...")
                 return false;
             }
         }
@@ -28,23 +28,27 @@
         <div class="container1">
             <div class="title">Registracija</div>
             <div class="content">
-                <form action="/welcome" onSubmit = "return checkPassword(this)" th:action="@{/index}"method="post">
+                <form onSubmit = "return checkPassword(this)" th:action="@{/}" method="post">
                     <div class="user-details">
                         <div class="input-box">
                             <span class="details">Email</span>
-                            <input type="email" placeholder="Enter your email" required>
+                            <input type="email" placeholder="<Unesite email>" required>
                         </div>
                         <div class="input-box">
-                            <span class="details">Password</span>
-                            <input type="password" name="password1" placeholder="Enter your password" required>
+                            <span class="details">Lozinka</span>
+                            <input type="password" name="password1" placeholder="Unesite lozinku" required>
                         </div>
                         <div class="input-box">
-                            <span class="details">Confirm Password</span>
-                            <input type="password" name="password2" placeholder="Confirm your password" required>
+                            <span class="details">Potvrdite lozinku</span>
+                            <input type="password" name="password2" placeholder="Ponovo unesite lozinku" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Broj telefona</span>
+                            <input type="text" name="phone" placeholder="Unesite broj telefona" required>
                         </div>
                     </div>
                     <div class="button">
-                        <input type="submit" value="Register">
+                        <input type="submit" value="Registracija">
                     </div>
                 </form>
             </div>

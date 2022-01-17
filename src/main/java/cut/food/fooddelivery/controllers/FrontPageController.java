@@ -33,10 +33,7 @@ public class FrontPageController {
         return "welcome";
     }
 
-    @GetMapping("/sign-up")
-    public String register(){
-        return "signup";
-    }
+
     @GetMapping(path="/login")
     public String login(){
         return "login";

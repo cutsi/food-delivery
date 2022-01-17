@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -23,19 +24,23 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return null;
+        if(!userRepo.findByName(username).isPresent()){
+            throw new IllegalStateException("Korisnik ne postoji");
+        }
+        return userRepo.findByName(username).get();
     }
     public void signUpUser(User user) {
         // check ih user exists
-        boolean userExists = userRepo.findByEmail(user.getEmail())
-                .isPresent();
+        boolean userExists = userRepo.findByEmail(user.getEmail()).isPresent();
         if (userExists) {
             // TODO check of attributes are the same and
             // TODO if email not confirmed send confirmation email.
-            throw new IllegalStateException("email already taken");
+            //if(!userRepo.findByEmail(user.getEmail()).get().getIsEnabled()){
+            //}
+
+            throw new IllegalStateException("Email je zauzet");
         }
-        String encodedPassword = bCryptPasswordEncoder
-                .encode(user.getPassword());
+        String encodedPassword = bCryptPasswordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
         userRepo.save(user);
         String token = UUID.randomUUID().toString();
@@ -54,9 +59,6 @@ public class UserService implements UserDetailsService {
     public List<User> getAllUsers(){
         return userRepo.findAll();
     }
-    public void getAllUsersById(User user){
-        userRepo.save(user);
-    }
     public Optional<User> getUserByPhone(String phone){
         return userRepo.findByPhone(phone);
     }
@@ -72,5 +74,8 @@ public class UserService implements UserDetailsService {
         } else { username = principal.toString(); }
         Optional<User> user = userRepo.findByEmail(username);
         return user;
+    }
+    public void saveUser(User user){
+        userRepo.save(user);
     }
 }
