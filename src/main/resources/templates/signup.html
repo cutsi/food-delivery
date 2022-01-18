@@ -28,7 +28,7 @@
         <div class="container1">
             <div class="title">Registracija</div>
             <div class="content">
-                <form onSubmit = "return checkPassword(this)" th:action="@{/register}" th:object="${user}" method="post">
+                <form onSubmit = "return checkPassword(this)" th:action="@{/sign-up}" th:object="${user}" method="POST">
                     <div class="user-details">
                         <div class="input-box">
                             <span class="details">Firstname</span>

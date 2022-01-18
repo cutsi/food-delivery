@@ -21,13 +21,12 @@ import java.util.UUID;
 public class UserService implements UserDetailsService {
     private final UserRepo userRepo;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
-
+    private static final String USER_NOT_FOUND =
+            "Korisnik sa emailom: %s nije pronađen";
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        if(!userRepo.findByName(username).isPresent()){
-            throw new IllegalStateException("Korisnik ne postoji");
-        }
-        return userRepo.findByName(username).get();
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        return userRepo.findByEmail(email).
+                orElseThrow(() -> new UsernameNotFoundException(String.format(USER_NOT_FOUND, email)));
     }
     public void signUpUser(User user) {
         // check ih user exists
