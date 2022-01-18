@@ -28,11 +28,15 @@
         <div class="container1">
             <div class="title">Registracija</div>
             <div class="content">
-                <form onSubmit = "return checkPassword(this)" th:action="@{/}" th:object="${user}" method="post">
+                <form onSubmit = "return checkPassword(this)" th:action="@{/register}" th:object="${user}" method="post">
                     <div class="user-details">
                         <div class="input-box">
-                            <span class="details">Email</span>
-                            <input type="email" placeholder="<Unesite email>" required>
+                            <span class="details">Firstname</span>
+                            <input type="text" th:field="*{email}" placeholder="Enter your name" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Broj telefona</span>
+                            <input type="text" th:field="*{phone}" placeholder="Unesite broj telefona" required>
                         </div>
                         <div class="input-box">
                             <span class="details">Lozinka</span>
@@ -41,10 +45,6 @@
                         <div class="input-box">
                             <span class="details">Potvrdite lozinku</span>
                             <input type="password" name="password2" placeholder="Ponovo unesite lozinku" required>
-                        </div>
-                        <div class="input-box">
-                            <span class="details">Broj telefona</span>
-                            <input type="text" name="phone" placeholder="Unesite broj telefona" required>
                         </div>
                     </div>
                     <div class="button">

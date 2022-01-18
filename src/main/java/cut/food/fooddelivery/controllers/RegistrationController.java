@@ -13,19 +13,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @Controller
-@RequestMapping(path = "/")
+@RequestMapping(path = "/register")
 @AllArgsConstructor
 public class RegistrationController {
     private final UserService userService;
     private final RegistrationService registrationService;
 
-
-    @GetMapping("/sign-up")
-    public String register(){
+    @GetMapping(path = "/sign-up")
+    public String signup(@ModelAttribute RegistrationRequest registrationRequest,
+                         Model model){
+        model.addAttribute("user", new User());
         return "signup";
     }
-
-    @PostMapping("/sign-up")
+    @PostMapping
     public String register(@ModelAttribute RegistrationRequest request, Model model,
                            @RequestParam("password1") String pass) {
         System.out.println("USER CREDENTIALS: " + request.getEmail() + request.getPhone());
