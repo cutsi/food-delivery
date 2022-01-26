@@ -8,9 +8,8 @@
 }
 
 .container1{
-
     margin: auto;
-    margin-top: 100px;
+    margin-top: 4.3rem;
     max-width: 700px;
     width: auto;
     background-color: #fff;
@@ -129,7 +128,7 @@ form .button input:hover{
         width: 100%;
     }
     .content form .user-details{
-        max-height: 300px;
+        max-height: 500px;
         overflow-y: scroll;
     }
     .user-details::-webkit-scrollbar{
@@ -140,4 +139,27 @@ form .button input:hover{
     .container1 .content .category{
         flex-direction: column;
     }
+}
+
+
+form .button-reg{
+    height: 45px;
+    margin: 35px 0
+}
+form .button-reg input{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #0062cc;
+}
+form .button-reg input:hover{
+    /* transform: scale(0.99); */
+    background: darkred;
 }

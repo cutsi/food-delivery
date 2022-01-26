@@ -53,9 +53,10 @@ public class User implements UserDetails {
         this.appUserRole = UserRole.USER;
         this.isEnabled = false;
     }
-    public User(String email, String phone, String password){
+    public User(String email, String phone, String password,String name){
         this.phone = phone;
         this.email = email;
+        this.name = name;
         this.password = password;
         this.appUserRole = UserRole.USER;
         this.isEnabled = false;

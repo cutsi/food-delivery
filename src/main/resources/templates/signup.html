@@ -31,19 +31,23 @@
                 <form onSubmit = "return checkPassword(this)" th:action="@{/sign-up}" th:object="${user}" method="POST">
                     <div class="user-details">
                         <div class="input-box">
-                            <span class="details">Firstname</span>
-                            <input type="text" th:field="*{email}" placeholder="Enter your name" required>
+                            <span class="details">IME</span>
+                            <input type="text" th:field="*{name}" placeholder="Enter your name" required>
                         </div>
                         <div class="input-box">
-                            <span class="details">Broj telefona</span>
+                            <span class="details">EMAIL</span>
+                            <input type="email" th:field="*{email}" placeholder="Enter your name" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">BROJ TELEFONA</span>
                             <input type="text" th:field="*{phone}" placeholder="Unesite broj telefona" required>
                         </div>
                         <div class="input-box">
-                            <span class="details">Lozinka</span>
+                            <span class="details">LOZINKA</span>
                             <input type="password" name="password1" placeholder="Unesite lozinku" required>
                         </div>
                         <div class="input-box">
-                            <span class="details">Potvrdite lozinku</span>
+                            <span class="details">POTVRDITE LOZINKU</span>
                             <input type="password" name="password2" placeholder="Ponovo unesite lozinku" required>
                         </div>
                     </div>
