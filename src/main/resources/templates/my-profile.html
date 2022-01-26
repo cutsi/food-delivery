@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="hr" class="h-100" xmlns:th="https://thymeleaf.org">
+
+<head th:replace="fragments/general :: head"></head>
+<head>
+  <meta charset="UTF-8">
+  <title>Moj Profil</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" type="text/css" href="css/profile.css">
+  <link href="../static/css/nav.css" th:href="@{/css/nav.css}" rel="stylesheet" />
+
+</head>
+
+<body class="d-flex flex-column h-100">
+<main role="main" class="flex-shrink-0">
+  <header th:replace="fragments/general :: header"></header>
+</main>
+
+<section class="py-5 my-5">
+  <div class="container">
+    <h1 class="mb-5">Moj profil</h1>
+    <div class="bg-white shadow rounded-lg d-block d-sm-flex">
+      <div class="profile-tab-nav border-right">
+        <div class="p-4">
+          <h4 class="text-center">[[${user.getName()}]]</h4>
+          <h4 class="text-center" style="font: inherit">[[${user.getPhone()}]]</h4>
+          <h4 class="text-center" style="font: inherit">[[${user.getEmail()}]]</h4>
+        </div>
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          <a class="nav-link1 active" id="account-tab" data-toggle="pill" href="#account" role="tab" aria-controls="account" aria-selected="true">
+            <i class="fa fa-home text-center mr-1"></i>
+            Račun
+          </a>
+          <a class="nav-link1" id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
+            <i class="fa fa-key text-center mr-1"></i>
+            Promijeni lozinku
+          </a>
+          <a class="nav-link1" id="security-tab" data-toggle="pill" href="#security" role="tab" aria-controls="security" aria-selected="false">
+            <i class="fa fa-user text-center mr-1"></i>
+            Moje narudžbe
+          </a>
+          <a class="nav-link1" id="application-tab" data-toggle="pill" href="#application" role="tab" aria-controls="application" aria-selected="false">
+            <i class="fa fa-tv text-center mr-1"></i>
+            Moje adrese
+          </a>
+        </div>
+      </div>
+      <div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
+        <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
+          <h3 class="mb-4">Postavke Računa</h3>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>IME</label>
+                <input type="text" class="form-control" value="Kiran">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>EMAIL</label>
+                <input type="text" class="form-control" value="kiranacharya287@gmail.com">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>BROJ MOBITELA</label>
+                <input type="text" class="form-control" value="+91 9876543215">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
+          <h3 class="mb-4">Password Settings</h3>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Trenutna lozinka</label>
+                <input type="password" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Nova lozinka</label>
+                <input type="password" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Potvrdi novu lozinku</label>
+                <input type="password" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div>
+            <button class="btn btn-primary">Update</button>
+            <button class="btn btn-light">Cancel</button>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
+          <h3 class="mb-4">Security Settings</h3>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Login</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Two-factor auth</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="recovery">
+                  <label class="form-check-label" for="recovery">
+                    Recovery
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <button class="btn btn-primary">Update</button>
+            <button class="btn btn-light">Cancel</button>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="application" role="tabpanel" aria-labelledby="application-tab">
+          <h3 class="mb-4">Application Settings</h3>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="app-check">
+                  <label class="form-check-label" for="app-check">
+                    App check
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" >
+                  <label class="form-check-label" for="defaultCheck2">
+                    Lorem ipsum dolor sit.
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <button class="btn btn-primary">Update</button>
+            <button class="btn btn-light">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer th:replace="fragments/general :: footer">
+</footer>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+</script>
+</body>
+
+</html>

@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.xml.xpath.XPath;
+
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -24,6 +26,7 @@ import java.util.Optional;
 @RequestMapping(path = "/")
 @AllArgsConstructor
 public class FrontPageController {
+
     private final CategoryService categoryService;
     private final FoodItemService foodItemService;
     private final RestaurantService restaurantService;
@@ -31,24 +34,41 @@ public class FrontPageController {
 
     @GetMapping(path = "/")
     public String welcome(Model model){
+        System.out.println("/ WELCOME");
+
         List<Restaurant> restaurants = restaurantService.getAllRestaurants();
         model.addAttribute("restaurants",restaurants);
-        System.out.println(userService.getCurrentUser().get());
+        if(userService.getCurrentUser().isPresent())
+            System.out.println(userService.getCurrentUser().get().getEmail());
         return "welcome";
     }
 
 
     @GetMapping(path="/login")
     public String login(){
+        System.out.println("LOGIN GET");
+
         return "login";
     }
 
-    @PostMapping(path = "/welcome")
-    public String loginPost(){
-        System.out.println(userService.getCurrentUser().get().getEmail());
+    @GetMapping(path = "/welcome")
+    public String welcome(){
+        System.out.println("GET WELCOME");
+        //System.out.println(userService.getCurrentUser().get().getEmail());
 
         return "welcome";
     }
+    @PostMapping(path = "/welcome")
+    public String loginPost(){
+        System.out.println("LOGIN POST");
+        //System.out.println(userService.getCurrentUser().get().getEmail());
+
+        return "welcome";
+    }
+
+
+
+    //----------------------------------------------------------------------
     @GetMapping(path="/restaurant")
     public String restoran(Model model, @RequestParam("id") String restaurantId){
         Optional<Restaurant> restaurantOptional = restaurantService.getRestaurantById(Long.valueOf(restaurantId));
@@ -79,5 +99,19 @@ public class FrontPageController {
     @GetMapping(path = "checkout")
     public String checkoutGet(){
         return "checkout";
+    }
+
+    @PostMapping(path = "/custom-logout")
+    public String customLogout(){
+        return "custom-logout";
+    }
+    @PostMapping(path = "/logout-success")
+    public String LogoutSuccess(){
+        return "logout-success";
+    }
+    @GetMapping(path = "my-profile")
+    public String myProfile(Model model){
+        model.addAttribute("user", userService.getCurrentUser().get());
+        return "my-profile";
     }
 }

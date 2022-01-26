@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-100" xmlns:th="https://thymeleaf.org">
+<html lang="hr" class="h-100" xmlns:th="https://thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head th:fragment="head">
     <!-- Required meta tags -->
@@ -15,6 +15,54 @@
     <link rel="stylesheet" href="../static/css/style.css" th:href="@{css/style.css}" />
     <link rel="icon" type="image/png" href="../static/images/favicon.ico" th:href="@{images/favicon.ico}" />
     <title>MEZI</title>
+    <style>
+        /* Style The Dropdown Button */
+        .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* The container <div> - needed to position the dropdown content */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {background-color: #f1f1f1}
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Change the background color of the dropdown button when the dropdown content is shown */
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+    </style>
 </head>
 
 
@@ -32,28 +80,42 @@
         </button>
         <div class="navbar-collapse collapse" id="navbarCollapse" style="">
             <ul class="navbar-nav mr-auto">
+                <div sec:authorize='!isAuthenticated()'>
+                    <li class="nav-item">
+                        <a class="nav-link link main-link" href="/login">Prijavi/Registriraj</a>
+                    </li>
+                </div>
                 <li class="nav-item">
-                    <a class="nav-link link main-link" href="/login">Log In</a>
+                    <a class="nav-link link main-link" href="#">Kako naručiti</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link link main-link" href="/sign-up">Sign Up</a>
+                    <a class="nav-link link main-link" href="#">Kontaktirajte nas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link link main-link" href="#">About</a>
+                    <a class="nav-link link main-link" href="#">O nama</a>
                 </li>
+                <div sec:authorize='isAuthenticated()'>
+
+                <li class="nav-item">
+                        <button class="logout-btn nav-link link main-link dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Profil
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2" style="background-color: darkred; min-width: 7.5rem; max-width: 7.5rem;position: absolute; left: auto;">
+                            <form id="myprofile-form" th:action="@{/my-profile}" method="get">
+                                <button id="myprofile-button" style="width: 100%; border: none;" class="" type="submit">Moj profil</button>
+                            </form>
+                            <form id="settings-form" th:action="@{/postavke}" method="get">
+                                <button id="settings-button" style="width: 100%; border: none;" class="" type="submit">Postavke</button>
+                            </form>
+                            <form id="logout-form" th:action="@{/custom-logout}" method="post">
+                                <button id="logout-button" style="width: 100%; border: none;" class="" type="submit">Odjava</button>
+                            </form>
+                        </div>
+                </li>
+                </div>
+
+
             </ul>
-            <div class="navbar-nav ml-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-user-circle"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu dropdown-menu-lg-right"
-                         aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item link" href="/sign-in">Log In</a>
-                    </div>
-                </li>
-            </div>
         </div>
     </nav>
 </header>
@@ -63,6 +125,26 @@
         <p>&#169; Mezi.online</p>
     </div>
 </footer>
+<script>
+    document.getElementById('logout-button').addEventListener('click', function(){
+
+        //get form
+        var form = document.getElementById("logout-form");
+        var csrf = document.querySelector('meta[name="_csrf"]').content;
+        var input;
+
+        //build csrf input
+        input = document.createElement("input");
+        input.setAttribute("type", "hidden");
+        input.setAttribute("name", "_csrf");
+        input.setAttribute("value", csrf);
+        form.appendChild(input);
+
+        //submit the form
+        form.submit();
+
+    });
+</script>
 </body>
 
 </html>

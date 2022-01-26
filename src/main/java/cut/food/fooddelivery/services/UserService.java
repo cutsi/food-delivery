@@ -3,6 +3,8 @@ package cut.food.fooddelivery.services;
 import cut.food.fooddelivery.entities.User;
 import cut.food.fooddelivery.repos.UserRepo;
 import lombok.AllArgsConstructor;
+
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -25,8 +27,10 @@ public class UserService implements UserDetailsService {
             "Korisnik sa emailom: %s nije pronađen";
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return userRepo.findByEmail(email).
-                orElseThrow(() -> new UsernameNotFoundException(String.format(USER_NOT_FOUND, email)));
+
+        Optional<User> user = userRepo.findByEmail(email);
+        if(!user.isPresent()) throw new UsernameNotFoundException(String.format(USER_NOT_FOUND, email));
+        return user.get();
     }
     public void signUpUser(User user) {
         // check ih user exists
@@ -66,11 +70,12 @@ public class UserService implements UserDetailsService {
     }
 
     public Optional<User> getCurrentUser(){
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getName();
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username;
-        if (principal instanceof UserDetails) {
-            username = ((UserDetails)principal).getUsername();
-        } else { username = principal.toString(); }
+        if(authentication.getPrincipal() instanceof UserDetails)
+            username = ((UserDetails)authentication.getPrincipal()).getUsername();
+        else
+            username = authentication.getPrincipal().toString();
         Optional<User> user = userRepo.findByEmail(username);
         return user;
     }

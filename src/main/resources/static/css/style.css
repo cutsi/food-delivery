@@ -54,15 +54,6 @@ p {
 .dropdown-header:hover {
     color: #f1f3f8;
 }
-
-.dropdown-menu {
-    background-color: #393b44;
-}
-
-.dropdown-item:hover {
-    background-color: #393b44;
-}
-
 /* Footer css */
 
 #footer {
@@ -244,5 +235,17 @@ input[type=checkbox] {
         transform: none;
         margin: 60px auto;
     }
+}
+
+.logout-btn{
+    background-color: inherit;
+    border: none;
+}
+
+.profile{
+    background-color:whitesmoke;
+    width: 100%;
+    margin-top:100px;
+    margin-bottom: 30px;
 }
 

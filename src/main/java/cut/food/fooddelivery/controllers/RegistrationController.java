@@ -37,6 +37,7 @@ public class RegistrationController {
         if (!userService.getUserByEmail(request.getEmail()).isPresent()){
             throw new IllegalStateException("Korisnik nije registriran");
         }
+        User usr = (User) userService.loadUserByUsername(request.getEmail());
 
         model.addAttribute("restaurants", restaurantService.getAllRestaurants());
         return "/welcome";

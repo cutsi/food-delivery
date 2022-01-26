@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-100" xmlns:th="https://thymeleaf.org">
+<html lang="hr" class="h-100" xmlns:th="https://thymeleaf.org">
 
 <head th:replace="fragments/general :: head"></head>
 <head>
@@ -14,15 +14,19 @@
   <div class="container1">
     <div class="title">Login</div>
     <div class="content">
-      <form action="/welcome" onSubmit = "return checkPassword(this)" th:action="@{/welcome}"method="post">
+      <form th:action="@{/login}" method="post" class="border-teal p-4 border-t-12 bg-white mb-6">
         <div class="user-details">
           <div class="input-box">
             <span class="details">Email</span>
-            <input type="email" placeholder="Enter your email" required>
+            <input id="username" type="text" name="username" autocomplete="on"
+                   class="block w-full rounded p-2 rounded shadow border focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
+                   placeholder="Your Username">
           </div>
           <div class="input-box">
             <span class="details">Password</span>
-            <input type="password" name="password1" placeholder="Enter your password" required>
+            <input id="password" type="password" name="password" autocomplete="off"
+                   class="block w-full rounded p-2 rounded shadow border focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
+                   placeholder="Your Password">
           </div>
         </div>
         <div class="button">

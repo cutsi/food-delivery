@@ -1,0 +1,58 @@
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+.nav-link1 {
+  display: block;
+  color: black;
+  text-decoration: none;
+  background-color: transparent;
+  padding: 10px;
+}
+.nav-link1.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+.nav-tabs {
+  border-bottom:  solid ;
+}
+.nav-tabs .nav-item {
+}
+.nav-tabs .nav-link1 {
+  border:  solid transparent;
+}
+.nav-tabs .nav-link1.disabled {
+  background-color: transparent;
+  border-color: transparent;
+}
+.nav-tabs .nav-link1.active, .nav-tabs .nav-item.show .nav-link1 {
+  color: darkred;
+  background-color: darkmagenta;
+  border-color: darkcyan;
+}
+
+.nav-pills .nav-link1.active, .nav-pills .show > .nav-link1 {
+  color: white;
+  background-color: firebrick;
+  text-decoration: none;
+  border-radius: 10px;
+}
+.nav-fill > .nav-link1, .nav-fill .nav-item {
+  flex: 1 1 auto;
+  text-align: center;
+}
+.nav-justified > .nav-link1, .nav-justified .nav-item {
+  flex-basis: 0;
+  flex-grow: 1;
+  text-align: center;
+}
+.tab-content > .tab-pane {
+  display: none;
+}
+.tab-content > .active {
+  display: block;
+}
+
