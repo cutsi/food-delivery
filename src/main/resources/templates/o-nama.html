@@ -12,7 +12,7 @@
   <header th:replace="fragments/general :: header"></header>
 
   <section id="page-header">
-    <div class="jumbotron jumbotron-fluid" th:style="'background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + ${restoran.getImage()} + ');'" style="height: 400px">
+    <div class="jumbotron jumbotron-fluid" th:style="'background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + ${banner.getName()} + ');'" style="height: 400px">
       <div class="container">
         <div class="row">
           <div class="col-lg-6 col-width">
@@ -35,12 +35,12 @@
             posla ili nekog drugog mjesta putem mobilne aplikacije koja
             je brza i besplatna, naručiti bilo koji proizvod iz ponude.
             Dostava stiže na Vašu adresu brzo i jednostavno. Samo se registrirajte,
-            odaberite restoran i željeni prozivod, i to je to, vaš odabir bit će vam pred vratima ubrzo
+            odaberite restoran, željeni prozivod, i to je to, vaš odabir bit će vam pred vratima ubrzo
             "</p>
         </div>
         <div class="col-sm-5">
           <div class="img-wrap">
-            <img style="margin-top: 100px;margin-bottom: 100px;" class="" th:src="${restoran.getImage()}" src ="${restoran.getImage()}">
+            <img style="margin-top: 100px;margin-bottom: 100px;" class="" th:src="${round-img.getName()}" src ="${round-img.getName()}">
           </div>
         </div>
       </div>

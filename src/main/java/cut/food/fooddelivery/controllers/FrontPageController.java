@@ -3,10 +3,7 @@ package cut.food.fooddelivery.controllers;
 import cut.food.fooddelivery.entities.Category;
 import cut.food.fooddelivery.entities.FoodItem;
 import cut.food.fooddelivery.entities.Restaurant;
-import cut.food.fooddelivery.services.CategoryService;
-import cut.food.fooddelivery.services.FoodItemService;
-import cut.food.fooddelivery.services.RestaurantService;
-import cut.food.fooddelivery.services.UserService;
+import cut.food.fooddelivery.services.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,6 +28,7 @@ public class FrontPageController {
     private final FoodItemService foodItemService;
     private final RestaurantService restaurantService;
     private final UserService userService;
+    private final ImageService imageService;
 
     @GetMapping(path = "/")
     public String welcome(Model model){
@@ -121,6 +119,8 @@ public class FrontPageController {
     @GetMapping(path = "/O-nama")
     public String o_nama(Model model){
         model.addAttribute("restoran",restaurantService.getRestaurantById(1L).get());
+        model.addAttribute("banner", imageService.getImageById(2L));
+        model.addAttribute("round-img", imageService.getImageById(1L));
         return "o-nama";
     }
     @GetMapping(path = "/Kontaktirajte-nas")
