@@ -86,13 +86,13 @@
                     </li>
                 </div>
                 <li class="nav-item">
-                    <a class="nav-link link main-link" href="#">Kako naručiti</a>
+                    <a class="nav-link link main-link" href="/Kako-naručiti">Kako naručiti</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link link main-link" href="#">Kontaktirajte nas</a>
+                    <a class="nav-link link main-link" href="/Kontaktirajte-nas">Kontaktirajte nas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link link main-link" href="#">O nama</a>
+                    <a class="nav-link link main-link" href="/O-nama">O nama</a>
                 </li>
                 <div sec:authorize='isAuthenticated()'>
 
@@ -103,9 +103,6 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2" style="background-color: darkred; min-width: 7.5rem; max-width: 7.5rem;position: absolute; left: auto;">
                             <form id="myprofile-form" th:action="@{/my-profile}" method="get">
                                 <button id="myprofile-button" style="width: 100%; border: none;" class="" type="submit">Moj profil</button>
-                            </form>
-                            <form id="settings-form" th:action="@{/postavke}" method="get">
-                                <button id="settings-button" style="width: 100%; border: none;" class="" type="submit">Postavke</button>
                             </form>
                             <form id="logout-form" th:action="@{/custom-logout}" method="post">
                                 <button id="logout-button" style="width: 100%; border: none;" class="" type="submit">Odjava</button>

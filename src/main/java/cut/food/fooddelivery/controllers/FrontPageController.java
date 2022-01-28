@@ -114,4 +114,17 @@ public class FrontPageController {
         model.addAttribute("user", userService.getCurrentUser().get());
         return "my-profile";
     }
+    @GetMapping(path = "/Kako-naručiti")
+    public String kako_naručiti(){
+        return "kako-naručiti";
+    }
+    @GetMapping(path = "/O-nama")
+    public String o_nama(Model model){
+        model.addAttribute("restoran",restaurantService.getRestaurantById(1L).get());
+        return "o-nama";
+    }
+    @GetMapping(path = "/Kontaktirajte-nas")
+    public String contact_us(){
+        return "kontaktirajte-nas";
+    }
 }

@@ -17,7 +17,7 @@ p {
 /* Navigation CSS */
 
 #navigation {
-    font-family: "Ubuntu";
+    font-family: 'Poppins',sans-serif;
 }
 
 
@@ -249,3 +249,12 @@ input[type=checkbox] {
     margin-bottom: 30px;
 }
 
+.img-wrap{
+    width: 100%;
+}
+.img-wrap img{
+    width: 100%;
+    padding:10px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #999999;
+}

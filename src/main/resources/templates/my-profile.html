@@ -52,19 +52,19 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label>IME</label>
-                <input type="text" class="form-control" value="Kiran">
+                <input type="text" class="form-control" th:value="${user.getName()}" readonly>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label>EMAIL</label>
-                <input type="text" class="form-control" value="kiranacharya287@gmail.com">
+                <input type="text" class="form-control" th:value="${user.getEmail()}" readonly>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label>BROJ MOBITELA</label>
-                <input type="text" class="form-control" value="+91 9876543215">
+                <input type="text" class="form-control" th:value="${user.getPhone()}" readonly>
               </div>
             </div>
           </div>
