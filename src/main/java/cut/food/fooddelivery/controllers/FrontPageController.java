@@ -118,9 +118,10 @@ public class FrontPageController {
     }
     @GetMapping(path = "/O-nama")
     public String o_nama(Model model){
+        System.out.println("BANNER: " + imageService.getImageById(2L).get().getName());
         model.addAttribute("restoran",restaurantService.getRestaurantById(1L).get());
-        model.addAttribute("banner", imageService.getImageById(2L));
-        model.addAttribute("round-img", imageService.getImageById(1L));
+        model.addAttribute("banner", imageService.getImageById(2L).get().getName());
+        model.addAttribute("round", imageService.getImageById(1L).get().getName());
         return "o-nama";
     }
     @GetMapping(path = "/Kontaktirajte-nas")

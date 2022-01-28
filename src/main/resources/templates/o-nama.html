@@ -12,7 +12,7 @@
   <header th:replace="fragments/general :: header"></header>
 
   <section id="page-header">
-    <div class="jumbotron jumbotron-fluid" th:style="'background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + ${banner.getName()} + ');'" style="height: 400px">
+    <div class="jumbotron jumbotron-fluid" th:style="'background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + ${banner} + ');'" style="height: 400px">
       <div class="container">
         <div class="row">
           <div class="col-lg-6 col-width">
@@ -40,7 +40,7 @@
         </div>
         <div class="col-sm-5">
           <div class="img-wrap">
-            <img style="margin-top: 100px;margin-bottom: 100px;" class="" th:src="${round-img.getName()}" src ="${round-img.getName()}">
+            <img style="margin-top: 100px;margin-bottom: 100px;" class="" th:src="${round}" src ="${round}">
           </div>
         </div>
       </div>

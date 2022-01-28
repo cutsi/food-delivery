@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -14,9 +15,7 @@ public class ImageService {
     public List<Image> getAllImages(){
         return imageRepo.findAll();
     }
-    public Image getImageById(Long id){
-        if(imageRepo.findById(id).isPresent())
-            return imageRepo.findById(id).get();
-        return null;
+    public Optional<Image> getImageById(Long id){
+        return imageRepo.findById(id);
     }
 }
