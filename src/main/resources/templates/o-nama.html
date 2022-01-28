@@ -11,20 +11,32 @@
 <main role="main" class="flex-shrink-0">
   <header th:replace="fragments/general :: header"></header>
 
+  <section id="page-header">
+    <div class="jumbotron jumbotron-fluid" th:style="'background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + ${restoran.getImage()} + ');'" style="height: 400px">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-width">
+            <h2 class="jumbotron-header" style="padding-top: 17rem;">O nama</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="aboutus">
     <div class="container">
       <div class="row">
         <div class="col-sm-7" style="padding-top: 100px;">
           <h2 class="text-center">Što je to MEZI?</h2>
           <p style="padding-top: 35px;">
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna
-            aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-            ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit
-            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia
-            deserunt mollit anim id est laborum."</p>
+            "Mezi je platforma razvijena od strane Posuških
+            studenata koja se bavi dostavom raznih vrsta proizvoda,
+            namirnica, hrane i slično. Kupci mogu iz udobnosti svog doma,
+            posla ili nekog drugog mjesta putem mobilne aplikacije koja
+            je brza i besplatna, naručiti bilo koji proizvod iz ponude.
+            Dostava stiže na Vašu adresu brzo i jednostavno. Samo se registrirajte,
+            odaberite restoran i željeni prozivod, i to je to, vaš odabir bit će vam pred vratima ubrzo
+            "</p>
         </div>
         <div class="col-sm-5">
           <div class="img-wrap">
