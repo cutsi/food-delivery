@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="hr" class="h-100" xmlns:th="https://thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en" class="h-100" xmlns:th="https://thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 
 <head th:replace="fragments/general-restaurant :: head"></head>
 <head>
     <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
     <script>document.getElementsByTagName("html")[0].className += " js";</script>
     <link href="../static/css/experiment.css" th:href="@{/css/experiment.css}" rel="stylesheet" />
     <link href="../static/css/carousel.css" th:href="@{/css/carousel.css}" rel="stylesheet" />
     <link href="../static/css/test.css" th:href="@{/css/test.css}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         .demo-avd{position:fixed;width:200px;border-radius:.3em;overflow:hidden;-webkit-box-shadow:0 4px 20px rgba(0,0,0,.2);box-shadow:0 4px 20px rgba(0,0,0,.2);z-index:99;top:20px;right:20px;backdrop-filter:blur(10px)}.demo-avd--light{background-color:rgba(0,0,0,.8)}.demo-avd--dark{background-color:rgba(255,255,255,.8)}.demo-avd--light .demo-avd__template-text{color:#fff}.demo-avd--dark .demo-avd__template-img,.demo-avd--dark .demo-avd__template-text{color:rgba(0,0,0,.8)}.demo-avd .demo-avd__template-img{display:block;width:200px}.demo-avd .demo-avd__template-text{padding:10px;font-family:sans-serif!important}.demo-avd .demo-avd__template-text{font-size:14px;display:block;line-height:1.4;text-decoration:none}.demo-avd .demo-avd__template-text:hover{text-decoration:underline}.demo-avd .demo-avd__template-img img{display:block;width:200px}.demo-avd .demo-avd__template-text{text-decoration:none}.demo-avd__close{display:block;width:32px;height:32px;position:absolute;z-index:1;top:0;right:0;opacity:.8;cursor:auto}.demo-avd__close:hover{opacity:1}@media(max-width:800px){.demo-avd-cf{position:fixed;bottom:0!important;top:auto!important;left:0!important;right:0!important;width:100%!important;border-radius:0}.demo-avd-cf.demo-avd-cf--top-mb{top:0!important;bottom:auto!important}.demo-avd .demo-avd__template-img{display:none}.demo-avd .demo-avd__template-text{margin-top:2px}}    </style>
 
@@ -46,13 +48,41 @@
             grid-column: 1 / span 3;
             grid-row: 3;
         }
+        @keyframes changewidth {
+            from {
+                left: 0px;
+            }
+
+            to {
+                left: -50px
+            }
+        }
+
+        .slide-right {
+            white-space: nowrap !important;
+            text-overflow: inherit !important;
+        }
+
+        .slide-right a {
+            position: relative !important;
+        }
+
+        .slide-right a:hover {
+            animation-duration: 2.5s;
+            animation-name: changewidth;
+            animation-iteration-count: infinite;
+        }
+        .cd-cart__image{
+            display: flex;
+            align-items: center;
+        }
     </style>
 </head>
 
 <body class="d-flex flex-column h-100">
 
 <main role="main" class="flex-shrink-0">
-    <header th:replace="fragments/general :: header"></header>
+    <header th:replace="fragments/general-restaurant :: header"></header>
 
 
     <section id="page-header">
@@ -97,7 +127,7 @@
                     <div class="menu-group">
                         <th:block th:each="foodItem: ${menu}">
                             <div th:if="${foodItem.getCategory().getId() == category.getId()}">
-                                <button class="menu-item" id="btnItem">
+                                <button class="menu-item" th:id="'btnItem_'+${foodItem.getId()}">
                                     <img class="menu-item-image" th:src="${foodItem.getImage()}" src ="${foodItem.getImage()}">
                                     <div class="menu-item-text">
                                         <h3 class="menu-item-heading">
@@ -113,13 +143,15 @@
                                         <form th:id="${foodItem.getId()}">
                                             <div class="portion-group">
                                                 <th:block th:each="portion: ${foodItem.getPortionsOrderById()}">
-                                                    <label th:for="${foodItem.getId()} + 'portion' + ${portion.getId()}">
+                                                    <label th:for="${foodItem.getId()} + '_portion_' + ${portion.getId()}">
                                                         <div class="checkbox-item">
                                                             <span th:if="${portion.getName() == 'SREDNJA' or portion.getName() == 'SREDNJI' or portion.getName() == 'PORCIJA' or portion.getName() == '0.5'}">
-                                                                <input type="radio" th:id="${foodItem.getId()} + 'portion' + ${portion.getId()}" th:name="'portion_name_' + ${foodItem.getId()}" th:value="${portion.getId()}" style="margin: revert; margin-right: 10px" checked='checked'>
+                                                                <input type="radio" th:id="${foodItem.getId()} + '_portion_' + ${portion.getId()}" th:name="'portion_name_' + ${foodItem.getId()}" th:value="${portion.getId()}" style="margin: revert; margin-right: 10px" checked='checked'
+                                                                       th:portion-name="${portion.getName()}" th:portion-price="${portion.getPrice()}" >
                                                             </span>
                                                             <span th:if="${portion.getName() != 'SREDNJA' and portion.getName() != 'PORCIJA' and portion.getName() != '0.5'}">
-                                                                <input type="radio" th:id="${foodItem.getId()} + 'portion' + ${portion.getId()}" th:name="'portion_name_' + ${foodItem.getId()}" th:value="${portion.getId()}" style="margin: revert; margin-right: 10px">
+                                                                <input type="radio" th:id="${foodItem.getId()} + '_portion_' + ${portion.getId()}" th:name="'portion_name_' + ${foodItem.getId()}" th:value="${portion.getId()}" style="margin: revert; margin-right: 10px"
+                                                                       th:portion-name="${portion.getName()}" th:portion-price="${portion.getPrice()}">
                                                             </span>
 
                                                             <div class="checkbox-text">
@@ -147,9 +179,10 @@
                                             });
                                         </script>
                                         <th:block th:each="condiment: ${foodItem.getCondiments()}">
-                                            <label th:for="${foodItem.getId()} + 'condiment' + ${condiment.getId()}">
+                                            <label th:for="${foodItem.getId()} + '_condiment_' + ${condiment.getId()}">
                                                 <div class="checkbox-item">
-                                                    <input type="checkbox" th:id="${foodItem.getId()} + 'condiment' + ${condiment.getId()}" style="margin: revert; margin-right: 10px">
+                                                    <input type="checkbox" th:id="${foodItem.getId()} + '_condiment_' + ${condiment.getId()}" th:name="'condiment_name_' + ${foodItem.getId()}" th:value="${condiment.getId()}" style="margin: revert; margin-right: 10px"
+                                                           th:condiment-name="${condiment.getName()}" th:condiment-price="${condiment.getPrice()}">
                                                     <div class="checkbox-text">
                                                         <div class="checkbox-heading">
                                                             <span class="checkbox-name">[[${condiment.getName()}]]</span>
@@ -163,7 +196,7 @@
 
                                     </div>
 
-                                    <a href="" class="cd-add-to-cart js-cd-add-to-cart" th:item-id="${foodItem.getId()}" th:item-image="${foodItem.getImage()}" th:item-name="${foodItem.getName()}" th:data-price="${foodItem.getPrice()}">Dodaj</a>
+                                    <a href="" class="cd-add-to-cart js-cd-add-to-cart" th:item-id="${foodItem.getId()}" th:item-image="${foodItem.getImage()}" th:item-name="${foodItem.getName()}">Dodaj</a>
                                 </div>
                             </div>
                         </th:block>
@@ -174,7 +207,7 @@
     </section>
 
     <div class="cd-cart cd-cart--empty js-cd-cart">
-        <a href="#0" class="cd-cart__trigger text-replace">
+        <a style="cursor:pointer" class="cd-cart__trigger text-replace">
             <ul class="cd-cart__count">
                 <li>0</li>
                 <li>0</li>
@@ -192,7 +225,7 @@
                     </ul>
                 </div>
                 <div class="cd-cart__footer">
-                    <a id="checkout-btn" href="#0" class="cd-cart__checkout">
+                    <a id="checkout-btn" class="cd-cart__checkout" style="cursor:pointer">
                         <em>Checkout - <span>0</span>$
                             <svg class="icon icon--sm" viewBox="0 0 24 24"><g fill="none" stroke="currentColor"><line stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="3" y1="12" x2="21" y2="12"></line><polyline stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="15,6 21,12 15,18 "></polyline></g>
                             </svg>
@@ -204,7 +237,7 @@
     </div>
 </main>
 
-<footer th:replace="fragments/general :: footer">
+<footer th:replace="fragments/general-restaurant :: footer">
 </footer>
 
 <form id="checkout-form" action="/checkout" method="post">
@@ -212,8 +245,7 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous">
 </script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
@@ -248,7 +280,7 @@
             this.classList.toggle("is-open");
 
             let content = this.nextElementSibling;
-            console.log(content);
+            //console.log(content);
 
             if (content.style.maxHeight) {
                 //this is if the accordion is open
@@ -256,7 +288,7 @@
             } else {
                 //if the accordion is currently closed
                 content.style.maxHeight = content.scrollHeight + "px";
-                console.log(content.style.maxHeight);
+                //console.log(content.style.maxHeight);
             }
         };
     });
@@ -441,23 +473,28 @@
 </script>
 <script type="text/javascript">
     (function(){
-        var productIds = [];
-        var currentProductLimitQantity = false;
-        // Add to Cart Interaction - by CodyHouse.co
+
+
+        var foodItems = [];
+        var cartCount = 0;
+        // Add to Cart Interaction
         var cart = document.getElementsByClassName('js-cd-cart');
         if(cart.length > 0) {
+
             var cartAddBtns = document.getElementsByClassName('js-cd-add-to-cart'),
                 cartBody = cart[0].getElementsByClassName('cd-cart__body')[0],
                 cartList = cartBody.getElementsByTagName('ul')[0],
-                cartListItems = cartList.getElementsByClassName('cd-cart__product'),
                 cartTotal = cart[0].getElementsByClassName('cd-cart__checkout')[0].getElementsByTagName('span')[0],
-                cartCount = cart[0].getElementsByClassName('cd-cart__count')[0],
-                cartCountItems = cartCount.getElementsByTagName('li'),
-                cartUndo = cart[0].getElementsByClassName('cd-cart__undo')[0],
-                //productId = 0, //this is a placeholder -> use your real product ids instead
-                cartTimeoutId = false,
                 animatingQuantity = false;
             initCartEvents();
+
+            //bootstrap function
+            function initCartEvents() {
+                // add products to cart
+                for(var i = 0; i < cartAddBtns.length; i++) {(function(i){
+                    cartAddBtns[i].addEventListener('click', addToCart);
+                })(i);}
+            };
 
             //add click checkout button click listner
             document.getElementById('checkout-btn').addEventListener('click', function(){
@@ -465,15 +502,17 @@
                 //get form
                 var form = document.getElementById("checkout-form");
                 var csrf = document.querySelector('meta[name="_csrf"]').content;
+                var csrf_h = document.querySelector('meta[name="_csrf_header"]').content;
                 var input;
 
+                if(foodItems.length == 1)foodItems.push(null);
                 //build inputs inside form to inject product ids
-                for(var k=0;k<productIds.length;k++){
+                for(var k=0; k<foodItems.length; k++){
 
                     input = document.createElement("input");
                     input.setAttribute("type", "hidden");
-                    input.setAttribute("name", "products");
-                    input.setAttribute("value", productIds[k]);
+                    input.setAttribute("name", "foodItems");
+                    input.setAttribute("value",  JSON.stringify(foodItems[k]) );
                     form.appendChild(input);
 
                 }
@@ -490,198 +529,442 @@
 
             });
 
-            function initCartEvents() {
-                // add products to cart
-                for(var i = 0; i < cartAddBtns.length; i++) {(function(i){
-                    cartAddBtns[i].addEventListener('click', addToCart);
-                })(i);}
-
-                // open/close cart
-                cart[0].getElementsByClassName('cd-cart__trigger')[0].addEventListener('click', function(event){
-                    event.preventDefault();
-                    toggleCart();
-                });
-
-                cart[0].addEventListener('click', function(event) {
-                    if(event.target == cart[0]) { // close cart when clicking on bg layer
-                        toggleCart(true);
-                    } else if (event.target.closest('.cd-cart__delete-item')) { // remove product from cart
-                        event.preventDefault();
-                        removeProduct(event.target.closest('.cd-cart__product'));
-                    }
-                });
-
-                // update product quantity inside cart
-                cart[0].addEventListener('change', function(event) {
-                    if(event.target.tagName.toLowerCase() == 'select') quickUpdateCart();
-                });
-
-                //reinsert product deleted from the cart
-                cartUndo.addEventListener('click', function(event) {
-                    if(event.target.tagName.toLowerCase() == 'a') {
-                        event.preventDefault();
-                        if(cartTimeoutId) clearInterval(cartTimeoutId);
-                        // reinsert deleted product
-                        var deletedProduct = cartList.getElementsByClassName('cd-cart__product--deleted')[0];
-                        Util.addClass(deletedProduct, 'cd-cart__product--undo');
-                        deletedProduct.addEventListener('animationend', function cb(){
-                            deletedProduct.removeEventListener('animationend', cb);
-                            Util.removeClass(deletedProduct, 'cd-cart__product--deleted cd-cart__product--undo');
-                            deletedProduct.removeAttribute('style');
-                            quickUpdateCart();
-                        });
-                        Util.removeClass(cartUndo, 'cd-cart__undo--visible');
-                    }
-                });
-            };
-
+            //add to cart parent function
             function addToCart(event) {
                 event.preventDefault();
                 if(animatingQuantity) return;
-                var cartIsEmpty = Util.hasClass(cart[0], 'cd-cart--empty');
-                //update cart product list
-                console.log(event.toString());
-                addProduct(this.getAttribute('item-id'),this.getAttribute('item-image'), this.getAttribute('item-name'), this.getAttribute('data-price'));
 
-                if(!currentProductLimitQantity){
-                    //update number of items
-                    updateCartCount(cartIsEmpty);
-                    //update total price
-                    updateCartTotal(this.getAttribute('data-price'), true);
-                    Util.removeClass(cart[0], 'cd-cart--empty');
-                }currentProductLimitQantity=false;
-                //show cart
+                addProduct(
+                    this.getAttribute('item-id'),
+                    this.getAttribute('item-image'),
+                    this.getAttribute('item-name')
+                );
+                const portionPrice = +$('input[name="portion_name_'+this.getAttribute('item-id')+'"]:checked').attr("portion-price");
+                $('#btnItem_'+this.getAttribute('item-id')+' .menu-item-price').text(portionPrice.toFixed(2)+'KM');
+                $("#btnItem_"+this.getAttribute('item-id')).click();
+                $( '[name=condiment_name_'+this.getAttribute("item-id")+']' ).prop( "checked", false );
 
             };
 
-            function toggleCart(bool) { // toggle cart visibility
-                var cartIsOpen = ( typeof bool === 'undefined' ) ? Util.hasClass(cart[0], 'cd-cart--open') : bool;
+            function blinkPrice(productId){
 
-                if( cartIsOpen ) {
-                    Util.removeClass(cart[0], 'cd-cart--open');
-                    //reset undo
-                    if(cartTimeoutId) clearInterval(cartTimeoutId);
-                    Util.removeClass(cartUndo, 'cd-cart__undo--visible');
-                    removePreviousProduct(); // if a product was deleted, remove it definitively from the cart
+                $('#btnItem_'+productId+' .menu-item-price').stop().fadeOut();
+                $('#btnItem_'+productId+' .menu-item-price').stop().fadeIn();
+                $('#btnItem_'+productId+' .menu-item-price').css("color","red");
+                var fadeItOut = function() {
+                    $('#btnItem_'+productId+' .menu-item-price').fadeOut(500, function(){
+                        fadeItIn();
+                    });
+                };
 
-                    setTimeout(function(){
-                        cartBody.scrollTop = 0;
-                        //check if cart empty to hide it
-                        if( Number(cartCountItems[0].innerText) == 0) Util.addClass(cart[0], 'cd-cart--empty');
-                    }, 500);
-                } else {
-                    Util.addClass(cart[0], 'cd-cart--open');
+                var fadeItIn = function() {
+                    $('#btnItem_'+productId+' .menu-item-price').fadeIn(500, fadeItOut());
+                };
+                fadeItIn();
+
+                setTimeout(()=>{
+                    $('#btnItem_'+productId+' .menu-item-price').stop().fadeOut();
+                    $('#btnItem_'+productId+' .menu-item-price').stop().fadeIn();
+                    $('#btnItem_'+productId+' .menu-item-price').css("color","#333");
+                },500);
+
+            }
+
+            //portions radio button on change
+            $('input[type=radio]').on('change',function(){
+
+                const productId = $(this).attr('id').split('_portion_')[0];
+                const portionPrice =  +$(this).attr("portion-price");
+                let condimentsPrices = 0;
+
+                $.each($('input[name="condiment_name_'+productId+'"]:checked'), function(){
+
+                    let condimentCheckedId = $(this).val();
+                    condimentsPrices +=  +$(this).attr("condiment-price");
+
+                });
+                $('#btnItem_'+productId+' .menu-item-price').text((portionPrice+condimentsPrices).toFixed(2)+'KM');
+                blinkPrice(productId);
+
+            });
+
+            //condiments checkbox button on change
+            $('input[type=checkbox]').on('change',function(){
+
+                const productId = $(this).attr('id').split('_condiment_')[0];
+                const portionPrice = +$('input[name="portion_name_'+productId+'"]:checked').attr("portion-price");
+                let condimentsPrices =  0;
+
+                $.each($('input[name="condiment_name_'+productId+'"]:checked'), function(){
+
+                    let condimentCheckedId = $(this).val();
+                    condimentsPrices +=  +$(this).attr("condiment-price");
+
+                });
+                $('#btnItem_'+productId+' .menu-item-price').text((portionPrice+condimentsPrices).toFixed(2)+'KM');
+                blinkPrice(productId);
+
+            });
+
+            //close cart if click outside
+            $(".js-cd-cart.cd-cart").on("click",function(e){
+
+                if($(e.target).hasClass("js-cd-cart") && $(e.target).hasClass("cd-cart--open")){
+
+                    $(".cd-cart").removeClass("cd-cart--open");
+                    $(".details-container").hide();
+
                 }
-            };
 
-            function addProduct(productId,image,name,price) {
-                // this is just a product placeholder
-                // you should insert an item with the selected product info
-                // replace productId, productName, price and url with your real product info
-                // you should also check if the product was already in the cart -> if it is, just update the quantity
-                if(productIds.includes(productId)){
-                    //alert(document.getElementById("cd-product-"+productId).value);
-                    var quantityTemp = document.getElementById("cd-product-"+productId);
-                    if(quantityTemp.value == 9)currentProductLimitQantity=true;
-                    quantityTemp.value  =  quantityTemp.value < 9  ? +quantityTemp.value + 1 : quantityTemp.value;
+            });
+
+            //open/close cart
+            $(".js-cd-cart .cd-cart__trigger").on("click",function(e){
+
+                e.stopPropagation();
+                if($(".cd-cart").hasClass("cd-cart--open")){
+
+                    $(".cd-cart").removeClass("cd-cart--open");
+                    $(".details-container").hide();
+
+                }
+                else $(".cd-cart").addClass("cd-cart--open");
+
+            });
+
+            //details button onclick
+            $(".cd-cart__content").on("click",".cd-cart__details-item",function(){
+
+                let itemId = $(this).attr("id").split("btn_detail_")[1];
+                $("#order_detail_"+itemId).toggle();
+
+            });
+
+            //delete button onclick
+            $(".cd-cart__content").on("click",".cd-cart__delete-item",function(){
+
+                let itemId = $(this).attr("id").split("btn_delete_")[1];
+                $("#food_cart_"+itemId).remove();
+                $("#order_detail_"+itemId).remove();
+                let item = foodItems.filter(f=>{
+                    return f.order.uniqueId == itemId;
+                })[0];
+                cartCount -= item.order.quantity;
+                $(".cd-cart__count li").first().text(cartCount);
+                foodItems = foodItems.filter(f=>{
+                    return f.order.uniqueId != itemId;
+                });
+                updateCartTotlaPrice();
+                localStorage.setItem("_cart",JSON.stringify(foodItems));
+                localStorage.setItem("_cart-count",cartCount);
+                if(cartCount == 0){
+                    $(".cd-cart").removeClass("cd-cart--open");
+                    $(".cd-cart").addClass("cd-cart--empty");
+                }
+
+            });
+
+            //quantity select onchange
+            $(".cd-cart__content").on("change","select[id^='quantity_']",function(){
+
+                let id = $(this).attr("id").split("quantity_")[1];
+                let foodItemObjTemp = foodItems.filter(f=>{
+                    return f.order.uniqueId == id;
+                })[0];
+                cartCount -= (+foodItemObjTemp.order.quantity);
+                foodItemObjTemp.order.quantity = (+$(this).val());
+                cartCount += (+$(this).val());
+                $(".cd-cart__count li").first().text(cartCount);
+                updateFoodPrice(foodItemObjTemp,false);
+                updateCartTotlaPrice();
+                localStorage.setItem("_cart",JSON.stringify(foodItems));
+                localStorage.setItem("_cart-count",cartCount);
+
+            });
+
+            //comparation method to sort condiments array
+            function compareCondimetns(cond1,cond2){
+
+                if ( cond1.id < cond2.id ){
+                    return -1;
+                }
+                if ( cond1.id > cond2.id ){
+                    return 1;
+                }
+                return 0;
+
+            }
+
+            //build parts of cart details
+            function buildFoodCartParts(foodItemVar){
+
+
+                let foodBox =
+
+                    `<li id="food_cart_${foodItemVar.order.uniqueId}" class="cd-cart__product">
+                        <div class="cd-cart__image">
+                            <a href="#0">
+                                <img src="${foodItemVar.image}" alt="placeholder">
+                            </a>
+                        </div>
+                        <div class="cd-cart__details" style="position:relative;bottom:6px">
+                            <h3 class="truncate slide-right">
+                                <a style="font-size:larger;margin-bottom:5px">${foodItemVar.name} (${foodItemVar.order.portion.name})</a>
+                            </h3>
+                            <span class="cd-cart__price" style="color:#007bff"></span>
+                            <div class="cd-cart__actions" style="display:block;margin-top:4px">
+                                <select id="quantity_${foodItemVar.order.uniqueId}" style="border-radius:50px;">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                    </select>
+                                <a style="cursor:pointer;margin-left:8px" class="cd-cart__details-item" id="btn_detail_${foodItemVar.order.uniqueId}"><i class="fa fa-plus-circle"></i> Details</a>
+                                <a style="cursor:pointer;color:red;margin-left:5px" class="cd-cart__delete-item" id="btn_delete_${foodItemVar.order.uniqueId}"><i class="fa fa-trash"></i> Delete</a>
+                            </div>
+                        </div>
+                    </li>
+                    <div class="details-container" id="order_detail_${foodItemVar.order.uniqueId}" style="margin-top:10px;display:none">
+                        <li class="cd-cart__product" id="order_detail_box_${foodItemVar.order.uniqueId}">
+                            <div class="cd-cart__details" style="padding:0px;display:inline">`;
+
+                if(foodItemVar.order.condiments.length > 0){
+
+                    foodBox +=
+
+                        `
+                                        <div class="condiments-view" style="margin-top:4px">
+                                            <ul style="list-style:disc !important;padding:0px;margin-left:22px">
+                                                `;
+
+                    foodItemVar.order.condiments.forEach(c=>{
+
+                        foodBox +=
+
+                            `
+                                                    <li>${c.name}
+                                                        <span class="cd-cart__price" style="float:right;">${c.price} $</span>
+                                                    </li>
+
+                                                    `
+
+                    });
+
+                    foodBox +=
+
+                        `
+                                            </ul>
+                                        </div>
+
+                                    `;
 
                 }else{
-                    productIds.push(productId);
-                    var productAdded =
-                        '<li item-id='+productId+' class="cd-cart__product"><div class="cd-cart__image"><a href="#0"><img th:src='+image+' src='+image+' alt="placeholder"></a></div><div class="cd-cart__details"><h3 class="truncate"><a href="#0">'+name+'</a></h3><span class="cd-cart__price">'+price+' $</span><div class="cd-cart__actions"><a href="#0" class="cd-cart__delete-item">Delete</a><div class="cd-cart__quantity"><label for="cd-product-'+ productId +'">Qty</label><span class="cd-cart__select"><select class="reset" id="cd-product-'+ productId +'" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select><svg class="icon" viewBox="0 0 12 12"><polyline fill="none" stroke="currentColor" points="2,4 6,8 10,4 "/></svg></span></div></div></div></li>';                    cartList.insertAdjacentHTML('beforeend', productAdded);
-                    console.log("ProdIds : "+productIds);
+
+                    foodBox +=
+
+                        `
+                                    <ul style="list-style:disc !important;padding:0px;margin-left:20px">
+                                        <li>No condiments</li>
+                                    </ul>
+                                    `;
+
                 }
 
+                foodBox +=
+                    `
+                            </div>
+                        </li>
+                        <hr style="border-top: 1px solid rgba(0,0,0,.1);margin: 8px;">
+                    </div>
+                    `;
+                cartList.insertAdjacentHTML('beforeend', foodBox);
 
-                // console.log("this is name" + name);
-                // console.log("this is image" + image);
-                // console.log("this is price" + price);
+            }
 
-            };
+            //update cart count
+            function updateCartCount(){
 
-            function removeProduct(product) {
-                if(cartTimeoutId) clearInterval(cartTimeoutId);
-                removePreviousProduct(); // prduct previously deleted -> definitively remove it from the cart
+                cartCount++;
+                localStorage.setItem("_cart-count",cartCount);
+                $(".cd-cart__count li").first().text(cartCount);
 
-                var topPosition = product.offsetTop,
-                    productQuantity = Number(product.getElementsByTagName('select')[0].value),
-                    productTotPrice = Number((product.getElementsByClassName('cd-cart__price')[0].innerText).replace('$', '')) * productQuantity;
+            }
 
-                product.style.top = topPosition+'px';
-                Util.addClass(product, 'cd-cart__product--deleted');
-                console.log(productTotPrice + " pppppppppp");
-                //update items count + total price
-                updateCartTotal(productTotPrice, false);
-                updateCartCount(true, -productQuantity);
-                Util.addClass(cartUndo, 'cd-cart__undo--visible');
+            //update prices
+            function updateFoodPrice(f){
 
-                //wait 8sec before completely remove the item
-                cartTimeoutId = setTimeout(function(){
-                    Util.removeClass(cartUndo, 'cd-cart__undo--visible');
-                    removePreviousProduct();
-                }, 8000);
-            };
+                let condimentsPrice = 0;
 
-            function removePreviousProduct() { // definitively removed a product from the cart (undo not possible anymore)
-                var deletedProduct = cartList.getElementsByClassName('cd-cart__product--deleted');
-                if(deletedProduct.length > 0 ) {
-                    productIds = productIds.filter(function(value){
-                        return value != deletedProduct[0].getAttribute('item-id');
+                if(f.order.condiments.length > 0){
+
+                    f.order.condiments.forEach(c=>{
+
+                        condimentsPrice += (+c.price);
+
                     });
-                    deletedProduct[0].remove();
+
                 }
-            };
 
-            function updateCartCount(emptyCart, quantity) {
+                f.order.price = (((+f.order.portion.price) + (+condimentsPrice)) * (+f.order.quantity)).toFixed(2);
+                $("#food_cart_"+f.order.uniqueId+" .cd-cart__price").text((+f.order.price).toFixed(2)+" $");
 
-                if( typeof quantity === 'undefined' ) {
-                    var actual = Number(cartCountItems[0].innerText) + 1;
-                    var next = actual + 1;
+            }
 
-                    if( emptyCart ) {
-                        cartCountItems[0].innerText = actual;
-                        cartCountItems[1].innerText = next;
-                        animatingQuantity = false;
-                    } else {
-                        Util.addClass(cartCount, 'cd-cart__count--update');
-                        cartCountItems[0].innerText = actual;
-                        Util.removeClass(cartCount, 'cd-cart__count--update');
-                        cartCountItems[1].innerText = next;
-                        animatingQuantity = false;
+            //update global food price
+            function updateCartTotlaPrice(){
+
+                let cartTotalPrice = 0;
+
+                foodItems.forEach(b=>{
+
+                    cartTotalPrice += (+b.order.price);
+
+                });
+
+                $("#checkout-btn em span").text(cartTotalPrice.toFixed(2));
+                localStorage.setItem("_cart-price",cartTotalPrice.toFixed(2));
+
+            }
+
+            //add product to cart
+            function addProduct(productId,image,name) {
+
+                let isNewItem=true;
+                let uniqueIdSufix = 1;
+                //initialize holders
+                let condiments = [];
+                let portion = { id: 0, name: "", price: 0 };
+                let order = { uniqueId: "", price: 0, portion: {}, condiments: [], quantity: 1 };
+                let foodItemObj = {
+
+                    id: 0,
+                    name: "",
+                    image: "",
+                    order: {}
+
+                };
+
+                //build fooditem object
+                foodItemObj.id = productId;
+                foodItemObj.name = name;
+                foodItemObj.image = image;
+
+                //get checked portion id
+                let portionCheckedId = $('input[name="portion_name_'+productId+'"]:checked').val();
+                //get checked portion input
+                let portionTemp = $("#"+productId+"_portion_"+portionCheckedId);
+                //build portion object
+                portion.id = portionCheckedId;
+                portion.name =  portionTemp.attr("portion-name");
+                portion.price =  +portionTemp.attr("portion-price");
+                //add portion to order
+                order.portion = portion;
+                //add order to fooItem
+                foodItemObj.order = order;
+
+                //loop on all checked condiments
+                $.each($('input[name="condiment_name_'+productId+'"]:checked'), function(){
+
+                    //get checked condiment id
+                    let condimentCheckedId = $(this).val();
+                    //initialize condiment holder
+                    let condiment = { id: 0, name: "", price: 0 };
+                    //build condiment object
+                    condiment.id = condimentCheckedId;
+                    condiment.name = $(this).attr("condiment-name");
+                    condiment.price = +$(this).attr("condiment-price");
+
+                    //push condiment to array
+                    condiments.push(condiment);
+
+                });
+
+                //add condiments to order
+                order.condiments = condiments.sort(compareCondimetns);
+
+                let foodExists = foodItems.filter(f=>{
+                    return f.id == foodItemObj.id;
+                });
+
+                if(foodExists.length > 0){
+
+                    console.log('Food Exists');
+
+                    let foodExists2 = foodExists.filter(f=>{
+                        return f.order.portion.id == foodItemObj.order.portion.id;
+                    });
+                    if(foodExists2.length > 0){
+
+                        console.log('Same portion');
+                        let foodExists3 = foodExists2.filter(f=>{
+                            return JSON.stringify(f.order.condiments) === JSON.stringify(foodItemObj.order.condiments);
+                        });
+                        if(foodExists3.length > 0){
+
+                            isNewItem=false;
+                            if(foodExists3[0].order.quantity < 9){
+
+                                foodExists3[0].order.quantity = +foodExists3[0].order.quantity + 1;
+                                $("#food_cart_"+foodExists3[0].order.uniqueId+" .cd-cart__actions #quantity_"+foodExists3[0].order.uniqueId).val(foodExists3[0].order.quantity);
+                                updateFoodPrice(foodExists3[0]);
+                                updateCartTotlaPrice();
+                                updateCartCount();
+                                localStorage.setItem("_cart",JSON.stringify(foodItems));
+                                console.log("Same condiments \n=> Only update quantity and price");
+
+                            }else{
+
+                                console.log("Quantity limit reached")
+
+                            }
+
+                        }else{
+
+                            uniqueIdSufix = foodExists.length + 1;
+                            console.log('Different condiments');
+
+                        }
+
+                    }else{
+
+                        uniqueIdSufix = foodExists.length + 1;
+                        console.log('Different portion');
+
                     }
-                } else {
-                    var actual = Number(cartCountItems[0].innerText) + quantity;
-                    var next = actual + 1;
-                    cartCountItems[0].innerText = actual;
-                    cartCountItems[1].innerText = next;
-                    animatingQuantity = false;
+
+
+                }else{
+
+                    console.log('Food does\'nt exist');
+
                 }
-            };
+                if(isNewItem){
 
-            function updateCartTotal(price, bool) {
-                console.log("THIS IS UPDATECARTTOTAL " + price);
-                cartTotal.innerText = bool ? (Number(cartTotal.innerText) + Number(price)).toFixed(2) : (Number(cartTotal.innerText) - Number(price)).toFixed(2);
-            };
+                    foodItemObj.order.uniqueId = foodItemObj.id+"_"+uniqueIdSufix;
+                    buildFoodCartParts(foodItemObj);
+                    updateFoodPrice(foodItemObj);
+                    foodItems.push(foodItemObj);
+                    updateCartTotlaPrice();
+                    updateCartCount();
+                    localStorage.setItem("_cart",JSON.stringify(foodItems));
+                    if( $(".cd-cart").hasClass("cd-cart--empty") )
+                        $(".cd-cart").removeClass("cd-cart--empty");
+                    console.log("=> New order")
 
-            function quickUpdateCart() {
-                var quantity = 0;
-                var price = 0;
-
-                for(var i = 0; i < cartListItems.length; i++) {
-                    if( !Util.hasClass(cartListItems[i], 'cd-cart__product--deleted') ) {
-                        var singleQuantity = Number(cartListItems[i].getElementsByTagName('select')[0].value);
-                        quantity = quantity + singleQuantity;
-                        price = price + singleQuantity*Number((cartListItems[i].getElementsByClassName('cd-cart__price')[0].innerText).replace('$', ''));
-                    }
                 }
+                console.log(foodItems);
 
-                cartTotal.innerText = price.toFixed(2);
-                cartCountItems[0].innerText = quantity;
-                cartCountItems[1].innerText = quantity+1;
             };
+
         }
     })();
 </script>
-</body>
 
-</html>
+
+
+</body></html>

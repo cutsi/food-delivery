@@ -1,10 +1,14 @@
 package cut.food.fooddelivery.controllers;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import cut.food.fooddelivery.entities.Category;
 import cut.food.fooddelivery.entities.FoodItem;
 import cut.food.fooddelivery.entities.Restaurant;
 import cut.food.fooddelivery.services.*;
+import cut.food.fooddelivery.utilities.requests.CartRequest;
 import lombok.AllArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +22,7 @@ import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 @Controller
 @RequestMapping(path = "/")
@@ -94,11 +99,7 @@ public class FrontPageController {
         model.addAttribute("products", foodItemList);
         return "checkout";
     }
-    @GetMapping(path = "checkout")
-    public String checkoutGet(){
-        return "checkout";
-    }
-
+  
     @PostMapping(path = "/custom-logout")
     public String customLogout(){
         return "custom-logout";
@@ -129,4 +130,34 @@ public class FrontPageController {
     public String contact_us(){
         return "kontaktirajte-nas";
     }
+
+    @PostMapping(path="/checkout", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    public String checkout(@RequestParam String[] foodItems, Model model) {
+
+        List<CartRequest> cartItems = new ArrayList<CartRequest>();
+        ObjectMapper mapper = new ObjectMapper();
+        Stream.of(foodItems).forEach(f->{
+
+            try {
+
+                if(!"null".equals(f)) {
+                    cartItems.add(mapper.readValue(f, CartRequest.class));
+                }
+
+            } catch (JsonProcessingException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+        });
+        System.out.println(cartItems);
+        model.addAttribute("foodItems", cartItems);
+        return "checkout";
+    }
+
+    @GetMapping(path = "checkout")
+    public String checkoutGet(Model model){
+        return "checkout";
+    }
 }
+
