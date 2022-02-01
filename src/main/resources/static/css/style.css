@@ -55,14 +55,14 @@ p {
     color: #f1f3f8;
 }
 /* Footer css */
-
+/*
 #footer {
     background-color: darkred;
     color: white;
     text-align: center;
     font-size: 18px;
     font-weight: bold;
-}
+}*/
 
 /** Index.html css below **/
 
@@ -261,219 +261,85 @@ input[type=checkbox] {
 
 
 
-
-
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap');
-
-
-
-.naslov {
-    font-size: 20px;
-    margin-bottom: 20px;
-    font-weight: 400;
-    color: darkred;
-}
-
-h3 {
-    font-size: 17px;
-    margin-bottom: 20px;
-    font-weight: 500;
-    color: darkred;
-}
-
-a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: 100;
-    font-size: 14px;
-}
-
-ul {
-    list-style: none;
-}
-
-li {
-    padding-bottom: 3px;
-}
-
-li a:hover {
-    border-bottom: 1px solid #darkred;
-    transition: .3s;
-}
-
-img {
-    max-width: 100%;
-}
-
-/* Footer Style */
 .footer {
-    width: 1200px;
-    max-width: 98%;
-    padding: 80px 20px 30px 20px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 80px;
-    border-bottom: 2px solid #fff;
-}
-
-.logo {
-    max-width: 170px;
-    margin-bottom: 30px;
-}
-
-.logo-contact p {
-    font-size: 14px;
-    font-weight: 100;
-    line-height: 1.7;
-}
-
-.logo-contact h3 {
-    margin-top: 30px;
-}
-
-.logo-contact i {
-    margin-top: 10px;
-    margin-right: 10px;
-}
-
-
-/* Form Style */
-.input-container {
     display: flex;
-    width: 100%;
-    margin-bottom: 15px;
-}
-
-.input-container i {
-    background-color: black;
-    color: darkred;
-    padding: 5px 10px;
-    border-bottom-left-radius: 10px;
-}
-
-.input-container input {
-    border: none;
-}
-
-.btn {
-    display: inline-block;
-    cursor: pointer;
-    margin-top: 10px;
-    padding: 3px 20px;
-    border: none;
-    background-color: darkred;
-    border-bottom-left-radius: 10px;
-    color: black;
-    font-family: 'Poppins', sans-serif;
-}
-
-.btn:hover {
-    opacity: 0.8;
-}
-
-
-/* Footer Bottom Style */
-.footer-bottom {
-    width: 1200px;
-    max-width: 98%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 5px;
-}
-
-.copyright p {
-    font-size: 12px;
-    font-weight: 100;
-    letter-spacing: 1px;
-}
-
-.social-icons {
-    display: block;
-}
-
-.social-icons i {
-    font-size: 18px;
+    flex-flow: row wrap;
+    padding: 50px;
     color: #fff;
-    padding: 0 15px;
+    background-color: #171717;
 }
 
-.social-icons .fa-facebook {
-    padding: 0 15px 0 0;
+.footer > * {
+    flex:  1 100%;
 }
 
-.social-icons i:hover {
-    color: darkred;
-    transition: 0.3s;
+.l-footer {
+    margin-right: 1.25em;
+    margin-bottom: 2em;
 }
 
-
-.empty-space {
-    min-height: 800px;
+h2 {
+    font-weight: 400;
+    font-size: 15px;
 }
 
-
-@media (max-width: 960px) {
-    .footer {
-        width: 100%;
-        align-items: center;
-        text-align: center;
-        grid-template-columns: repeat(2, 1fr);
-        margin: 0 auto;
-    }
-
-    .logo-contact {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .informations {
-        margin-top: 45px;
-    }
-
-    .input-container {
-        display: flex;
-        justify-content: center;
-    }
-
+.footer ul {
+    list-style: none;
+    padding-left: 0;
 }
 
-@media (max-width: 500px) {
-    .footer {
-        padding-top: 20px;
-        width: 100%;
-        align-items: center;
-        text-align: center;
-        grid-template-columns: repeat(1, 1fr);
-    }
-
-    .informations {
-        margin-top: -30px;
-        margin-bottom: -30px;
-    }
-
-    .helpful-links {
-        margin-bottom: -30px;
-    }
-
-    .subscribe-form {
-        padding-bottom: -30px;
-    }
-
-    .footer-bottom {
-        display: block;
-        text-align: center;
-    }
-
-    .social-icons {
-        margin: 10px 0;
-    }
-    .copyright {
-        margin-bottom: 20px;
-    }
+.footer li {
+    line-height: 2em;
 }
 
+.footer a {
+    text-decoration: none;
+}
+
+.r-footer {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.r-footer > * {
+    flex: 1 50%;
+    margin-right: 1.25em;
+}
+
+.box a {
+    color: #999;
+}
+
+.h-box {
+    column-count: 2;
+    column-gap: 1.25em;
+}
+
+.b-footer {
+    text-align: center;
+    color: #999;
+    padding-top: 50px;
+}
+
+.l-footer p {
+    padding-right: 20%;
+    color: #999;
+}
+
+@media screen and (min-width: 600px) {
+    .r-footer > * {
+        flex: 1;
+    }
+
+    .features {
+        flex-grow: 2;
+    }
+
+    .l-footer {
+        flex: 1 0px;
+    }
+
+    .r-footer {
+        flex: 2 0px;
+    }
+}

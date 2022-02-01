@@ -99,7 +99,7 @@ public class FrontPageController {
         model.addAttribute("products", foodItemList);
         return "checkout";
     }
-  
+
     @PostMapping(path = "/custom-logout")
     public String customLogout(){
         return "custom-logout";

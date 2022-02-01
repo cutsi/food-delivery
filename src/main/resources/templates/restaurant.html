@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100" xmlns:th="https://thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 
-<head th:replace="fragments/general-restaurant :: head"></head>
+<head th:replace="fragments/general :: head"></head>
 <head>
     <meta name="_csrf" th:content="${_csrf.token}"/>
     <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
@@ -82,7 +82,7 @@
 <body class="d-flex flex-column h-100">
 
 <main role="main" class="flex-shrink-0">
-    <header th:replace="fragments/general-restaurant :: header"></header>
+    <header th:replace="fragments/general :: header"></header>
 
 
     <section id="page-header">
@@ -237,7 +237,7 @@
     </div>
 </main>
 
-<footer th:replace="fragments/general-restaurant :: footer">
+<footer th:replace="fragments/general :: footer">
 </footer>
 
 <form id="checkout-form" action="/checkout" method="post">
