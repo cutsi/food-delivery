@@ -309,6 +309,8 @@ input[type=checkbox] {
 
 button.menu-item:hover,
 button.menu-item.is-open {
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
 }
 
 .menu-item-content {
@@ -319,6 +321,8 @@ button.menu-item.is-open {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-in-out;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
 .menu-item-text{
     flex-grow: 1;
