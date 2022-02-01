@@ -265,8 +265,10 @@ input[type=checkbox] {
     display: flex;
     flex-flow: row wrap;
     padding: 50px;
+    margin: 3px 0px;
     color: #fff;
     background-color: #171717;
+    font-family: Montserrat;
 }
 
 .footer > * {
@@ -324,8 +326,9 @@ h2 {
 }
 
 .l-footer p {
-    padding-right: 20%;
+    /*padding-right: 20%;*/
     color: #999;
+    text-align: center;
 }
 
 @media screen and (min-width: 600px) {

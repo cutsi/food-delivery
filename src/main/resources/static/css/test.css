@@ -55,7 +55,6 @@ position: absolute;
 
 
 
-@import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700";
 *,
 *::after,
 *::before {
@@ -66,15 +65,12 @@ position: absolute;
     font: inherit
 }
 
-html,
-body,
 div,
 span,
 applet,
 object,
 iframe,
 h1,
-h2,
 h3,
 h4,
 h5,
@@ -82,7 +78,6 @@ h6,
 p,
 blockquote,
 pre,
-a,
 abbr,
 acronym,
 address,
@@ -114,7 +109,6 @@ dt,
 dd,
 ol,
 ul,
-li,
 fieldset,
 form,
 label,
@@ -134,11 +128,9 @@ details,
 embed,
 figure,
 figcaption,
-footer,
 header,
 hgroup,
 menu,
-nav,
 output,
 ruby,
 section,
@@ -167,13 +159,10 @@ aside,
 details,
 figcaption,
 figure,
-footer,
 header,
 hgroup,
 menu,
-nav,
 section,
-main,
 form legend {
     display: block
 }
@@ -1123,11 +1112,6 @@ h1,
     font-size: var(--text-xxl, 2.074em)
 }
 
-h2,
-.text-xl {
-    font-size: 1.728em;
-    font-size: var(--text-xl, 1.728em)
-}
 
 h3,
 .text-lg {
@@ -1169,53 +1153,6 @@ u,
 .text-component {
     --component-body-line-height: calc(var(--body-line-height)*var(--line-height-multiplier, 1));
     --component-heading-line-height: calc(var(--heading-line-height)*var(--line-height-multiplier, 1))
-}
-
-.text-component h1,
-.text-component h2,
-.text-component h3,
-.text-component h4 {
-    line-height: 1.2;
-    line-height: var(--component-heading-line-height, 1.2);
-    margin-bottom: .25em;
-    margin-bottom: calc(var(--space-xxxs)*var(--text-vspace-multiplier, 1))
-}
-
-.text-component h2,
-.text-component h3,
-.text-component h4 {
-    margin-top: .75em;
-    margin-top: calc(var(--space-sm)*var(--text-vspace-multiplier, 1))
-}
-
-.text-component p,
-.text-component blockquote,
-.text-component ul li,
-.text-component ol li {
-    line-height: 1.4;
-    line-height: var(--component-body-line-height)
-}
-
-.text-component ul,
-.text-component ol,
-.text-component p,
-.text-component blockquote,
-.text-component .text-component__block {
-    margin-bottom: .75em;
-    margin-bottom: calc(var(--space-sm)*var(--text-vspace-multiplier, 1))
-}
-
-.text-component ul,
-.text-component ol {
-    padding-left: 1em
-}
-
-.text-component ul {
-    list-style-type: disc
-}
-
-.text-component ol {
-    list-style-type: decimal
 }
 
 .text-component img {
@@ -3827,16 +3764,9 @@ mark {
     font-size: var(--text-xs)
 }
 
-.cd-cart__undo a {
-    text-decoration: underline;
-    color: #2a3d50;
-    color: var(--cd-color-1)
-}
 
-.cd-cart__undo a:hover {
-    color: #2b96de;
-    color: var(--cd-color-2)
-}
+
+
 
 .cd-cart__undo--visible {
     opacity: 1;
@@ -3996,10 +3926,7 @@ mark {
     font-size: calc(var(--text-sm)*1.15)
 }
 
-.cd-cart__details h3 a {
-    color: #2a3d50;
-    color: var(--cd-color-1)
-}
+
 
 .cd-cart__details h3 a:hover {
     color: #2b96de;
