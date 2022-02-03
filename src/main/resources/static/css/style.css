@@ -355,3 +355,12 @@ h2 {
     background-repeat: no-repeat;
     margin-right: 25px;
 }
+
+.send-message-box{
+    width: 100%;
+}
+@media screen and (min-width: 600px) {
+    .send-message-box{
+        width: 50%;
+    }
+}
