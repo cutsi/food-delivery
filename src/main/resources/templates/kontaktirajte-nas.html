@@ -4,6 +4,65 @@
 <head th:replace="fragments/general :: head"></head>
 <head>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        .container .content .left-side{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+            position: relative;
+            padding-bottom: 100px;
+        }
+        .content .left-side::before{
+            position: absolute;
+            height: 70%;
+            width: 2px;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #afafb6;
+        }
+        .content .left-side .details{
+            margin: 14px;
+            text-align: center;
+        }
+        .content .left-side .details i{
+            font-size: 30px;
+            color: #3e2093;
+            margin-bottom: 10px;
+        }
+        .content .left-side .details .topic{
+            font-size: 18px;
+            font-weight: 500;
+        }
+        .content .left-side .details .text-one,
+        .content .left-side .details .text-two{
+            font-size: 14px;
+            color: #afafb6;
+        }
+
+
+
+        @media (max-width: 820px) {
+
+            .container .content .left-side{
+                width: 100%;
+                flex-direction: row;
+                margin-top: 40px;
+                justify-content: center;
+                flex-wrap: wrap;
+                padding-bottom: 100px;
+            }
+            .container .content .left-side::before{
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -11,6 +70,55 @@
 <main role="main" class="flex-shrink-0">
     <header th:replace="fragments/general :: header"></header>
 
+    <section id="page-header">
+        <div class="jumbotron jumbotron-fluid" th:style="'background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + ${banner} + ');'" style="height: 400px">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-width">
+                        <h2 class="jumbotron-header" style="padding-top: 17rem;">O nama</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="aboutus">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7" style="padding-top: 100px; max-width: 100%; flex: none">
+                    <h2 class="text-center" style="font-size: 26px">Kako da nas kontaktirate?</h2>
+                    <p style="padding-top: 35px;padding-bottom: 100px;">
+                        Za bilo kakva pitanja u vezi vaše narudžbe, kako koristiti aplikaciju ili možda želite da se vaš
+                        restoran nalazi na našoj stranici možete nas konaktirati na telefonske brojeve navedene ispod,
+                        na mail, ili nam možete direktno napisati poruku ispod.
+                    </p>
+                </div>
+            </div>
+
+
+
+            <div class="container">
+                <div class="content">
+                    <div class="left-side">
+                        <div class="phone details">
+                            <i class="fas fa-phone-alt"></i>
+                            <div class="topic">Telefon</div>
+                            <div class="text-one">+387-63-100-101</div>
+                            <div class="text-two">+387-63-100-102</div>
+                        </div>
+                        <div class="email details">
+                            <i class="fas fa-envelope"></i>
+                            <div class="topic">Email</div>
+                            <div class="text-one">mezi@gmail.com</div>
+                            <div class="text-two">info.mezi@gmail.com</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
 </main>
 
 <footer th:replace="fragments/general :: footer">

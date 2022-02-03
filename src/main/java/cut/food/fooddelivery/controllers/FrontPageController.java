@@ -127,7 +127,11 @@ public class FrontPageController {
         return "o-nama";
     }
     @GetMapping(path = "/Kontaktirajte-nas")
-    public String contact_us(){
+    public String contact_us(Model model){
+        model.addAttribute("round", imageService.getImageById(1L).get().getName());
+        model.addAttribute("banner", imageService.getImageById(2L).get().getName());
+        model.addAttribute("beef", imageService.getImageById(3L).get().getName());
+        model.addAttribute("dough", imageService.getImageById(5L).get().getName());
         return "kontaktirajte-nas";
     }
 
