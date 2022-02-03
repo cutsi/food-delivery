@@ -32,6 +32,7 @@ p {
 .navbar {
     padding: 10px 1%;
     background-color: darkred;
+    align-items: inherit;
 }
 
 .main-link {
@@ -351,5 +352,6 @@ h2 {
 .logo{
     background-image: url("../images/MEZI-logos_white_ccexpress_ccexpress.png");
     width: 140px;
-    height: 36px;
+    background-repeat: no-repeat;
+    margin-right: 25px;
 }
