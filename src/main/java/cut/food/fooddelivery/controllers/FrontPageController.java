@@ -120,7 +120,7 @@ public class FrontPageController {
     @GetMapping(path = "/O-nama")
     public String o_nama(Model model){
         model.addAttribute("round", imageService.getImageById(1L).get().getName());
-        model.addAttribute("banner", imageService.getImageById(2L).get().getName());
+        model.addAttribute("banner", imageService.getImageById(7L).get().getName());
         model.addAttribute("beef", imageService.getImageById(3L).get().getName());
         model.addAttribute("dough", imageService.getImageById(5L).get().getName());
 
