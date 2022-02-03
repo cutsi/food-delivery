@@ -72,7 +72,9 @@
 <header id="navigation" th:fragment="header">
 
     <nav class="navbar navbar-expand-md fixed-top">
-        <a href="/"><span class="navbar-brand">MEZI</span></a>
+        <a href="/">
+            <img src="http://127.0.0.1:8887/MEZI-logos_transparent.png" style="width: 140px; margin-right: 20px;">
+        </a>
         <button class="navbar-toggler collapsed navbar-dark" type="button" data-toggle="collapse"
                 data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -82,7 +84,7 @@
             <ul class="navbar-nav mr-auto">
                 <div sec:authorize='!isAuthenticated()'>
                     <li class="nav-item">
-                        <a class="nav-link link main-link" href="/login">Prijavi/Registriraj</a>
+                        <a class="nav-link link main-link" href="/login">Prijavi se/Registriraj</a>
                     </li>
                 </div>
                 <li class="nav-item">

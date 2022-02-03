@@ -309,7 +309,6 @@ input[type=checkbox] {
 
 button.menu-item:hover,
 button.menu-item.is-open {
-    border-top-right-radius: 30px;
     border-top-left-radius: 30px;
 }
 
