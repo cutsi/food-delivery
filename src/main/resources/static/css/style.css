@@ -350,10 +350,11 @@ h2 {
     }
 }
 .logo{
-    background-image: url("../images/MEZI-logos_white_ccexpress_ccexpress.png");
-    width: 140px;
+    background-image: url("../images/logo2_ccexpress.png");
+    width: 175px;
     background-repeat: no-repeat;
     margin-right: 25px;
+    background-size: cover
 }
 
 .send-message-box{
