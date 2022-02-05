@@ -114,7 +114,12 @@ public class FrontPageController {
         return "my-profile";
     }
     @GetMapping(path = "/Kako-naručiti")
-    public String kako_naručiti(){
+    public String kako_naručiti(Model model){
+
+        model.addAttribute("round", imageService.getImageById(1L).get().getName());
+        model.addAttribute("banner", imageService.getImageById(8L).get().getName());
+        model.addAttribute("beef", imageService.getImageById(3L).get().getName());
+        model.addAttribute("dough", imageService.getImageById(5L).get().getName());
         return "kako-naručiti";
     }
     @GetMapping(path = "/O-nama")
