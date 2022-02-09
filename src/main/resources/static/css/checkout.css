@@ -1,5 +1,5 @@
 .payment-info {
-    background: blue;
+    background: #bd2130;
     padding: 10px;
     border-radius: 6px;
     color: #fff;
@@ -62,7 +62,7 @@ label.radio input:checked+span {
 }
 
 .credit-inputs {
-    background: rgb(102, 102, 221);
+    background: #252a2e;
     color: #fff !important;
     border-color: rgb(102, 102, 221)
 }
@@ -110,4 +110,5 @@ label.radio input:checked+span {
     flex-shrink: 0;
     object-fit: cover;
     margin-right: 1em;
+    border-radius: 25%;
 }
