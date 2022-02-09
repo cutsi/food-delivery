@@ -1092,13 +1092,13 @@ svg {
 }
 
 body {
-    font-size: 1em;
+    /*font-size: 1em;
     font-size: var(--text-base-size, 1em);
     font-family: source sans pro, sans-serif;
-    font-family: var(--font-primary, sans-serif);
+    font-family: var(--font-primary, sans-serif);*/
     color: #313135;
-    line-height: 1.2;
-    line-height: var(--heading-line-height, 1.2)
+    /*line-height: 1.2;
+    line-height: var(--heading-line-height, 1.2)*/
 }
 
 .text-xxxl {

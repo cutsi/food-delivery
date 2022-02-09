@@ -24,6 +24,8 @@ public class Portion implements Comparable<Portion>{
     private Long id;
     private String name;
     private String price;
+    @Column(nullable = true)
+    private boolean checked;
     @ManyToOne(cascade = { CascadeType.REMOVE })
     @JoinColumn(name="food_item_id")
     private FoodItem food_item;
@@ -32,4 +34,5 @@ public class Portion implements Comparable<Portion>{
     public int compareTo(Portion portion) {
         return (int) (this.id - portion.getId());
     }
+
 }

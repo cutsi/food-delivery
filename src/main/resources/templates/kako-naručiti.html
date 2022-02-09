@@ -70,13 +70,13 @@
       display: flex;
       flex-wrap: nowrap;
       flex-direction: column;
-      height: 100px;
+      height: 130px;
       margin-bottom: 200px;
     }
 
     .one,
     .three {
-      flex: 0 0 100%;
+      flex: 0 0 130%;
       background: cyan;
       width: 100%;
     }
@@ -93,12 +93,43 @@
       }
     }
     .two {
-      flex: 0 0 100%;
+      flex: 0 0 130%;
       order: 1;
       background: moccasin;
     }
     .three {
       background: tomato;
+    }
+  </style>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      font-size: 30px;
+      text-align: center;
+    }
+
+    .flex-item-left {
+      background-color: #f1f1f1;
+      padding: 100px;
+      flex: 50%;
+    }
+
+    .flex-item-right {
+      background-color: dodgerblue;
+      padding: 10px;
+      flex: 50%;
+    }
+
+    /* Responsive layout - makes a one column-layout instead of a two-column layout */
+    @media (max-width: 800px) {
+      .flex-item-right, .flex-item-left {
+        flex: 100%;
+      }
     }
   </style>
 </head>
@@ -117,62 +148,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section id="aboutus">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-7" style="padding-top: 100px; max-width: 100%; flex: none">
-          <h2 class="text-center" style="font-size: 26px">Kako naručiti?</h2>
-          <p style="padding-top: 35px;padding-bottom: 50px;">
-            Naručiti na Mezi možete jako jednostavno. Sve što treba te je prijaviti se, odabrati restoran
-            te jela u tom restoranu po vašem izboru. Kad kliknete checkout, odvest će vas na vašu narudžbu
-            gdje uneste svoju adresu i vaša narudžba je tada završena te će ubrzo biti pred vašim vratima.
-            <br>
-            <br>
-            Dobar tek!
-          </p>
-        </div>
-      </div>
-
-
-      <div class="containerHowTo">
-        <div class="one"></div>
-        <div class="two"></div>
-      </div>
-
-      <div class="containerHowTo">
-        <div class="one"></div>
-        <div class="two"></div>
-      </div>
-
-
-      <div class="containerHowTo">
-        <div class="one"></div>
-        <div class="two"></div>
-      </div>
-
-      <div class="containerHowTo">
-        <div class="one"></div>
-        <div class="two"></div>
-      </div>
-
-      <div class="containerHowTo">
-        <div class="one"></div>
-        <div class="two"></div>
-      </div>
-
-      <div class="containerHowTo">
-        <div class="one"></div>
-        <div class="two"></div>
-      </div>
-
-      <div class="containerHowTo">
-        <div class="one"></div>
-        <div class="two"></div>
-      </div>
-
     </div>
   </section>
 </main>

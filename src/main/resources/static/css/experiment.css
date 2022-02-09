@@ -1,67 +1,3 @@
-/* all pages */
-
-html, body {
-
-    background-color: #f1f3f8;
-    letter-spacing: 1px;
-    font-family: "Montserrat";
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-p {
-    margin-bottom: 0;
-}
-
-/* Navigation CSS */
-
-#navigation {
-    font-family: "Ubuntu";
-}
-
-
-.navbar-brand {
-    color: #f1f3f8;
-    font-family: "Kufam";
-    font-size: 2.20rem;
-    font-weight: 600;
-    padding-right: 20px;
-}
-
-.navbar {
-    padding: 0 1%;
-    background-color: darkred;
-}
-
-.main-link {
-    margin-right: 20px;
-}
-
-.link {
-    font-size: 18px;
-    color: white;
-}
-
-.link:hover {
-    color: white;
-}
-
-.dropdown-header {
-    color: #f1f3f8;
-}
-
-.dropdown-header:hover {
-    color: #f1f3f8;
-}
-
-.dropdown-menu {
-    background-color: #393b44;
-}
-
-.dropdown-item:hover {
-    background-color: #393b44;
-}
 
 /* Footer css */
 
@@ -77,10 +13,6 @@ p {
 
 /* Content CSS */
 
-#page-header {
-    padding-top: 60px;
-}
-
 .jumbotron-header {
     font-family: "Kufam";
     font-size: 35px;
@@ -90,7 +22,7 @@ p {
 .jumbotron {
     margin-bottom: 0;
     margin-top: -10px;
-;
+
 }
 
 .jumbotron-subheader {

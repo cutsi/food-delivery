@@ -145,12 +145,12 @@
                                                 <th:block th:each="portion: ${foodItem.getPortionsOrderById()}">
                                                     <label th:for="${foodItem.getId()} + '_portion_' + ${portion.getId()}">
                                                         <div class="checkbox-item">
-                                                            <span th:if="${portion.getName() == 'SREDNJA' or portion.getName() == 'SREDNJI' or portion.getName() == 'PORCIJA' or portion.getName() == '0.5'}">
-                                                                <input type="radio" th:id="${foodItem.getId()} + '_portion_' + ${portion.getId()}" th:name="'portion_name_' + ${foodItem.getId()}" th:value="${portion.getId()}" style="margin: revert; margin-right: 10px" checked='checked'
+                                                            <span th:if="${portion.isChecked()}">
+                                                                <input type="radio" th:id="${foodItem.getId()} + '_portion_' + ${portion.getId()}" th:name="'portion_name_' + ${foodItem.getId()}" th:value="${portion.getId()}" style="margin: revert; margin-right: 10px; margin-top: 7px;" checked='checked'
                                                                        th:portion-name="${portion.getName()}" th:portion-price="${portion.getPrice()}" >
                                                             </span>
-                                                            <span th:if="${portion.getName() != 'SREDNJA' and portion.getName() != 'PORCIJA' and portion.getName() != '0.5'}">
-                                                                <input type="radio" th:id="${foodItem.getId()} + '_portion_' + ${portion.getId()}" th:name="'portion_name_' + ${foodItem.getId()}" th:value="${portion.getId()}" style="margin: revert; margin-right: 10px"
+                                                            <span th:if="${!portion.isChecked()}">
+                                                                <input type="radio" th:id="${foodItem.getId()} + '_portion_' + ${portion.getId()}" th:name="'portion_name_' + ${foodItem.getId()}" th:value="${portion.getId()}" style="margin: revert; margin-right: 10px; margin-top: 7px;"
                                                                        th:portion-name="${portion.getName()}" th:portion-price="${portion.getPrice()}">
                                                             </span>
 
@@ -709,7 +709,7 @@
                         </div>
                         <div class="cd-cart__details" style="position:relative;bottom:6px">
                             <h3 class="truncate slide-right">
-                                <a style="font-size:larger;margin-bottom:5px">${foodItemVar.name} (${foodItemVar.order.portion.name})</a>
+                                <a style="font-size:medium;margin-bottom:5px">${foodItemVar.name} (${foodItemVar.order.portion.name})</a>
                             </h3>
                             <span class="cd-cart__price" style="color:#007bff"></span>
                             <div class="cd-cart__actions" style="display:block;margin-top:4px">
