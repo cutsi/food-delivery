@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import cut.food.fooddelivery.entities.Category;
 import cut.food.fooddelivery.entities.FoodItem;
 import cut.food.fooddelivery.entities.Restaurant;
+import cut.food.fooddelivery.security.CartRequestService;
 import cut.food.fooddelivery.services.*;
 import cut.food.fooddelivery.utilities.requests.CartRequest;
 import lombok.AllArgsConstructor;
@@ -34,6 +35,7 @@ public class FrontPageController {
     private final RestaurantService restaurantService;
     private final UserService userService;
     private final ImageService imageService;
+    private final CartRequestService cartRequestService;
 
     @GetMapping(path = "/")
     public String welcome(Model model){
@@ -142,24 +144,7 @@ public class FrontPageController {
 
     @PostMapping(path="/checkout", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public String checkout(@RequestParam String[] foodItems, Model model) {
-
-        List<CartRequest> cartItems = new ArrayList<CartRequest>();
-        ObjectMapper mapper = new ObjectMapper();
-        Stream.of(foodItems).forEach(f->{
-
-            try {
-
-                if(!"null".equals(f)) {
-                    cartItems.add(mapper.readValue(f, CartRequest.class));
-                }
-
-            } catch (JsonProcessingException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-
-        });
-        System.out.println(cartItems);
+        List<CartRequest> cartItems = cartRequestService.getCartItems(foodItems);
         model.addAttribute("foodItems", cartItems);
         return "checkout";
     }
