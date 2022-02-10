@@ -266,7 +266,7 @@ input[type=checkbox] {
     display: flex;
     flex-flow: row wrap;
     padding: 50px;
-    margin: 50px 0px;
+    margin: 3px 0px;
     color: #fff;
     background-color: #171717;
     font-family: Montserrat;
