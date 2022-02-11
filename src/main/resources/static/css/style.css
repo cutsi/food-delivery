@@ -279,6 +279,7 @@ input[type=checkbox] {
 .l-footer {
     margin-right: 1.25em;
     margin-bottom: 2em;
+    margin-top: 25px;
 }
 
 h2 {
@@ -355,6 +356,14 @@ h2 {
     background-repeat: no-repeat;
     margin-right: 25px;
     background-size: cover
+}
+.logo-footer{
+    background-image: url("../images/logo2_ccexpress.png");
+    width: 175px;
+    background-repeat: no-repeat;
+    margin-right: 28px;
+    background-size: cover;
+    margin-left: 11%;
 }
 
 .send-message-box{
