@@ -3,135 +3,11 @@
 
 <head th:replace="fragments/general :: head"></head>
 <head>
-  <link href="../static/css/signup.css" th:href="@{/css/signup.css}" rel="stylesheet" />
+  <link href="../static/css/kako-naruciti.css" th:href="@{/css/kako-naruciti.css}" rel="stylesheet" />
+
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-
-    .container-icons .content-icons .left-side{
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 15px;
-      position: relative;
-      /*padding-bottom: 100px;*/
-      gap: 200px;
-    }
-    .content-icons .left-side::before{
-      position: absolute;
-      height: 70%;
-      width: 2px;
-      right: -15px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: #afafb6;
-    }
-    .content-icons .left-side .details{
-      margin: 14px;
-      text-align: center;
-    }
-    .content-icons .left-side .details i{
-      font-size: 30px;
-      color: #3e2093;
-      margin-bottom: 10px;
-    }
-    .content-icons .left-side .details .topic{
-      font-size: 18px;
-      font-weight: 500;
-    }
-    .content-icons .left-side .details .text-one,
-    .content-icons .left-side .details .text-two{
-      font-size: 14px;
-      color: #afafb6;
-    }
-
-
-
-    @media (max-width: 820px) {
-
-      .container-icons .content-icons .left-side{
-        width: 100%;
-        flex-direction: row;
-        margin-top: 40px;
-        justify-content: center;
-        flex-wrap: wrap;
-        /*padding-bottom: 100px;*/
-        gap: 5px;
-      }
-      .container-icons .content-icons .left-side::before{
-        display: none;
-      }
-    }
-  </style>
-  <style>
-    .containerHowTo {
-      display: flex;
-      flex-wrap: nowrap;
-      flex-direction: column;
-      height: 130px;
-      margin-bottom: 200px;
-    }
-
-    .one,
-    .three {
-      flex: 0 0 130%;
-      background: cyan;
-      width: 100%;
-    }
-    @media screen and (min-width: 768px) {
-      .containerHowTo{
-        flex-wrap: wrap;
-        margin-bottom: 200px;
-      }
-      .one{
-        width: 50%;
-      }
-      .two{
-        width: 50%;
-      }
-    }
-    .two {
-      flex: 0 0 130%;
-      order: 1;
-      background: moccasin;
-    }
-    .three {
-      background: tomato;
-    }
-  </style>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    .flex-container {
-      display: flex;
-      flex-wrap: wrap;
-      font-size: 30px;
-      text-align: center;
-    }
-
-    .flex-item-left {
-      background-color: #f1f1f1;
-      padding: 100px;
-      flex: 50%;
-    }
-
-    .flex-item-right {
-      background-color: dodgerblue;
-      padding: 10px;
-      flex: 50%;
-    }
-
-    /* Responsive layout - makes a one column-layout instead of a two-column layout */
-    @media (max-width: 800px) {
-      .flex-item-right, .flex-item-left {
-        flex: 100%;
-      }
-    }
-  </style>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -150,6 +26,76 @@
       </div>
     </div>
   </section>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-7" style="padding-top: 100px; max-width: 100%; flex: none">
+        <h2 class="text-center" style="font-size: 26px">Kako naručiti?</h2>
+        <p style="padding-top: 35px;padding-bottom: 50px;text-align: center!important;">
+          Naručiti na MEZI možete u par jednostavnih koraka.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="steps-container">
+
+    <div class="steps-wrapper">
+
+      <!-- left -->
+      <div class="step-left-wrapper">
+        <div class="step step-left">
+          <span class="step-number">1</span>
+        </div>
+        <p>
+          Prvo što trebate napraviti je <a href="/login">prijaviti se</a>, a ukoliko nemate račun
+          potrebno je se <a href="/sign-up">registrirati</a>. Unesete svoje ime, mobitel, email adresu i
+          lozinku. Nakon što ste se registrirali, na vašu email adresu je poslana poruka u kojoj trebate
+          potvrditi svoju email adresu. Vaš račun je time kreiran.
+        </p>
+      </div>
+
+      <!-- right -->
+      <div class="step-right-wrapper">
+        <span class="step-number">2</span>
+        <div class="step step-right">
+          <p style="margin-top: 1rem">
+            Nakon uspješne registracije, izaberite bilo koji restoran iz <a href="/">ponude</a> po
+            vašem izboru.
+          </p>
+        </div>
+      </div>
+
+      <!-- left -->
+      <div class="step-left-wrapper">
+        <div class="step step-left">
+          <span class="step-number">3</span>
+        </div>
+        <p>
+          Nakon odabira restorana, priložen vam je meni iz kojeg možete izabrati više jela po vašem ukusu.
+          MEZI omogućava maksimalnu prilagodbu vaše narudžbe, od veličine porcije, dodataka, priloga i
+          količine. Ukoliko ste zadovoljni svojim odabirom, otvorite košaricu, te klikom na "pregledajte
+          narudžbu" idete na posljednji korak.
+        </p>
+      </div>
+
+      <!-- right -->
+      <div class="step-right-wrapper">
+        <span class="step-number">4</span>
+        <div class="step step-right">
+          <p style="margin-top: 1rem">
+            U posljednjem koraku navedena su jela koja ste odabrali, sve što dalje morate napraviti je
+            unijeti adresu dostave, i napomenu restoranu ako želite. Klikom na "naruči" završavate
+            svoju narudžbu. I to je to.
+            <br>
+            Dobar tek!
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
 </main>
 
 <footer th:replace="fragments/general :: footer">

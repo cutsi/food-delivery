@@ -2,6 +2,7 @@
 <html lang="hr" class="h-100" xmlns:th="https://thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head th:fragment="head">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -62,7 +63,24 @@
         .dropdown:hover .dropbtn {
             background-color: #3e8e41;
         }
+        @media screen and (min-width: 960px) {
+            .dropdown-login-register{
+                margin-top:7px;
+            }
+        }
+        .dropdown-login-register{
+            margin-top: 0px;
+        }
+        @media (min-width: 960px) {
+            .navbar-expand-md1 .navbar-collapse1 {
+                display: -ms-flexbox !important;
+                display: flex !important;
+                -ms-flex-preferred-size: auto;
+                flex-basis: auto;
+            }
+        }
     </style>
+
 </head>
 
 
@@ -71,7 +89,7 @@
 
 <header id="navigation" th:fragment="header">
 
-    <nav class="navbar navbar-expand-md fixed-top">
+    <nav class="navbar navbar-expand-md1 navbar-expand-md fixed-top">
         <a class="logo" href="/">
             <img class="logo" style="width: 140px; margin-right: 20px;">
         </a>
@@ -80,11 +98,11 @@
                 aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+        <div class="navbar-collapse1 navbar-collapse collapse" id="navbarCollapse" style="">
             <ul class="navbar-nav mr-auto">
                 <div sec:authorize='!isAuthenticated()'>
                     <li class="nav-item">
-                        <a class="nav-link link main-link" href="/login">Prijavi se/Registriraj</a>
+                        <a class="nav-link link main-link dropdown-login-register" href="/login">Prijavi se/Registriraj</a>
                     </li>
                 </div>
                 <li class="nav-item">
@@ -129,7 +147,7 @@
             </a>
         </h1>
         <p>
-            MEZI - vaša aplikacija za dostavu
+            Vaša aplikacija za dostavu
         </p>
     </div>
     <ul class="r-footer">
@@ -137,27 +155,25 @@
         <li>
             <h2>Informacije</h2>
             <ul class="box">
-                <li><a href="#">O nama</a></li>
+                <li><a href="/O-nama">O nama</a></li>
                 <li><a href="#">Privatnost podataka</a></li>
-                <li><a href="#">Uvjeti korištenja</a></li>
+                <li><a href="/Kako-naručiti">Kako naručiti</a></li>
             </ul>
         </li>
         <li>
-            <h2>Pridružite nam se</h2>
+            <h2>Media</h2>
             <ul class="box">
-                <li><a href="#">Postani naš partner</a></li>
-                <li><a href="#">Terms of Use</a></li>
-                <li><a href="#">Contract</a></li>
-            </ul>
-        </li>
-        <li>
-            <h2>Podrška korisnicima</h2>
-            <ul class="box">
-                <li><a href="#">063 100 101 Podrška korisnicima</a></li>
-                <li><a href="#">063 100 102 Podrška restoranima</a></li>
                 <li><a href="#">Facebook</a></li>
                 <li><a href="#">Instagram</a></li>
+            </ul>
+        </li>
 
+        <li>
+            <h2>Kontakt</h2>
+            <ul class="box">
+                <li><a href="/Kontaktirajte-nas">Kontaktirajte nas</a></li>
+                <li><a href="#">Korisnici: 063 000 001</a></li>
+                <li><a href="#">Restorani: 063 000 002</a></li>
             </ul>
         </li>
     </ul>

@@ -1,0 +1,48 @@
+.steps-container{
+    width: 100%;
+    background: inherit;
+    display: flex;
+    justify-content: center;
+}
+
+.steps-wrapper{
+    padding-top: 10px;
+    width: 80%;
+}
+
+.step{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.step-left{
+    border-bottom: 2px solid red;
+}
+
+.step-right{
+    border-top: 2px solid red;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.step-right-wrapper{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.step-number{
+    background: red;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 30px;
+    text-align: center;
+    width: 30px;
+}
+
+.step-right-wrapper span{
+    float: right;
+}

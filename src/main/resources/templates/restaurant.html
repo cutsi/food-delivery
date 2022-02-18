@@ -181,7 +181,7 @@
                                         <th:block th:each="condiment: ${foodItem.getCondiments()}">
                                             <label th:for="${foodItem.getId()} + '_condiment_' + ${condiment.getId()}">
                                                 <div class="checkbox-item">
-                                                    <input type="checkbox" th:id="${foodItem.getId()} + '_condiment_' + ${condiment.getId()}" th:name="'condiment_name_' + ${foodItem.getId()}" th:value="${condiment.getId()}" style="margin: revert; margin-right: 10px"
+                                                    <input type="checkbox" th:id="${foodItem.getId()} + '_condiment_' + ${condiment.getId()}" th:name="'condiment_name_' + ${foodItem.getId()}" th:value="${condiment.getId()}" style="margin: revert; margin-right: 10px; margin-top: 6px;"
                                                            th:condiment-name="${condiment.getName()}" th:condiment-price="${condiment.getPrice()}">
                                                     <div class="checkbox-text">
                                                         <div class="checkbox-heading">
@@ -216,7 +216,7 @@
         <div class="cd-cart__content">
             <div class="cd-cart__layout">
                 <header class="cd-cart__header">
-                    <h2>Cart</h2>
+                    <h2 style="margin-bottom: 0;">Košarica</h2>
                     <span class="cd-cart__undo">Item removed. <a href="#0">Undo</a></span>
                 </header>
                 <div class="cd-cart__body">
@@ -226,7 +226,7 @@
                 </div>
                 <div class="cd-cart__footer">
                     <a id="checkout-btn" class="cd-cart__checkout" style="cursor:pointer">
-                        <em>Checkout - <span>0</span>$
+                        <em>Checkout - <span>0</span>KM
                             <svg class="icon icon--sm" viewBox="0 0 24 24"><g fill="none" stroke="currentColor"><line stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="3" y1="12" x2="21" y2="12"></line><polyline stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="15,6 21,12 15,18 "></polyline></g>
                             </svg>
                         </em>
@@ -724,8 +724,8 @@
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                     </select>
-                                <a style="cursor:pointer;margin-left:8px" class="cd-cart__details-item" id="btn_detail_${foodItemVar.order.uniqueId}"><i class="fa fa-plus-circle"></i> Details</a>
-                                <a style="cursor:pointer;color:red;margin-left:5px" class="cd-cart__delete-item" id="btn_delete_${foodItemVar.order.uniqueId}"><i class="fa fa-trash"></i> Delete</a>
+                                <a style="cursor:pointer;margin-left:8px" class="cd-cart__details-item" id="btn_detail_${foodItemVar.order.uniqueId}"><i class="fa fa-plus-circle"></i> Detalji</a>
+                                <a style="cursor:pointer;color:red;margin-left:5px" class="cd-cart__delete-item" id="btn_delete_${foodItemVar.order.uniqueId}"><i class="fa fa-trash"></i> Ukloni</a>
                             </div>
                         </div>
                     </li>
@@ -748,7 +748,7 @@
 
                             `
                                                     <li>${c.name}
-                                                        <span class="cd-cart__price" style="float:right;">${c.price} $</span>
+                                                        <span class="cd-cart__price" style="float:right;">${c.price} KM</span>
                                                     </li>
 
                                                     `
@@ -769,7 +769,7 @@
 
                         `
                                     <ul style="list-style:disc !important;padding:0px;margin-left:20px">
-                                        <li>No condiments</li>
+                                        <li>Nema dodataka</li>
                                     </ul>
                                     `;
 
@@ -811,10 +811,11 @@
                 }
 
                 f.order.price = (((+f.order.portion.price) + (+condimentsPrice)) * (+f.order.quantity)).toFixed(2);
-                $("#food_cart_"+f.order.uniqueId+" .cd-cart__price").text((+f.order.price).toFixed(2)+" $");
+                $("#food_cart_"+f.order.uniqueId+" .cd-cart__price").text((+f.order.price).toFixed(2)+" KM");
 
             }
 
+            //update global food price
             //update global food price
             function updateCartTotlaPrice(){
 

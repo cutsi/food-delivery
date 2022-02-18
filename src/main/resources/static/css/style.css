@@ -114,9 +114,10 @@ p {
 }
 
 .card-about {
-    background-color: antiquewhite;
     text-align: center;
     color: black;
+    border-radius: 5%;
+    box-shadow: 1px 1px 10px 2px grey;
 }
 
 .card-container {
@@ -134,6 +135,7 @@ p {
 .card-image {
     width: 100%;
     margin: -5px auto;
+    border-radius: 14px 14px 0 0;
 }
 
 .fa-carrot {
@@ -291,7 +293,6 @@ h2 {
     list-style: none;
     padding-left: 0;
     gap: 35px;
-    text-align: center;
 }
 
 .footer li {
@@ -300,6 +301,7 @@ h2 {
 
 .footer a {
     text-decoration: none;
+    font-family: Montserrat;
 }
 
 .r-footer {
