@@ -71,8 +71,6 @@ public class FrontPageController {
         return "welcome";
     }
 
-
-
     //----------------------------------------------------------------------
     @GetMapping(path="/restaurant")
     public String restoran(Model model, @RequestParam("id") String restaurantId){
@@ -91,16 +89,6 @@ public class FrontPageController {
         return "test";
     }
 
-    @PostMapping(path="/checkout")
-    public String checkout(@RequestParam Long[] products,Model model) {
-        List<FoodItem> foodItemList = new ArrayList<>();
-        for (Long id:products) {
-            if(foodItemService.getById(id).isPresent())
-                foodItemList.add(foodItemService.getById(id).get());
-        }
-        model.addAttribute("products", foodItemList);
-        return "checkout";
-    }
 
     @PostMapping(path = "/custom-logout")
     public String customLogout(){
@@ -146,11 +134,6 @@ public class FrontPageController {
     public String checkout(@RequestParam String[] foodItems, Model model) {
         List<CartRequest> cartItems = cartRequestService.getCartItems(foodItems);
         model.addAttribute("foodItems", cartItems);
-        return "checkout";
-    }
-
-    @GetMapping(path = "checkout")
-    public String checkoutGet(Model model){
         return "checkout";
     }
 }

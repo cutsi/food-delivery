@@ -217,7 +217,6 @@
             <div class="cd-cart__layout">
                 <header class="cd-cart__header">
                     <h2 style="margin-bottom: 0;">Košarica</h2>
-                    <span class="cd-cart__undo">Item removed. <a href="#0">Undo</a></span>
                 </header>
                 <div class="cd-cart__body">
                     <ul>
@@ -474,13 +473,11 @@
 <script type="text/javascript">
     (function(){
 
-
         var foodItems = [];
         var cartCount = 0;
         // Add to Cart Interaction
         var cart = document.getElementsByClassName('js-cd-cart');
         if(cart.length > 0) {
-
             var cartAddBtns = document.getElementsByClassName('js-cd-add-to-cart'),
                 cartBody = cart[0].getElementsByClassName('cd-cart__body')[0],
                 cartList = cartBody.getElementsByTagName('ul')[0],
@@ -505,7 +502,8 @@
                 var csrf_h = document.querySelector('meta[name="_csrf_header"]').content;
                 var input;
 
-                if(foodItems.length == 1)foodItems.push(null);
+                if(foodItems.length == 1)
+                    foodItems.push(null);
                 //build inputs inside form to inject product ids
                 for(var k=0; k<foodItems.length; k++){
 
