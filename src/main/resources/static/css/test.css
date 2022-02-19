@@ -149,10 +149,7 @@ html {
     box-sizing: border-box
 }
 
-body {
-    background-color: #fff;
-    background-color: var(--color-bg, white)
-}
+
 
 article,
 aside,
