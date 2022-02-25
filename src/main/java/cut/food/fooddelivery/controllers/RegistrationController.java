@@ -11,6 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
+import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
 import java.util.Optional;
 
 @Controller
@@ -28,11 +31,11 @@ public class RegistrationController {
         return "signup";
     }
     @PostMapping(path = "/sign-up")
-    public String register(@ModelAttribute RegistrationRequest request, Model model,
-                           @RequestParam("password1") String pass) {
+    public String register(@ModelAttribute RegistrationRequest request, Model model, HttpServletRequest siteURL,
+                           @RequestParam("password1") String pass) throws MessagingException, UnsupportedEncodingException {
         System.out.println("USER CREDENTIALS: " + request.getEmail() + request.getPhone());
         request.setPassword(pass);
-        registrationService.register(request);
+        registrationService.register(request, getSiteURL(siteURL));
         Optional<User> optionalUser = userService.getUserByEmail(request.getEmail());
         if (!userService.getUserByEmail(request.getEmail()).isPresent()){
             throw new IllegalStateException("Korisnik nije registriran");
@@ -41,6 +44,18 @@ public class RegistrationController {
 
         model.addAttribute("restaurants", restaurantService.getAllRestaurants());
         return "/welcome";
+    }
+    private String getSiteURL(HttpServletRequest request) {
+        String siteURL = request.getRequestURL().toString();
+        return siteURL.replace(request.getServletPath(), "");
+    }
+    @GetMapping("/verify")
+    public String verifyUser(@RequestParam("code") String code) {
+        if (userService.verify(code)) {
+            return "verify_success";
+        } else {
+            return "verify_fail";
+        }
     }
 
 

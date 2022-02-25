@@ -42,6 +42,8 @@ public class User implements UserDetails {
     private Boolean isEnabled;
     @Column(nullable = true)
     private Boolean locked = false;
+    @Column(name = "verification_code", length = 64)
+    private String verificationCode;
 
 
     public User(String name, String phone, String email, String password, String address){

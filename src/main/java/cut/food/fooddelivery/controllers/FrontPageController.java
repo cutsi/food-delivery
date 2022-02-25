@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import cut.food.fooddelivery.entities.Category;
 import cut.food.fooddelivery.entities.FoodItem;
 import cut.food.fooddelivery.entities.Restaurant;
+import cut.food.fooddelivery.entities.User;
 import cut.food.fooddelivery.security.CartRequestService;
 import cut.food.fooddelivery.services.*;
 import cut.food.fooddelivery.utilities.requests.CartRequest;
@@ -17,8 +18,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.mail.MessagingException;
+import javax.servlet.http.HttpServletRequest;
 import javax.xml.xpath.XPath;
 
+import java.io.UnsupportedEncodingException;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
@@ -106,15 +110,11 @@ public class FrontPageController {
     @GetMapping(path = "/Kako-naručiti")
     public String kako_naručiti(Model model){
 
-        model.addAttribute("round", imageService.getImageById(1L).get().getName());
         model.addAttribute("banner", imageService.getImageById(8L).get().getName());
-        model.addAttribute("beef", imageService.getImageById(3L).get().getName());
-        model.addAttribute("dough", imageService.getImageById(5L).get().getName());
         return "kako-naručiti";
     }
     @GetMapping(path = "/O-nama")
     public String o_nama(Model model){
-        model.addAttribute("round", imageService.getImageById(1L).get().getName());
         model.addAttribute("banner", imageService.getImageById(7L).get().getName());
         model.addAttribute("beef", imageService.getImageById(3L).get().getName());
         model.addAttribute("dough", imageService.getImageById(5L).get().getName());
@@ -123,10 +123,7 @@ public class FrontPageController {
     }
     @GetMapping(path = "/Kontaktirajte-nas")
     public String contact_us(Model model){
-        model.addAttribute("round", imageService.getImageById(1L).get().getName());
         model.addAttribute("banner", imageService.getImageById(6L).get().getName());
-        model.addAttribute("beef", imageService.getImageById(3L).get().getName());
-        model.addAttribute("dough", imageService.getImageById(5L).get().getName());
         return "kontaktirajte-nas";
     }
 
@@ -136,5 +133,7 @@ public class FrontPageController {
         model.addAttribute("foodItems", cartItems);
         return "checkout";
     }
+
+
 }
 
