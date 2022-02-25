@@ -34,15 +34,16 @@ public class RegistrationController {
     @PostMapping(path = "/sign-up")
     public String register(@ModelAttribute RegistrationRequest request, Model model, HttpServletRequest siteURL,
                            @RequestParam("password1") String pass) throws MessagingException, UnsupportedEncodingException {
-        System.out.println("USER CREDENTIALS: " + request.getEmail() + request.getPhone());
+        System.out.println("                111111111111111111111                        ");
         request.setPassword(pass);
+        System.out.println("                2222222222222222222222                        ");
         registrationService.register(request, getSiteURL(siteURL));
-        Optional<User> optionalUser = userService.getUserByEmail(request.getEmail());
+        System.out.println("                3333333333333333333333                        ");
         if (!userService.getUserByEmail(request.getEmail()).isPresent()){
+            System.out.println("             4444444444444444444444                        ");
             throw new IllegalStateException("Korisnik nije registriran");
         }
-
-        model.addAttribute("restaurants", restaurantService.getAllRestaurants());
+        System.out.println("                55555555555555555555                        ");
         return "/verify_success";
     }
     private String getSiteURL(HttpServletRequest request) {
