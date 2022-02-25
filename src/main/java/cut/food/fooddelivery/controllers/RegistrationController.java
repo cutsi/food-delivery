@@ -43,7 +43,7 @@ public class RegistrationController {
         }
 
         model.addAttribute("restaurants", restaurantService.getAllRestaurants());
-        return "/registration-success";
+        return "/verify_success";
     }
     private String getSiteURL(HttpServletRequest request) {
         String siteURL = request.getRequestURL().toString();
