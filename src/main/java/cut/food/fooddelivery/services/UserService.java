@@ -51,6 +51,7 @@ public class UserService implements UserDetailsService {
         }
         String encodedPassword = bCryptPasswordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
+        user.setVerificationCode(verificationCode);
         userRepo.save(user);
         sendVerificationEmail(user, siteURL);
         // TODO: Send confirmation token later
