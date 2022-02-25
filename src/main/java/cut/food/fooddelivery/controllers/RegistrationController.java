@@ -7,6 +7,7 @@ import cut.food.fooddelivery.services.UserService;
 import cut.food.fooddelivery.utilities.EmailValidator;
 import cut.food.fooddelivery.utilities.requests.RegistrationRequest;
 import lombok.AllArgsConstructor;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -43,14 +44,14 @@ public class RegistrationController {
         User usr = (User) userService.loadUserByUsername(request.getEmail());
 
         model.addAttribute("restaurants", restaurantService.getAllRestaurants());
-        return "/welcome";
+        return "/registration-success";
     }
     private String getSiteURL(HttpServletRequest request) {
         String siteURL = request.getRequestURL().toString();
         return siteURL.replace(request.getServletPath(), "");
     }
     @GetMapping("/verify")
-    public String verifyUser(@RequestParam("code") String code) {
+    public String verifyUser(@Param("code") String code) {
         if (userService.verify(code)) {
             return "verify_success";
         } else {
