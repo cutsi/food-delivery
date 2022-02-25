@@ -44,6 +44,9 @@ public class RegistrationController {
             throw new IllegalStateException("Korisnik nije registriran");
         }
         System.out.println("                55555555555555555555                        ");
+        model.addAttribute("restaurants", restaurantService.getAllRestaurants());
+        if(true)
+            return "/welcome";
         return "/verify_success";
     }
     private String getSiteURL(HttpServletRequest request) {
