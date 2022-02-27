@@ -134,6 +134,10 @@ public class FrontPageController {
         return "checkout";
     }
 
+    @GetMapping("/success")
+    public String success(){
+        return "success";
+    }
 
 }
 
