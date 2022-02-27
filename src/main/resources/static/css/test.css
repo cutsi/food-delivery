@@ -70,7 +70,6 @@ span,
 applet,
 object,
 iframe,
-h1,
 h3,
 h4,
 h5,
@@ -1103,11 +1102,7 @@ body {
     font-size: var(--text-xxxl, 2.488em)
 }
 
-h1,
-.text-xxl {
-    font-size: 2.0736em;
-    font-size: var(--text-xxl, 2.074em)
-}
+
 
 
 h3,
