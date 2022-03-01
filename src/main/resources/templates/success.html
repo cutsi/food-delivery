@@ -1,74 +1,25 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Uspjeh</title>
   <link href="../static/css/success.css" th:href="@{/css/success.css}" rel="stylesheet" />
 
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <style>
-    .myButton {
-      background-color:deepskyblue;
-      border-radius:10px;
-      border:1px solid #18ab29;
-      display:inline-block;
-      cursor:pointer;
-      color:#ffffff;
-      font-family:Arial;
-      font-size:18px;
-      padding:7px 15px;
-      text-decoration:none;
-      text-shadow:0px 1px 0px #2f6627;
-    }
-    .myButton:hover {
-      background-color:#5cbf2a;
-    }
-    .myButton:active {
-      position:relative;
-      top:1px;
-    }
-
-    .myButtonRed {
-      background-color:red;
-      border-radius:28px;
-      border:1px solid red;
-      display:inline-block;
-      cursor:pointer;
-      color:#ffffff;
-      font-family:Arial;
-      font-size:17px;
-      padding:16px 31px;
-      text-decoration:none;
-      text-shadow:0px 1px 0px red;
-    }
-    .myButtonRed:hover {
-      background-color:red;
-    }
-    .myButtonRed:active {
-      position:relative;
-      top:1px;
-    }
-  </style>
 </head>
 <body>
-
-<!------ Include the above in your HEAD tag ---------->
-
-<div class="swal2-icon swal2-success swal2-animate-success-icon" style="display: flex;">
-  <div class="swal2-success-circular-line-left" style="background-color: rgb(255, 255, 255);"></div>
-  <span class="swal2-success-line-tip"></span>
-  <span class="swal2-success-line-long"></span>
-  <div class="swal2-success-ring"></div>
-  <div class="swal2-success-fix" style="background-color: rgb(255, 255, 255);"></div>
-  <div class="swal2-success-circular-line-right" style="background-color: rgb(255, 255, 255);"></div>
+<div id='card' class="animated fadeIn">
+  <div id='upper-side'>
+    <i class="fa fa-check"></i>
+    <h3 id='status' class = "success"> Uspješno ste kreirali račun. </h3>
+  </div>
+  <div id='lower-side'>
+    <p id='message'>
+      Pregledajte svoj mail i verificirajte račun. Nakon toga se možete ulogirati.
+    </p>
+    <a href="#" id="contBtn">Nastavi</a>
+  </div>
 </div>
-<center>SUCCESS</center>
-<form th:action="@{/welcome}" method="get">
-  <center>
-    <button type="submit" class="myButton" th:action="about-us">Go back</button>
-  </center>
-</form>
+</div>
 </body>
 </html>
