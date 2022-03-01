@@ -1,4 +1,4 @@
-#card {
+.card {
     position: relative;
     width: 320px;
     display: block;
@@ -6,7 +6,7 @@
     text-align: center;
     font-family: 'Source Sans Pro', sans-serif;
 }
-#upper-side {
+.upper-side {
     padding: 2em;
     background-color: #8BC34A;
     display: block;
@@ -14,24 +14,24 @@
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
 }
-#checkmark {
+.checkmark {
     font-weight: lighter;
     fill: #fff;
     margin: -3.5em auto auto 20px;
 }
-#lower-side {
+.lower-side {
     padding: 2em 2em 5em 2em;
     background: #fff;
     display: block;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
 }
-#message {
+.message {
     margin-top: -.5em;
     color: #757575;
     letter-spacing: 1px;
 }
-#contBtn {
+.contBtn {
     position: relative;
     top: 1.5em;
     text-decoration: none;
@@ -48,7 +48,7 @@
     -o-transition: all .4s ease;
     transition: all .4s ease;
 }
-#contBtn:hover {
+.contBtn:hover {
     -webkit-box-shadow: 0px 15px 30px rgba(50, 50, 50, 0.41);
     -moz-box-shadow: 0px 15px 30px rgba(50, 50, 50, 0.41);
     box-shadow: 0px 15px 30px rgba(50, 50, 50, 0.41);
@@ -56,26 +56,4 @@
     -moz-transition: all .4s ease;
     -o-transition: all .4s ease;
     transition: all .4s ease;
-}
-
-@media screen and (min-width: 768px) {
-    #upper-side{
-        height: 17pc;
-        margin-top: 150px;
-        border-radius: 25px;
-    }
-    #message{
-        font-size: 4em;
-        padding-top: 100px;
-    }
-    #contBtn{
-        width: 155px;
-        font-size: 3em;
-    }
-    #card{
-        width: 90%;
-    }
-    .success{
-        font-size: 4em;
-    }
 }

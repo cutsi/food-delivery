@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100" xmlns:th="https://thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head th:replace="fragments/general :: head"></head>
 <head>
   <meta charset="UTF-8">
   <title>Uspjeh</title>
@@ -8,16 +9,19 @@
 
 </head>
 <body>
-<div id='card' class="animated fadeIn">
-  <div id='upper-side'>
+<main role="main" class="flex-shrink-0" style="margin-bottom: 125px;">
+  <header th:replace="fragments/general :: header"></header>
+</main>
+<div class='card' id="animated fadeIn">
+  <div class='upper-side'>
     <i class="fa fa-check"></i>
     <h3 id='status' class = "success"> Uspješno ste kreirali račun. </h3>
   </div>
-  <div id='lower-side'>
-    <p id='message'>
+  <div class='lower-side'>
+    <p class='message'>
       Pregledajte svoj mail i verificirajte račun. Nakon toga se možete ulogirati.
     </p>
-    <a href="#" id="contBtn">Nastavi</a>
+    <a href="#" class="contBtn">Nastavi</a>
   </div>
 </div>
 </div>
