@@ -1,13 +1,29 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100" xmlns:th="https://thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head th:replace="fragments/general :: head"></head>
 <head>
     <meta charset="UTF-8">
     <title>Uspjeh</title>
+    <link href="../static/css/success.css" th:href="@{/css/success.css}" rel="stylesheet" />
+
 </head>
 <body>
-<div class="container text-center">
-  <h3>Vaš račun je aktiviran.</h3>
-  <h4><a th:href="@{/login}">Kliknite ovdje za login.</a></h4>
+<main role="main" class="flex-shrink-0" style="margin-bottom: 125px;">
+    <header th:replace="fragments/general :: header"></header>
+</main>
+<div class='card' id="animated fadeIn">
+    <div class='upper-side'>
+        <i class="fa fa-check"></i>
+        <h3 id='status' class = "success"> Uspješno ste verificirali račun. </h3>
+    </div>
+    <div class='lower-side'>
+        <p class='message'>
+            Vaš račun je sada osposobljen za naručivanje. Dobar tek!
+        </p>
+        <a href="/" class="contBtn">Nastavi</a>
+    </div>
+</div>
 </div>
 </body>
 </html>

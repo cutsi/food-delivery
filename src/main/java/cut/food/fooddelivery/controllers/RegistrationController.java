@@ -44,7 +44,7 @@ public class RegistrationController {
         User usr = (User) userService.loadUserByUsername(request.getEmail());
 
         model.addAttribute("restaurants", restaurantService.getAllRestaurants());
-        return "welcome";
+        return "success";
     }
     private String getSiteURL(HttpServletRequest request) {
         String siteURL = request.getRequestURL().toString();
