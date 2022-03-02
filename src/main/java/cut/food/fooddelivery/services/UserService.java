@@ -266,7 +266,7 @@ public class UserService implements UserDetailsService {
                 "                                    <td bgcolor=\"#ffffff\" align=\"center\" style=\"padding: 20px 30px 60px 30px;\">\n" +
                 "                                        <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n" +
                 "                                            <tr>\n" +
-                "                                                <td align=\"center\" style=\"border-radius: 3px;\" bgcolor=\"tomato\"><a href=\"[[URL]]\" target=\"_self\" style=\"font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid darkred; display: inline-block;\">Potvrdi</a></td>\n" +
+                "                                                <td align=\"center\" style=\"border-radius: 3px;\" bgcolor=\"lightgreen\"><a href=\"[[URL]]\" target=\"_self\" style=\"font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid green; display: inline-block;\">Potvrdi</a></td>\n" +
                 "                                            </tr>\n" +
                 "                                        </table>\n" +
                 "                                    </td>\n" +
