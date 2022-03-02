@@ -94,26 +94,15 @@ public class UserService implements UserDetailsService {
         String toAddress = user.getEmail();
         String fromAddress = "josipcutura1997@gmail.com";
         String senderName = "MEZI";
-        String subject = "<Potvrdite svoju registraciju>";
-        String content1 = "Dear [[name]],<br>"
-                + "Please click the link below to verify your registration:<br>"
-                + "<h3><a href=\"[[URL]]\" target=\"_self\">VERIFY</a></h3>"
-                + "Thank you,<br>"
-                + "MEZI.";
-
+        String subject = "Potvrdite svoju registraciju";
         String content = mailBuilder(user.getName(),user.getVerificationCode(), siteURL);
+
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
 
         helper.setFrom(fromAddress, senderName);
         helper.setTo(toAddress);
         helper.setSubject(subject);
-
-        content = content.replace("[[name]]", user.getName());
-        String verifyURL = siteURL + "/verify?code=" + user.getVerificationCode();
-
-        content = content.replace("[[URL]]", verifyURL);
-
         helper.setText(content, true);
 
         mailSender.send(message);
@@ -309,8 +298,16 @@ public class UserService implements UserDetailsService {
                 "                    <tr>\n" +
                 "                        <td bgcolor=\"#FFECD1\" align=\"center\" style=\"padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;\">\n" +
                 "                            <h2 style=\"font-size: 20px; font-weight: 400; color: #111111; margin: 0;\">Need more help?</h2>\n" +
-                "                            <p style=\"margin: 0;\"><a href=\"mezi.online/Kontaktirajte-nas\" target=\"_blank\" style=\"color: #FFA73B;\">Ovdje smo da vam pomognemo.</a></p>\n" +
+                "                            <p style=\"margin: 0;\"><a href=\"mezi.online/Kontaktirajte-nas\"style=\"color: #FFA73B;\">Ovdje smo da vam pomognemo.</a></p>\n" +
                 "                        </td>\n" +
+                "                    </tr>\n" +
+                "                </table>\n" +
+                "            </td>\n" +
+                "        </tr>\n" +
+                "        <tr>\n" +
+        "                   <td bgcolor=\"#f4f4f4\" align=\"center\" style=\"padding: 0px 10px 0px 10px;\">\n" +
+                "                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"max-width: 600px;\">\n" +
+                "                    <tr>\n" +
                 "                    </tr>\n" +
                 "                </table>\n" +
                 "            </td>\n" +
