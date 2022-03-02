@@ -232,7 +232,7 @@ public class UserService implements UserDetailsService {
                 "    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\n" +
                 "        <!-- LOGO -->\n" +
                 "        <tr>\n" +
-                "            <td bgcolor=\"darkred\" align=\"center\">\n" +
+                "            <td bgcolor=\"tomato\" align=\"center\">\n" +
                 "                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"max-width: 600px;\">\n" +
                 "                    <tr>\n" +
                 "                        <td align=\"center\" valign=\"top\" style=\"padding: 40px 10px 40px 10px;\"> </td>\n" +
@@ -241,7 +241,7 @@ public class UserService implements UserDetailsService {
                 "            </td>\n" +
                 "        </tr>\n" +
                 "        <tr>\n" +
-                "            <td bgcolor=\"darkred\" align=\"center\" style=\"padding: 0px 10px 0px 10px;\">\n" +
+                "            <td bgcolor=\"tomato\" align=\"center\" style=\"padding: 0px 10px 0px 10px;\">\n" +
                 "                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"max-width: 600px;\">\n" +
                 "                    <tr>\n" +
                 "                        <td bgcolor=\"#ffffff\" align=\"center\" valign=\"top\" style=\"padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;\">\n" +
@@ -266,7 +266,7 @@ public class UserService implements UserDetailsService {
                 "                                    <td bgcolor=\"#ffffff\" align=\"center\" style=\"padding: 20px 30px 60px 30px;\">\n" +
                 "                                        <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n" +
                 "                                            <tr>\n" +
-                "                                                <td align=\"center\" style=\"border-radius: 3px;\" bgcolor=\"darkred\"><a href=\"[[URL]]\" target=\"_self\" style=\"font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid darkred; display: inline-block;\">Potvrdi</a></td>\n" +
+                "                                                <td align=\"center\" style=\"border-radius: 3px;\" bgcolor=\"tomato\"><a href=\"[[URL]]\" target=\"_self\" style=\"font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid darkred; display: inline-block;\">Potvrdi</a></td>\n" +
                 "                                            </tr>\n" +
                 "                                        </table>\n" +
                 "                                    </td>\n" +
