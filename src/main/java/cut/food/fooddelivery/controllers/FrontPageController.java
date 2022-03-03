@@ -1,15 +1,12 @@
 package cut.food.fooddelivery.controllers;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import cut.food.fooddelivery.entities.Category;
-import cut.food.fooddelivery.entities.FoodItem;
 import cut.food.fooddelivery.entities.Restaurant;
 import cut.food.fooddelivery.entities.User;
 import cut.food.fooddelivery.security.CartRequestService;
 import cut.food.fooddelivery.services.*;
 import cut.food.fooddelivery.utilities.requests.CartRequest;
 import lombok.AllArgsConstructor;
+import net.bytebuddy.utility.RandomString;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,25 +14,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
-import javax.xml.xpath.XPath;
-
 import java.io.UnsupportedEncodingException;
-import java.security.Principal;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 @Controller
 @RequestMapping(path = "/")
 @AllArgsConstructor
 public class FrontPageController {
 
-    private final CategoryService categoryService;
-    private final FoodItemService foodItemService;
     private final RestaurantService restaurantService;
     private final UserService userService;
     private final ImageService imageService;
@@ -139,5 +128,23 @@ public class FrontPageController {
         return "success";
     }
 
+    @GetMapping("/change_password")
+    public String ChangePasswordGet(){
+        return "change_password";
+    }
+    @PostMapping("/change_password")
+    public String ChangePasswordPost(Model model, HttpServletRequest siteURL,
+                                     @RequestParam("email") String email) throws MessagingException, UnsupportedEncodingException {
+        if(!userService.getUserByEmail(email).isPresent()){
+            return "verify_fail";
+        }
+        String verificationCode = RandomString.make(64);
+        User user = userService.getUserByEmail(email).get();
+        user.setVerificationCode(verificationCode);
+        userService.sendVerificationEmail(userService.getUserByEmail(email).get(),siteURL.toString());
+        String message = "Pregledajte mail kako bi promijenili šifru.";
+        model.addAttribute("message", message);
+        return "success";
+    }
 }
 

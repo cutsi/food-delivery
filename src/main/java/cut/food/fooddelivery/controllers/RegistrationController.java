@@ -39,11 +39,10 @@ public class RegistrationController {
         registrationService.register(request, getSiteURL(siteURL));
         Optional<User> optionalUser = userService.getUserByEmail(request.getEmail());
         if (!userService.getUserByEmail(request.getEmail()).isPresent()){
-            throw new IllegalStateException("Korisnik nije registriran");
+            return "registration_fail";
         }
-        User usr = (User) userService.loadUserByUsername(request.getEmail());
-
-        model.addAttribute("restaurants", restaurantService.getAllRestaurants());
+        String message = "Pregledajte svoj mail i verificirajte račun. Nakon toga se možete ulogirati.";
+        model.addAttribute("message", message);
         return "success";
     }
     private String getSiteURL(HttpServletRequest request) {

@@ -89,7 +89,7 @@ public class UserService implements UserDetailsService {
         userRepo.save(user);
     }
 
-    private void sendVerificationEmail(User user, String siteURL)
+    public void sendVerificationEmail(User user, String siteURL)
             throws MessagingException, UnsupportedEncodingException {
         String toAddress = user.getEmail();
         String fromAddress = "josipcutura1997@gmail.com";
@@ -323,4 +323,9 @@ public class UserService implements UserDetailsService {
 
         return message;
     }
+    private String buildChangePasswordMail(){
+        return null;
+    }
 }
+
+

@@ -71,12 +71,21 @@
         .dropdown-login-register{
             margin-top: 0px;
         }
-        @media (min-width: 960px) {
-            .navbar-expand-md1 .navbar-collapse1 {
-                display: -ms-flexbox !important;
+        a.nav-link.link.main-link{
+            white-space: nowrap;
+        }
+
+        @media (min-width: 960px){
+            .navbar-expand-md-1 .navbar-collapse {
                 display: flex !important;
-                -ms-flex-preferred-size: auto;
-                flex-basis: auto;
+                -ms-flex-preferred-size: auto !important;
+                flex-basis: auto !important;
+            }
+            .navbar-expand-md-1 .navbar-nav{
+                flex-direction: row !important;
+            }
+            .navbar-toggler.collapsed.navbar-dark{
+                display: none;
             }
         }
     </style>
@@ -89,7 +98,7 @@
 
 <header id="navigation" th:fragment="header">
 
-    <nav class="navbar navbar-expand-md1 navbar-expand-md fixed-top">
+    <nav class="navbar navbar-expand-md-1 fixed-top">
         <a class="logo" href="/">
             <img class="logo" style="width: 140px; margin-right: 20px;">
         </a>

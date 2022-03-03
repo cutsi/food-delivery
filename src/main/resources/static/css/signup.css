@@ -163,3 +163,7 @@ form .button-reg input:hover{
     /* transform: scale(0.99); */
     background: darkred;
 }
+
+.forgot_email{
+    text-align: center;
+}
