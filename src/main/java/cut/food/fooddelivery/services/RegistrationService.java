@@ -18,7 +18,7 @@ public class RegistrationService {
     private final UserService userService;
     private final EmailValidator emailValidator;
 
-    public void register(RegistrationRequest request, String siteURL) throws MessagingException, UnsupportedEncodingException {
+    public void register(RegistrationRequest request, String siteURL, String redirect) throws MessagingException, UnsupportedEncodingException {
         boolean isValidEmail = emailValidator
                 .test(request.getEmail());
         if(isValidEmail){
@@ -29,7 +29,8 @@ public class RegistrationService {
                         request.getPhone(),
                         request.getPassword(),
                         request.getName()),
-                siteURL);
+                siteURL,
+                redirect);
     }
 
 }

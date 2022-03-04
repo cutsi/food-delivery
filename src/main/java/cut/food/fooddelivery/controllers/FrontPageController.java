@@ -29,6 +29,7 @@ public class FrontPageController {
     private final UserService userService;
     private final ImageService imageService;
     private final CartRequestService cartRequestService;
+    private final String PASSWORD_FORGOT = "/promijeni-lozinku";
 
     @GetMapping(path = "/")
     public String welcome(Model model){
@@ -141,7 +142,7 @@ public class FrontPageController {
         String verificationCode = RandomString.make(64);
         User user = userService.getUserByEmail(email).get();
         user.setVerificationCode(verificationCode);
-        userService.sendVerificationEmail(userService.getUserByEmail(email).get(),siteURL.toString());
+        userService.sendVerificationEmail(userService.getUserByEmail(email).get(),siteURL.toString(), PASSWORD_FORGOT);
         String message = "Pregledajte mail kako bi promijenili šifru.";
         model.addAttribute("message", message);
         return "success";

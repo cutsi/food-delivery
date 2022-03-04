@@ -28,6 +28,7 @@ public class RegistrationController {
     private final RegistrationService registrationService;
     private final RestaurantService restaurantService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final String VERIFY_LINK = "/verify";
 
     @GetMapping(path = "/sign-up")
     public String signup(@ModelAttribute RegistrationRequest registrationRequest,
@@ -40,7 +41,7 @@ public class RegistrationController {
                            @RequestParam("password1") String pass) throws MessagingException, UnsupportedEncodingException {
         System.out.println("USER CREDENTIALS: " + request.getEmail() + request.getPhone());
         request.setPassword(pass);
-        registrationService.register(request, getSiteURL(siteURL));
+        registrationService.register(request, getSiteURL(siteURL), VERIFY_LINK);
         Optional<User> optionalUser = userService.getUserByEmail(request.getEmail());
         if (!userService.getUserByEmail(request.getEmail()).isPresent()){
             return "registration_fail";

@@ -140,6 +140,12 @@ form .button input:hover{
         flex-direction: column;
     }
 }
+@media(min-width: 459px){
+    .center{
+        margin-top: 100px;
+        margin-bottom: 35px;
+    }
+}
 
 
 form .button-reg{

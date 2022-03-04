@@ -39,21 +39,21 @@ public class UserService implements UserDetailsService {
         if(!user.isPresent()) throw new UsernameNotFoundException(String.format(USER_NOT_FOUND, email));
         return user.get();
     }
-    public void signUpUser(User user, String siteURL) throws UnsupportedEncodingException, MessagingException{
+    public void signUpUser(User user, String siteURL, String redirect) throws UnsupportedEncodingException, MessagingException{
         boolean userExists = userRepo.findByEmail(user.getEmail()).isPresent();
         String verificationCode = RandomString.make(64);
         if (userExists) {
             // TODO check of attributes are the same and
             // TODO if email not confirmed send confirmation email.
             user.setVerificationCode(verificationCode);
-            sendVerificationEmail(user, siteURL);
+            sendVerificationEmail(user, siteURL, redirect);
             throw new IllegalStateException("Email je zauzet");
         }
         String encodedPassword = bCryptPasswordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
         user.setVerificationCode(verificationCode);
         userRepo.save(user);
-        sendVerificationEmail(user, siteURL);
+        sendVerificationEmail(user, siteURL, redirect);
         // TODO: Send confirmation token later
     }
 
@@ -89,13 +89,14 @@ public class UserService implements UserDetailsService {
         userRepo.save(user);
     }
 
-    public void sendVerificationEmail(User user, String siteURL)
+
+    public void sendVerificationEmail(User user, String siteURL, String redirect)
             throws MessagingException, UnsupportedEncodingException {
         String toAddress = user.getEmail();
         String fromAddress = "josipcutura1997@gmail.com";
         String senderName = "MEZI";
         String subject = "Potvrdite svoju registraciju";
-        String content = mailBuilder(user.getName(),user.getVerificationCode(), siteURL);
+        String content = mailBuilder(user.getName(),user.getVerificationCode(), siteURL, redirect);
 
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
@@ -125,7 +126,8 @@ public class UserService implements UserDetailsService {
         }
 
     }
-    private String mailBuilder(String name, String verificationCode, String siteUrl){
+
+    private String mailBuilder(String name, String verificationCode, String siteUrl, String redirect){
         String message = "<!DOCTYPE html>\n" +
                 "<html>\n" +
                 "\n" +
@@ -320,7 +322,7 @@ public class UserService implements UserDetailsService {
                 "\n" +
                 "</html>";
         message = message.replace("[[name]]", name);
-        String verifyURL = "mezi.online" + "/promijeni-lozinku?code=" + verificationCode;
+        String verifyURL = "mezi.online" + redirect +"?code=" + verificationCode;
         message = message.replace("[[URL]]", verifyURL);
         message = message.replace("[[verification_link]]", verifyURL);
 
