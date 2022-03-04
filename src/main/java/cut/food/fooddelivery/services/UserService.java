@@ -320,7 +320,7 @@ public class UserService implements UserDetailsService {
                 "\n" +
                 "</html>";
         message = message.replace("[[name]]", name);
-        String verifyURL = siteUrl + "/verify?code=" + verificationCode;
+        String verifyURL = "mezi.online" + "/promijeni-lozinku?code=" + verificationCode;
         message = message.replace("[[URL]]", verifyURL);
         message = message.replace("[[verification_link]]", verifyURL);
 
