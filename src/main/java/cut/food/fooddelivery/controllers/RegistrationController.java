@@ -69,7 +69,7 @@ public class RegistrationController {
         model.addAttribute("user", user);
         return "change_password_form";
     }
-    @PostMapping("promijeni-lozinku")
+    @PostMapping("/promijeni-lozinku")
     public String changePasswordPost(Model model, @RequestParam("userID") String userId,
                                      @RequestParam("password1") String password){
         User user = userService.getUserById(Long.valueOf(userId)).get();
