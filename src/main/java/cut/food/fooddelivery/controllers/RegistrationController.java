@@ -1,6 +1,7 @@
 package cut.food.fooddelivery.controllers;
 
 import antlr.BaseAST;
+import com.sun.xml.bind.v2.TODO;
 import cut.food.fooddelivery.entities.User;
 import cut.food.fooddelivery.services.RegistrationService;
 import cut.food.fooddelivery.services.RestaurantService;
@@ -79,6 +80,7 @@ public class RegistrationController {
         String message = "Uspješno ste promijenili lozinku";
         model.addAttribute("message", message);
         return "success";
+        //TODO popravit slanje maila u user servicu
     }
 
 
