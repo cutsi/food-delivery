@@ -108,6 +108,9 @@ public class UserService implements UserDetailsService {
         mailSender.send(message);
 
     }
+    public User getUserByVerificationCode(String code){
+        return userRepo.findByVerificationCode(code);
+    }
     public boolean verify(String verificationCode) {
         User user = userRepo.findByVerificationCode(verificationCode);
 
