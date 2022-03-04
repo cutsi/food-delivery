@@ -70,7 +70,7 @@ public class RegistrationController {
         return "change_password_form";
     }
     @PostMapping("/promijeni-lozinku")
-    public String changePasswordPost(Model model, @RequestParam("userID") String userId,
+    public String changePasswordPost(Model model, @RequestParam("userId") String userId,
                                      @RequestParam("password1") String password){
         User user = userService.getUserById(Long.valueOf(userId)).get();
         String encodedPassword = bCryptPasswordEncoder.encode(password);
