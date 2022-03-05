@@ -657,7 +657,6 @@ public class UserService implements UserDetailsService {
                 "                                                    <tr>\n" +
                 "                                                        <td style=\"width:64px;\">\n" +
                 "\n" +
-                "                                                            <img height=\"auto\" src=\"https://i.imgur.com/KO1vcE9.png\" style=\"border:0;display:block;outline:none;text-decoration:none;width:100%;\" width=\"64\" />\n" +
                 "\n" +
                 "                                                        </td>\n" +
                 "                                                    </tr>\n" +
