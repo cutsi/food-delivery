@@ -657,6 +657,7 @@ public class UserService implements UserDetailsService {
                 "                                                    <tr>\n" +
                 "                                                        <td style=\"width:64px;\">\n" +
                 "\n" +
+                "                                                            <img height=\"auto\" src=\"https://i.imgur.com/KO1vcE9.png\" style=\"border:0;display:block;outline:none;text-decoration:none;width:100%;\" width=\"64\" />\n" +
                 "\n" +
                 "                                                        </td>\n" +
                 "                                                    </tr>\n" +
@@ -670,7 +671,7 @@ public class UserService implements UserDetailsService {
                 "                                        <td align=\"center\" style=\"font-size:0px;padding:10px 25px;padding-bottom:40px;word-break:break-word;\">\n" +
                 "\n" +
                 "                                            <div style=\"font-family:'Helvetica Neue',Arial,sans-serif;font-size:38px;font-weight:bold;line-height:1;text-align:center;color:#555;\">\n" +
-                "                                                Ups!\n" +
+                "                                                Oops!\n" +
                 "                                            </div>\n" +
                 "\n" +
                 "                                        </td>\n" +
@@ -680,7 +681,7 @@ public class UserService implements UserDetailsService {
                 "                                        <td align=\"center\" style=\"font-size:0px;padding:10px 25px;padding-bottom:40px;word-break:break-word;\">\n" +
                 "\n" +
                 "                                            <div style=\"font-family:'Helvetica Neue',Arial,sans-serif;font-size:18px;line-height:1;text-align:center;color:#555;\">\n" +
-                "                                                Izgleda da ste zaboravili lozinku.\n" +
+                "                                                It seems that you’ve forgotten your password.\n" +
                 "                                            </div>\n" +
                 "\n" +
                 "                                        </td>\n" +
@@ -711,7 +712,7 @@ public class UserService implements UserDetailsService {
                 "                                                <tr>\n" +
                 "                                                    <td align=\"center\" bgcolor=\"#2F67F6\" role=\"presentation\" style=\"border:none;border-radius:3px;color:#ffffff;cursor:auto;padding:15px 25px;\" valign=\"middle\">\n" +
                 "                                                        <p style=\"background:#2F67F6;color:#ffffff;font-family:'Helvetica Neue',Arial,sans-serif;font-size:15px;font-weight:normal;line-height:120%;Margin:0;text-decoration:none;text-transform:none;\">\n" +
-                "                                                            Promijenite lozinku\n" +
+                "                                                            Reset Password\n" +
                 "                                                        </p>\n" +
                 "                                                    </td>\n" +
                 "                                                </tr>\n" +
@@ -724,7 +725,7 @@ public class UserService implements UserDetailsService {
                 "                                        <td align=\"center\" style=\"font-size:0px;padding:10px 25px;padding-bottom:40px;word-break:break-word;\">\n" +
                 "\n" +
                 "                                            <div style=\"font-family:'Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:20px;text-align:center;color:#7F8FA4;\">\n" +
-                "                                                Ukoliko gumb ne radi molimo vas da kopirate ovaj link u svoj pretraživač:\n" + "<br><br>" + "linkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk" +
+                "                                                If you did not make this request, just ignore this email. Otherwise please click the button above to reset your password.\n" +
                 "                                            </div>\n" +
                 "\n" +
                 "                                        </td>\n" +
@@ -760,7 +761,7 @@ public class UserService implements UserDetailsService {
                 "                                                        <td align=\"center\" style=\"font-size:0px;padding:0;word-break:break-word;\">\n" +
                 "\n" +
                 "                                                            <div style=\"font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;font-weight:300;line-height:1;text-align:center;color:#575757;\">\n" +
-                "                                                                Ukoliko vam treba pomoć, slobodno odgovorite na ovaj mail ili nas <a href=\"mezi.online/Kontaktirajte-nas style=\"color:#575757\">kontaktirajte</a>\n" +
+                "                                                                Some Firm Ltd, 35 Avenue. City 10115, USA\n" +
                 "                                                            </div>\n" +
                 "\n" +
                 "                                                        </td>\n" +
@@ -770,7 +771,7 @@ public class UserService implements UserDetailsService {
                 "                                                        <td align=\"center\" style=\"font-size:0px;padding:10px;word-break:break-word;\">\n" +
                 "\n" +
                 "                                                            <div style=\"font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;font-weight:300;line-height:1;text-align:center;color:#575757;\">\n" +
-                "                                                                <a href=\"\" style=\"color:#575757\">Mezi d.o.o.</a> from our emails\n" +
+                "                                                                <a href=\"\" style=\"color:#575757\">Unsubscribe</a> from our emails\n" +
                 "                                                            </div>\n" +
                 "\n" +
                 "                                                        </td>\n" +
