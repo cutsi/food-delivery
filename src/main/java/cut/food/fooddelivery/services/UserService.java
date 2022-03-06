@@ -526,7 +526,7 @@ public class UserService implements UserDetailsService {
     }
 
     private String changePasswordMail(){
-        return "<!doctype html>\n" +
+        String message = "<!doctype html>\n" +
                 "<html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:v=\"urn:schemas-microsoft-com:vml\" xmlns:o=\"urn:schemas-microsoft-com:office:office\">\n" +
                 "\n" +
                 "<head>\n" +
@@ -709,7 +709,7 @@ public class UserService implements UserDetailsService {
                 "\n" +
                 "                                            <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" role=\"presentation\" style=\"border-collapse:separate;line-height:100%;\">\n" +
                 "                                                <tr>\n" +
-                "                                                    <td align=\"center\" bgcolor=\"#2F67F6\" role=\"presentation\" style=\"border:none;border-radius:3px;color:#ffffff;cursor:auto;padding:15px 25px;\" valign=\"middle\">\n" +
+                "                                                    <td align=\"center\" bgcolor=\"#2F67F6\" role=\"presentation\" style=\"border:none;border-radius:3px;color:#ffffff;cursor:auto;padding:15px 25px;\" valign=\"middle\">\n + <a href='mezi.online/' target='_self'>" +
                 "                                                        <p style=\"background:#2F67F6;color:#ffffff;font-family:'Helvetica Neue',Arial,sans-serif;font-size:15px;font-weight:normal;line-height:120%;Margin:0;text-decoration:none;text-transform:none;\">\n" +
                 "                                                            Promijenite šifru\n" +
                 "                                                        </p>\n" +
@@ -796,6 +796,7 @@ public class UserService implements UserDetailsService {
                 "</body>\n" +
                 "\n" +
                 "</html>";
+        return message;
     }
 }
 
