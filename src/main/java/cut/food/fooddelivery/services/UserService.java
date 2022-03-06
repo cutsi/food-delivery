@@ -725,7 +725,7 @@ public class UserService implements UserDetailsService {
                 "                                        <td align=\"center\" style=\"font-size:0px;padding:10px 25px;padding-bottom:40px;word-break:break-word;\">\n" +
                 "\n" +
                 "                                            <div style=\"font-family:'Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:20px;text-align:center;color:#7F8FA4;\">\n" +
-                "                                                Ukoliko gumb za promjenu šifre ne radi, kopirajte ovaj link i zalijepite ga u svoj internet pretraživač:\n" +
+                "                                                Ukoliko gumb za promjenu šifre ne radi, kopirajte ovaj link i zalijepite ga u svoj internet pretraživač:\n" + "<br><br>" +
                 "                                                   <a href=\"[[verification_link]]\" target=\"_blank\" style=\"color: darkred;\">[[verification_link]]</a></p>\n" +
                 "                                            </div>\n" +
                 "\n" +
