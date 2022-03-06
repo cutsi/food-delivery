@@ -98,8 +98,7 @@ public class UserService implements UserDetailsService {
         String subject = "Potvrdite svoju registraciju";
         siteURL = "mezi.online/promijeni-lozinku?code=" + user.getVerificationCode();
         String content = changePasswordMail(siteURL);
-        user.setVerificationCode(null);
-        userRepo.save(user);
+
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
 

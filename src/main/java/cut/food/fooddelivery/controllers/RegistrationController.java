@@ -77,6 +77,7 @@ public class RegistrationController {
         User user = userService.getUserById(Long.valueOf(userId)).get();
         String encodedPassword = bCryptPasswordEncoder.encode(password);
         user.setPassword(encodedPassword);
+        user.setVerificationCode(null);
         userService.saveUser(user);
         String message = "Uspješno ste promijenili lozinku";
         model.addAttribute("message", message);
