@@ -771,7 +771,7 @@ public class UserService implements UserDetailsService {
                 "                                                        <td align=\"center\" style=\"font-size:0px;padding:10px;word-break:break-word;\">\n" +
                 "\n" +
                 "                                                            <div style=\"font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;font-weight:300;line-height:1;text-align:center;color:#575757;\">\n" +
-                "                                                                <a href='mezi.online/Kontaktirajte-nas>Kontaktirajte nas</a>" +
+                "                                                                <a href='mezi.online/Kontaktirajte-nas'>Kontaktirajte nas</a>" +
                 "                                                            </div>\n" +
                 "\n" +
                 "                                                        </td>\n" +
