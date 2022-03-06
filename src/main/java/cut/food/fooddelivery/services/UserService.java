@@ -96,7 +96,8 @@ public class UserService implements UserDetailsService {
         String fromAddress = "josipcutura1997@gmail.com";
         String senderName = "MEZI";
         String subject = "Potvrdite svoju registraciju";
-        String content = changePasswordMail();
+        siteURL = "mezi.online/promijeni-lozinku?code=" + user.getVerificationCode();
+        String content = changePasswordMail(siteURL);
 
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
@@ -525,7 +526,7 @@ public class UserService implements UserDetailsService {
                 "</html>";
     }
 
-    private String changePasswordMail(){
+    private String changePasswordMail(String verification_link){
         String message = "<!doctype html>\n" +
                 "<html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:v=\"urn:schemas-microsoft-com:vml\" xmlns:o=\"urn:schemas-microsoft-com:office:office\">\n" +
                 "\n" +
@@ -796,6 +797,7 @@ public class UserService implements UserDetailsService {
                 "</body>\n" +
                 "\n" +
                 "</html>";
+        message = message.replace("[[verification_link]]", verification_link);
         return message;
     }
 }
