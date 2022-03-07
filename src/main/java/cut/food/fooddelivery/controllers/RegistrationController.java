@@ -3,6 +3,7 @@ package cut.food.fooddelivery.controllers;
 import antlr.BaseAST;
 import com.sun.xml.bind.v2.TODO;
 import cut.food.fooddelivery.entities.User;
+import cut.food.fooddelivery.services.EmailService;
 import cut.food.fooddelivery.services.RegistrationService;
 import cut.food.fooddelivery.services.RestaurantService;
 import cut.food.fooddelivery.services.UserService;
@@ -24,30 +25,32 @@ import java.util.Optional;
 @RequestMapping(path = "/")
 @AllArgsConstructor
 public class RegistrationController {
+    private final EmailService emailService;
     private final UserService userService;
-    private final RegistrationService registrationService;
-    private final RestaurantService restaurantService;
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final String VERIFY_LINK = "/verify";
+    private final String REGISTRATION_FAIL_MESSAGE = "Vaš račun je već registriran";
+    private final String REGISTRATION_SUCCESS_MESSAGE = "Vaš račun je uspješno kreiran. Pregledajte svoj mail i verificirajte račun. Nakon toga se možete ulogirati.";
+    private final String VERIFY_SUCCESS_MESSAGE = "Uspješno ste se verificirali. Vaš račun je sada osposobljen za naručivanje. Dobar tek!";
+    private final String VERIFY_FAIL_MESSAGE = "Nismo vam mogli verificirati račun. Vaš račun je već verificiran ili je verifikacijski kod netočan.";
 
     @GetMapping(path = "/sign-up")
-    public String signup(@ModelAttribute RegistrationRequest registrationRequest,
-                         Model model){
+    public String getSignup(@ModelAttribute RegistrationRequest registrationRequest, Model model){
         model.addAttribute("user", new User());
         return "signup";
     }
     @PostMapping(path = "/sign-up")
-    public String register(@ModelAttribute RegistrationRequest request, Model model, HttpServletRequest siteURL,
+    public String postSignUp(@ModelAttribute RegistrationRequest request, Model model, HttpServletRequest siteURL,
                            @RequestParam("password1") String pass) throws MessagingException, UnsupportedEncodingException {
-        System.out.println("USER CREDENTIALS: " + request.getEmail() + request.getPhone());
         request.setPassword(pass);
-        registrationService.register(request, getSiteURL(siteURL), VERIFY_LINK);
-        Optional<User> optionalUser = userService.getUserByEmail(request.getEmail());
-        if (!userService.getUserByEmail(request.getEmail()).isPresent()){
-            return "registration_fail";
+        //registrationService.register(request, getSiteURL(siteURL), VERIFY_LINK);
+        if (userService.getUserByEmail(request.getEmail()).isPresent()){
+            model.addAttribute("message", REGISTRATION_FAIL_MESSAGE);
+            return "fail";
         }
-        String message = "Pregledajte svoj mail i verificirajte račun. Nakon toga se možete ulogirati.";
-        model.addAttribute("message", message);
+        userService.signUpUser(new User
+                (request.getEmail(), request.getPhone(), request.getPassword(),
+                        request.getName()), siteURL.toString(), VERIFY_LINK);
+        model.addAttribute("message", REGISTRATION_SUCCESS_MESSAGE);
         return "success";
     }
     private String getSiteURL(HttpServletRequest request) {
@@ -55,35 +58,15 @@ public class RegistrationController {
         return siteURL.replace(request.getServletPath(), "");
     }
     @GetMapping("/verify")
-    public String verifyUser(@Param("code") String code) {
-        if (userService.verify(code)) {
-            return "verify_success";
-        } else {
-            return "verify_fail";
+    public String verifyUser(@Param("code") String code, Model model) {
+        if (emailService.verify(code)){
+            model.addAttribute("message", VERIFY_SUCCESS_MESSAGE);
+            return "success";
         }
+        model.addAttribute("message", VERIFY_FAIL_MESSAGE);
+        return "fail";
     }
-    @GetMapping("promijeni-lozinku")
-    public String changePassword(Model model, @Param("code") String code){
-        User user = userService.getUserByVerificationCode(code);
-        if(user == null){
-            return "verify_fail";
-        }
-        model.addAttribute("user", user);
-        return "change_password_form";
-    }
-    @PostMapping("/promijeni-lozinku")
-    public String changePasswordPost(Model model, @RequestParam("userId") String userId,
-                                     @RequestParam("password1") String password){
-        User user = userService.getUserById(Long.valueOf(userId)).get();
-        String encodedPassword = bCryptPasswordEncoder.encode(password);
-        user.setPassword(encodedPassword);
-        user.setVerificationCode(null);
-        userService.saveUser(user);
-        String message = "Uspješno ste promijenili lozinku";
-        model.addAttribute("message", message);
-        return "success";
-        //TODO popravit slanje maila u user servicu
-    }
+
 
 
 }
