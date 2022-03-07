@@ -26,8 +26,11 @@ public class TokenService {
     public void saveToken(Token token){
         tokenRepo.save(token);
     }
-    public boolean isTokenExpired(Token token){
-        if(token.equals(null) || LocalDateTime.now().isAfter(token.getExpiresAt())){
+    public boolean isTokenExpired(Optional<Token> token){
+        if(token.isPresent()){
+            return true;
+        }
+        if(LocalDateTime.now().isAfter(token.get().getExpiresAt())){
             return true;
         }
         return false;

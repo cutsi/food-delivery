@@ -63,17 +63,12 @@ public class ForgotPasswordController {
 
     @GetMapping("promijeni-lozinku")
     public String changePassword(Model model, @Param("code") String code){
-        Token token = tokenService.getTokenByCode(code).get();
-        System.out.println(token.getToken());
-        if(tokenService.isTokenExpired(token)){
+        Optional<Token> tokenOptional = tokenService.getTokenByCode(code);
+        if(tokenService.isTokenExpired(tokenOptional)){
             model.addAttribute("message", TOKEN_EXPIRED);
             return "fail";
         }
-        /*User user = userService.getUserByVerificationCode(code);
-        if(user == null){
-            model.addAttribute("message", VERIFY_FAIL_MESSAGE);
-            return "fail";
-        }*/
+        Token token = tokenOptional.get();
         User user = userService.getUserById(token.getUser().getId()).get();
         model.addAttribute("user", user);
         return "change_password_form";
