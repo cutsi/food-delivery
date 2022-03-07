@@ -34,7 +34,7 @@ public class ForgotPasswordController {
     private final String VERIFY_FAIL_MESSAGE = "Nismo vam mogli verificirati račun. Vaš račun je već verificiran ili je verifikacijski kod netočan.";
     private final String NO_USER_WITH_THIS_EMAIL = "Nema korisnika sa ovim email-om. Pokušajte ponovo ili se registrirajte";
     private final String CHECK_EMAIL_MESSAGE = "Pregledajte mail kako bi promijenili šifru.";
-    private final String CHANGE_PASSWORD_EMAIL_ALREADY_SENT = "Već smo vam poslali email za promjenu lozinke. Provjerite svoj email.";
+    private final String CHANGE_PASSWORD_EMAIL_ALREADY_SENT = "Već smo vam poslali poruku za promjenu lozinke. Provjerite svoj email.";
     private final String TOKEN_EXPIRED = "Ovaj kod je istekao. Pokušajte ponovo zatražiti promjenu lozinke.";
     private final String GENERIC_ERROR_MESSAGE = "Pokušajte ponovo ili nas kontaktirajte.";
     @GetMapping("/change_password")
@@ -64,6 +64,7 @@ public class ForgotPasswordController {
     @GetMapping("promijeni-lozinku")
     public String changePassword(Model model, @Param("code") String code){
         Token token = tokenService.getTokenByCode(code).get();
+        System.out.println(token.getToken());
         if(tokenService.isTokenExpired(token)){
             model.addAttribute("message", TOKEN_EXPIRED);
             return "fail";

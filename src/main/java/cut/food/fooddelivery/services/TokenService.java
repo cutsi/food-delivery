@@ -15,7 +15,7 @@ public class TokenService {
     private final TokenRepo tokenRepo;
 
     public Optional<Token> getTokenByUser(User user){
-        return tokenRepo.findTokenByUser(user.getId());
+        return tokenRepo.findTokenByUser(user);
     }
     public Optional<Token> getTokenByCode(String code){
         return tokenRepo.findTokenByToken(code);
@@ -28,8 +28,8 @@ public class TokenService {
     }
     public boolean isTokenExpired(Token token){
         if(token.equals(null) || LocalDateTime.now().isAfter(token.getExpiresAt())){
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 }
