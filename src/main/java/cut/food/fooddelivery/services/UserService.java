@@ -28,6 +28,7 @@ import java.util.UUID;
 @Service
 @AllArgsConstructor
 public class UserService implements UserDetailsService {
+    private final TokenService tokenService;
     private final EmailService emailService;
     private final UserRepo userRepo;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -43,19 +44,21 @@ public class UserService implements UserDetailsService {
     }
     public void signUpUser(User user, String siteURL, String redirect) throws UnsupportedEncodingException, MessagingException{
         boolean userExists = userRepo.findByEmail(user.getEmail()).isPresent();
-        String verificationCode = RandomString.make(64);
+        //String verificationCode = RandomString.make(64);
         Token token = new Token(user);
+        tokenService.saveToken(token);
         if (userExists) {
             // TODO check of attributes are the same and
             // TODO if email not confirmed send confirmation email.
-            user.setVerificationCode(verificationCode);
+            //user.setVerificationCode(verificationCode);
             emailService.sendRegistrationConfirmEmail(user);
             throw new IllegalStateException("Email je zauzet");
         }
         String encodedPassword = bCryptPasswordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
-        user.setVerificationCode(verificationCode);
         userRepo.save(user);
+        //Token verificationCode = new Token(userService.getUserByEmail(email).get());
+
         emailService.sendRegistrationConfirmEmail(user);
         // TODO: Send confirmation token later
     }
