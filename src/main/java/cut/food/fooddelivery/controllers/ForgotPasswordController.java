@@ -37,18 +37,20 @@ public class ForgotPasswordController {
     private final String CHANGE_PASSWORD_EMAIL_ALREADY_SENT = "Već smo vam poslali poruku za promjenu lozinke. Provjerite svoj email.";
     private final String TOKEN_EXPIRED = "Ovaj kod je istekao. Pokušajte ponovo zatražiti promjenu lozinke.";
     private final String GENERIC_ERROR_MESSAGE = "Pokušajte ponovo ili nas kontaktirajte.";
+
     @GetMapping("/change_password")
     public String ChangePasswordGet(){
         return "change_password";
     }
 
     @PostMapping("/change_password")
-    public String ChangePasswordPost(Model model, HttpServletRequest siteURL,
-                                     @RequestParam("email") String email) throws MessagingException, UnsupportedEncodingException {
+    public String ChangePasswordPost(Model model, @RequestParam("email") String email)
+            throws MessagingException, UnsupportedEncodingException {
         if(!userService.getUserByEmail(email).isPresent()){
             model.addAttribute("message", NO_USER_WITH_THIS_EMAIL);
             return "fail";
         }
+        tokenService.deleteAllExpiredTokensFromUser(userService.getUserByEmail(email).get());
         if(tokenService.getTokenByUser(userService.getUserByEmail(email).get()).isPresent()){
             model.addAttribute("message", CHANGE_PASSWORD_EMAIL_ALREADY_SENT);
             return "fail";
@@ -83,11 +85,9 @@ public class ForgotPasswordController {
         User user = userService.getUserById(Long.valueOf(userId)).get();
         String encodedPassword = bCryptPasswordEncoder.encode(password);
         user.setPassword(encodedPassword);
-        //user.setVerificationCode(null);
         tokenService.deleteToken(tokenService.getTokenByUser(user).get());
         userService.saveUser(user);
         model.addAttribute("message", PASSWORD_SUCCESSFULLY_CHANGED);
         return "success";
-        //TODO popravit slanje maila u user servicu
     }
 }

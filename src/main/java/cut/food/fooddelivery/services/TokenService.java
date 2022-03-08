@@ -7,7 +7,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 @Service
 @AllArgsConstructor
@@ -34,5 +36,15 @@ public class TokenService {
             return true;
         }
         return false;
+    }
+
+    private List<Token> getAllExpiredTokensFromUser(User user) {
+        return tokenRepo.findAllByUser(user);
+    }
+    public void deleteAllExpiredTokensFromUser(User user){
+        List<Token> userTokens = getAllExpiredTokensFromUser(user);
+        for (Token token:userTokens) {
+            tokenRepo.delete(token);
+        }
     }
 }
