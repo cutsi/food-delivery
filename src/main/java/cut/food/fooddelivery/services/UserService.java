@@ -51,7 +51,8 @@ public class UserService implements UserDetailsService {
             // TODO check of attributes are the same and
             // TODO if email not confirmed send confirmation email.
             //user.setVerificationCode(verificationCode);
-            emailService.sendRegistrationConfirmEmail(user);
+            if(!tokenService.checkForNonExpiredTokens(user))
+                emailService.sendRegistrationConfirmEmail(user);
             throw new IllegalStateException("Email je zauzet");
         }
         String encodedPassword = bCryptPasswordEncoder.encode(user.getPassword());

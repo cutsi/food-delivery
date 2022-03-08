@@ -38,13 +38,20 @@ public class TokenService {
         return false;
     }
 
-    private List<Token> getAllExpiredTokensFromUser(User user) {
+    private List<Token> getAllTokensFromUser(User user) {
         return tokenRepo.findAllByUser(user);
     }
     public void deleteAllExpiredTokensFromUser(User user){
-        List<Token> userTokens = getAllExpiredTokensFromUser(user);
+        List<Token> userTokens = getAllTokensFromUser(user);
         for (Token token:userTokens) {
-            tokenRepo.delete(token);
+            if(LocalDateTime.now().isAfter(token.getExpiresAt()))
+                tokenRepo.delete(token);
         }
+    }
+    public boolean checkForNonExpiredTokens(User user){
+        deleteAllExpiredTokensFromUser(user);
+        if(getAllTokensFromUser(user).size() > 0)
+            return true;
+        return false;
     }
 }
