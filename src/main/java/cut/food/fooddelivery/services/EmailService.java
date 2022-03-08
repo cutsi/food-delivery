@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.UnsupportedEncodingException;
+import java.util.Optional;
 import java.util.SplittableRandom;
 
 @Service
@@ -58,15 +59,17 @@ public class EmailService {
         return CONFIRM_EMAIL_URL + code;
     }
     public boolean verify(String verificationCode) {
-        User user = userRepo.findByVerificationCode(verificationCode);
-
-        if (user == null || user.isEnabled()) {
+        Optional<User> userOptional = userRepo.findById(tokenService.getTokenByCode(verificationCode).get().getUser().getId());
+        if (!userOptional.isPresent() || !tokenService.getTokenByCode(verificationCode).isPresent())
             return false;
-        } else {
-            user.setVerificationCode(null);
+        if (userOptional.get().isEnabled()){
+            return false;
+        }
+        else {
+            User user = userOptional.get();
+            tokenService.deleteToken(tokenService.getTokenByCode(verificationCode).get());
             user.setIsEnabled(true);
             userRepo.save(user);
-
             return true;
         }
 
