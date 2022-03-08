@@ -45,8 +45,7 @@ public class UserService implements UserDetailsService {
     public void signUpUser(User user, String siteURL, String redirect) throws UnsupportedEncodingException, MessagingException{
         boolean userExists = userRepo.findByEmail(user.getEmail()).isPresent();
         //String verificationCode = RandomString.make(64);
-        Token token = new Token(user);
-        tokenService.saveToken(token);
+
         if (userExists) {
             // TODO check of attributes are the same and
             // TODO if email not confirmed send confirmation email.
@@ -58,6 +57,8 @@ public class UserService implements UserDetailsService {
         String encodedPassword = bCryptPasswordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
         userRepo.save(user);
+        Token token = new Token(user);
+        tokenService.saveToken(token);
         //Token verificationCode = new Token(userService.getUserByEmail(email).get());
 
         emailService.sendRegistrationConfirmEmail(user);
