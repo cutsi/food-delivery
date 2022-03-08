@@ -25,7 +25,7 @@ public class EmailService {
     private static final String CHANGE_PASSWORD_SUBJECT = "Promijenite svoju lozinku";
     private static final String CHANGE_PASSWORD_URL = "mezi.online/promijeni-lozinku?code=";
     private static final String CONFIRM_EMAIL_URL = "mezi.online/verify?code=";
-    private static final String CONFIRM_EMAIL_HEADER = "Dobrodošli!";
+    private static final String CONFIRM_EMAIL_HEADER = "Dobrodošli";
     private static final String CHANGE_PASSWORD_HEADER = "Pozdrav";
     private static final String CONFIRM_EMAIL_BODY = "Sve što trebate napraviti je kliknuti na gumb ispod kako bi se verificirali.";
     private static final String CHANGE_PASSWORD_BODY = "Izgleda da ste zaboravili svoju lozinku. Nikakav problem. Samo kliknite na gumb ispod kako bi je promijenili";
@@ -67,12 +67,13 @@ public class EmailService {
         return CONFIRM_EMAIL_URL + code;
     }
     public boolean verify(String verificationCode) {
+        if(!tokenService.getTokenByCode(verificationCode).isPresent())
+            return false;
         Optional<User> userOptional = userRepo.findById(tokenService.getTokenByCode(verificationCode).get().getUser().getId());
-        if (!userOptional.isPresent() || !tokenService.getTokenByCode(verificationCode).isPresent())
+        if (!userOptional.isPresent())
             return false;
-        if (userOptional.get().isEnabled()){
+        if (userOptional.get().isEnabled())
             return false;
-        }
         else {
             User user = userOptional.get();
             tokenService.deleteToken(tokenService.getTokenByCode(verificationCode).get());
