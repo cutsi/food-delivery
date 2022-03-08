@@ -567,6 +567,7 @@ public class EmailService {
         message = message.replace("[header]", header);
         message = message.replace("[body]", body);
         message = message.replace("[button_text]", buttonText);
+        return message;
 
     }
 
