@@ -50,7 +50,10 @@ public class ForgotPasswordController {
             model.addAttribute("message", NO_USER_WITH_THIS_EMAIL);
             return "fail";
         }
-        tokenService.deleteAllExpiredTokensFromUser(userService.getUserByEmail(email).get());
+        try {
+            tokenService.deleteAllExpiredTokensFromUser(userService.getUserByEmail(email).get());
+        }catch (Exception e){}
+        
         if(tokenService.getTokenByUser(userService.getUserByEmail(email).get()).isPresent()){
             model.addAttribute("message", CHANGE_PASSWORD_EMAIL_ALREADY_SENT);
             return "fail";
