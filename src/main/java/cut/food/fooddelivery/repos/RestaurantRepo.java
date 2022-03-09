@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 @Repository
@@ -22,4 +23,5 @@ public interface RestaurantRepo extends JpaRepository<Restaurant, Long> {
     @Modifying
     @Query("SELECT a FROM FoodItem a INNER JOIN a.restaurants c WHERE c.id in (?1)")
     List<FoodItem> findFoodItemsByRestaurant(Long restaurantId);
+    Optional<Restaurant> findRestaurantByRestaurantName(String name);
 }

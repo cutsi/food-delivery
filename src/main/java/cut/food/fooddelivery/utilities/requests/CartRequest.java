@@ -1,13 +1,13 @@
 package cut.food.fooddelivery.utilities.requests;
 
 import cut.food.fooddelivery.entities.Order;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class CartRequest {
 
 

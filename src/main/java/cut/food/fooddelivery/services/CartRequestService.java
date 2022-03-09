@@ -1,8 +1,7 @@
-package cut.food.fooddelivery.security;
+package cut.food.fooddelivery.services;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import cut.food.fooddelivery.entities.FoodItem;
 import cut.food.fooddelivery.utilities.requests.CartRequest;
 import org.springframework.stereotype.Service;
 
@@ -31,5 +30,12 @@ public class CartRequestService {
 
         });
         return cartItems;
+    }
+    public String getTotal(List<CartRequest> cartItems){
+        float total = 0;
+        for (CartRequest cartRequest : cartItems) {
+            total = total + Float.valueOf(cartRequest.getOrder().getPrice());
+        }
+        return String.format("%.2f",total);
     }
 }

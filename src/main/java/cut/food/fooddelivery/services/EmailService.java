@@ -52,20 +52,20 @@ public class EmailService {
     private void sendEmail(String toAddress, String subject,String email) throws MessagingException, UnsupportedEncodingException {
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
-
         helper.setFrom(FROM_ADDRESS, SENDER_NAME);
         helper.setTo(toAddress);
         helper.setSubject(subject);
         helper.setText(email, true);
-
         mailSender.send(message);
     }
     private String getPasswordChangeCode(String code){
         return CHANGE_PASSWORD_URL + code;
     }
+
     private String getRegistrationCode(String code){
         return CONFIRM_EMAIL_URL + code;
     }
+
     public boolean verify(String verificationCode) {
         if(!tokenService.getTokenByCode(verificationCode).isPresent())
             return false;

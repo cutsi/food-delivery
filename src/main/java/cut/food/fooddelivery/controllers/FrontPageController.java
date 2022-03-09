@@ -1,19 +1,14 @@
 package cut.food.fooddelivery.controllers;
 
 import cut.food.fooddelivery.entities.Restaurant;
-import cut.food.fooddelivery.security.CartRequestService;
 import cut.food.fooddelivery.services.*;
-import cut.food.fooddelivery.utilities.requests.CartRequest;
 import lombok.AllArgsConstructor;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequestMapping(path = "/")
@@ -33,10 +28,7 @@ public class FrontPageController {
     public String getLogin(){
         return "login";
     }
-    @PostMapping(path = "/welcome")
-    public String postLogin(){
-        return "welcome";
-    }
+
     @GetMapping(path = "my-profile")
     public String myProfile(Model model){
         model.addAttribute("user", userService.getCurrentUser().get());

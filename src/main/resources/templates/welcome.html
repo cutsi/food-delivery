@@ -26,7 +26,7 @@
       <div class="row">
         <th:block th:each="restaurant: ${restaurants}">
           <div class="col-lg-4 col-md-12 card-main d-flex">
-            <a th:href="@{restaurant?id=}+${restaurant.getId()}">
+            <a th:href="@{restaurant?ime=}+${restaurant.getRestaurantName()}">
               <div class="card card-about">
                 <img th:src="${restaurant.getImage()}" src ="${restaurant.getImage()}"
                      class="card-img-top card-image" alt="delivery-image">

@@ -1,7 +1,7 @@
 package cut.food.fooddelivery.controllers;
 
 import cut.food.fooddelivery.entities.Restaurant;
-import cut.food.fooddelivery.security.CartRequestService;
+import cut.food.fooddelivery.services.CartRequestService;
 import cut.food.fooddelivery.services.RestaurantService;
 import cut.food.fooddelivery.utilities.requests.CartRequest;
 import lombok.AllArgsConstructor;
@@ -21,10 +21,9 @@ public class RestaurantController {
     private final RestaurantService restaurantService;
     private final CartRequestService cartRequestService;
 
-
     @GetMapping(path="/restaurant")
-    public String restaurant(Model model, @RequestParam("id") String restaurantId){
-        Restaurant restaurant = restaurantService.getRestaurantById(Long.valueOf(restaurantId)).get();
+    public String restaurant(Model model, @RequestParam("ime") String restaurantId){
+        Restaurant restaurant = restaurantService.getRestaurantByName(restaurantId).get();
         model.addAttribute("categories", restaurantService.getCategoriesFromRestaurant(restaurant.getMenu()));
         model.addAttribute("menu",restaurant.getMenu());
         model.addAttribute("restaurant", restaurant);
@@ -35,6 +34,7 @@ public class RestaurantController {
     public String checkout(@RequestParam String[] foodItems, Model model) {
         List<CartRequest> cartItems = cartRequestService.getCartItems(foodItems);
         model.addAttribute("foodItems", cartItems);
+        model.addAttribute("total", cartRequestService.getTotal(cartItems));
         return "checkout";
     }
 }

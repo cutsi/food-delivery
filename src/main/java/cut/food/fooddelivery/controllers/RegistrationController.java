@@ -42,7 +42,6 @@ public class RegistrationController {
     public String postSignUp(@ModelAttribute RegistrationRequest request, Model model, HttpServletRequest siteURL,
                            @RequestParam("password1") String pass) throws MessagingException, UnsupportedEncodingException {
         request.setPassword(pass);
-        //registrationService.register(request, getSiteURL(siteURL), VERIFY_LINK);
         if (userService.getUserByEmail(request.getEmail()).isPresent()){
             model.addAttribute("message", REGISTRATION_FAIL_MESSAGE);
             return "fail";
@@ -52,10 +51,6 @@ public class RegistrationController {
                         request.getName()), siteURL.toString(), VERIFY_LINK);
         model.addAttribute("message", REGISTRATION_SUCCESS_MESSAGE);
         return "success";
-    }
-    private String getSiteURL(HttpServletRequest request) {
-        String siteURL = request.getRequestURL().toString();
-        return siteURL.replace(request.getServletPath(), "");
     }
     @GetMapping("/verify")
     public String verifyUser(@Param("code") String code, Model model) {

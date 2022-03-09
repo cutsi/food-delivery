@@ -512,7 +512,6 @@
                     input.setAttribute("name", "foodItems");
                     input.setAttribute("value",  JSON.stringify(foodItems[k]) );
                     form.appendChild(input);
-
                 }
 
                 //build csrf input
@@ -652,7 +651,7 @@
                 foodItems = foodItems.filter(f=>{
                     return f.order.uniqueId != itemId;
                 });
-                updateCartTotlaPrice();
+                updateCartTotalPrice();
                 localStorage.setItem("_cart",JSON.stringify(foodItems));
                 localStorage.setItem("_cart-count",cartCount);
                 if(cartCount == 0){
@@ -674,7 +673,7 @@
                 cartCount += (+$(this).val());
                 $(".cd-cart__count li").first().text(cartCount);
                 updateFoodPrice(foodItemObjTemp,false);
-                updateCartTotlaPrice();
+                updateCartTotalPrice();
                 localStorage.setItem("_cart",JSON.stringify(foodItems));
                 localStorage.setItem("_cart-count",cartCount);
 
@@ -815,7 +814,7 @@
 
             //update global food price
             //update global food price
-            function updateCartTotlaPrice(){
+            function updateCartTotalPrice(){
 
                 let cartTotalPrice = 0;
 
@@ -911,7 +910,7 @@
                                 foodExists3[0].order.quantity = +foodExists3[0].order.quantity + 1;
                                 $("#food_cart_"+foodExists3[0].order.uniqueId+" .cd-cart__actions #quantity_"+foodExists3[0].order.uniqueId).val(foodExists3[0].order.quantity);
                                 updateFoodPrice(foodExists3[0]);
-                                updateCartTotlaPrice();
+                                updateCartTotalPrice();
                                 updateCartCount();
                                 localStorage.setItem("_cart",JSON.stringify(foodItems));
                                 console.log("Same condiments \n=> Only update quantity and price");
@@ -948,7 +947,7 @@
                     buildFoodCartParts(foodItemObj);
                     updateFoodPrice(foodItemObj);
                     foodItems.push(foodItemObj);
-                    updateCartTotlaPrice();
+                    updateCartTotalPrice();
                     updateCartCount();
                     localStorage.setItem("_cart",JSON.stringify(foodItems));
                     if( $(".cd-cart").hasClass("cd-cart--empty") )

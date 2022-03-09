@@ -6,7 +6,6 @@ import cut.food.fooddelivery.services.EmailService;
 import cut.food.fooddelivery.services.TokenService;
 import cut.food.fooddelivery.services.UserService;
 import lombok.AllArgsConstructor;
-import net.bytebuddy.utility.RandomString;
 import org.springframework.data.repository.query.Param;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -15,9 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import javax.mail.MessagingException;
-import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.util.Optional;
 
@@ -30,20 +27,21 @@ public class ForgotPasswordController {
     private final UserService userService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final String PASSWORD_SUCCESSFULLY_CHANGED = "Uspješno ste promijenili lozinku";
-    private final String PASSWORD_FORGOT_LINK = "/promijeni-lozinku";
-    private final String VERIFY_FAIL_MESSAGE = "Nismo vam mogli verificirati račun. Vaš račun je već verificiran ili je verifikacijski kod netočan.";
     private final String NO_USER_WITH_THIS_EMAIL = "Nema korisnika sa ovim email-om. Pokušajte ponovo ili se registrirajte";
     private final String CHECK_EMAIL_MESSAGE = "Pregledajte mail kako bi promijenili šifru.";
     private final String CHANGE_PASSWORD_EMAIL_ALREADY_SENT = "Već smo vam poslali poruku za promjenu lozinke. Provjerite svoj email.";
     private final String TOKEN_EXPIRED = "Ovaj kod je istekao. Pokušajte ponovo zatražiti promjenu lozinke.";
     private final String GENERIC_ERROR_MESSAGE = "Pokušajte ponovo ili nas kontaktirajte.";
+    private final String PASSWORD_FORGOT_LINK = "/promijeni-lozinku";
+    private final String VERIFY_FAIL_MESSAGE = "Nismo vam mogli verificirati račun. Vaš račun je već verificiran ili je verifikacijski kod netočan.";
 
-    @GetMapping("/change_password")
+
+    @GetMapping("/zaboravljena-lozinka")
     public String ChangePasswordGet(){
         return "change_password";
     }
 
-    @PostMapping("/change_password")
+    @PostMapping("/zaboravljena-lozinka")
     public String ChangePasswordPost(Model model, @RequestParam("email") String email)
             throws MessagingException, UnsupportedEncodingException {
         if(!userService.getUserByEmail(email).isPresent()){

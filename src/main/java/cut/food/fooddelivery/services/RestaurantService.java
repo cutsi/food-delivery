@@ -23,6 +23,9 @@ public class RestaurantService {
     public List<FoodItem> getFoodItemsFromRestaurantById(Long id){
         return restaurantRepo.findFoodItemsByRestaurant(id);
     }
+    public Optional<Restaurant> getRestaurantByName(String name){
+        return restaurantRepo.findRestaurantByRestaurantName(name);
+    }
     public Optional<Restaurant> getRestaurantById(Long id){
         return restaurantRepo.findById(id);
     }
