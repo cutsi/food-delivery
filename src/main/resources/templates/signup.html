@@ -3,6 +3,7 @@
 
 <head th:replace="fragments/general :: head"></head>
 <head>
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
     <link href="../static/css/signup.css" th:href="@{/css/signup.css}" rel="stylesheet" />
     <script>
         function checkPassword(form) {
@@ -28,7 +29,7 @@
         <div class="container1">
             <div class="title">Registracija</div>
             <div class="content">
-                <form onSubmit = "return checkPassword(this)" th:action="@{/sign-up}" th:object="${user}" method="POST">
+                <form onSubmit = "return checkPassword(this)" th:action="@{/prijava}" th:object="${user}" method="POST">
                     <div class="user-details">
                         <div class="input-box">
                             <span class="details">IME</span>

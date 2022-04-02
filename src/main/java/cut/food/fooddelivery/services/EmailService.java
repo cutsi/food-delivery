@@ -23,8 +23,8 @@ public class EmailService {
     private static final String SENDER_NAME = "MEZI";
     private static final String REGISTRATION_SUBJECT = "Potvrdite svoju registraciju";
     private static final String CHANGE_PASSWORD_SUBJECT = "Promijenite svoju lozinku";
-    private static final String CHANGE_PASSWORD_URL = "mezi.online/promijeni-lozinku?code=";
-    private static final String CONFIRM_EMAIL_URL = "mezi.online/verify?code=";
+    private static final String CHANGE_PASSWORD_URL = "mezi.online/zaboravljena-lozinka/promijeni-lozinku?code=";
+    private static final String CONFIRM_EMAIL_URL = "mezi.online/prijava/verifikacija?code=";
     private static final String CONFIRM_EMAIL_HEADER = "Dobrodošli";
     private static final String CHANGE_PASSWORD_HEADER = "Pozdrav";
     private static final String CONFIRM_EMAIL_BODY = "Sve što trebate napraviti je kliknuti na gumb ispod kako bi se verificirali.";

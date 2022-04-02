@@ -3,6 +3,7 @@ package cut.food.fooddelivery.services;
 import cut.food.fooddelivery.entities.Token;
 import cut.food.fooddelivery.entities.User;
 import cut.food.fooddelivery.repos.UserRepo;
+import cut.food.fooddelivery.utilities.requests.RegistrationRequest;
 import lombok.AllArgsConstructor;
 
 import net.bytebuddy.utility.RandomString;
@@ -42,7 +43,7 @@ public class UserService implements UserDetailsService {
         if(!user.isPresent()) throw new UsernameNotFoundException(String.format(USER_NOT_FOUND, email));
         return user.get();
     }
-    public void signUpUser(User user, String siteURL, String redirect) throws UnsupportedEncodingException, MessagingException{
+    public void signUpUser(User user) throws UnsupportedEncodingException, MessagingException{
         boolean userExists = userRepo.findByEmail(user.getEmail()).isPresent();
         //String verificationCode = RandomString.make(64);
 
@@ -51,16 +52,15 @@ public class UserService implements UserDetailsService {
             // TODO if email not confirmed send confirmation email.
             //user.setVerificationCode(verificationCode);
             if(!tokenService.checkForNonExpiredTokens(user))
-                emailService.sendRegistrationConfirmEmail(user);
+              emailService.sendRegistrationConfirmEmail(user);
             throw new IllegalStateException("Email je zauzet");
         }
         String encodedPassword = bCryptPasswordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
         userRepo.save(user);
+        //Token verificationCode = new Token(userService.getUserByEmail(email).get());
         Token token = new Token(user);
         tokenService.saveToken(token);
-        //Token verificationCode = new Token(userService.getUserByEmail(email).get());
-
         emailService.sendRegistrationConfirmEmail(user);
         // TODO: Send confirmation token later
     }

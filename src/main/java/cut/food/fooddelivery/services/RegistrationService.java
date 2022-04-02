@@ -24,13 +24,14 @@ public class RegistrationService {
         if(isValidEmail){
             throw new IllegalStateException("Email not valid");
         }
-        userService.signUpUser(
+        /*userService.signUpUser(
                 new User(request.getEmail(),
                         request.getPhone(),
                         request.getPassword(),
                         request.getName()),
                 siteURL,
-                redirect);
+                redirect);*/
     }
+
 
 }

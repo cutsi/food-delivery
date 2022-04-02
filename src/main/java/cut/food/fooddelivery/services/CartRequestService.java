@@ -5,12 +5,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import cut.food.fooddelivery.utilities.requests.CartRequest;
 import org.springframework.stereotype.Service;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
 @Service
 public class CartRequestService {
+    private static final DecimalFormat df = new DecimalFormat("0.00");
 
     public List<CartRequest> getCartItems(String[] foodItems){
         List<CartRequest> cartItems = new ArrayList<CartRequest>();
@@ -32,10 +34,8 @@ public class CartRequestService {
         return cartItems;
     }
     public String getTotal(List<CartRequest> cartItems){
-        float total = 0;
-        for (CartRequest cartRequest : cartItems) {
-            total = total + Float.valueOf(cartRequest.getOrder().getPrice());
-        }
-        return String.format("%.2f",total);
+        return df.format(cartItems.stream()
+                .mapToDouble(cartItem -> Double.parseDouble(cartItem.getOrder().getPrice()))
+                .sum());
     }
 }

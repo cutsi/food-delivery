@@ -19,7 +19,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Optional;
 
 @Controller
-@RequestMapping(path = "/")
+@RequestMapping(path = "/zaboravljena-lozinka")
 @AllArgsConstructor
 public class ForgotPasswordController {
     private final EmailService emailService;
@@ -36,12 +36,12 @@ public class ForgotPasswordController {
     private final String VERIFY_FAIL_MESSAGE = "Nismo vam mogli verificirati račun. Vaš račun je već verificiran ili je verifikacijski kod netočan.";
 
 
-    @GetMapping("/zaboravljena-lozinka")
+    @GetMapping("")
     public String ChangePasswordGet(){
         return "change_password";
     }
 
-    @PostMapping("/zaboravljena-lozinka")
+    @PostMapping("")
     public String ChangePasswordPost(Model model, @RequestParam("email") String email)
             throws MessagingException, UnsupportedEncodingException {
         if(!userService.getUserByEmail(email).isPresent()){
@@ -64,7 +64,7 @@ public class ForgotPasswordController {
         return "success";
     }
 
-    @GetMapping("promijeni-lozinku")
+    @GetMapping("/promijeni-lozinku")
     public String changePassword(Model model, @Param("code") String code){
         Optional<Token> tokenOptional = tokenService.getTokenByCode(code);
         if(tokenService.isTokenExpired(tokenOptional)){

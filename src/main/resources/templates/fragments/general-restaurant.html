@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="hr" class="h-100" xmlns:th="https://thymeleaf.org">
+<html lang="hr" class="h-100" xmlns:th="https://thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head th:fragment="head">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <!-- Required meta tags -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -12,9 +13,83 @@
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Kufam:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../static/css/experiment.css" th:href="@{css/experiment.css}" />
+  <link rel="stylesheet" href="../static/css/style.css" th:href="@{css/style.css}" />
   <link rel="icon" type="image/png" href="../static/images/favicon.ico" th:href="@{images/favicon.ico}" />
   <title>MEZI</title>
+  <style>
+    /* Style The Dropdown Button */
+    .dropbtn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {background-color: #f1f1f1}
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+    }
+    @media screen and (min-width: 960px) {
+      .dropdown-login-register{
+        margin-top:7px;
+      }
+    }
+    .dropdown-login-register{
+      margin-top: 0px;
+    }
+    a.nav-link.link.main-link{
+      white-space: nowrap;
+    }
+
+    @media (min-width: 960px){
+      .navbar-expand-md-1 .navbar-collapse {
+        display: flex !important;
+        -ms-flex-preferred-size: auto !important;
+        flex-basis: auto !important;
+      }
+      .navbar-expand-md-1 .navbar-nav{
+        flex-direction: row !important;
+      }
+      .navbar-toggler.collapsed.navbar-dark{
+        display: none;
+      }
+    }
+  </style>
+
 </head>
 
 
@@ -23,46 +98,102 @@
 
 <header id="navigation" th:fragment="header">
 
-  <nav class="navbar navbar-expand-md fixed-top">
-    <a href="/"><span class="navbar-brand">MEZI</span></a>
+  <nav class="navbar navbar-expand-md-1 fixed-top">
+    <a class="logo" href="/">
+      <img class="logo" style="width: 140px; margin-right: 20px;">
+    </a>
     <button class="navbar-toggler collapsed navbar-dark" type="button" data-toggle="collapse"
             data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
             aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+    <div class="navbar-collapse1 navbar-collapse collapse" id="navbarCollapse" style="">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link link main-link" href="/login">Log In</a>
+          <a class="nav-link link main-link" href="/Kako-naručiti">Menu</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link link main-link" href="/sign-up">Sign Up</a>
+          <a class="nav-link link main-link" href="/Kako-naručiti">Statistika</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link link main-link" href="#">About</a>
+          <a class="nav-link link main-link" href="/Kontaktirajte-nas">Narudžbe</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link link main-link" href="/O-nama">Profil</a>
+        </li>
+
+
       </ul>
-      <div class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user-circle"></i>
-          </a>
-          <div class="dropdown-menu dropdown-menu dropdown-menu-lg-right"
-               aria-labelledby="navbarDropdown">
-            <a class="dropdown-item link" href="/sign-in">Log In</a>
-          </div>
-        </li>
-      </div>
     </div>
   </nav>
 </header>
 
-<footer th:fragment="footer" id="footer" class="footer mt-auto py-3">
-  <div class="container">
-    <p>&#169; Mezi.online</p>
+<!-- Site footer -->
+
+<footer class="footer" style="font-size: 16px">
+  <div class="l-footer">
+    <h1>
+      <a class="logo-footer" href="/">
+        <img class="logo-footer" style="width: 140px;">
+      </a>
+    </h1>
+    <p>
+      Vaša aplikacija za dostavu
+    </p>
+  </div>
+  <ul class="r-footer">
+
+    <li>
+      <h2>Informacije</h2>
+      <ul class="box">
+        <li><a href="/O-nama">O nama</a></li>
+        <li><a href="#">Privatnost podataka</a></li>
+        <li><a href="/Kako-naručiti">Kako naručiti</a></li>
+      </ul>
+    </li>
+    <li>
+      <h2>Media</h2>
+      <ul class="box">
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <h2>Kontakt</h2>
+      <ul class="box">
+        <li><a href="/Kontaktirajte-nas">Kontaktirajte nas</a></li>
+        <li><a href="#">Korisnici: 063 000 001</a></li>
+        <li><a href="#">Restorani: 063 000 002</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="b-footer">
+    <p>
+      Mezi d.o.o. &copy; 2022 • Sva prava zadržana </p>
   </div>
 </footer>
+
+<script>
+  document.getElementById('logout-button').addEventListener('click', function(){
+
+    //get form
+    var form = document.getElementById("logout-form");
+    var csrf = document.querySelector('meta[name="_csrf"]').content;
+    var input;
+
+    //build csrf input
+    input = document.createElement("input");
+    input.setAttribute("type", "hidden");
+    input.setAttribute("name", "_csrf");
+    input.setAttribute("value", csrf);
+    form.appendChild(input);
+
+    //submit the form
+    form.submit();
+
+  });
+</script>
 </body>
 
 </html>

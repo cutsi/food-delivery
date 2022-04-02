@@ -20,16 +20,22 @@ public class RestaurantService {
     public List<Restaurant> getAllRestaurants(){
         return restaurantRepo.findAll();
     }
+
     public List<FoodItem> getFoodItemsFromRestaurantById(Long id){
         return restaurantRepo.findFoodItemsByRestaurant(id);
     }
+
     public Optional<Restaurant> getRestaurantByName(String name){
         return restaurantRepo.findRestaurantByRestaurantName(name);
     }
+
     public Optional<Restaurant> getRestaurantById(Long id){
         return restaurantRepo.findById(id);
     }
+
     public Set<Category> getCategoriesFromRestaurant(Set<FoodItem> menu){
+
+
         Set<Category> categories = new HashSet<>();
         for (FoodItem foodItem: menu) {
             if(!categories.contains(foodItem.getCategory())){

@@ -1,0 +1,94 @@
+.button {
+    text-align: center;
+    font-size: 1em;
+    padding: 10px;
+    color: #fff;
+    border: 3px solid #fffdfd;
+    border-radius: 20px/50px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+.button:hover {
+    background: #06D85F;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 2;
+}
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 40%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup-header{
+    margin-top: 0;
+    color: black;
+    font-family: inherit;
+    font-size: 1.5rem;
+    border-bottom: 2px solid darkred;
+    margin-bottom: 1.3rem;
+}
+
+.content-header{
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+.popup .close {
+    position: absolute;
+    top: 7px;
+    right: 15px;
+    transition: all 200ms;
+    font-size: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+.popup .close:hover {
+    color: darkred;
+}
+.popup .content {
+    max-height: 30%;
+    overflow: auto;
+    margin-bottom: 1.5rem;
+}
+.hours{
+    text-align: left;
+    padding-right: 3rem;
+}
+.popup-group{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5em;
+    padding: 1.5em;
+    align-self: end;
+
+}
+
+@media screen and (max-width: 700px){
+    .box{
+        width: 70%;
+    }
+    .popup{
+        width: 85%;
+    }
+}

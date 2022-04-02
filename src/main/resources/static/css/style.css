@@ -1,5 +1,3 @@
-/* all pages */
-
 html, body {
 
     background-color: #f1f3f8;
@@ -274,9 +272,7 @@ input[type=checkbox] {
     font-family: Montserrat;
 }
 
-.footer > * {
-    flex:  1 100%;
-}
+
 
 .l-footer {
     margin-right: 1.25em;
@@ -335,11 +331,14 @@ h2 {
     text-align: center;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 960px) {
+    .footer > * {
+        flex:  1 100%;
+    }
+
     .r-footer > * {
         flex: 1;
     }
-
     .features {
         flex-grow: 2;
     }

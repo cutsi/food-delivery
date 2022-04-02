@@ -22,7 +22,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Optional;
 
 @Controller
-@RequestMapping(path = "/")
+@RequestMapping(path = "prijava")
 @AllArgsConstructor
 public class RegistrationController {
     private final EmailService emailService;
@@ -33,14 +33,14 @@ public class RegistrationController {
     private final String VERIFY_SUCCESS_MESSAGE = "Uspješno ste se verificirali. Vaš račun je sada osposobljen za naručivanje. Dobar tek!";
     private final String VERIFY_FAIL_MESSAGE = "Nismo vam mogli verificirati račun. Vaš račun je već verificiran ili je verifikacijski kod netočan.";
 
-    @GetMapping(path = "/sign-up")
+    @GetMapping(path = "")
     public String getSignup(@ModelAttribute RegistrationRequest registrationRequest, Model model){
         model.addAttribute("user", new User());
         return "signup";
     }
-    @PostMapping(path = "/sign-up")
+    @PostMapping(path = "")
     public String postSignUp(@ModelAttribute RegistrationRequest request, Model model, HttpServletRequest siteURL,
-                           @RequestParam("password1") String pass) throws MessagingException, UnsupportedEncodingException {
+                             @RequestParam("password1") String pass) throws MessagingException, UnsupportedEncodingException {
         request.setPassword(pass);
         if (userService.getUserByEmail(request.getEmail()).isPresent()){
             model.addAttribute("message", REGISTRATION_FAIL_MESSAGE);
@@ -48,11 +48,11 @@ public class RegistrationController {
         }
         userService.signUpUser(new User
                 (request.getEmail(), request.getPhone(), request.getPassword(),
-                        request.getName()), siteURL.toString(), VERIFY_LINK);
+                        request.getName()));
         model.addAttribute("message", REGISTRATION_SUCCESS_MESSAGE);
         return "success";
     }
-    @GetMapping("/verify")
+    @GetMapping("verifikacija")
     public String verifyUser(@Param("code") String code, Model model) {
         if (emailService.verify(code)){
             model.addAttribute("message", VERIFY_SUCCESS_MESSAGE);
@@ -61,7 +61,4 @@ public class RegistrationController {
         model.addAttribute("message", VERIFY_FAIL_MESSAGE);
         return "fail";
     }
-
-
-
 }
