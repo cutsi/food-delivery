@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -65,6 +66,7 @@ public class FrontPageController {
         model.addAttribute("isClosed", workingHoursService.restaurantClosed(workingHoursService.getRestaurantWorkingHoursToday(restaurant), restaurant));
         model.addAttribute("workingHoursToday", workingHoursService.getRestaurantWorkingHoursToday(restaurant));
         model.addAttribute("workingHours", workingHoursService.getByRestaurant(restaurant));
+        System.out.println("TRENUTNO VRIJEME KAD JE DEPLOYANO: " + LocalDateTime.now());
         return "restaurant";
     }
 
