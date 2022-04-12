@@ -146,7 +146,7 @@
     <section>
         <div th:if="${isClosed == false}">
             <div class="overlay1">
-                <div class="popup" style="width: 50%">
+                <div class="popup">
                     <h2 class="popup-header">Ovaj restoran je trenutno zatvoren</h2>
                     <a class="close" id="klose" href="#">&times;</a>
                     <div class="content" style="text-align: center;">
@@ -367,7 +367,7 @@
             function open(event){
                 document.querySelector(".overlay1").style.display = "block";
             },
-            1000
+            500
         )
     });
 
