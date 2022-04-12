@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
@@ -32,7 +33,7 @@ public class TokenService {
         if(!token.isPresent()){
             return true;
         }
-        if(LocalDateTime.now().isAfter(token.get().getExpiresAt())){
+        if(LocalDateTime.now(ZoneId.of("CET")).isAfter(token.get().getExpiresAt())){
             return true;
         }
         return false;
@@ -44,7 +45,7 @@ public class TokenService {
     public void deleteAllExpiredTokensFromUser(User user){
         List<Token> userTokens = getAllTokensFromUser(user);
         for (Token token:userTokens) {
-            if(LocalDateTime.now().isAfter(token.getExpiresAt()))
+            if(LocalDateTime.now(ZoneId.of("CET")).isAfter(token.getExpiresAt()))
                 tokenRepo.delete(token);
         }
     }

@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
@@ -91,7 +92,7 @@ public class WorkingHoursService {
     }
     private String[] getCurrentTime(){
         DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        String now = LocalDateTime.now().format(df);
+        String now = LocalDateTime.now(ZoneId.of("CET")).format(df);
         return now.split(" ");
     }
     private LocalDateTime getCurrentDateTime(){
@@ -128,7 +129,7 @@ public class WorkingHoursService {
         return true;
     }
     public Boolean isRestaurantClosed(WorkingHours workingHoursToday){
-        LocalDateTime localTime = LocalDateTime.now();
+        LocalDateTime localTime = LocalDateTime.now(ZoneId.of("CET"));
         String timeNow = localTime.format(DateTimeFormatter.ofPattern("MM:DD HH:mm"));
         System.out.println("TRENUTNO VRIJEME: " + new Date("EEEE"));
         LocalDateTime closingTime = LocalDateTime.parse(getCurrentMonthDay() + " " + workingHoursToday.getClosesAt());
