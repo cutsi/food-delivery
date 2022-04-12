@@ -13,14 +13,14 @@ import java.time.LocalDateTime;
 @Entity
 public class Token {
     @SequenceGenerator(
-            name = "user_sequence",
-            sequenceName = "user_sequence",
+            name = "token_sequence",
+            sequenceName = "token_sequence",
             allocationSize = 1
     )
     @Id
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "user_sequence"
+            generator = "token_sequence"
     )
     private Long id;
     private String token;

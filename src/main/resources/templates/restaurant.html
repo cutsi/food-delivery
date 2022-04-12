@@ -77,6 +77,29 @@
             align-items: center;
         }
     </style>
+
+    <style>
+        .overlay1{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            transition: opacity 500ms;
+            opacity: 1;
+            z-index: 2;
+            display: none;
+        }
+        .shop-closed-btn{
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+            width: 75%;
+            height: 2.5rem;
+            background: darkred;
+            color: white;
+        }
+    </style>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -94,9 +117,21 @@
                     </div>
 
                 </div>
+
+            </div>
+            <div th:if="${isClosed == true}">
+                <div style="margin-left: 1.5rem;">
+                    Trenutno otvoren
+                </div>
+            </div>
+
+            <div th:if="${isClosed == false}">
+                <div style="margin-left: 1.5rem;">
+                    Trenutno zatvoren
+                </div>
             </div>
             <div style="margin-left: 1.5rem;">
-                Dostava danas: 15:00-23:00
+                Dostava danas: [[${workingHoursToday.getOpensAt()}]] [[${workingHoursToday.getClosesAt()}]]
             </div>
             <div class="popup-group">
                 <a class="button" href="#popup1">Informacije</a>
@@ -107,6 +142,25 @@
 
     </section>
 
+
+    <section>
+        <div th:if="${isClosed == false}">
+            <div class="overlay1">
+                <div class="popup" style="width: 50%">
+                    <h2 class="popup-header">Ovaj restoran je trenutno zatvoren</h2>
+                    <a class="close" id="klose" href="#">&times;</a>
+                    <div class="content" style="text-align: center;">
+                        <a href="#">
+                            <button class="shop-closed-btn" id="shop-closed-popup" href="#"> SAMO PREGLEDAVAM</button><br>
+                        </a>
+                        <a href="/">
+                            <button class="shop-closed-btn" href="/"> NATRAG</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <div class="slider owl-carousel">
         <th:block th:each="category: ${categories}">
@@ -134,11 +188,11 @@
                 <a class="close" href="#close">&times;</a>
                 <h3 class="content-header">Adresa</h3>
                 <div class="content">
-                    Fra petra bakule 19, Posušje
+                    [[${restaurant.getAddress()}]]
                 </div>
                 <h3 class="content-header">Cijena dostave</h3>
                 <div class="content">
-                    Besplatna
+                    [[${restaurant.getDeliveryCost()}]]
                 </div>
                 <h3 class="content-header">Način plaćanja</h3>
                 <div class="content">
@@ -147,13 +201,9 @@
                 <h3 class="content-header">Radno vrijeme</h3>
                 <div class="content">
                     <table>
-                        <tr><th class="hours">Monday: </th><td> 9am - 5pm</td></tr>
-                        <tr><th class="hours">Tuesday: </th><td> 9am - 5pm</td></tr>
-                        <tr><th class="hours">Wednesday: </th><td> 9am - 5pm</td></tr>
-                        <tr><th class="hours">Thursday: </th><td> 9am - 5pm</td></tr>
-                        <tr><th class="hours">Friday: </th><td> 9am - 5pm</td></tr>
-                        <tr><th class="hours">Saturday: </th><td> 9am - 5pm</td></tr>
-                        <tr><th class="hours">Sunday: </th><td> Closed</td></tr>
+                        <th:block th:each="workingHour: ${workingHours}">
+                            <tr><th class="hours">[[${workingHour.getDayOfWeek()}]]</th><td>[[${workingHour.getOpensAt()}]] [[${workingHour.getClosesAt()}]]</td></tr>
+                        </th:block>
                     </table>
                 </div>
             </div>
@@ -253,8 +303,9 @@
                                         </th:block>
 
                                     </div>
-
-                                    <a href="" class="cd-add-to-cart js-cd-add-to-cart" th:item-id="${foodItem.getId()}" th:item-image="${foodItem.getImage()}" th:item-name="${foodItem.getName()}">Dodaj</a>
+                                    <div th:if="${isClosed == true}">
+                                        <a href="" class="cd-add-to-cart js-cd-add-to-cart" th:item-id="${foodItem.getId()}" th:item-image="${foodItem.getImage()}" th:item-name="${foodItem.getName()}">Dodaj</a>
+                                    </div>
                                 </div>
                             </div>
                         </th:block>
@@ -309,6 +360,24 @@
 </script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+</script>
+<script type="text/javascript">
+    window.addEventListener("load", function(){
+        setTimeout(
+            function open(event){
+                document.querySelector(".overlay1").style.display = "block";
+            },
+            1000
+        )
+    });
+
+
+    document.querySelector("#klose").addEventListener("click", function(){
+        document.querySelector(".overlay1").style.display = "none";
+    });
+    document.querySelector("#shop-closed-popup").addEventListener("click", function(){
+        document.querySelector(".overlay1").style.display = "none";
+    });
 </script>
 <script>
     let btnItem = document.querySelector('.menu-item');

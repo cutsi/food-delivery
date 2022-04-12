@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.jdbc.Work;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -33,12 +34,16 @@ public class Restaurant {
     private String image;
     private Double rating;
     private String banner;
+    private String deliveryCost;
     @ManyToMany
     @JoinTable(
             name = "restaurant_menu",
             joinColumns = @JoinColumn(name = "restaurant_id"),
             inverseJoinColumns = @JoinColumn(name = "foodItem_id"))
     private Set<FoodItem> menu = new HashSet<>();
+
+    @OneToMany(mappedBy = "restaurant")
+    private Set<WorkingHours> workingHours = new HashSet<>();
 
     public Restaurant(String restaurantName, String address, String phone, String image, String banner){
         this.restaurantName = restaurantName;
@@ -47,4 +52,5 @@ public class Restaurant {
         this.image = image;
         this.banner = banner;
     }
+
 }

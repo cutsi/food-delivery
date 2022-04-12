@@ -23,4 +23,7 @@ public class RestaurantController {
     public String getRestaurant(){
         return "restoran";
     }
+
+    //TODO napravit service i repo za working hours, u kontroleru dobit od restorana sate, poslat ih na frontend
+    //TODO i foreachat ih
 }

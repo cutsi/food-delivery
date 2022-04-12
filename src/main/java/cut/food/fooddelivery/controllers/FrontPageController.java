@@ -1,6 +1,7 @@
 package cut.food.fooddelivery.controllers;
 
 import cut.food.fooddelivery.entities.Restaurant;
+import cut.food.fooddelivery.entities.WorkingHours;
 import cut.food.fooddelivery.services.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,7 @@ public class FrontPageController {
     private final RestaurantService restaurantService;
     private final UserService userService;
     private final ImageService imageService;
+    private final WorkingHoursService workingHoursService;
 
     @GetMapping(path = {"/", "/welcome"})
     public String welcome(Model model){
@@ -51,13 +53,18 @@ public class FrontPageController {
         model.addAttribute("banner", imageService.getImageById(6L).get().getName());
         return "kontaktirajte-nas";
     }
-
+    //TODO onemogucit narucivanje kad je restoran zatvoren
     @GetMapping(path="/restaurant")
-    public String restaurant(Model model, @RequestParam("ime") String restaurantId){
+    public String restaurant(Model model, @RequestParam("ime") String restaurantId) throws Exception {
         Restaurant restaurant = restaurantService.getRestaurantByName(restaurantId).get();
         model.addAttribute("categories", restaurantService.getCategoriesFromRestaurant(restaurant.getMenu()));
         model.addAttribute("menu",restaurant.getMenu());
         model.addAttribute("restaurant", restaurant);
+        //System.out.println(workingHoursService.isRestaurantClosed(workingHoursService.getRestaurantWorkingHoursToday(restaurant)));
+        //System.out.println(workingHoursService.restaurantClosed(workingHoursService.getRestaurantWorkingHoursToday(restaurant), restaurant));
+        model.addAttribute("isClosed", workingHoursService.restaurantClosed(workingHoursService.getRestaurantWorkingHoursToday(restaurant), restaurant));
+        model.addAttribute("workingHoursToday", workingHoursService.getRestaurantWorkingHoursToday(restaurant));
+        model.addAttribute("workingHours", workingHoursService.getByRestaurant(restaurant));
         return "restaurant";
     }
 
