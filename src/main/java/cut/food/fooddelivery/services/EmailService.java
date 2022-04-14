@@ -1,5 +1,6 @@
 package cut.food.fooddelivery.services;
 
+import cut.food.fooddelivery.entities.SendMessageToUs;
 import cut.food.fooddelivery.entities.User;
 import cut.food.fooddelivery.repos.UserRepo;
 import lombok.AllArgsConstructor;
@@ -23,6 +24,7 @@ public class EmailService {
     private static final String SENDER_NAME = "MEZI";
     private static final String REGISTRATION_SUBJECT = "Potvrdite svoju registraciju";
     private static final String CHANGE_PASSWORD_SUBJECT = "Promijenite svoju lozinku";
+    private static final String CHANGE_MESSAGE_TO_US_SUBJECT = "PITANJE KORISNIKA MEZI";
     private static final String CHANGE_PASSWORD_URL = "mezi.online/zaboravljena-lozinka/promijeni-lozinku?code=";
     private static final String CONFIRM_EMAIL_URL = "mezi.online/prijava/verifikacija?code=";
     private static final String CONFIRM_EMAIL_HEADER = "Dobrodošli";
@@ -33,6 +35,7 @@ public class EmailService {
     private static final String BUTTON_PASSWORD_CHANGE_TEXT = "Promijenite šifru";
     private static final String CONFIRM_EMAIL_IMG = "https://img.icons8.com/clouds/100/000000/handshake.png";
     private static final String PASSWORD_CHANGE_IMG = "https://i.imgur.com/247tYSw.png";
+    private static final String MEZI_USER = "MEZI USER";
 
 
     public void sendPasswordChangeEmail(User user) throws MessagingException, UnsupportedEncodingException {
@@ -42,12 +45,25 @@ public class EmailService {
                 CHANGE_PASSWORD_HEADER, CHANGE_PASSWORD_BODY,BUTTON_PASSWORD_CHANGE_TEXT, PASSWORD_CHANGE_IMG);
         sendEmail(toAddress, CHANGE_PASSWORD_SUBJECT, email);
     }
+    public void sendMessageToUs(SendMessageToUs sendMessageToUs) throws MessagingException, UnsupportedEncodingException {
+        String toAddress = FROM_ADDRESS;
+        sendEmail(toAddress, sendMessageToUs.getEmail(), CHANGE_MESSAGE_TO_US_SUBJECT, sendMessageToUs.getMessage());
+    }
     public void sendRegistrationConfirmEmail(User user) throws MessagingException, UnsupportedEncodingException {
         String toAddress = user.getEmail();
         String email = buildEmail(getRegistrationCode
                         (tokenService.getTokenByUser(user).get().getToken()),user.getName(),
                 CONFIRM_EMAIL_HEADER, CONFIRM_EMAIL_BODY,BUTTON_EMAIL_CONFIRMATION_TEXT, CONFIRM_EMAIL_IMG);
         sendEmail(toAddress, REGISTRATION_SUBJECT, email);
+    }
+    private void sendEmail(String toAddress, String fromAddress, String subject,String emailMessage) throws MessagingException, UnsupportedEncodingException {
+        MimeMessage message = mailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message);
+        helper.setFrom(fromAddress, fromAddress);
+        helper.setTo(toAddress);
+        helper.setSubject(subject);
+        helper.setText(emailMessage, true);
+        mailSender.send(message);
     }
     private void sendEmail(String toAddress, String subject,String email) throws MessagingException, UnsupportedEncodingException {
         MimeMessage message = mailSender.createMimeMessage();

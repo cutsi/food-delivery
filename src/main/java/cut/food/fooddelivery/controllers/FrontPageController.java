@@ -1,18 +1,16 @@
 package cut.food.fooddelivery.controllers;
 
 import cut.food.fooddelivery.entities.Restaurant;
-import cut.food.fooddelivery.entities.WorkingHours;
+import cut.food.fooddelivery.entities.SendMessageToUs;
 import cut.food.fooddelivery.services.*;
+import cut.food.fooddelivery.utilities.requests.SendMessageToUsRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZoneOffset;
+import javax.mail.MessagingException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 @Controller
@@ -23,6 +21,8 @@ public class FrontPageController {
     private final UserService userService;
     private final ImageService imageService;
     private final WorkingHoursService workingHoursService;
+    private final SendMessageToUsService sendMessageToUsService;
+    private final EmailService emailService;
 
     @GetMapping(path = {"/", "/welcome"})
     public String welcome(Model model){
@@ -54,6 +54,7 @@ public class FrontPageController {
     @GetMapping(path = "/Kontaktirajte-nas")
     public String contactUs(Model model){
         model.addAttribute("banner", imageService.getImageById(6L).get().getName());
+        model.addAttribute("sendMessageToUs", new SendMessageToUs());
         return "kontaktirajte-nas";
     }
     //TODO onemogucit narucivanje kad je restoran zatvoren
@@ -68,13 +69,23 @@ public class FrontPageController {
         model.addAttribute("isClosed", workingHoursService.restaurantClosed(workingHoursService.getRestaurantWorkingHoursToday(restaurant), restaurant));
         model.addAttribute("workingHoursToday", workingHoursService.getRestaurantWorkingHoursToday(restaurant));
         model.addAttribute("workingHours", workingHoursService.getByRestaurant(restaurant));
-        System.out.println("TRENUTNO VRIJEME KAD JE DEPLOYANO: " + LocalDateTime.now(ZoneId.of("CET")));
         return "restaurant";
     }
 
     @GetMapping(path="/login")
     public String getLogin(){
         return "login";
+    }
+
+    @PostMapping(path = "/posaljite-nam-poruku")
+    public String sendUsAMessage(@ModelAttribute SendMessageToUsRequest sendMessageToUsRequest, Model model) throws MessagingException, UnsupportedEncodingException {
+        System.out.println(sendMessageToUsRequest.getMessage());
+        //TODO kreirat objekt od send message to us, spremit ga u bazu i poslat na mail
+        SendMessageToUs sendMessageToUs = new SendMessageToUs(sendMessageToUsRequest.getEmail(),sendMessageToUsRequest.getMessage());
+        sendMessageToUsService.save(sendMessageToUs);
+        emailService.sendMessageToUs(sendMessageToUs);
+        model.addAttribute("message","Uspješno ste nam poslali poruku");
+        return "/success";
     }
 
 }

@@ -123,19 +123,15 @@
                 <div class="container1" style="margin-bottom: 50px; border: 1px solid darkred">
                     <div class="title" style="text-align: center">Pošaljite nam poruku</div>
                     <div class="content">
-                        <form>
+                        <form th:action="@{/posaljite-nam-poruku}" method="post" th:object="${sendMessageToUs}">
                             <div class="">
                                 <div class="input-box" style="text-align: center; margin-top: 15px">
-                                    <span class="details">IME</span>
-                                    <input class="send-message-box" type="text" placeholder="Unesite svoje ime" required>
-                                </div>
-                                <div class="input-box" style="text-align: center; margin-top: 15px">
-                                    <span class="details">EMAIL</span>
-                                    <input class="send-message-box" type="email" placeholder="Unesite svoj email" required>
+                                    <span class="details">VAŠ EMAIL</span>
+                                    <input class="send-message-box" th:field="*{email}" type="email" placeholder="Unesite svoj email" required>
                                 </div>
                                 <div class="input-box" style="text-align: center; margin-top: 15px">
                                     <span class="details">PORUKA</span>
-                                    <textarea rows="6" class="send-message-box" placeholder="Unesite poruku" required></textarea>
+                                    <textarea rows="6" class="send-message-box" th:field="*{message}" placeholder="Unesite poruku" required></textarea>
                                 </div>
 
                             </div>
