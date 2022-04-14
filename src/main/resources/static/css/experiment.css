@@ -237,6 +237,12 @@ input[type=checkbox] {
 .menu-item-name{
     font-size: 1.1rem;
     margin-right: 1.2em;
+    font-weight: bold;
+}
+.menu-item-info{
+    margin-top: 0.5rem;
+    font-size: smaller;
+    color: slategray;
 }
 
 button.menu-item:hover,
@@ -269,6 +275,7 @@ button.menu-item.is-open {
 }
 .menu-item-price{
     font-size: 1.0rem;
+    font-weight: bold;
 }
 .menu-item-image{
     width: 80px;
