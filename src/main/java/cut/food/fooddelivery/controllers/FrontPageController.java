@@ -23,6 +23,7 @@ public class FrontPageController {
     private final WorkingHoursService workingHoursService;
     private final SendMessageToUsService sendMessageToUsService;
     private final EmailService emailService;
+    private static final String SEND_MESSAGE_TO_US_SUCCESS = "Uspješno ste nam poslali poruku. Odgovorit ćemo vam u što kraćem roku.";
 
     @GetMapping(path = {"/", "/welcome"})
     public String welcome(Model model){
@@ -85,7 +86,7 @@ public class FrontPageController {
         sendMessageToUsService.save(sendMessageToUs);
         emailService.sendMessageToUs(sendMessageToUs);
         model.addAttribute("message","Uspješno ste nam poslali poruku");
-        return "/success";
+        return "success";
     }
 
 }
