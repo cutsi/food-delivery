@@ -96,7 +96,13 @@ p {
     -o-background-size:cover;
     background-size:cover;
     background-position:center;
+    padding: 3rem 1rem;
 
+}
+@media screen and (min-width: 960px) {
+    .jumbotron {
+        padding: 6rem 1rem
+    }
 }
 
 /* Bootstrap carousel css */
