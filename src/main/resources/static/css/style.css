@@ -101,7 +101,7 @@ p {
 }
 @media screen and (min-width: 960px) {
     .jumbotron {
-        padding: 6rem 1rem
+        padding: 3rem 1rem
     }
 }
 
