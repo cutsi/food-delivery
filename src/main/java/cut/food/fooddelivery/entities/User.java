@@ -60,6 +60,12 @@ public class User implements UserDetails {
                             nullable = false, updatable = false)})
     private Set<Role> roles = new HashSet<>();
 
+    @OneToMany(
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true) //ukoliko se ukloni user uklone se i komentari koji su vezani za njega
+    private Set<Comment> comments = new HashSet<>();
+
     public User(String name, String phone, String email, String password, String address){
         this.name = name;
         this.phone = phone;
@@ -113,5 +119,12 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return isEnabled;
+    }
+
+    public boolean hasRole(UserRole userRole) {
+        if(this.appUserRole.equals(userRole)){
+            return true;
+        }
+        return false;
     }
 }

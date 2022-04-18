@@ -65,7 +65,7 @@ public class WorkingHoursService {
         if(LocalTime.parse(yesterdayWorkingHours.getClosesAt())
                 .isBefore(LocalTime.parse(yesterdayWorkingHours.getOpensAt())) &&
                 LocalTime.parse(yesterdayWorkingHours.getClosesAt())
-                .isBefore(getCurrentHoursMinutes()))
+                .isAfter(getCurrentHoursMinutes()))
             return yesterdayWorkingHours;
         return workingHoursRepo.findByDayOfWeekAndRestaurant(today, restaurant).orElseThrow(Exception::new);
     }
@@ -121,17 +121,20 @@ public class WorkingHoursService {
         LocalDateTime newClosesAt = LocalDateTime.parse(getCurrentYearMonthDay() + "T" + workingHours.getClosesAt());
 
         if(LocalTime.parse(workingHours.getClosesAt()).isBefore(LocalTime.parse(workingHours.getOpensAt())))
-            newClosesAt = LocalDateTime.parse(LocalDateTime.parse(getCurrentYearMonthDay())
+            newClosesAt = LocalDateTime.parse(LocalDate.parse(getCurrentYearMonthDay())
                     .plusDays(1).toString() + 'T' + workingHours.getClosesAt());
 
         if(getCurrentDateTime().isBefore(newOpensAt) || getCurrentDateTime().isAfter(newClosesAt))
             return false;
         return true;
-    }
+    }//TODO 1. NAPRAVIT FULL BACKEND KOMENTARA;
+    //TODO 2. NAPRAVIT FRONTEND PRIHVACANJA NARUDZBI
+    //TODO 3. POPRAVIT PRIKAZIVANJE VRIMENA KAD PRODJE PONOC, NE UZIMAT SLJEDECI WORKING HOURS DOK NE PRODJE TRENUTNI BEZ OBZIRA AKO PRELAZI U DRUGI DAN
+
     public Boolean isRestaurantClosed(WorkingHours workingHoursToday){
         LocalDateTime localTime = LocalDateTime.now(ZoneId.of("CET"));
         String timeNow = localTime.format(DateTimeFormatter.ofPattern("MM:DD HH:mm"));
-        System.out.println("TRENUTNO VRIJEME: " + new Date("EEEE"));
+        System.out.println("TRENUTNO VRIJEME: " + LocalDateTime.now(ZoneId.of("CET")));
         LocalDateTime closingTime = LocalDateTime.parse(getCurrentMonthDay() + " " + workingHoursToday.getClosesAt());
         LocalDateTime openingTime = LocalDateTime.parse(getCurrentMonthDay() + " " + workingHoursToday.getOpensAt());
         if(closingTime.isBefore(openingTime))

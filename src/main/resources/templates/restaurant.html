@@ -18,6 +18,104 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 
 
+    <style>
+        .img-sm {
+            width: 46px;
+            height: 46px;
+        }
+
+        .panel {
+            box-shadow: 0 2px 0 rgba(0,0,0,0.075);
+            border-radius: 0;
+            border: 0;
+            margin-bottom: 15px;
+        }
+
+        .panel .panel-footer, .panel>:last-child {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .panel .panel-heading, .panel>:first-child {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        .panel-body {
+            padding: 5px 10px;
+        }
+
+
+        .media-block .media-left {
+            display: block;
+            float: left
+        }
+
+        .media-block .media-right {
+            float: right
+        }
+
+        .media-block .media-body {
+            display: block;
+            overflow: hidden;
+            width: auto
+        }
+
+        .middle .media-left,
+        .middle .media-right,
+        .middle .media-body {
+            vertical-align: middle
+        }
+
+        .thumbnail {
+            border-radius: 0;
+            border-color: #e9e9e9
+        }
+
+        .tag.tag-sm, .btn-group-sm>.tag {
+            padding: 5px 10px;
+        }
+
+        .tag:not(.label) {
+            background-color: #fff;
+            padding: 6px 12px;
+            border-radius: 2px;
+            border: 1px solid #cdd6e1;
+            font-size: 12px;
+            line-height: 1.42857;
+            vertical-align: middle;
+            -webkit-transition: all .15s;
+            transition: all .15s;
+        }
+        .text-muted, a.text-muted:hover, a.text-muted:focus {
+            color: #acacac;
+        }
+        .text-sm {
+            font-size: 0.9em;
+        }
+        .text-5x, .text-4x, .text-5x, .text-2x, .text-lg, .text-sm, .text-xs {
+            line-height: 1.25;
+        }
+
+        .btn-trans {
+            background-color: transparent;
+            border-color: transparent;
+            color: #929292;
+        }
+
+        .btn-icon {
+            padding-left: 9px;
+            padding-right: 9px;
+        }
+
+        .btn-sm, .btn-group-sm>.btn, .btn-icon.btn-sm {
+            padding: 5px 10px !important;
+        }
+
+        .mar-top {
+            margin-top: 15px;
+        }
+    </style>
 
     <style>
         .grid-container {
@@ -162,6 +260,9 @@
         </div>
     </section>
 
+
+
+
     <div class="slider owl-carousel">
         <th:block th:each="category: ${categories}">
             <div class="card1">
@@ -210,16 +311,62 @@
         </div>
 
         <div id="popup2" class="overlay">
-            <div class="popup">
-                <h2>Here i am</h2>
+            <div class="popup" style="height: 85%; overflow-y: auto; width: 80%">
+                <h2 class="popup-header">Komentari</h2>
                 <a class="close" href="#close">&times;</a>
-                <div class="content">
-                    Adresa: bla bla bla bla bla <br><br>
+                    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+                    <div class="container bootdey" style="padding-right: 0;padding-left: 0;">
+                        <div class="col-md-12 bootstrap snippets" style="padding-right: 0;padding-left: 0;">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <textarea class="form-control" rows="2" placeholder="What are you thinking?"></textarea>
+                                    <div class="mar-top clearfix">
+                                        <button class="btn btn-sm btn-primary pull-right" type="submit">Objavi</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <!-- Newsfeed Content -->
+                                    <!--===================================================-->
+                                    <div class="media-block">
+                                        <div class="media-body">
+                                            <div class="mar-btm">
+                                                <p class="" style="color: black">Mate</p>
+                                                <p class="text-muted text-sm"> 11 min ago</p>
+                                            </div>
+                                            <p>consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+                                            <div class="pad-ver" style="margin-bottom: 1.5rem;">
+                                                <a class="btn btn-sm btn-default btn-hover-primary" href="#" style="border: 1px solid darkred">Comment</a>
+                                            </div>
+                                            <hr>
 
-                    Ime: nla nla nla <br><br>
+                                            <!-- Comments -->
+                                            <div>
+                                                <div class="media-block">
+                                                    <div class="media-body">
+                                                        <div class="mar-btm">
+                                                            <p class="" style="color: black">Ante</p>
+                                                            <p class="text-muted text-sm"> 7 min ago</p>
+                                                        </div>
+                                                        <p>Sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+                                                        <div class="pad-ver">
+                                                            <div class="btn-group">
+                                                            </div>
+                                                        </div>
+                                                        <hr>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--===================================================-->
+                                    <!-- End Newsfeed Content -->
 
-                    radni sati: nlanlanal al nal <br><br>
-                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </div>
     </section>

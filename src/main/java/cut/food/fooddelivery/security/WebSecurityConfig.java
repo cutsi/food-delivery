@@ -1,6 +1,7 @@
 package cut.food.fooddelivery.security;
 
 
+import cut.food.fooddelivery.Components.LoginSuccessHandler;
 import cut.food.fooddelivery.services.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -21,6 +22,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final UserService userService;
+    private final LoginSuccessHandler loginSuccessHandler;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -33,10 +35,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/restaurant","/css/**", "/js/**", "/css/**","/","/style.css","/index")
                 .permitAll()
                 .antMatchers("/admin").hasAuthority("ADMIN")
-                .antMatchers("/restoran").hasAnyAuthority("ADMIN", "RESTAURANT")
+                .antMatchers("/Restoran/**").hasAnyAuthority("ADMIN", "RESTAURANT")
                 .and()
                 .formLogin()
                 .loginPage("/login")
+                .successHandler(loginSuccessHandler)
                 .permitAll()
                 .and()
                 .logout().deleteCookies("remove").invalidateHttpSession(false)

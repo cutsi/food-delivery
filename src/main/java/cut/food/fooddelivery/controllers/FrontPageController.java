@@ -3,6 +3,7 @@ package cut.food.fooddelivery.controllers;
 import cut.food.fooddelivery.entities.Restaurant;
 import cut.food.fooddelivery.entities.SendMessageToUs;
 import cut.food.fooddelivery.services.*;
+import cut.food.fooddelivery.utilities.UserRole;
 import cut.food.fooddelivery.utilities.requests.SendMessageToUsRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -49,7 +50,7 @@ public class FrontPageController {
         model.addAttribute("banner", imageService.getImageById(7L).get().getName());
         model.addAttribute("beef", imageService.getImageById(3L).get().getName());
         model.addAttribute("dough", imageService.getImageById(5L).get().getName());
-        return "o-nama";
+        return "about-us";
     }
 
     @GetMapping(path = "/Kontaktirajte-nas")
