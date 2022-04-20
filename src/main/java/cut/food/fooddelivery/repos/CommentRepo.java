@@ -22,4 +22,5 @@ public interface CommentRepo extends JpaRepository<Comment, Long> {
     List<Comment> findAllByIsApprovedTrue();
     List<Comment> findAllByResponseId(Long responseId);
     List<Comment> findAllByRestaurant(Restaurant restaurant);
+
 }

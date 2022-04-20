@@ -30,7 +30,7 @@ public class Comment {
     private LocalDateTime createdAt;
     private Boolean isApproved;
     private Long responseId;
-
+    private Integer rating;
     @ManyToOne(cascade = { CascadeType.REMOVE }) //one user can have many comments
     @JoinColumn(
             nullable = false,
@@ -44,15 +44,12 @@ public class Comment {
     )
     private Restaurant restaurant;
 
-    public Comment(String content){
-        this.content = content;
-        this.createdAt = LocalDateTime.now(ZoneId.of("CET"));
-        this.isApproved = false;
-    }
-    public Comment(String content, Restaurant restaurant){
+    public Comment(String content, Restaurant restaurant, User user, Integer rating){
+        this.user = user;
         this.content = content;
         this.createdAt = LocalDateTime.now(ZoneId.of("CET"));
         this.isApproved = false;
         this.restaurant = restaurant;
+        this.rating = rating;
     }
 }

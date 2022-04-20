@@ -1,5 +1,6 @@
 package cut.food.fooddelivery.controllers;
 
+import cut.food.fooddelivery.entities.Comment;
 import cut.food.fooddelivery.entities.Restaurant;
 import cut.food.fooddelivery.entities.SendMessageToUs;
 import cut.food.fooddelivery.services.*;
@@ -24,6 +25,7 @@ public class FrontPageController {
     private final WorkingHoursService workingHoursService;
     private final SendMessageToUsService sendMessageToUsService;
     private final EmailService emailService;
+    private final CommentService commentService;
     private static final String SEND_MESSAGE_TO_US_SUCCESS = "Uspješno ste nam poslali poruku. Odgovorit ćemo vam u što kraćem roku.";
 
     @GetMapping(path = {"/", "/welcome"})
@@ -68,11 +70,14 @@ public class FrontPageController {
         model.addAttribute("restaurant", restaurant);
         //System.out.println(workingHoursService.isRestaurantClosed(workingHoursService.getRestaurantWorkingHoursToday(restaurant)));
         //System.out.println(workingHoursService.restaurantClosed(workingHoursService.getRestaurantWorkingHoursToday(restaurant), restaurant));
+        model.addAttribute("comments", commentService.getAllByRestaurant(restaurant));
         model.addAttribute("isClosed", workingHoursService.restaurantClosed(workingHoursService.getRestaurantWorkingHoursToday(restaurant), restaurant));
-        model.addAttribute("workingHoursToday", workingHoursService.getRestaurantWorkingHoursToday(restaurant));
         model.addAttribute("workingHours", workingHoursService.getByRestaurant(restaurant));
+        model.addAttribute("workingHoursToday", workingHoursService.getRestaurantWorkingHoursToday(restaurant));
+        model.addAttribute("numberOfReviews", commentService.getAllByRestaurant(restaurant).size());
+        model.addAttribute("averageRating", commentService.getAverageRating(restaurant));
         return "restaurant";
-    }
+    }//TODO popravit poziciju zvjezdica, omogucit komentiranje ulogiranim korisnicima, stavit zvjezdicu nad komentar
 
     @GetMapping(path="/login")
     public String getLogin(){
@@ -87,6 +92,16 @@ public class FrontPageController {
         sendMessageToUsService.save(sendMessageToUs);
         emailService.sendMessageToUs(sendMessageToUs);
         model.addAttribute("message","Uspješno ste nam poslali poruku");
+        return "success";
+    }
+    @PostMapping(path = "komentiraj")
+    public String komentiraj(@RequestParam("content") String content, @RequestParam("star") String rating,
+                             @RequestParam("restaurantName") String restaurantName){
+
+        System.out.println("restaurantName: " + restaurantName);
+        System.out.println("OCJENA: " + rating);
+        Comment comment = new Comment(content, restaurantService.getRestaurantByName(restaurantName).get(), userService.getCurrentUser().get(), Integer.valueOf(rating));
+        commentService.save(comment);
         return "success";
     }
 

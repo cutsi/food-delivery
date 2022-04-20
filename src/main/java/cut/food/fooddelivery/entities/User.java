@@ -65,6 +65,11 @@ public class User implements UserDetails {
             cascade = CascadeType.ALL,
             orphanRemoval = true) //ukoliko se ukloni user uklone se i komentari koji su vezani za njega
     private Set<Comment> comments = new HashSet<>();
+    @OneToMany(
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private Set<Rating> ratings = new HashSet<>();
 
     public User(String name, String phone, String email, String password, String address){
         this.name = name;

@@ -13,7 +13,6 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 @Service
 @AllArgsConstructor
@@ -43,7 +42,7 @@ public class WorkingHoursService {
         return workingHoursRepo.findById(id).orElseThrow(Exception::new);
     }
     public List<WorkingHours> getByRestaurant(Restaurant restaurant)  {
-        injectSeparator(workingHoursRepo.findByRestaurantOrderById(restaurant));
+        //injectSeparator(workingHoursRepo.findByRestaurantOrderById(restaurant));
         return workingHoursRepo.findByRestaurantOrderById(restaurant);
     }
     public WorkingHours getWorkingHoursByDayOfWeek(String dayOfWeek) throws Exception {
@@ -59,8 +58,18 @@ public class WorkingHoursService {
         };
     }
     public WorkingHours getRestaurantWorkingHoursToday(Restaurant restaurant) throws Exception {
+
         String today = translateDayOfWeek(new SimpleDateFormat("EEEE").format(new Date()));
+        if(workingHoursRepo.findByDayOfWeekAndRestaurant(today, restaurant).isPresent()){
+            if(workingHoursRepo.findByDayOfWeekAndRestaurant(today, restaurant).get().getOpensAt().equals(ZATVORENO))
+                return workingHoursRepo.findByDayOfWeekAndRestaurant(today, restaurant).get();
+        }
+        System.out.println(workingHoursRepo.findByDayOfWeekAndRestaurant(today, restaurant).get().getOpensAt());
         String yesterday = getYesterday(today);
+        if(workingHoursRepo.findByDayOfWeekAndRestaurant(yesterday, restaurant).isPresent()){
+            if(workingHoursRepo.findByDayOfWeekAndRestaurant(yesterday, restaurant).get().getOpensAt().equals(ZATVORENO))
+                return workingHoursRepo.findByDayOfWeekAndRestaurant(today, restaurant).get();
+        }
         WorkingHours yesterdayWorkingHours = workingHoursRepo.findByDayOfWeekAndRestaurant(yesterday,restaurant).get();
         if(LocalTime.parse(yesterdayWorkingHours.getClosesAt())
                 .isBefore(LocalTime.parse(yesterdayWorkingHours.getOpensAt())) &&
@@ -111,12 +120,15 @@ public class WorkingHoursService {
         if(workingHours.getOpensAt().equals(ZATVORENO))
             return false;
         WorkingHours yesterdayWorkingHours = checkOverrideHours(restaurant, workingHours);
-        if(LocalTime.parse(yesterdayWorkingHours.getClosesAt())
-                .isBefore(LocalTime.parse(yesterdayWorkingHours.getOpensAt())) &&
-                getCurrentHoursMinutes().isBefore(LocalTime.parse(yesterdayWorkingHours.getClosesAt()))){
-            System.out.println("OVERRIDE HOURS");
-            return true;
+        if(!yesterdayWorkingHours.getOpensAt().equals(ZATVORENO)){
+            if(LocalTime.parse(yesterdayWorkingHours.getClosesAt())
+                    .isBefore(LocalTime.parse(yesterdayWorkingHours.getOpensAt())) &&
+                    getCurrentHoursMinutes().isBefore(LocalTime.parse(yesterdayWorkingHours.getClosesAt()))){
+                System.out.println("OVERRIDE HOURS");
+                return true;
+            }
         }
+
         LocalDateTime newOpensAt = LocalDateTime.parse(getCurrentYearMonthDay() + "T" + workingHours.getOpensAt());
         LocalDateTime newClosesAt = LocalDateTime.parse(getCurrentYearMonthDay() + "T" + workingHours.getClosesAt());
 
@@ -129,7 +141,7 @@ public class WorkingHoursService {
         return true;
     }//TODO 1. NAPRAVIT FULL BACKEND KOMENTARA;
     //TODO 2. NAPRAVIT FRONTEND PRIHVACANJA NARUDZBI
-    //TODO 3. POPRAVIT PRIKAZIVANJE VRIMENA KAD PRODJE PONOC, NE UZIMAT SLJEDECI WORKING HOURS DOK NE PRODJE TRENUTNI BEZ OBZIRA AKO PRELAZI U DRUGI DAN
+    //. POPRAVIT PRIKAZIVANJE VRIMENA KAD PRODJE PONOC, NE UZIMAT SLJEDECI WORKING HOURS DOK NE PRODJE TRENUTNI BEZ OBZIRA AKO PRELAZI U DRUGI DAN
 
     public Boolean isRestaurantClosed(WorkingHours workingHoursToday){
         LocalDateTime localTime = LocalDateTime.now(ZoneId.of("CET"));

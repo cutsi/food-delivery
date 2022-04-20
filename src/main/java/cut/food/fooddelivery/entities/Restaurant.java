@@ -42,9 +42,16 @@ public class Restaurant {
             inverseJoinColumns = @JoinColumn(name = "foodItem_id"))
     private Set<FoodItem> menu = new HashSet<>();
 
-    @OneToMany(mappedBy = "restaurant")
+    @OneToMany(
+            mappedBy = "restaurant",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
     private Set<WorkingHours> workingHours = new HashSet<>();
-
+    @OneToMany(
+            mappedBy = "restaurant",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private Set<Rating> ratings = new HashSet<>();
     public Restaurant(String restaurantName, String address, String phone, String image, String banner){
         this.restaurantName = restaurantName;
         this.address = address;

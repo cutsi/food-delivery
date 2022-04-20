@@ -1,0 +1,94 @@
+.rating{
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.rating input{
+    display: none;
+}
+.rating label{
+    display: block;
+    cursor: pointer;
+    background: inherit;
+}
+.rating label:before{
+    content: '\f005';
+    font-family: FontAwesome;
+    position: relative;
+    display: block;
+    font-size: 1.5rem;
+    color: #101010;
+}
+
+.rating label:after{
+    content: '\f005';
+    font-family: FontAwesome;
+    position: absolute;
+    display: block;
+    font-size: 1.5rem;
+    color: gold;
+    top: 0;
+    opacity: 0;
+    transition: .5s;
+    text-shadow: 0 2px 5px rgba(0,0,0,.5);
+}
+.rating label:hover:after,
+.rating label:hover ~ label:after,
+.rating input:checked ~ label:after{
+    opacity: 1;
+}
+.komentiraj{
+    border: 2px solid darkred;
+    border-radius: 10px;
+    padding: 0.5rem;
+    text-align: center;
+    position: relative;
+}
+.your-rating{
+    margin: 0 auto;
+    position: relative;
+}
+
+
+
+
+.comment-rating{
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.comment-rating input{
+    display: none;
+}
+.comment-rating label{
+    display: block;
+    cursor: pointer;
+    background: inherit;
+}
+.comment-rating label:before{
+    content: '\f005';
+    font-family: FontAwesome;
+    position: relative;
+    display: block;
+    color: #101010;
+}
+
+.comment-rating label:after{
+    content: '\f005';
+    font-family: FontAwesome;
+    position: absolute;
+    display: block;
+    color: gold;
+    top: 0;
+    opacity: 0;
+    transition: .5s;
+    text-shadow: 0 2px 5px rgba(0,0,0,.5);
+}
+.comment-rating label:hover:after,
+.comment-rating label:hover ~ label:after,
+.comment-rating input:checked ~ label:after{
+    opacity: 1;
+}
+
