@@ -7,12 +7,68 @@
     <title>Restoran</title>
     <link href="../static/css/success.css" th:href="@{/css/success.css}" rel="stylesheet" />
     <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+    <link href="../static/css/restaurant_orders.css" th:href="@{/css/restaurant_orders.css}" rel="stylesheet" />
+    <link href="../static/css/popup.css" th:href="@{/css/popup.css}" rel="stylesheet" />
+    <link href="../static/css/rating.css" th:href="@{/css/rating.css}" rel="stylesheet" />
+
+
 
 </head>
 <body>
 <main role="main" class="flex-shrink-0" style="margin-bottom: 125px;">
     <header th:replace="fragments/general-restaurant :: header"></header>
+    <div class="row no-gutters" style="margin-top: 5rem;">
+        <div class="col-md-6 no-gutters">
+            <div class="left-side">
+                    <div class="popup" style="height: 85%; overflow-y: auto; width: 80%">
+                        <h2 class="popup-header">Nove Narudžbe</h2>
+                        <a class="close" href="#close">&times;</a>
+                        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+                        <div class="container bootdey" style="padding-right: 0;padding-left: 0;">
+                            <div class="col-md-12 bootstrap snippets" style="padding-right: 0;padding-left: 0;">
+                                <div class="panel">
+                                    <div class="panel-body">
+                                        <div class="media-block">
+                                            <div class="media-body">
+                                                AAAAAAAAAAAAAAAAAAAAAAAA<br>
+                                                AAAAAAAAAAAAAAAAAAAAAAAA<br>
+                                                AAAAAAAAAAAAAAAAAAAAAAAA<br>
+                                                AAAAAAAAAAAAAAAAAAAAAAAA<br>
+                                                AAAAAAAAAAAAAAAAAAAAAAAA<br>AAAAAAAAAAAAAAAAAAAAAAAA<br>
+                                                AAAAAAAAAAAAAAAAAAAAAAAA<br>
+                                                AAAAAAAAAAAAAAAAAAAAAAAA<br>
+                                                AAAAAAAAAAAAAAAAAAAAAAAA<br>AAAAAAAAAAAAAAAAAAAAAAAA<br>
+                                                AAAAAAAAAAAAAAAAAAAAAAAA<br>AAAAAAAAAAAAAAAAAAAAAAAA<br>
+                                                AAAAAAAAAAAAAAAA<br>AAAAAAAAAAAAAAAAAAAAAAAA<br>
+                                                AAAAAAAAAAAAAAAAAAAAAAAA<br>AAAAAAAAAAAAAAAAAAAAAAAA<br>AAAAAAAAAAAAAAAAAAAAAAAA<br>
+                                                AAAAAAAAAAAAAAAAAAAAAAAA<br>
+                                                AAAAAAAAAAAAAAAAAAAAAAAA<br>AAAAAAAAAAAAAAAAAAAAAAAA<br>AAAAAAAAAAAAAAAAAAAAAAAA<br>AAAAAAAAAAAAAAAAAAAAAAAA<br>
+                                                AAAAAAAAAAAAAAAAAAAAAAAA<br>
+                                                AAAAAAAAAAAAAAAAAAAAAAA<br>
+                                                AAAAAAAAAAAAAAAAAAAAAAAA<br>
+                                                AAAAAAAAAAAAAAAAAAAAAAAA<br>
+                                                AAAAAAAAAAAAAAAAAAAAAAAA<br>
+                                                AAAAAAAAAAAAAAAAAAAAAAAA<br>
+                                                AAAAAAAAAAAAAAAAAAAAAAAA<br>
+                                                AAAAAAAAAAAAAAAAAAAAAAAA<br>
+                                                AAAAAAAAAAAAAAAAAAAAAAAA<br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        <div class="col-md-6 no-gutters">
+            <div class="right-side">
+
+            </div>
+        </div>
+    </div>
 </main>
+
+
 
 <br><br><br>
 <footer th:replace="fragments/general :: footer">

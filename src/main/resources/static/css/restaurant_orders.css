@@ -1,0 +1,15 @@
+.right-side, .left-side{
+    height: 50vh;
+    width: 100%;
+}
+@media screen and (min-width: 960px){
+    .right-side .left-side{
+        height: 100vh;
+    }
+}
+.left-side{
+    background: navajowhite;
+}
+.right-side{
+    background: whitesmoke;
+}

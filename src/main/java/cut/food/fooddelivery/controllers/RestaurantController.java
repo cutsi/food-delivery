@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping(path = "/restaurantUser")
+@RequestMapping(path = "")
 @AllArgsConstructor
 public class RestaurantController {
 
@@ -15,9 +15,9 @@ public class RestaurantController {
         return "about-us";
     }
 
-    @GetMapping(path = "kontaktirajte-nas")
+    @GetMapping(path = "restaurant_orders")
     public String getRestaurant1(){
-        return "kontaktirajte-nas";
+        return "restaurant_orders";
     }
 
     //TODO napravit service i repo za working hours, u kontroleru dobit od restorana sate, poslat ih na frontend
