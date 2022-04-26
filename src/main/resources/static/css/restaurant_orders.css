@@ -13,3 +13,25 @@
 .right-side{
     background: whitesmoke;
 }
+.new-orders{
+    text-align: center;
+    padding: 0.5rem;
+    background: #68a708;
+    color: wheat;
+    font-size: x-large;
+    width: 95%;
+    margin-left: 2.5%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.accepted-orders{
+    text-align: center;
+    padding: 0.5rem;
+    background: cornflowerblue;
+    color: wheat;
+    font-size: x-large;
+    width: 95%;
+    margin-left: 2.5%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
