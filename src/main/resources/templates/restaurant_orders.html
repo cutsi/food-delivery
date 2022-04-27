@@ -10,6 +10,7 @@
     <link href="../static/css/restaurant_orders.css" th:href="@{/css/restaurant_orders.css}" rel="stylesheet" />
     <link href="../static/css/popup.css" th:href="@{/css/popup.css}" rel="stylesheet" />
     <link href="../static/css/rating.css" th:href="@{/css/rating.css}" rel="stylesheet" />
+    <link href="../static/css/checkout.css" th:href="@{/css/checkout.css}" rel="stylesheet" />
 
 
 
@@ -21,15 +22,59 @@
         <div class="col-md-6 no-gutters">
             <div class="left-side">
                 <div class="new-orders">NEW ORDERS</div>
-                <div class="popup" style="height: 85%; overflow-y: auto; width: 95%; margin: auto;height: 142%;border: 3px solid darkred;">
-                    
+                <div class="orders-content" style="border-left: 3px solid #68a708;border-right: 3px solid #68a708;border-bottom: 3px solid #68a708;">
+                    <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
+                        <div class="d-flex flex-row">
+                            <img class="checkout-item-image" th:src="${item.getImage()}" src ="${item.getImage()}" alt="" width="40">
+                            <div class="ml-2">
+                                <span class="font-weight-bold d-block">[[${item.getName()}]]</span>
+                                <br><span class="spec" style="font-size: inherit;font-weight: bolder;">[[${item.getPrice()}]]KM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
+                        <div class="d-flex flex-row">
+                            <img class="checkout-item-image" th:src="${item.getImage()}" src ="${item.getImage()}" alt="" width="40">
+                            <div class="ml-2">
+                                <span class="font-weight-bold d-block">[[${item.getName()}]]</span>
+                                <br><span class="spec" style="font-size: inherit;font-weight: bolder;">[[${item.getPrice()}]]KM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
+                        <div class="d-flex flex-row">
+                            <img class="checkout-item-image" th:src="${item.getImage()}" src ="${item.getImage()}" alt="" width="40">
+                            <div class="ml-2">
+                                <span class="font-weight-bold d-block">[[${item.getName()}]]</span>
+                                <br><span class="spec" style="font-size: inherit;font-weight: bolder;">[[${item.getPrice()}]]KM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
+                        <div class="d-flex flex-row">
+                            <img class="checkout-item-image" th:src="${item.getImage()}" src ="${item.getImage()}" alt="" width="40">
+                            <div class="ml-2">
+                                <span class="font-weight-bold d-block">[[${item.getName()}]]</span>
+                                <br><span class="spec" style="font-size: inherit;font-weight: bolder;">[[${item.getPrice()}]]KM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
+                        <div class="d-flex flex-row">
+                            <img class="checkout-item-image" th:src="${item.getImage()}" src ="${item.getImage()}" alt="" width="40">
+                            <div class="ml-2">
+                                <span class="font-weight-bold d-block">[[${item.getName()}]]</span>
+                                <br><span class="spec" style="font-size: inherit;font-weight: bolder;">[[${item.getPrice()}]]KM</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-md-6 no-gutters">
             <div class="right-side">
                 <div class="accepted-orders">ACCEPTED ORDERS</div>
-                <div class="popup" style="height: 85%; overflow-y: auto; width: 95%; margin: auto;height: 142%; border: 3px solid darkred;">
+                <div class="orders-content" style="border-left: 3px solid cornflowerblue;border-right: 3px solid cornflowerblue;border-bottom: 3px solid cornflowerblue;">
 
                 </div>
             </div>

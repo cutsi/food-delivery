@@ -1,7 +1,9 @@
 package cut.food.fooddelivery.controllers;
 
+import cut.food.fooddelivery.services.RestaurantService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -9,14 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(path = "")
 @AllArgsConstructor
 public class RestaurantController {
-
+    private final RestaurantService restaurantService;
     @GetMapping(path = "")
     public String getRestaurant(){
         return "about-us";
     }
 
     @GetMapping(path = "restaurant_orders")
-    public String getRestaurant1(){
+    public String getRestaurant1(Model model){
+        model.addAttribute("item", restaurantService.getFoodItemsFromRestaurantById(1L).get(1));
         return "restaurant_orders";
     }
 
