@@ -16,7 +16,7 @@
 .new-orders{
     text-align: center;
     padding: 0.5rem;
-    background: #68a708;
+    background: red;
     color: wheat;
     font-size: x-large;
     width: 95%;
@@ -27,7 +27,7 @@
 .accepted-orders{
     text-align: center;
     padding: 0.5rem;
-    background: cornflowerblue;
+    background: #68a708;
     color: wheat;
     font-size: x-large;
     width: 95%;
@@ -49,4 +49,33 @@
     .orders-content{
         height: 130%;
     }
+}
+.bill-table{
+    width: 100%;
+    border: 2px solid black;
+    height: 30%;
+    margin-bottom: 10px;
+}
+.bill-id-cell{
+    border: 2px solid black;
+    font-size: x-large;
+    color: white;
+    background: #68a708;
+}
+.address-cell{
+    width: 67%;
+    font-size: large;
+    color: white;
+    background: lightslategray;
+    padding: 0.5rem;
+}
+.bill-id-cell-new-orders{
+    border: 2px solid black;
+    font-size: x-large;
+    color: white;
+    background: red;
+}
+.content-cell{
+    border: 2px solid black;
+    height: 65%;
 }
