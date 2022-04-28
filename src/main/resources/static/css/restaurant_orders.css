@@ -17,7 +17,7 @@
     text-align: center;
     padding: 0.5rem;
     background: red;
-    color: wheat;
+    color: white;
     font-size: x-large;
     width: 95%;
     margin-left: 2.5%;
@@ -28,7 +28,7 @@
     text-align: center;
     padding: 0.5rem;
     background: #68a708;
-    color: wheat;
+    color: white;
     font-size: x-large;
     width: 95%;
     margin-left: 2.5%;
@@ -78,4 +78,14 @@
 .content-cell{
     border: 2px solid black;
     height: 65%;
+    font-size: larger;
+}
+.button-content-cell{
+    float: right;
+    margin-top: -2.3rem;
+    border-radius: 10px;
+    background: #68a708;
+    color: white;
+    margin-right: 0.7rem;
+    box-shadow: 1px 1px 4px red;
 }
