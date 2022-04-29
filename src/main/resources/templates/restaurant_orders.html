@@ -18,236 +18,116 @@
 <body>
 <main role="main" class="flex-shrink-0" style="margin-bottom: 125px;">
     <header th:replace="fragments/general-restaurant :: header"></header>
+
+
     <div class="row no-gutters" style="margin-top: 5rem;">
         <div class="col-md-6 no-gutters">
             <div class="left-side">
                 <div class="new-orders"><b>NEW ORDERS</b></div>
-                    <div class="orders-content" style="border-left: 3px solid red;border-right: 3px solid red;border-bottom: 3px solid red;">
-                        <table class="bill-table">
-                            <tr>
-                                <td class="bill-id-cell-new-orders">
-                                    #13242
-                                </td>
-                                <td class="address-cell">
-                                    13.04.2022 14:54
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan=2 class="content-cell">
-                                    <div class="adress-content-cell">
-                                        Adresa: fra petra bakule 19
+                    <div class="orders-content" style="border-left: 3px solid #cb190c;border-right: 3px solid #cb190c;border-bottom: 3px solid #cb190c;">
+                        <section>
+                            <table class="bill-table">
+                                <tr>
+                                    <td class="bill-id-cell-new-orders">
+                                        #13242
+                                    </td>
+                                    <td class="address-cell">
+                                        13.04.2022 14:54
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan=2 class="content-cell">
+                                        <div class="adress-content-cell">
+                                            Adresa: fra petra bakule 192
+                                        </div>
+
+                                        <div class="name-content-cell">
+                                            Ime: Josip
+                                        </div>
+
+                                        <div class="phone-content-cell">
+                                            Tel: 092 332 0202
+                                        </div>
+                                        <div class="">
+                                            <a href="#popup1">
+                                                <button class="button-content-cell" href="#popup1">Detalji</button>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <div id="popup1" class="overlay">
+                                <div class="popup" style="height: 85%; overflow-y: auto; width: 80%">
+                                    <h2 class="popup-header">Detalji narudžbe</h2>
+                                    <a class="close" href="#close">&times;</a>
+                                    <h3 class="content-header">Narudžba</h3>
+
+                                    <div class="content">
+                                        <div class="item-name"><b>1. Mijesano meso</b></div>
+                                        <div class="item-price">10.00KM</div>
+                                        <div class="condiments">
+                                            <div class="condiment">+majoneza</div>
+                                            <div class="condiment-price">0.00KM</div>
+                                            <div class="condiment">+pomfrit</div>
+                                            <div class="condiment-price">2.50KM</div>
+                                            <div class="condiment">+kecap</div>
+                                            <div class="condiment-price">0.00KM</div>
+                                        </div>
+                                        <div class="item-total">
+                                            12.50KM
+                                        </div>
                                     </div>
 
-                                    <div class="name-content-cell">
-                                        Ime: Josip
+                                    <div class="content">
+                                        <div class="item-name"><b>2. Pizza</b></div>
+                                        <div class="item-price">10.00KM</div>
+                                        <div class="condiments">
+                                            <div class="condiment">+majoneza</div>
+                                            <div class="condiment-price">0.00KM</div>
+                                            <div class="condiment">+pomfrit</div>
+                                            <div class="condiment-price">2.50KM</div>
+                                            <div class="condiment">+kecap</div>
+                                            <div class="condiment-price">0.00KM</div>
+                                        </div>
+                                        <div class="item-total">
+                                            12.50KM
+                                        </div>
                                     </div>
 
-                                    <div class="phone-content-cell">
-                                        Tel: 092 332 0202
+                                    <div class="content">
+                                        <div class="item-name"><b>3. Hamburger</b></div>
+                                        <div class="item-price">10.00KM</div>
+                                        <div class="condiments">
+                                            <div class="condiment">+majoneza</div>
+                                            <div class="condiment-price">0.00KM</div>
+                                            <div class="condiment">+pomfrit</div>
+                                            <div class="condiment-price">2.50KM</div>
+                                            <div class="condiment">+kecap</div>
+                                            <div class="condiment-price">0.00KM</div>
+                                        </div>
+                                        <div class="item-total">
+                                            12.50KM
+                                        </div>
                                     </div>
-                                    <div class="">
-                                        <button class="button-content-cell" value="submit">Detalji</button>
+                                    <div class="Ukupno">
+                                        UKUPNO
                                     </div>
-                                </td>
-                            </tr>
-                        </table>
-                        <table class="bill-table">
-                            <tr>
-                                <td class="bill-id-cell-new-orders">
-                                    #13242
-                                </td>
-                                <td class="address-cell">
-                                    13.04.2022 14:54
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan=2 class="content-cell">
-                                    <div class="adress-content-cell">
-                                        Adresa: fra petra bakule 19
+                                    <div class="ukupno-price">
+                                        <b>37.50KM</b>
                                     </div>
+                                    <div class="accept-orders">
+                                        <a href="#">
+                                            <button class="button-content-cell" style="background: #1e7e34; margin-top: 2rem;background: #D9391C;">Accept</button>
+                                        </a>
+                                        <a href="#">
+                                            <button class="button-content-cell" style="background: #D9391C; background: #1e7e34;margin-top: 2rem;">Decline</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
 
-                                    <div class="name-content-cell">
-                                        Ime: Josip
-                                    </div>
-
-                                    <div class="phone-content-cell">
-                                        Tel: 092 332 0202
-                                    </div>
-                                    <div class="">
-                                        <button class="button-content-cell" value="submit">Detalji</button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                        <table class="bill-table">
-                            <tr>
-                                <td class="bill-id-cell-new-orders">
-                                    #13242
-                                </td>
-                                <td class="address-cell">
-                                    13.04.2022 14:54
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan=2 class="content-cell">
-                                    <div class="adress-content-cell">
-                                        Adresa: fra petra bakule 19
-                                    </div>
-
-                                    <div class="name-content-cell">
-                                        Ime: Josip
-                                    </div>
-
-                                    <div class="phone-content-cell">
-                                        Tel: 092 332 0202
-                                    </div>
-                                    <div class="">
-                                        <button class="button-content-cell" value="submit">Detalji</button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                        <table class="bill-table">
-                            <tr>
-                                <td class="bill-id-cell-new-orders">
-                                    #13242
-                                </td>
-                                <td class="address-cell">
-                                    13.04.2022 14:54
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan=2 class="content-cell">
-                                    <div class="adress-content-cell">
-                                        Adresa: fra petra bakule 19
-                                    </div>
-
-                                    <div class="name-content-cell">
-                                        Ime: Josip
-                                    </div>
-
-                                    <div class="phone-content-cell">
-                                        Tel: 092 332 0202
-                                    </div>
-                                    <div class="">
-                                        <button class="button-content-cell" value="submit">Detalji</button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                        <table class="bill-table">
-                            <tr>
-                                <td class="bill-id-cell-new-orders">
-                                    #13242
-                                </td>
-                                <td class="address-cell">
-                                    13.04.2022 14:54
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan=2 class="content-cell">
-                                    <div class="adress-content-cell">
-                                        Adresa: fra petra bakule 19
-                                    </div>
-
-                                    <div class="name-content-cell">
-                                        Ime: Josip
-                                    </div>
-
-                                    <div class="phone-content-cell">
-                                        Tel: 092 332 0202
-                                    </div>
-                                    <div class="">
-                                        <button class="button-content-cell" value="submit">Detalji</button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                        <table class="bill-table">
-                            <tr>
-                                <td class="bill-id-cell-new-orders">
-                                    #13242
-                                </td>
-                                <td class="address-cell">
-                                    13.04.2022 14:54
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan=2 class="content-cell">
-                                    <div class="adress-content-cell">
-                                        Adresa: fra petra bakule 19
-                                    </div>
-
-                                    <div class="name-content-cell">
-                                        Ime: Josip
-                                    </div>
-
-                                    <div class="phone-content-cell">
-                                        Tel: 092 332 0202
-                                    </div>
-                                    <div class="">
-                                        <button class="button-content-cell" value="submit">Detalji</button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                        <table class="bill-table">
-                            <tr>
-                                <td class="bill-id-cell-new-orders">
-                                    #13242
-                                </td>
-                                <td class="address-cell">
-                                    13.04.2022 14:54
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan=2 class="content-cell">
-                                    <div class="adress-content-cell">
-                                        Adresa: fra petra bakule 19
-                                    </div>
-
-                                    <div class="name-content-cell">
-                                        Ime: Josip
-                                    </div>
-
-                                    <div class="phone-content-cell">
-                                        Tel: 092 332 0202
-                                    </div>
-                                    <div class="">
-                                        <button class="button-content-cell" value="submit">Detalji</button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                        <table class="bill-table">
-                            <tr>
-                                <td class="bill-id-cell-new-orders">
-                                    #13242
-                                </td>
-                                <td class="address-cell">
-                                    13.04.2022 14:54
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan=2 class="content-cell">
-                                    <div class="adress-content-cell">
-                                        Adresa: fra petra bakule 19
-                                    </div>
-
-                                    <div class="name-content-cell">
-                                        Ime: Josip
-                                    </div>
-
-                                    <div class="phone-content-cell">
-                                        Tel: 092 332 0202
-                                    </div>
-                                    <div class="">
-                                        <button class="button-content-cell" value="submit">Detalji</button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-
+                        </section>
                     </div>
 
                 </div>

@@ -16,7 +16,7 @@
 .new-orders{
     text-align: center;
     padding: 0.5rem;
-    background: red;
+    background: #cb190c;
     color: white;
     font-size: x-large;
     width: 95%;
@@ -73,7 +73,7 @@
     border: 2px solid black;
     font-size: x-large;
     color: white;
-    background: red;
+    background: #cb190c;
 }
 .content-cell{
     border: 2px solid black;
@@ -87,5 +87,32 @@
     background: #68a708;
     color: white;
     margin-right: 0.7rem;
-    box-shadow: 1px 1px 4px red;
+    box-shadow: 1px 1px 4px #cb190c;
+}
+.item-price{
+    float: right;
+    margin-top: -1.4rem;
+}
+.condiments{
+    margin-left: 1rem;
+    border-bottom: 2px solid gray;
+}
+.condiment-price{
+    float: right;
+    margin-top: -1.4rem;
+}
+.item-total{
+    float: right;
+    font-size: larger;
+}
+.Ukupno{
+    border-bottom: 2px solid darkred;
+    font-size: larger;
+    margin-top: 2rem;
+}
+.ukupno-price{
+    float: right;
+    margin-top: -2.1rem;
+    font-size: 1.3rem;
+    color: darkred;
 }
