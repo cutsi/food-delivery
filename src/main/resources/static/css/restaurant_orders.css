@@ -82,7 +82,6 @@
 }
 .button-content-cell{
     float: right;
-    margin-top: -2.3rem;
     border-radius: 10px;
     background: #68a708;
     color: white;
@@ -115,4 +114,7 @@
     margin-top: -2.1rem;
     font-size: 1.3rem;
     color: darkred;
+}
+.details-cell{
+
 }
