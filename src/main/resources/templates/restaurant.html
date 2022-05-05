@@ -848,23 +848,23 @@
 
                 $('#btnItem_'+productId+' .menu-item-price').stop().fadeOut();
                 $('#btnItem_'+productId+' .menu-item-price').stop().fadeIn();
-                $('#btnItem_'+productId+' .menu-item-price').css("color","red");
+                $('#btnItem_'+productId+' .menu-item-price').css("color","#e7e9ed");
                 var fadeItOut = function() {
-                    $('#btnItem_'+productId+' .menu-item-price').fadeOut(500, function(){
+                    $('#btnItem_'+productId+' .menu-item-price').fadeOut(100, function(){
                         fadeItIn();
                     });
                 };
 
                 var fadeItIn = function() {
-                    $('#btnItem_'+productId+' .menu-item-price').fadeIn(500, fadeItOut());
+                    $('#btnItem_'+productId+' .menu-item-price').fadeIn(100, fadeItOut());
                 };
-                fadeItIn();
+                //fadeItIn();
 
                 setTimeout(()=>{
                     $('#btnItem_'+productId+' .menu-item-price').stop().fadeOut();
                     $('#btnItem_'+productId+' .menu-item-price').stop().fadeIn();
                     $('#btnItem_'+productId+' .menu-item-price').css("color","#333");
-                },500);
+                },150);
 
             }
 
