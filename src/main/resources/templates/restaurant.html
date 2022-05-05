@@ -940,15 +940,20 @@
             //delete condiment
             $(".cd-cart__content").on("click", ".cd-cart__condiment_remove", function(){
                 let condimentId = $(this).attr("id").split("condiment_delete_")[1];
-                let foodItemId = condimentId.split("|")[1];
+                console.log("CONDIMENT CLICKED:", condimentId);
+                let foodItemId = condimentId.split("__")[1];
+                console.log("FOOD ITEM ID:", foodItemId);
                 for (let i=0; i<foodItems.length; i++){
                     if(foodItems[i].order.uniqueId == foodItemId){
-                        let condimentUniqueId = condimentId.split("|")[0];
+                        let condimentUniqueId = condimentId.split("__")[0];
                         var condimentLength = Object.keys(foodItems[i].order.condiments).length;
                         for(let j=0; j<condimentLength;j++){
                             if(foodItems[i].order.condiments[j].id == condimentUniqueId){
+                                console.log("PROPER CONDIMENT ID:", condimentUniqueId);
                                 foodItems[i].order.condiments.splice(j, 1);
-                                $("#delete_condiment_"+condimentUniqueId).remove();
+                                console.log("#delete_condiment_"+condimentId);
+                                $("#delete_condiment_"+condimentId).remove();
+
                                 updateCondimentPrice(foodItems[i]);
                                 updateCartTotalPrice();
                                 return;
@@ -1067,10 +1072,10 @@
                         foodBox +=
 
                             `
-                                                    <div id="delete_condiment_${c.id}">
+                                                    <div id="delete_condiment_${c.id}__${foodItemVar.order.uniqueId}">
                                                     <li>${c.name}
                                                         <span class="cd-cart__price" style="width: 0;"></span>
-                                                        <span style="font-weight: bolder;">(${c.price} KM)</span><a style="cursor:pointer;color:red;margin-left:5px;float: right;width: 10%;" class="cd-cart__condiment_remove" id="condiment_delete_${c.id}|${foodItemVar.order.uniqueId}"><i class="fa fa-trash"></i></a>
+                                                        <span style="font-weight: bolder;">(${c.price} KM)</span><a style="cursor:pointer;color:red;margin-left:5px;float: right;width: 10%;" class="cd-cart__condiment_remove" id="condiment_delete_${c.id}__${foodItemVar.order.uniqueId}"><i class="fa fa-trash"></i></a>
                                                     </li>
                                                     </div>
                                                     `
