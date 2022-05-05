@@ -937,6 +937,28 @@
                 $("#order_detail_"+itemId).toggle();
 
             });
+            //delete condiment
+            $(".cd-cart__content").on("click", ".cd-cart__condiment_remove", function(){
+                let condimentId = $(this).attr("id").split("condiment_delete_")[1];
+                let foodItemId = condimentId.split("|")[1];
+                for (let i=0; i<foodItems.length; i++){
+                    if(foodItems[i].order.uniqueId == foodItemId){
+                        let condimentUniqueId = condimentId.split("|")[0];
+                        var condimentLength = Object.keys(foodItems[i].order.condiments).length;
+                        for(let j=0; j<condimentLength;j++){
+                            if(foodItems[i].order.condiments[j].id == condimentUniqueId){
+                                foodItems[i].order.condiments.splice(j, 1);
+                                $("#delete_condiment_"+condimentUniqueId).remove();
+                                updateCondimentPrice(foodItems[i]);
+                                updateCartTotalPrice();
+                                return;
+                            }
+                        }//delete_condiment_
+                    }
+                }
+                //$("#order_detail_"+condimentId).remove();
+                //updateCartTotalPrice();
+            });
 
             //delete button onclick
             $(".cd-cart__content").on("click",".cd-cart__delete-item",function(){
@@ -1009,7 +1031,7 @@
                             <h3 class="truncate slide-right">
                                 <a style="font-size:medium;margin-bottom:5px">${foodItemVar.name} (${foodItemVar.order.portion.name})</a>
                             </h3>
-                            <span class="cd-cart__price" style="color:#007bff"></span>
+                            <span class="cd-cart__price" id="item_price_${foodItemVar.order.uniqueId}" style="color:#007bff"></span>
                             <div class="cd-cart__actions" style="display:block;margin-top:4px">
                                 <select id="quantity_${foodItemVar.order.uniqueId}" style="border-radius:50px;">
                                         <option value="1">1</option>
@@ -1045,10 +1067,12 @@
                         foodBox +=
 
                             `
+                                                    <div id="delete_condiment_${c.id}">
                                                     <li>${c.name}
-                                                        <span class="cd-cart__price" style="float:right;">${c.price} KM</span>
+                                                        <span class="cd-cart__price" style="width: 0;"></span>
+                                                        <span style="font-weight: bolder;">(${c.price} KM)</span><a style="cursor:pointer;color:red;margin-left:5px;float: right;width: 10%;" class="cd-cart__condiment_remove" id="condiment_delete_${c.id}|${foodItemVar.order.uniqueId}"><i class="fa fa-trash"></i></a>
                                                     </li>
-
+                                                    </div>
                                                     `
 
                     });
@@ -1113,10 +1137,27 @@
 
             }
 
+            function updateCondimentPrice(foodItemObj){
+                let condTotal = 0;
+                let bareMealPrice = 0;
+                for(let i = 0; i<foodItems.length;i++){
+                    if(foodItems[i].order.uniqueId == foodItemObj.order.uniqueId){
+                        foodItemObj.order.condiments.forEach(value => condTotal += value.price);
+                        bareMealPrice = foodItemObj.order.portion.price;
+                        foodItems[i].order.price=condTotal+bareMealPrice;
+                    }
+                }
+                let fullMeal = condTotal + bareMealPrice;
+                $("#item_price_"+foodItemObj.order.uniqueId).text(fullMeal.toFixed(2)+" KM");
+                console.log("NEW MEAL PRICE:", fullMeal);
+                //$("#checkout-btn em span").text(fullMeal.toFixed(2));
+                //localStorage.setItem("_cart-price",fullMeal.toFixed(2));
+            }
+
             //update global food price
             //update global food price
             function updateCartTotalPrice(){
-
+                console.log("CART FROM updateCartTotalPrice:", foodItems);
                 let cartTotalPrice = 0;
 
                 foodItems.forEach(b=>{

@@ -3932,6 +3932,13 @@ mark {
     font-size: calc(var(--text-sm)*1.1);
     font-weight: 700
 }
+.cd-cart__condiment_remove {
+    width: 30%;
+    text-align: right;
+    font-size: .91666em;
+    font-size: calc(var(--text-sm)*1.1);
+    font-weight: 700
+}
 
 .cd-cart__actions {
     display: -ms-flexbox;

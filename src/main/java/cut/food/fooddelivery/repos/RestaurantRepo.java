@@ -24,4 +24,6 @@ public interface RestaurantRepo extends JpaRepository<Restaurant, Long> {
     @Query("SELECT a FROM FoodItem a INNER JOIN a.restaurants c WHERE c.id in (?1)")
     List<FoodItem> findFoodItemsByRestaurant(Long restaurantId);
     Optional<Restaurant> findRestaurantByRestaurantName(String name);
+
+    List<Restaurant> findAllByOrderByIdAsc();
 }

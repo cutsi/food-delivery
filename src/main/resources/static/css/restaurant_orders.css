@@ -68,6 +68,7 @@
     color: white;
     background: lightslategray;
     padding: 0.5rem;
+    border-bottom: 2px solid black;
 }
 .bill-id-cell-new-orders{
     border: 2px solid black;

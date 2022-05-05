@@ -18,7 +18,7 @@ public class RestaurantService {
     private final RestaurantRepo restaurantRepo;
 
     public List<Restaurant> getAllRestaurants(){
-        return restaurantRepo.findAll();
+        return restaurantRepo.findAllByOrderByIdAsc();
     }
 
     public List<FoodItem> getFoodItemsFromRestaurantById(Long id){
