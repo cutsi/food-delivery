@@ -1029,7 +1029,7 @@
                         </div>
                         <div class="cd-cart__details" style="position:relative;bottom:6px">
                             <h3 class="truncate slide-right">
-                                <a style="font-size:medium;margin-bottom:5px">${foodItemVar.name} (${foodItemVar.order.portion.name})</a>
+                                <a style="font-size:medium;margin-bottom:5px">${foodItemVar.name} </a>
                             </h3>
                             <span class="cd-cart__price" id="item_price_${foodItemVar.order.uniqueId}" style="color:#007bff"></span>
                             <div class="cd-cart__actions" style="display:block;margin-top:4px">
@@ -1057,7 +1057,7 @@
 
                     foodBox +=
 
-                        `
+                        `(${foodItemVar.order.portion.name})
                                         <div class="condiments-view" style="margin-top:4px">
                                             <ul style="list-style:disc !important;padding:0px;margin-left:22px">
                                                 `;
