@@ -1,29 +1,27 @@
+
 <!DOCTYPE html>
 <html lang="en" class="h-100" xmlns:th="https://thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head th:replace="fragments/general :: head"></head>
 <head>
-    <meta charset="UTF-8">
-    <title>Neuspjeh</title>
-    <link href="../static/css/success.css" th:href="@{/css/success.css}" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <title>Restoran</title>
+  <link href="../static/css/success.css" th:href="@{/css/success.css}" rel="stylesheet" />
+  <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+  <link href="../static/css/restaurant_orders.css" th:href="@{/css/restaurant_orders.css}" rel="stylesheet" />
+  <link href="../static/css/popup.css" th:href="@{/css/popup.css}" rel="stylesheet" />
+  <link href="../static/css/rating.css" th:href="@{/css/rating.css}" rel="stylesheet" />
+  <link href="../static/css/checkout.css" th:href="@{/css/checkout.css}" rel="stylesheet" />
+
+
 
 </head>
 <body>
 <main role="main" class="flex-shrink-0" style="margin-bottom: 125px;">
-    <header th:replace="fragments/general :: header"></header>
+  <header th:replace="fragments/general-restaurant :: header"></header>
 </main>
-<div class='card' id="animated fadeIn">
-    <div class='upper-side' style="background-color: #dc3545">
-        <i class="fa fa-exclamation-triangle"></i>
-        <h3 id='status' class = "success"> Greška. </h3>
-    </div>
-    <div class='lower-side'>
-        <p class='message'>
-            Nismo vam mogli verificirati račun. Vaš račun je već verificiran ili je verifikacijski kod netočan.
-        </p>
-        <a href="/sign-up" class="contBtn">Nastavi</a>
-    </div>
-</div>
-</div>
+
+
+
 <br><br><br>
 <footer th:replace="fragments/general :: footer">
 </footer>

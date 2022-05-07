@@ -17,10 +17,18 @@ public class RestaurantController {
         return "about-us";
     }
 
-    @GetMapping(path = "restaurant_orders")
+    @GetMapping(path = "narudzbe")
     public String getRestaurant1(Model model){
         model.addAttribute("item", restaurantService.getFoodItemsFromRestaurantById(1L).get(1));
         return "restaurant_orders";
+    }
+    @GetMapping(path = "menu")
+    public String getMenu(){
+        return "menu";
+    }
+    @GetMapping(path = "statistika")
+    public String getStats(){
+        return "stats";
     }
 
     //TODO napravit service i repo za working hours, u kontroleru dobit od restorana sate, poslat ih na frontend

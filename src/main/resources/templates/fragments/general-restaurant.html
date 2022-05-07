@@ -110,16 +110,26 @@
     <div class="navbar-collapse1 navbar-collapse collapse" id="navbarCollapse" style="">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link link main-link" href="/Kako-naručiti">Menu</a>
+          <a class="nav-link link main-link" href="/menu">Menu</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link link main-link" href="/Kako-naručiti">Statistika</a>
+          <a class="nav-link link main-link" href="/statistika">Statistika</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link link main-link" href="/Kontaktirajte-nas">Narudžbe</a>
+          <a class="nav-link link main-link" href="/narudzbe">Narudžbe</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link link main-link" href="/O-nama">Profil</a>
+          <button class="logout-btn nav-link link main-link dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Profil
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2" style="background-color: darkred; min-width: 7.5rem; max-width: 7.5rem;position: absolute; left: auto;">
+            <form id="myprofile-form" th:action="@{/my-profile}" method="get">
+              <button id="myprofile-button" style="width: 100%; border: none;" class="" type="submit">Moj profil</button>
+            </form>
+            <form id="logout-form" th:action="@{/custom-logout}" method="post">
+              <button id="logout-button" style="width: 100%; border: none;" class="" type="submit">Odjava</button>
+            </form>
+          </div>
         </li>
 
 

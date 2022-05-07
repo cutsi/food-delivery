@@ -124,7 +124,9 @@
                     <a class="nav-link link main-link" href="/O-nama">O nama</a>
                 </li>
                 <div sec:authorize='isAuthenticated()'>
+                    <div th:if="${isClosed == true}">
 
+                    </div>
                 <li class="nav-item">
                         <button class="logout-btn nav-link link main-link dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Profil

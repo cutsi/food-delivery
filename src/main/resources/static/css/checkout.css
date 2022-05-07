@@ -100,8 +100,11 @@ label.radio input:checked+span {
 .spec {
     font-size: 11px
 }
-@media screen and (min-width: 430px) {
-    .spec{
+.checkout-item-price{
+    font-size: 11px;
+}
+@media screen and (max-width: 430px) {
+    .checkout-item-price{
         float: right;
     }
 }

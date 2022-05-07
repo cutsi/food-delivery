@@ -32,6 +32,9 @@ public class FrontPageController {
     public String welcome(Model model){
         List<Restaurant> restaurants = restaurantService.getAllRestaurants();
         model.addAttribute("restaurants",restaurants);
+        if(userService.getCurrentUser().isPresent()){
+
+        }
         return "welcome";
     }
 
@@ -104,6 +107,7 @@ public class FrontPageController {
         commentService.save(comment);
         return "success";
     }
+
 
 }
 
