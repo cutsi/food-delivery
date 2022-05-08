@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="hr" class="h-100" xmlns:th="https://thymeleaf.org">
 
-<head th:replace="fragments/general-restaurant :: head"></head>
+<head th:replace="fragments/general :: head"></head>
 <head>
     <script>document.getElementsByTagName("html")[0].className += " js";</script>
     <link href="../static/css/experiment.css" th:href="@{/css/experiment.css}" rel="stylesheet" />
@@ -51,7 +51,7 @@
 
 <body class="d-flex flex-column h-100">
 <main role="main" class="flex-shrink-0">
-    <header th:replace="fragments/general-restaurant :: header"></header>
+    <header th:replace="fragments/general :: header"></header>
 
 
     <section id="page-header">
@@ -158,7 +158,7 @@
 
 
 
-<footer th:replace="fragments/general-restaurant :: footer">
+<footer th:replace="fragments/general :: footer">
 </footer>
 
 <!-- Optional JavaScript -->

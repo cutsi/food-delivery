@@ -31,10 +31,12 @@ public class FrontPageController {
     @GetMapping(path = {"/", "/welcome"})
     public String welcome(Model model){
         List<Restaurant> restaurants = restaurantService.getAllRestaurants();
+        String userRole = "";
         model.addAttribute("restaurants",restaurants);
         if(userService.getCurrentUser().isPresent()){
-
+            userRole = userService.getCurrentUser().get().getAppUserRole().toString();
         }
+        model.addAttribute("userRole", userRole);
         return "welcome";
     }
 

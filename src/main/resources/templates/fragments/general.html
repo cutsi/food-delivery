@@ -98,49 +98,118 @@
 
 <header id="navigation" th:fragment="header">
 
-    <nav class="navbar navbar-expand-md-1 fixed-top">
-        <a class="logo" href="/">
-            <img class="logo" style="width: 140px; margin-right: 20px;">
-        </a>
-        <button class="navbar-toggler collapsed navbar-dark" type="button" data-toggle="collapse"
-                data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse1 navbar-collapse collapse" id="navbarCollapse" style="">
-            <ul class="navbar-nav mr-auto">
-                <div sec:authorize='!isAuthenticated()'>
-                    <li class="nav-item">
-                        <a class="nav-link link main-link dropdown-login-register" href="/login">Prijavi se/Registriraj</a>
-                    </li>
-                </div>
-                <li class="nav-item">
-                    <a class="nav-link link main-link" href="/Kako-naručiti">Kako naručiti</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link link main-link" href="/Kontaktirajte-nas">Kontaktirajte nas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link link main-link" href="/O-nama">O nama</a>
-                </li>
-                <div sec:authorize='isAuthenticated()'>
-                    <div th:if="${isClosed == true}">
 
-                    </div>
-                <li class="nav-item">
-                        <button class="logout-btn nav-link link main-link dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Profil
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2" style="background-color: darkred; min-width: 7.5rem; max-width: 7.5rem;position: absolute; left: auto;">
-                            <form id="myprofile-form" th:action="@{/my-profile}" method="get">
-                                <button id="myprofile-button" style="width: 100%; border: none;" class="" type="submit">Moj profil</button>
-                            </form>
-                            <form id="logout-form" th:action="@{/custom-logout}" method="post">
-                                <button id="logout-button" style="width: 100%; border: none;" class="" type="submit">Odjava</button>
-                            </form>
-                        </div>
-                </li>
+
+        <div sec:authorize='!isAuthenticated()'>
+            <nav class="navbar navbar-expand-md-1 fixed-top">
+                <a class="logo" href="/">
+                    <img class="logo" style="width: 140px; margin-right: 20px;">
+                </a>
+                <button class="navbar-toggler collapsed navbar-dark" type="button" data-toggle="collapse"
+                        data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse1 navbar-collapse collapse" id="navbarCollapse" style="">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link link main-link dropdown-login-register" href="/login">Prijavi se/Registriraj</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link main-link" href="/Kako-naručiti">Kako naručiti</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link main-link" href="/Kontaktirajte-nas">Kontaktirajte nas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link main-link" href="/O-nama">O nama</a>
+                        </li>
+                    </ul>
                 </div>
+            </nav>
+        </div>
+
+
+
+        <div sec:authorize="hasAuthority('USER')">
+            <nav class="navbar navbar-expand-md-1 fixed-top">
+                <a class="logo" href="/">
+                    <img class="logo" style="width: 140px; margin-right: 20px;">
+                </a>
+                <button class="navbar-toggler collapsed navbar-dark" type="button" data-toggle="collapse"
+                        data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse1 navbar-collapse collapse" id="navbarCollapse" style="">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link link main-link" href="/Kako-naručiti">Kako naručiti</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link main-link" href="/Kontaktirajte-nas">Kontaktirajte nas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link main-link" href="/O-nama">O nama</a>
+                        </li>
+                        <li class="nav-item">
+                            <button class="logout-btn nav-link link main-link dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Profil
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2" style="background-color: darkred; min-width: 7.5rem; max-width: 7.5rem;position: absolute; left: auto;">
+                                <form id="myprofile-form" th:action="@{/my-profile}" method="get">
+                                    <button id="myprofile-button" style="width: 100%; border: none;" class="" type="submit">Moj profil</button>
+                                </form>
+                                <form id="logout-form" th:action="@{/custom-logout}" method="post">
+                                    <button id="logout-button" style="width: 100%; border: none;" class="" type="submit">Odjava</button>
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+
+            <div sec:authorize="hasAuthority('RESTAURANT')">
+                <nav class="navbar navbar-expand-md-1 fixed-top">
+                    <a class="logo" href="/">
+                        <img class="logo" style="width: 140px; margin-right: 20px;">
+                    </a>
+                    <button class="navbar-toggler collapsed navbar-dark" type="button" data-toggle="collapse"
+                            data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse1 navbar-collapse collapse" id="navbarCollapse" style="">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link link main-link" href="/menu">Menu</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link link main-link" href="/statistika">Statistika</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link link main-link" href="/narudzbe">Narudžbe</a>
+                            </li>
+                            <li class="nav-item">
+                                <button class="logout-btn nav-link link main-link dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Profil
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2" style="background-color: darkred; min-width: 7.5rem; max-width: 7.5rem;position: absolute; left: auto;">
+                                    <form id="myprofile-form" th:action="@{/my-profile}" method="get">
+                                        <button id="myprofile-button" style="width: 100%; border: none;" class="" type="submit">Moj profil</button>
+                                    </form>
+                                    <form id="logout-form" th:action="@{/custom-logout}" method="post">
+                                        <button id="logout-button" style="width: 100%; border: none;" class="" type="submit">Odjava</button>
+                                    </form>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
 
 
             </ul>
