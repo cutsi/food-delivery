@@ -71,6 +71,9 @@ public class User implements UserDetails {
             orphanRemoval = true)
     private Set<Rating> ratings = new HashSet<>();
 
+    @OneToOne(mappedBy = "restaurantOwner")
+    private Restaurant restaurant;
+
     public User(String name, String phone, String email, String password, String address){
         this.name = name;
         this.phone = phone;

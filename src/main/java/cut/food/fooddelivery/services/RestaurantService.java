@@ -3,6 +3,7 @@ package cut.food.fooddelivery.services;
 import cut.food.fooddelivery.entities.Category;
 import cut.food.fooddelivery.entities.FoodItem;
 import cut.food.fooddelivery.entities.Restaurant;
+import cut.food.fooddelivery.entities.User;
 import cut.food.fooddelivery.repos.RestaurantRepo;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -43,5 +44,8 @@ public class RestaurantService {
             }
         }
         return categories;
+    }
+    public Optional<Restaurant> getRestaurantByOwner(User user){
+        return restaurantRepo.findRestaurantByRestaurantOwner(user);
     }
 }

@@ -2,6 +2,7 @@ package cut.food.fooddelivery.repos;
 
 import cut.food.fooddelivery.entities.FoodItem;
 import cut.food.fooddelivery.entities.Restaurant;
+import cut.food.fooddelivery.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -26,4 +27,5 @@ public interface RestaurantRepo extends JpaRepository<Restaurant, Long> {
     Optional<Restaurant> findRestaurantByRestaurantName(String name);
 
     List<Restaurant> findAllByOrderByIdAsc();
+    Optional<Restaurant> findRestaurantByRestaurantOwner(User user);
 }

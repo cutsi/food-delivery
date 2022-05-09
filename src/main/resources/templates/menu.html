@@ -6,6 +6,10 @@
   <meta charset="UTF-8">
   <title>Restoran</title>
   <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+  <link href="../static/css/experiment.css" th:href="@{/css/experiment.css}" rel="stylesheet" />
+  <link href="../static/css/test.css" th:href="@{/css/test.css}" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 
 
@@ -14,10 +18,99 @@
 <main role="main" class="flex-shrink-0" style="margin-bottom: 125px;">
   <header th:replace="fragments/general :: header"></header>
 </main>
+  <section id="about">
 
+    <div class="container card-container">
+      <div class="menu">
+        <th:block th:each="category: ${categories}">
+          <div class ="menu-group-heading">
+            [[${category.getCategoryName()}]]
+          </div>
+          <div class="menu-group">
+            <th:block th:each="foodItem: ${menu}">
+              <div th:if="${foodItem.getCategory().getId() == category.getId()}">
+                <button class="menu-item" th:id="'btnItem_'+${foodItem.getId()}">
+                  <img class="menu-item-image" th:src="${foodItem.getImage()}" src ="${foodItem.getImage()}">
+                  <div class="menu-item-text">
+                    <h3 class="menu-item-heading">
+                      <span class="menu-item-name">[[${foodItem.getName()}]]</span>
+                      <span class="menu-item-price">[[${foodItem.getPrice()}]]KM</span>
+                    </h3>
+                    <h4 class="menu-item-info">
+                      [[${foodItem.getInfo()}]]
+                    </h4>
+                  </div>
+                </button>
 
+                <div class="menu-item-content">
 
-<br><br><br>
+                  <div class ="radiobutton-heading">
+                    <form th:id="${foodItem.getId()}">
+                      <div class="portion-group">
+                        <th:block th:each="portion: ${foodItem.getPortionsOrderById()}">
+                          <label th:for="${foodItem.getId()} + '_portion_' + ${portion.getId()}">
+                            <div class="checkbox-item">
+                              <span th:if="${portion.isChecked()}">
+                                <input type="radio" th:id="${foodItem.getId()} + '_portion_' + ${portion.getId()}" th:name="'portion_name_' + ${foodItem.getId()}" th:value="${portion.getId()}" style="margin: revert; margin-right: 10px; margin-top: 7px;" checked='checked'
+                                       th:portion-name="${portion.getName()}" th:portion-price="${portion.getPrice()}" >
+                              </span>
+                              <span th:if="${!portion.isChecked()}">
+                                <input type="radio" th:id="${foodItem.getId()} + '_portion_' + ${portion.getId()}" th:name="'portion_name_' + ${foodItem.getId()}" th:value="${portion.getId()}" style="margin: revert; margin-right: 10px; margin-top: 7px;"
+                                       th:portion-name="${portion.getName()}" th:portion-price="${portion.getPrice()}">
+                              </span>
+
+                              <div class="checkbox-text">
+                                <div class="checkbox-heading">
+                                  <span class="checkbox-name">[[${portion.getName()}]]</span>
+                                  <span class="checkbox-price">[[${portion.getPrice()}]]KM</span>
+                                </div>
+                              </div>
+                            </div>
+                          </label>
+                        </th:block>
+                      </div>
+                    </form>
+                  </div>
+
+                  <div class="checkbox-group">
+                    <script>
+                      $(document).ready(function(){
+                        $(".check").click(function(){
+                          $("#myCheck").prop("checked", true);
+                        });
+                        $(".uncheck").click(function(){
+                          $("#myCheck").prop("checked", false);
+                        });
+                      });
+                    </script>
+                    <th:block th:each="condiment: ${foodItem.getCondiments()}">
+                      <label th:for="${foodItem.getId()} + '_condiment_' + ${condiment.getId()}">
+                        <div class="checkbox-item">
+                          <input type="checkbox" th:id="${foodItem.getId()} + '_condiment_' + ${condiment.getId()}" th:name="'condiment_name_' + ${foodItem.getId()}" th:value="${condiment.getId()}" style="margin: revert; margin-right: 10px; margin-top: 6px;"
+                                 th:condiment-name="${condiment.getName()}" th:condiment-price="${condiment.getPrice()}">
+                          <div class="checkbox-text">
+                            <div class="checkbox-heading">
+                              <span class="checkbox-name">[[${condiment.getName()}]]</span>
+                              <span class="checkbox-price">[[${condiment.getPrice()}]]KM</span>
+                            </div>
+                          </div>
+                        </div>
+                      </label>
+
+                    </th:block>
+
+                  </div>
+                  <div th:if="${isClosed == true}">
+                    <a href="" class="cd-add-to-cart js-cd-add-to-cart" th:item-id="${foodItem.getId()}" th:item-image="${foodItem.getImage()}" th:item-name="${foodItem.getName()}">Dodaj</a>
+                  </div>
+                </div>
+              </div>
+            </th:block>
+          </div>
+        </th:block>
+      </div>
+    </div>
+  </section>
 <footer th:replace="fragments/general :: footer">
 </footer>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
