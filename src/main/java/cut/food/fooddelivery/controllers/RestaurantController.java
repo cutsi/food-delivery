@@ -37,6 +37,10 @@ public class RestaurantController {
         return "stats";
     }
 
+    @GetMapping(path = "stanje_narudzbe")
+    public String getOrderProgress(){
+        return "order-progress";
+    }
     //TODO napravit service i repo za working hours, u kontroleru dobit od restorana sate, poslat ih na frontend
     //TODO i foreachat ih
 }
