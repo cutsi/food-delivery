@@ -139,11 +139,11 @@
 }
 .progress.dark > div.right div.current:before {
     animation: 0.4s jump ease infinite alternate;
-    margin-top: -0.5rem;
-    margin-left: -0.6rem;
-    background: white;
-    padding: 10px;
+    background: greenyellow;
     transition: all 0.2s 0.15s cubic-bezier(0.175, 0.885, 0.32, 2);
+    margin-top: -0.9rem;
+    margin-left: -0.83rem;
+    padding: 0.8rem;
 }
 .progress.dark > div.right div.current:after {
     height: 0%;
