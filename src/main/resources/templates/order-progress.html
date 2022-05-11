@@ -9,7 +9,27 @@
     <link href="../static/css/progress-bar.css" th:href="@{/css/progress-bar.css}" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+      document.addEventListener('click', click);
 
+      function click(e) {
+        let el
+
+        el = e.target
+
+        if (el !== e.currentTarget) {
+          if(el.nodeName === 'BUTTON') {
+
+            if(el.classList.contains('is-active')) {
+              el.classList.remove('is-active')
+            } else {
+              el.classList.add('is-active')
+            }
+          }
+        }
+        event.stopPropagation()
+      }
+    </script>
   </head>
   <body style="background: #333333">
     <main role="main" class="flex-shrink-0">
@@ -28,7 +48,11 @@
       </div>
     </main>
 
-
+    <div class="btn-container">
+      <button class="btn btn--jump">
+        Jump
+      </button>
+    </div>
 
 
     <footer th:replace="fragments/general :: footer"></footer>
