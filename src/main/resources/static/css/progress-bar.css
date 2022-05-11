@@ -138,12 +138,12 @@
     font-weight: bold;
 }
 .progress.dark > div.right div.current:before {
-    animation: 0.4s jump ease infinite alternate;
+    animation: 0.8s shockwave ease infinite alternate;
     background: greenyellow;
     transition: all 0.2s 0.15s cubic-bezier(0.175, 0.885, 0.32, 2);
-    margin-top: -0.9rem;
-    margin-left: -0.83rem;
-    padding: 0.8rem;
+    margin-top: -0.4rem;
+    margin-left: -0.4rem;
+    padding: 0.4rem;
 }
 .progress.dark > div.right div.current:after {
     height: 0%;
@@ -221,5 +221,46 @@
     100% {
         transform: scale(1.05);
         box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
+    }
+}
+.btn--shockwave.is-active {
+    animation: shockwaveJump 1s ease-out infinite;
+}
+.btn--shockwave.is-active:after {
+    animation: shockwave 1s 0.65s ease-out infinite;
+}
+.btn--shockwave.is-active:before {
+    animation: shockwave 1s 0.5s ease-out infinite;
+}
+@keyframes shockwaveJump {
+    0% {
+        transform: scale(1);
+    }
+    40% {
+        transform: scale(1.08);
+    }
+    50% {
+        transform: scale(0.98);
+    }
+    55% {
+        transform: scale(1.02);
+    }
+    60% {
+        transform: scale(0.98);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes shockwave {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.15), inset 0 0 1px rgba(0, 0, 0, 0.15);
+    }
+    95% {
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0), inset 0 0 30px rgba(0, 0, 0, 0);
+    }
+    100% {
+        transform: scale(2.25);
     }
 }
