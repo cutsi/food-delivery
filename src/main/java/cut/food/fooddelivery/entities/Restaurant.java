@@ -53,9 +53,10 @@ public class Restaurant {
             orphanRemoval = true)
     private Set<Rating> ratings = new HashSet<>();
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "restaurantOwner", referencedColumnName = "id")
-    private User restaurantOwner;
+    @OneToMany(mappedBy = "restaurant",
+                cascade = CascadeType.ALL,
+                orphanRemoval = true)
+    private Set<User> restaurantOwner = new HashSet<>();
 
     public Restaurant(String restaurantName, String address, String phone, String image, String banner){
         this.restaurantName = restaurantName;

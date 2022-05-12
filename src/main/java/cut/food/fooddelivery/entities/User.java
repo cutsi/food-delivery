@@ -71,7 +71,11 @@ public class User implements UserDetails {
             orphanRemoval = true)
     private Set<Rating> ratings = new HashSet<>();
 
-    @OneToOne(mappedBy = "restaurantOwner")
+    //@OneToOne(mappedBy = "restaurantOwner")
+    //private Restaurant restaurant;
+
+    @ManyToOne(cascade = { CascadeType.REMOVE })
+    @JoinColumn(name="restaurant_id")
     private Restaurant restaurant;
 
     public User(String name, String phone, String email, String password, String address){

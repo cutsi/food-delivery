@@ -1,5 +1,6 @@
 package cut.food.fooddelivery.services;
 
+import cut.food.fooddelivery.entities.Restaurant;
 import cut.food.fooddelivery.entities.Token;
 import cut.food.fooddelivery.entities.User;
 import cut.food.fooddelivery.repos.UserRepo;
@@ -92,6 +93,9 @@ public class UserService implements UserDetailsService {
             username = authentication.getPrincipal().toString();
         Optional<User> user = userRepo.findByEmail(username);
         return user;
+    }
+    public Optional<User> getOwnersOfRestaurant(Restaurant restaurant){
+        return userRepo.findByRestaurant(restaurant);
     }
     public void saveUser(User user){
         userRepo.save(user);

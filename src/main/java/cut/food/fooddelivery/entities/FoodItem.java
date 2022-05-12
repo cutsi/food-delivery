@@ -34,9 +34,9 @@ public class FoodItem {
     private Category category;
     @ManyToMany(mappedBy = "menu")
     private Set<Restaurant> restaurants = new HashSet<>();
-    @ManyToMany(mappedBy = "foodItems")
+    @ManyToMany()
     private Set<Condiments> condiments = new HashSet<>();
-    @ManyToMany(mappedBy = "foodPortionItems")
+    @ManyToMany()
     private Set<PortionSize> portionSizes = new HashSet<>();
     @OneToMany(
             mappedBy = "food_item",
