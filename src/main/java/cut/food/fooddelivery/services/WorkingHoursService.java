@@ -64,7 +64,7 @@ public class WorkingHoursService {
             if(workingHoursRepo.findByDayOfWeekAndRestaurant(today, restaurant).get().getOpensAt().equals(ZATVORENO))
                 return workingHoursRepo.findByDayOfWeekAndRestaurant(today, restaurant).get();
         }
-        System.out.println(workingHoursRepo.findByDayOfWeekAndRestaurant(today, restaurant).get().getOpensAt());
+        //System.out.println(workingHoursRepo.findByDayOfWeekAndRestaurant(today, restaurant).get().getOpensAt());
         String yesterday = getYesterday(today);
         if(workingHoursRepo.findByDayOfWeekAndRestaurant(yesterday, restaurant).isPresent()){
             if(workingHoursRepo.findByDayOfWeekAndRestaurant(yesterday, restaurant).get().getOpensAt().equals(ZATVORENO))

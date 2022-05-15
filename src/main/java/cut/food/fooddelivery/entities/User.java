@@ -60,6 +60,18 @@ public class User implements UserDetails {
                             nullable = false, updatable = false)})
     private Set<Role> roles = new HashSet<>();
 
+    @JsonIgnore
+    @ManyToMany
+    @JoinTable(
+            name = "user_city",
+            joinColumns = {
+                    @JoinColumn(name = "user_id",referencedColumnName = "id",
+                            nullable = false, updatable = false)},
+            inverseJoinColumns = {
+                    @JoinColumn(name = "city_id",referencedColumnName = "id",
+                            nullable = false, updatable = false)})
+    private Set<City> cities = new HashSet<>();
+
     @OneToMany(
             mappedBy = "user",
             cascade = CascadeType.ALL,

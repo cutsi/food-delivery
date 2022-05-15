@@ -1,5 +1,6 @@
 package cut.food.fooddelivery.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -65,5 +66,16 @@ public class Restaurant {
         this.image = image;
         this.banner = banner;
     }
+    @JsonIgnore
+    @ManyToMany
+    @JoinTable(
+            name = "restaurant_city",
+            joinColumns = {
+                    @JoinColumn(name = "restaurant_id",referencedColumnName = "id",
+                            nullable = false, updatable = false)},
+            inverseJoinColumns = {
+                    @JoinColumn(name = "city_id",referencedColumnName = "id",
+                            nullable = false, updatable = false)})
+    private Set<City> cities = new HashSet<>();
 
 }

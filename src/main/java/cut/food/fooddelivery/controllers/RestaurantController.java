@@ -27,6 +27,7 @@ public class RestaurantController {
     }
     @GetMapping(path = "menu")
     public String getMenu(Model model){
+        System.out.println(restaurantService.getRestaurantByOwner(userService.getCurrentUser().get()).get());
         Restaurant restaurant = restaurantService.getRestaurantByOwner(userService.getCurrentUser().get()).get();
         model.addAttribute("menu",restaurant.getMenu());
         model.addAttribute("categories", restaurantService.getCategoriesFromRestaurant(restaurant.getMenu()));
